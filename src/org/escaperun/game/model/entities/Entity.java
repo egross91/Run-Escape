@@ -9,17 +9,22 @@ import org.escaperun.game.view.Decal;
  */
 public abstract class Entity implements Drawable{
 
-    public Entity(Occupation occupation, int numberoflives, Decal[][] decal) {
+    public Entity(Occupation occupation, int numberoflives, Decal[][] decal, Inventory inventory, Equipment equipment) {
         this.occupation = occupation; //Get occupation from constructor.
         this.stats = new Statistics(occupation, numberoflives); //3 is "numberoflives", c.f. Statistics.java
         this.decal = decal;
         this.position = new Position();
+        this.inventory = inventory;
+        this.equipment = equipment;
+        //TODO: Add position creation
     }
 
     protected Statistics stats;
     protected Occupation occupation;
     protected Position position;
     protected Decal[][] decal;
+    protected Inventory inventory;
+    protected Equipment equipment;
 
     //Delegate task of takeDamage to our Statistics object
     public void takeDamage(int dmg){

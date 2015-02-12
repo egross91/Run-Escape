@@ -9,6 +9,7 @@ public class Statistics{
 
     protected Map<StatEnum, Integer> statsmap = new HashMap<StatEnum, Integer>();
 
+    //Constructor for Entity-related Statistics
     public Statistics(Occupation occupation, int numoflives) {
         statsmap.put(StatEnum.STRENGTH, occupation.getStrength());//get initial STR stat from whatever occupation was
         statsmap.put(StatEnum.AGILITY, occupation.getAgility());//get initial AGI stat from whatever occupation was
@@ -22,6 +23,11 @@ public class Statistics{
         statsmap.put(StatEnum.TEMPINT, 0);//Temporary INT = 0 at start.
         statsmap.put(StatEnum.TEMPMOV, 0);//Temporary MOV = 0 at start.
         statsmap.put(StatEnum.LEVEL, this.getLevel());//Derived level initially from started EXP (0).
+    }
+
+    //Constructor for weapon/armor-related Statistics
+    public Statistics() {
+        //TODO: Write this constructor method
     }
 
 
