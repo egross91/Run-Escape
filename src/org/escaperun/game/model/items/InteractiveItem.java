@@ -14,7 +14,11 @@ public class InteractiveItem extends Item {
     }
 
     public InteractiveItem(Decal[][] decal, Statistics stats) {
-        super(decal, stats);
+        super(decal, stats, false);
+    }
+
+    public InteractiveItem(Decal[][] decal, Statistics stats, boolean collidable) {
+        super(decal, stats, collidable);
     }
 
     @Override

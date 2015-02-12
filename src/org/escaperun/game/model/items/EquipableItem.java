@@ -8,8 +8,8 @@ import org.escaperun.game.view.Decal;
  * Created by Eric on 2/11/2015.
  */
 public class EquipableItem extends TakeableItem {
-
-    private ItemSlot category = null;//Category which an EquipableItem falls under; Choices are HELMET, WEAPON, BOOTS, GLOVES, ARMOR for now.
+    //Category which an EquipableItem falls under; Choices are HELMET, WEAPON, BOOTS, GLOVES, ARMOR for now.
+    private ItemSlot category = null;
 
     public EquipableItem() {
         super();
@@ -18,6 +18,11 @@ public class EquipableItem extends TakeableItem {
     public EquipableItem(Decal[][] decal, Statistics stats, ItemSlot category) {
         super(decal, stats);
         this.category = category; //This is to identify which "ItemSlot" equip should go to. - Jeff
+    }
+
+    public EquipableItem(Decal[][] decal, Statistics stats, ItemSlot category, boolean collidable) {
+        super(decal, stats, collidable);
+        this.category = category;
     }
 
     // TODO: Implement the logic for this Item.

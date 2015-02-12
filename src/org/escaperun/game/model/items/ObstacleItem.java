@@ -11,13 +11,7 @@ import java.awt.*;
  */
 public class ObstacleItem extends Item implements Drawable {
     public ObstacleItem() {
-        super(new Decal[][]{{new Decal('B', Color.BLACK, Color.DARK_GRAY)}}, null);
-    }
-
-    @Override
-    public boolean isCollidable() {
-        // Don't allow Entities to pass through.
-        return true;
+        super(new Decal[][]{{new Decal('B', Color.BLACK, Color.DARK_GRAY)}}, null, true);
     }
 
     @Override

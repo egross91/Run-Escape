@@ -14,7 +14,11 @@ public class TakeableItem extends Item {
     }
 
     public TakeableItem(Decal[][] decal, Statistics stats) {
-        super(decal, stats);
+        super(decal, stats, false);
+    }
+
+    public TakeableItem(Decal[][] decal, Statistics stats, boolean collidable) {
+        super(decal, stats, collidable);
     }
 
     @Override

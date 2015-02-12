@@ -14,7 +14,11 @@ public class OneShotItem extends Item {
     }
 
     public OneShotItem(Decal[][] decal, Statistics stats) {
-        super(decal, stats);
+        super(decal, stats, false);
+    }
+
+    public OneShotItem(Decal[][] decal, Statistics stats, boolean collidable) {
+        super(decal, stats, collidable);
     }
 
     @Override

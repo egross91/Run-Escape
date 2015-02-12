@@ -2,7 +2,6 @@ package org.escaperun.game.model.items;
 
 import org.escaperun.game.model.Activatable;
 import org.escaperun.game.model.Collidable;
-import org.escaperun.game.model.Drawable;
 import org.escaperun.game.model.entities.Entity;
 import org.escaperun.game.model.entities.Statistics;
 import org.escaperun.game.view.Decal;
@@ -14,16 +13,19 @@ import java.awt.*;
  */
 public abstract class Item implements Activatable, Collidable {
     private Statistics stats;
+    private final boolean collidable;
     private final Decal[][] decal;
 
     public Item() {
+        this.collidable = false;
         this.stats = null;
         this.decal = null;
     }
 
-    public Item(Decal[][] d, Statistics stats) {
+    public Item(Decal[][] decal, Statistics stats, boolean collidable) {
         this.stats = stats;
-        this.decal = d;
+        this.decal = decal;
+        this.collidable = collidable;
     }
 
     public Statistics getStats() {
@@ -35,7 +37,7 @@ public abstract class Item implements Activatable, Collidable {
     }
 
     public boolean isCollidable() {
-        return false;
+        return this.collidable;
     }
 
     public abstract void onTouch(Entity e);
