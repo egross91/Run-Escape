@@ -49,6 +49,26 @@ public class Tile implements Drawable {
         this.item = item;
     }
 
+    public Terrain getTerrain() {
+        return this.terrain;
+    }
+
+    public Item getItem() {
+        return this.item;
+    }
+
+    public void setItem(Item i) {
+        this.item = i;
+    }
+
+    public AreaEffect getAreaEffect() {
+        return this.areaEffect;
+    }
+
+    public void setAreaEffect(AreaEffect aoe) {
+        this.areaEffect = aoe;
+    }
+
     private void removeItem() {
         this.item = null;
     }
