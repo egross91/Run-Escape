@@ -8,10 +8,18 @@ public abstract class Entity {
     protected Statistics stats;
     protected Occupation occupation;
 
-    public abstract void takeDamage(int dmg);
+    public void takeDamage(int dmg){
+        stats.takeDamage(dmg);
+    }
 
-    public abstract void healDamage(int healz);
+    //Delegate task of healDamage to our Statistics object
+    public void healDamage(int healz){
+        stats.healDamage(healz);
+    }
 
     //Use StatEnum to find out which stat to change.
-    public abstract void changeStat(StatEnum se, int valueofchange);
+    public void changeStat(StatEnum se, int valueofchange) {
+        //TODO: Map what value gets changed to what.
+        stats.changeStat(se, valueofchange);
+    }
 }

@@ -7,21 +7,8 @@ public class Avatar extends Entity{
 
     public Avatar(Occupation occupation){
         //TODO: Add occupation, statistics change based on that, etc.
-        this.occupation = occupation;
+        this.occupation = occupation; //Get occupation from constructor.
+        this.stats = new Statistics(occupation, 3); //3 is "numberoflives", c.f. Statistics.java
     }
 
-    @Override
-    public void takeDamage(int dmg) {
-        //TODO: Add the takeDamage method
-    }
-
-    @Override
-    public void healDamage(int healz) {
-        //TODO: Add the healDamage method
-    }
-
-    @Override
-    public void changeStat(StatEnum se, int valueofchange) {
-        //TODO: Add the changing of status based on various items/etc.
-    }
 }

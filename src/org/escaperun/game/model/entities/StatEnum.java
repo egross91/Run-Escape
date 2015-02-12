@@ -14,5 +14,12 @@ public enum StatEnum {
     TEMPSTR,
     TEMPAGI,
     TEMPINT,
-    TEMPMOV
+    TEMPMOV,
+    LEVEL,
+    HP,
+    MP,
+    OFFENSERATE,
+    DEFENSERATE,
+    ARMORRATE;
+    //TODO: Clean up unnecessary ENUMs.
 }
