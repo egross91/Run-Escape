@@ -3,7 +3,7 @@ package org.escaperun.game.model.entities;
 import java.util.*;
 
 /**
- * Created by Jeff on 2015/02/11 (011).
+ * Created by Jeff on 2015/02/11 (011), 06:30.
  */
 public class Statistics{
 
