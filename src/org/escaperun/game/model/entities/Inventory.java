@@ -1,6 +1,7 @@
 package org.escaperun.game.model.entities;
 
 import org.escaperun.game.model.items.TakeableItem;
+import org.escaperun.game.model.items.UsableItem;
 
 import java.util.ArrayList;
 
@@ -8,7 +9,6 @@ import java.util.ArrayList;
  * Created by Jeff on 2015/02/12 (012), 06:45.
  */
 public class Inventory {
-    //TODO: Everything.
 
     private int capacity;
     private ArrayList<TakeableItem> inventoryarr;
@@ -35,16 +35,23 @@ public class Inventory {
     public int getSize(){
         return inventoryarr.size();
     }
+    public int getCapacity() {
+        return capacity;
+    }
 
     public void add(TakeableItem ti){
         inventoryarr.add(ti);
     }
 
-    public void useItem(TakeableItem ti){
-        //TODO: Add TakeableItem use method, which includes changing stats for Avatar
+    //Pass UsableItem to avatar for it to use.
+    public TakeableItem useItem(int index){
+        if(inventoryarr.get(index).getClass().getName().equals( "UsableItem")) //Hacky way of going about things. Probably best to figure out a better way to check for usability.
+           return inventoryarr.remove(index);
+        else return null;
     }
 
-    public void remove(TakeableItem ti){
-        //TODO: Add TakeableItem removal method
+    //Remove the item that's at that index.
+    public void remove(int index){
+        inventoryarr.remove(index);
     }
 }

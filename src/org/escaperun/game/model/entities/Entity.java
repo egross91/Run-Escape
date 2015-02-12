@@ -2,6 +2,7 @@ package org.escaperun.game.model.entities;
 
 import org.escaperun.game.model.Drawable;
 import org.escaperun.game.model.Position;
+import org.escaperun.game.model.items.UsableItem;
 import org.escaperun.game.view.Decal;
 
 /**
@@ -9,14 +10,13 @@ import org.escaperun.game.view.Decal;
  */
 public abstract class Entity implements Drawable{
 
-    public Entity(Occupation occupation, int numberoflives, Decal[][] decal, Inventory inventory, Equipment equipment) {
+    public Entity(Occupation occupation, int numberoflives, Decal[][] decal, Position position, Inventory inventory, Equipment equipment) {
         this.occupation = occupation; //Get occupation from constructor.
         this.stats = new Statistics(occupation, numberoflives); //3 is "numberoflives", c.f. Statistics.java
         this.decal = decal;
-        this.position = new Position();
+        this.position = position;
         this.inventory = inventory;
         this.equipment = equipment;
-        //TODO: Add position creation
     }
 
     protected Statistics stats;
@@ -28,7 +28,12 @@ public abstract class Entity implements Drawable{
 
     //Delegate task of takeDamage to our Statistics object
     public void takeDamage(int dmg){
-        stats.takeDamage(dmg);
+       if(stats.takeDamage(dmg))
+           return;
+           /*
+           TODO: Have some condition that is based on whether or not we have a "Game Over" condition. (c.f. Statistics.java)...
+           As of now, nothing is to come about from this boolean value being returned.We are only using its functionality.
+           */
     }
 
     //Delegate task of healDamage to our Statistics object
@@ -38,16 +43,23 @@ public abstract class Entity implements Drawable{
 
     //Use StatEnum to find out which stat to change.
     public void changeStat(StatEnum se, int valueofchange) {
-        //TODO: Map what value gets changed to what.
-        stats.changeStat(se, valueofchange);
+        stats.setStat(se, valueofchange);
     }
 
-    //
+    //Return our position.
     public Position getPosition(){ return this.position; }
+
+    //Used only by our "move()" method, to reset the current position to the new position.
+    private void setPosition(Position oldposition){
+        this.position = new Position(oldposition.getX(), oldposition.getY());
+    }
 
     public Decal[][] getDecal(){ return this.decal; }
 
     abstract public void move();//Implementing move functionality.
 
+    public void useItem(UsableItem usableItem){
+
+    }
 
 }

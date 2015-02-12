@@ -19,9 +19,9 @@ public class Equipment {
     public Equipment(EquipableItem... equipableItems){
         equipment = new HashMap<ItemSlot, EquipableItem>(); //Initialize Map in constructor.
 
-        for(EquipableItem items : equipableItems)
+        for(EquipableItem item : equipableItems)
         {
-            this.equipItem(items); //For each equipableItem put in our argument, equip it to our entity.
+            this.equipItem(item); //For each equipableItem put in our argument, equip it to our entity.
         }
     }
 
