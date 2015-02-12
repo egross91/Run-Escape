@@ -5,7 +5,7 @@ import java.util.*;
 /**
  * Created by Jeff on 2015/02/11 (011).
  */
-class Statistics{
+public class Statistics{
 
     protected Map<StatEnum, Integer> statsmap = new HashMap<StatEnum, Integer>();
 
