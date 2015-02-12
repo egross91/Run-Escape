@@ -5,30 +5,33 @@ import org.escaperun.game.model.Collidable;
 import org.escaperun.game.model.Drawable;
 import org.escaperun.game.model.entities.Entity;
 import org.escaperun.game.model.entities.Statistics;
+import org.escaperun.game.view.Decal;
+
+import java.awt.*;
 
 /**
  * Created by Eric on 2/11/2015.
  */
-public abstract class Item implements Drawable, Activatable, Collidable {
-    private final int[][] decal;
+public abstract class Item implements Activatable, Collidable {
     private Statistics stats;
+    private final Decal[][] decal;
 
     public Item() {
-        this.decal = null;
         this.stats = null;
+        this.decal = null;
     }
 
-    public Item(int[][] decal, Statistics stats) {
-        this.decal = decal;
+    public Item(Decal[][] d, Statistics stats) {
         this.stats = stats;
-    }
-
-    public int[][] getDecal() {
-        return this.decal;
+        this.decal = d;
     }
 
     public Statistics getStats() {
         return this.stats;
+    }
+
+    public Decal[][] getDecal() {
+        return this.decal;
     }
 
     public boolean isCollidable() {

@@ -6,7 +6,6 @@ package org.escaperun.game.model.tile;
 public class Water extends Terrain {
 
     public Water(){
-        decalID = 0;        //TODO: give Water terrain a decal.
         collidable = true;
     }
 }
