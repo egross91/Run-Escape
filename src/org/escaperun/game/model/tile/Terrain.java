@@ -7,10 +7,12 @@ import org.escaperun.game.model.Drawable;
  * Created by Matthew LoGalbo on 2/11/2015.
  */
 public abstract class Terrain implements Collidable, Drawable {
-    int decal;
+    int decalID;
     boolean collidable;
 
     public int[][] getDecal(){
-        return new int[][] {{decal}};
+        return new int[][] {{decalID}};
     }
+
+    public boolean isCollidable() {return collidable;}
 }
