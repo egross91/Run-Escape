@@ -9,6 +9,6 @@ import java.awt.*;
  */
 public class Grass extends Terrain {
     public Grass() {
-        super(new Decal[][]{{new Decal('\u2EBE', Color.GRAY, Color.GREEN)}}, false);    //TODO: Check grass unicode and color are correct.
+        super(new Decal[][]{{new Decal('#', Color.GRAY, Color.GREEN)}}, false);    //TODO: Check grass unicode and color are correct.
     }
 }

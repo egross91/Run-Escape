@@ -25,8 +25,6 @@ public class EquipableItem extends TakeableItem {
         this.category = category;
     }
 
-    // TODO: Implement the logic for this Item.
-
     public ItemSlot getCategory(){
         return this.category; //Returns the category (ItemSlot) where the item should go to.
     }

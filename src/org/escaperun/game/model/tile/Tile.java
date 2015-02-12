@@ -10,32 +10,59 @@ import org.escaperun.game.view.Decal;
  */
 public class Tile implements Drawable {
     private final Terrain terrain;
-    //private final AreaEffect areaEffect;
+    private AreaEffect areaEffect;
     private Item item;
 
     public Tile() {
-        // TODO: Uncomment/Change when classes are implemented.
-        this.terrain = null;
-//        this.areaEffect = new AreaEffect();
+        this.terrain = new Grass();
+        this.areaEffect = null;
         this.item = null;
     }
 
-    public Tile(Terrain t, /*AreaEffect a,*/ Item i) {
-        this.terrain = t;
-//        this.areaEffect = a;
-        this.item = i;
+    public Tile(Terrain terrain) {
+        this.terrain = terrain;
+        this.areaEffect = null;
+        this.item = null;
+    }
+
+    public Tile(AreaEffect areaEffect) {
+        this.terrain = new Grass();
+        this.areaEffect = areaEffect;
+        this.item = null;
+    }
+
+    public Tile(Item item) {
+        this.terrain = new Grass();
+        this.areaEffect = null;
+        this.item = item;
+    }
+
+    public Tile(AreaEffect areaEffect, Item item) {
+        this.terrain = new Grass();
+        this.areaEffect = areaEffect;
+        this.item = item;
+    }
+
+    public Tile(Terrain terrain, AreaEffect areaEffect, Item item) {
+        this.terrain = terrain;
+        this.areaEffect = areaEffect;
+        this.item = item;
     }
 
     private void removeItem() {
         this.item = null;
     }
 
-//    private void removeAreaEffect() {
-//        this.areaEffect = null;
-//    }
+    private void removeAreaEffect() {
+        this.areaEffect = null;
+    }
 
     public void startAoE(Entity e) {
-        // TODO: Implement logic for AoE effects once they're implemented.
+        // TODO: Implement logic for AoE effects on Entity.
+        if (this.areaEffect != null) {
+            // Perform logic for AoE on Entity.
+        }
+        // Otherwise, do nothing.
     }
 
     @Override
