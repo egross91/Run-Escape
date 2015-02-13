@@ -10,6 +10,6 @@ import java.awt.*;
 public class Mountain extends Terrain{
 
     public Mountain(){
-        super(new Decal[][] {{new Decal('\u26F0', Color.lightGray, Color.DARK_GRAY)}}, true);   //TODO: check mountain color and unicode is correct.
+        super(new Decal('\u26F0', Color.lightGray, Color.DARK_GRAY), true);   //TODO: check mountain color and unicode is correct.
     }
 }

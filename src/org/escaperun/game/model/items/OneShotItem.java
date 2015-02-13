@@ -13,11 +13,11 @@ public class OneShotItem extends Item {
         super();
     }
 
-    public OneShotItem(Decal[][] decal, Statistics stats) {
+    public OneShotItem(Decal decal, Statistics stats) {
         super(decal, stats, false);
     }
 
-    public OneShotItem(Decal[][] decal, Statistics stats, boolean collidable) {
+    public OneShotItem(Decal decal, Statistics stats, boolean collidable) {
         super(decal, stats, collidable);
     }
 

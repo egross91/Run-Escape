@@ -14,7 +14,7 @@ import java.awt.*;
 public abstract class Item implements Activatable, Collidable {
     private Statistics stats;
     private final boolean collidable;
-    private final Decal[][] decal;
+    private final Decal decal;
 
     public Item() {
         this.collidable = false;
@@ -22,7 +22,7 @@ public abstract class Item implements Activatable, Collidable {
         this.decal = null;
     }
 
-    public Item(Decal[][] decal, Statistics stats, boolean collidable) {
+    public Item(Decal decal, Statistics stats, boolean collidable) {
         this.stats = stats;
         this.decal = decal;
         this.collidable = collidable;
@@ -32,7 +32,7 @@ public abstract class Item implements Activatable, Collidable {
         return this.stats;
     }
 
-    public Decal[][] getDecal() {
+    public Decal getDecal() {
         return this.decal;
     }
 

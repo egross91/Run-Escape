@@ -11,7 +11,7 @@ import java.util.Random;
 /**
  * Created by Eric on 2/12/2015.
  */
-public class Stage implements Drawable {
+public class Stage {
     private static final Random coordinateGenerator = new Random();
     private static int[] dx = { 1, 0, -1, 0, 0 };
     private static int[] dy = { 0, 1, 0, -1, 0 };
@@ -58,31 +58,38 @@ public class Stage implements Drawable {
         this.entities = entities;
     }
 
-    public void updateAvatarPosition(Position delta, Avatar avatar) {
-        // TODO: Decide how the Avatar/Entity's position will be updated. Also, see if the Stage can delegate whether the move is
-        //       valid instead of the Game.
-//        Position current = avatar.getPosition();
-//        Position modified = new Position(current.getX() + delta.getX(), current.getY() + delta.getY());
-//
-//        avatar.move(modified);
+    public boolean updateAvatarPosition(Position delta, Avatar avatar) {
+        Position current = avatar.getPosition();
+        Position modified = new Position(current.getX() + delta.getX(), current.getY() + delta.getY());
+
+        // Notifies Game that the user cannot move.
+        if (!canMoveToTile(modified))
+            return false;
+
+        Tile to = this.tilemap[modified.getY()][modified.getX()];
+        to.setDecal(avatar.getDecal());
+        avatar.move(modified);
+        return true;
     }
 
     private void updateNpcPositions() {
         // Update the position of the NPC's in the Stage.
         for (Entity e : entities) {
             Position current = e.getPosition();
+            Position newPosition = findNextPossibleMove(current);
 
-            // Generate random coordinates for the NPC's to move, and check if they're valid.
-            // Keep checking if it's not a valid move.
-            while (true) {
-                int idx = coordinateGenerator.nextInt(MAX_DELTA_INDEX);
-                Position modified = new Position(current.getX() + dx[idx], current.getY() + dy[idx]);
+            e.move(newPosition);
+        }
+    }
 
-                if (canMoveToTile(modified)) {
-                    // TODO: See how the Entity's will move around the map without being passed a Position.
-                    e.move(modified);
-                    break;
-                }
+    private Position findNextPossibleMove(Position pos) {
+        // Keep checking if it's not a valid move.
+        while (true) {
+            int idx = coordinateGenerator.nextInt(MAX_DELTA_INDEX);
+            Position modified = new Position(pos.getX() + dx[idx], pos.getY() + dy[idx]);
+
+            if (canMoveToTile(modified)) {
+                return modified;
             }
         }
     }
@@ -108,22 +115,20 @@ public class Stage implements Drawable {
         return true;
     }
 
-    @Override
-    public Decal[][] getDecal() {
+    public Decal[][] getDecals() {
         // TODO: Talk about whether creating an EmptyTile is worth having instead of doing null checks.
-        //       Not sure how this will be implemented.
-//        Decal[][] decals = new Decal[this.dimensions.getY()][this.dimensions.getX()];
-//        for (int r = 0; r < dimensions.getY(); ++r) {
-//            for (int c = 0; c < dimensions.getX(); ++c) {
-//                Tile current = this.tilemap[r][c];
-//                if (current == null)
-//                    decals[r][c] = null;
-//                else
-//                    decals[r][c]
-//            }
-//        }
-//
-//        return decals;
-        return null; // Placeholder for meow.
+//               Not sure how this will be implemented.
+        Decal[][] decals = new Decal[this.dimensions.getY()][this.dimensions.getX()];
+        for (int r = 0; r < dimensions.getY(); ++r) {
+            for (int c = 0; c < dimensions.getX(); ++c) {
+                Tile current = this.tilemap[r][c];
+                if (current == null)
+                    decals[r][c] = null;
+                else
+                    decals[r][c] = current.getDecal();
+            }
+        }
+
+        return decals;
     }
 }

@@ -10,7 +10,7 @@ public class TakeDamage extends AreaEffect{
 
     public TakeDamage(){super();}
 
-    public TakeDamage(Decal[][] decal){super(decal);}
+    public TakeDamage(Decal decal){super(decal);}
 
     public void areaEffect(){
         //TODO: Figure out implementation

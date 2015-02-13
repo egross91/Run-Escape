@@ -10,7 +10,7 @@ public class HealDamage extends AreaEffect{
 
     public HealDamage(){super();}
 
-    public HealDamage(Decal[][] decal){super(decal);}
+    public HealDamage(Decal decal){super(decal);}
 
     public void areaEffect(){
         //TODO: Figure out implementation

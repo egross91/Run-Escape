@@ -15,12 +15,12 @@ public class EquipableItem extends TakeableItem {
         super();
     }
 
-    public EquipableItem(Decal[][] decal, Statistics stats, ItemSlot category) {
+    public EquipableItem(Decal decal, Statistics stats, ItemSlot category) {
         super(decal, stats);
         this.category = category; //This is to identify which "ItemSlot" equip should go to. - Jeff
     }
 
-    public EquipableItem(Decal[][] decal, Statistics stats, ItemSlot category, boolean collidable) {
+    public EquipableItem(Decal decal, Statistics stats, ItemSlot category, boolean collidable) {
         super(decal, stats, collidable);
         this.category = category;
     }

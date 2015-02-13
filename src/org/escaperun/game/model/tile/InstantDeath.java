@@ -10,7 +10,7 @@ public class InstantDeath extends AreaEffect{
 
     public InstantDeath(){ super();}
 
-    public InstantDeath(Decal[][] decal) { super(decal);}
+    public InstantDeath(Decal decal) { super(decal);}
 
     @Override
     public  void areaEffect() {

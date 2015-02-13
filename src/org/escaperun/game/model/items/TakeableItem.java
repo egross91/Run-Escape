@@ -13,11 +13,11 @@ public class TakeableItem extends Item {
         super();
     }
 
-    public TakeableItem(Decal[][] decal, Statistics stats) {
+    public TakeableItem(Decal decal, Statistics stats) {
         super(decal, stats, false);
     }
 
-    public TakeableItem(Decal[][] decal, Statistics stats, boolean collidable) {
+    public TakeableItem(Decal decal, Statistics stats, boolean collidable) {
         super(decal, stats, collidable);
     }
 

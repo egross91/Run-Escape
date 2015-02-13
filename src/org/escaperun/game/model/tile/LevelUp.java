@@ -10,7 +10,7 @@ public class LevelUp extends AreaEffect{
 
     public LevelUp(){super();}
 
-    public LevelUp(Decal[][] decal){super(decal);}
+    public LevelUp(Decal decal){super(decal);}
 
     public void areaEffect(){
         //TODO: Figure out implementation

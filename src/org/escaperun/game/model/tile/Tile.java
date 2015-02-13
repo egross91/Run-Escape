@@ -10,6 +10,7 @@ import org.escaperun.game.view.Decal;
  */
 public class Tile implements Drawable {
     private final Terrain terrain;
+    private Decal decal;
     private AreaEffect areaEffect;
     private Item item;
 
@@ -27,26 +28,26 @@ public class Tile implements Drawable {
 
     public Tile(AreaEffect areaEffect) {
         this.terrain = new Grass();
-        this.areaEffect = areaEffect;
+        setAreaEffect(areaEffect);
         this.item = null;
     }
 
     public Tile(Item item) {
         this.terrain = new Grass();
         this.areaEffect = null;
-        this.item = item;
+        setItem(item);
     }
 
     public Tile(AreaEffect areaEffect, Item item) {
         this.terrain = new Grass();
         this.areaEffect = areaEffect;
-        this.item = item;
+        setItem(item);
     }
 
     public Tile(Terrain terrain, AreaEffect areaEffect, Item item) {
         this.terrain = terrain;
         this.areaEffect = areaEffect;
-        this.item = item;
+        setItem(item);
     }
 
     public Terrain getTerrain() {
@@ -58,6 +59,7 @@ public class Tile implements Drawable {
     }
 
     public void setItem(Item i) {
+        this.decal = i.getDecal();
         this.item = i;
     }
 
@@ -66,15 +68,22 @@ public class Tile implements Drawable {
     }
 
     public void setAreaEffect(AreaEffect aoe) {
+        if (this.item == null)
+            this.decal = this.areaEffect.getDecal();
         this.areaEffect = aoe;
     }
 
     private void removeItem() {
         this.item = null;
+        if (this.areaEffect != null)
+            this.decal = this.areaEffect.getDecal();
+        else
+            this.decal = this.terrain.getDecal();
     }
 
     private void removeAreaEffect() {
         this.areaEffect = null;
+        this.decal = this.terrain.getDecal();
     }
 
     public void startAoE(Entity e) {
@@ -86,7 +95,13 @@ public class Tile implements Drawable {
     }
 
     @Override
-    public Decal[][] getDecal() {
-        return this.terrain.getDecal();
+    public Decal getDecal() {
+        if (this.decal == null)
+            this.decal = this.terrain.getDecal();
+        return this.decal;
+    }
+
+    public void setDecal(Decal decal) {
+        this.decal = decal;
     }
 }
