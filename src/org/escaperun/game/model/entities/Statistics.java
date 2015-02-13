@@ -87,7 +87,14 @@ public class Statistics{
         //TODO: Implement MP-related methods
     }
 
-    protected void addEquipStats(Statistics itemstat){
+    protected void addEquipStats(Statistics itemstat) {
+        Set<Map.Entry<StatEnum, Integer>> entries = itemstat.statsmap.entrySet();
+        Iterator<Map.Entry<StatEnum, Integer>> iterator = entries.iterator();
+
+        for(; iterator.hasNext();)
+        {
+            //this.statsmap.put()
+        }
 
     }
 

@@ -13,7 +13,7 @@ import java.awt.*;
 public class Avatar extends Entity{
 
     public Avatar(Occupation occupation){
-        super(occupation, 3, new Decal[][]{{new Decal('@', Color.BLACK, Color.RED)}}, new Position(1,1), new Inventory(), new Equipment());
+        super(occupation, 3, new Decal('@', Color.BLACK, Color.RED), new Position(1,1), new Inventory(), new Equipment());
         //TODO: For Inventory and Equipment, add basic items that can be given to Avatar upon creation,
         //TODO: such as a wooden sword, 3 health potions, etc.
         //3 is standard number of lives for Avi; can change if need be
