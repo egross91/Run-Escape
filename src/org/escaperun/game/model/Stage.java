@@ -80,7 +80,7 @@ public class Stage implements Drawable {
 
                 if (canMoveToTile(modified)) {
                     // TODO: See how the Entity's will move around the map without being passed a Position.
-//                    e.move(modified);
+                    e.move(modified);
                     break;
                 }
             }

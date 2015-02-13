@@ -20,11 +20,6 @@ public class Avatar extends Entity{
         //Avatar is red @ sign Decal -- Can change it need be
     }
 
-    @Override
-    public void move() {
-
-    }
-
     //Pass that task along to our inventory object.
     public void addItemToInventory(TakeableItem ti){
         if(inventory.getCapacity()-inventory.getSize() != 0)//If our knapsack is not full!

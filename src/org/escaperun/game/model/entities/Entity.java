@@ -56,7 +56,9 @@ public abstract class Entity implements Drawable{
 
     public Decal[][] getDecal(){ return this.decal; }
 
-    abstract public void move();//Implementing move functionality.
+    public void move(Position position){
+        this.setPosition(position);
+    }
 
     public void useItem(UsableItem usableItem){
 

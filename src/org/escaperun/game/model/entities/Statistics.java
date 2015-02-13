@@ -41,12 +41,12 @@ public class Statistics{
         statsmap.put(StatEnum.MOVEMENT, 0);//get initial MOV stat
         statsmap.put(StatEnum.NUMOFLIVES, 0);//NumberOfLives
         statsmap.put(StatEnum.LEVEL, 0);//Derived level initially from started EXP (0).
-        statsmap.put(StatEnum.EXP, 0);//EXP always starts at level zero (or one if we choose to do it that way).
-        statsmap.put(StatEnum.TEMPSTR, 0);//Temporary STR = 0 at start.
-        statsmap.put(StatEnum.TEMPAGI, 0);//Temporary AGI = 0 at start.
-        statsmap.put(StatEnum.TEMPINT, 0);//Temporary INT = 0 at start.
-        statsmap.put(StatEnum.TEMPMOV, 0);//Temporary MOV = 0 at start.
-        statsmap.put(StatEnum.TEMPHAR,0);//Temporary HAR = 0 at start.
+//        statsmap.put(StatEnum.EXP, 0);//EXP always starts at level zero (or one if we choose to do it that way).
+//        statsmap.put(StatEnum.TEMPSTR, 0);//Temporary STR = 0 at start.
+//        statsmap.put(StatEnum.TEMPAGI, 0);//Temporary AGI = 0 at start.
+//        statsmap.put(StatEnum.TEMPINT, 0);//Temporary INT = 0 at start.
+//        statsmap.put(StatEnum.TEMPMOV, 0);//Temporary MOV = 0 at start.
+//        statsmap.put(StatEnum.TEMPHAR,0);//Temporary HAR = 0 at start.
         statsmap.put(StatEnum.MAXHP, 0);//store initial val of MaxHP
         statsmap.put(StatEnum.MAXMP, 0);//store initial val of MaxMP
         statsmap.put(StatEnum.CURRENTHP, 0);//store initial val of CurrentHP
@@ -84,11 +84,18 @@ public class Statistics{
     }
 
     protected void useMana(int mana){
+        //TODO: Implement MP-related methods
+    }
+
+    protected void addEquipStats(Statistics itemstat){
+
+    }
+
+    protected void removeEquipStats(Statistics itemstat){
 
     }
 
     protected int getLevel() {
-
         statsmap.put(StatEnum.LEVEL, 1 + (statsmap.get(StatEnum.EXP) / 10));//Simple EXP->LVL formula for now; will model it more later;
         //TODO: Put in special functionality if a check determines that calculated level and level stored are different, aka Avatar leveled.
         return statsmap.get(StatEnum.LEVEL); //Return the newly updated (if at all) value of level calculated.
@@ -96,19 +103,19 @@ public class Statistics{
 
     protected int getOffensiveRate(){
         //TODO: Make OffensiveRate Formula
-        statsmap.put(StatEnum.OFFENSERATE, (statsmap.get(StatEnum.STRENGTH)+statsmap.get(StatEnum.TEMPSTR)+this.getLevel()));
+        statsmap.put(StatEnum.OFFENSERATE, (statsmap.get(StatEnum.STRENGTH)+this.getLevel()));
         //Formula for OR: Strength + TempSTR + (derived) Level
         return statsmap.get(StatEnum.OFFENSERATE);
     }
 
     protected int getDefensiveRate(){
-       statsmap.put(StatEnum.DEFENSERATE, (statsmap.get(StatEnum.AGILITY)+statsmap.get(StatEnum.TEMPAGI)+this.getLevel()));
+       statsmap.put(StatEnum.DEFENSERATE, (statsmap.get(StatEnum.AGILITY)+this.getLevel()));
         //Formula for DR: Agility + TempAGI + (derived) Level
         return statsmap.get(StatEnum.DEFENSERATE);
     }
 
     protected int getArmorRate(){
-        statsmap.put(StatEnum.ARMORRATE, (statsmap.get(StatEnum.HARDINESS)+statsmap.get(StatEnum.TEMPHAR)));
+        statsmap.put(StatEnum.ARMORRATE, (statsmap.get(StatEnum.HARDINESS)));
         //Formula for AR: Hardiness + TempHAR
         return statsmap.get(StatEnum.ARMORRATE);
     }
