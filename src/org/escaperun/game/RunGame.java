@@ -1,6 +1,5 @@
 package org.escaperun.game;
 
-import org.escaperun.game.model.Game;
 import org.escaperun.game.view.GameWindow;
 
 public class RunGame implements Runnable {

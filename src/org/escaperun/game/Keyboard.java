@@ -5,6 +5,14 @@ import java.awt.event.KeyListener;
 
 public class Keyboard implements KeyListener {
 
+    // change when we decide to actually deploy game
+    // I (josh) can't use numpad (laptop) so these are really convenient for me
+    public static final char UP = 'w';
+    public static final char DOWN = 's';
+    public static final char LEFT = 'a';
+    public static final char RIGHT = 'd';
+    public static final char ENTER = 'f';
+
     public final boolean[] pressed = new boolean[65536]; // There are 2^16 = 65536 possible chars.
 
     @Override
