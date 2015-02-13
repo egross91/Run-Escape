@@ -30,6 +30,9 @@ public class Avatar extends Entity{
 
     public void equipItem(int index){
         //TODO: Implement this method.
+        //This if statement checks if requirements of activateable are met. It would then remove from inventory and defer action to onTouch
+        //if(this.inventory.getItem(index).isActivatable(this)) this.inventory.remove(index).onTouch(this);
+
     }
 
     public void unequipItem(ItemSlot itemSlot){
@@ -42,5 +45,6 @@ public class Avatar extends Entity{
 
     public void useItem(UsableItem usableItem){
         //TODO: Implement this method.
+        // can potentially be merged with equipItem b/c activateable will handle dynamically type check and perform the correct function
     }
 }

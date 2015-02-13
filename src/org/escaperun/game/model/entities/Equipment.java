@@ -46,4 +46,5 @@ public class Equipment {
     }
 
     //TODO: Add all stat changes due to weapons/armor to Avatar/Entity's statistics.
+
 }

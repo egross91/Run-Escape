@@ -112,6 +112,11 @@ public class Statistics{
         }
     }
 
+
+    //***************************
+    //Jeff lets talk about combining these two methods to updateStats()
+    // it will effectively just iterate through all gear and add what is there. we dont need to worry about subtracting ever
+
     protected int getLevel() {
         statsmap.put(StatEnum.LEVEL, 1 + (statsmap.get(StatEnum.EXP) / 10));//Simple EXP->LVL formula for now; will model it more later;
         //TODO: Put in special functionality if a check determines that calculated level and level stored are different, aka Avatar leveled.

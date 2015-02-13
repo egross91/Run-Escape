@@ -32,6 +32,7 @@ public class EquipableItem extends TakeableItem {
     @Override
     public boolean isActivatable(Entity e) {
         // TODO: Implement logic for this.
+        // make sure this calls e.equipment.equipItem(e.inventory.remove(this))
         return false;
     }
 }

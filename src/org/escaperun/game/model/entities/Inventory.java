@@ -1,5 +1,6 @@
 package org.escaperun.game.model.entities;
 
+import org.escaperun.game.model.items.Item;
 import org.escaperun.game.model.items.TakeableItem;
 
 import java.util.ArrayList;
@@ -39,7 +40,9 @@ public class Inventory {
     }
 
     public void add(TakeableItem ti){
-        inventoryarr.add(ti);
+        if(!(ti.equals(null))) {            // check if item is null, pertains to equip/unequip returns if nothing is equipped
+            inventoryarr.add(ti);
+        }
     }
 
     //Pass UsableItem to avatar for it to use.
@@ -53,4 +56,6 @@ public class Inventory {
     public TakeableItem remove(int index){
         return inventoryarr.remove(index);
     }
+
+    public TakeableItem getItem(int index) {return inventoryarr.get(index);}
 }
