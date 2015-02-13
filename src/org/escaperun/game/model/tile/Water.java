@@ -9,6 +9,6 @@ import java.awt.*;
  */
 public class Water extends Terrain {
     public Water(){
-        super(new Decal('W', Color.lightGray, Color.BLUE), true); //TODO: Unicode needs testing. Most likely too large a unicode. Also check color.
+        super(new Decal('W', Color.BLACK, Color.BLUE), true);
     }
 }

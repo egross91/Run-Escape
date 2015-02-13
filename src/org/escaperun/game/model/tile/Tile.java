@@ -1,107 +1,61 @@
 package org.escaperun.game.model.tile;
 
 import org.escaperun.game.model.Drawable;
-import org.escaperun.game.model.entities.Entity;
 import org.escaperun.game.model.items.Item;
 import org.escaperun.game.view.Decal;
 
-/**
- * Created by Eric on 2/11/2015.
- */
 public class Tile implements Drawable {
-    private final Terrain terrain;
-    private Decal decal;
+
+    private Terrain terrain;
     private AreaEffect areaEffect;
     private Item item;
 
-    public Tile() {
-        this.terrain = new Grass();
-        this.areaEffect = null;
-        this.item = null;
-    }
-
-    public Tile(Terrain terrain) {
-        this.terrain = terrain;
-        this.areaEffect = null;
-        this.item = null;
-    }
-
-    public Tile(AreaEffect areaEffect) {
-        this.terrain = new Grass();
-        setAreaEffect(areaEffect);
-        this.item = null;
-    }
-
-    public Tile(Item item) {
-        this.terrain = new Grass();
-        this.areaEffect = null;
-        setItem(item);
-    }
-
-    public Tile(AreaEffect areaEffect, Item item) {
-        this.terrain = new Grass();
-        this.areaEffect = areaEffect;
-        setItem(item);
-    }
-
-    public Tile(Terrain terrain, AreaEffect areaEffect, Item item) {
-        this.terrain = terrain;
-        this.areaEffect = areaEffect;
-        setItem(item);
-    }
-
     public Terrain getTerrain() {
-        return this.terrain;
+        return terrain;
+    }
+
+    public void setTerrain(Terrain t) {
+        terrain = t;
     }
 
     public Item getItem() {
-        return this.item;
+        return item;
     }
 
-    public void setItem(Item i) {
-        this.decal = i.getDecal();
-        this.item = i;
+    public boolean setItem(Item i) {
+        if (item != null) return false;
+        item = i;
+        return true;
+    }
+
+    public Item removeItem() {
+        if (item == null) throw new RuntimeException("item is null");
+        Item cur = item;
+        item = null;
+        return cur;
     }
 
     public AreaEffect getAreaEffect() {
-        return this.areaEffect;
+        return areaEffect;
     }
 
-    public void setAreaEffect(AreaEffect aoe) {
-        if (this.item == null)
-            this.decal = this.areaEffect.getDecal();
-        this.areaEffect = aoe;
+    public boolean setAreaEffect(AreaEffect aoe) {
+        if (areaEffect != null) return false;
+        areaEffect = aoe;
+        return true;
     }
 
-    private void removeItem() {
-        this.item = null;
-        if (this.areaEffect != null)
-            this.decal = this.areaEffect.getDecal();
-        else
-            this.decal = this.terrain.getDecal();
-    }
-
-    private void removeAreaEffect() {
-        this.areaEffect = null;
-        this.decal = this.terrain.getDecal();
-    }
-
-    public void startAoE(Entity e) {
-        // TODO: Implement logic for AoE effects on Entity.
-        if (this.areaEffect != null) {
-            // Perform logic for AoE on Entity.
-        }
-        // Otherwise, do nothing.
+    public AreaEffect removeAreaEffect() {
+        if (areaEffect == null) throw new RuntimeException("areaEffect is null");
+        AreaEffect aoe = areaEffect;
+        areaEffect = null;
+        return aoe;
     }
 
     @Override
     public Decal getDecal() {
-        if (this.decal == null)
-            this.decal = this.terrain.getDecal();
-        return this.decal;
-    }
-
-    public void setDecal(Decal decal) {
-        this.decal = decal;
+        if (item != null) return item.getDecal();
+        if (areaEffect != null) return areaEffect.getDecal();
+        return terrain.getDecal();
     }
 }

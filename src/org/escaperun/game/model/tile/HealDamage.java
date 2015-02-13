@@ -3,14 +3,11 @@ package org.escaperun.game.model.tile;
 import org.escaperun.game.model.entities.Entity;
 import org.escaperun.game.view.Decal;
 
-/**
- * Created by abcronin on 2/11/2015.
- */
 public class HealDamage extends AreaEffect{
 
-    public HealDamage(){super();}
-
-    public HealDamage(Decal decal){super(decal);}
+    public HealDamage(Decal decal) {
+        super(decal);
+    }
 
     public void areaEffect(){
         //TODO: Figure out implementation

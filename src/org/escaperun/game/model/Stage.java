@@ -5,109 +5,50 @@ import org.escaperun.game.model.entities.Entity;
 import org.escaperun.game.model.tile.Tile;
 import org.escaperun.game.view.Decal;
 
+import java.awt.*;
 import java.util.ArrayList;
 import java.util.Random;
 
-/**
- * Created by Eric on 2/12/2015.
- */
 public class Stage {
-    private static final Random coordinateGenerator = new Random();
-    private static int[] dx = { 1, 0, -1, 0, 0 };
-    private static int[] dy = { 0, 1, 0, -1, 0 };
-    private static int MAX_DELTA_INDEX = 5;
 
-    private final Position dimensions;
-    private Tile[][] tilemap;
-    private ArrayList<Entity> entities;
+    public final Dimension dimensions;
+    public final Tile[][] map;
+    public final ArrayList<Entity> entities;
 
-    public Stage() {
-        this.dimensions = new Position(1000, 1000);
+    public Stage(Dimension dim) {
+        this.dimensions = dim;
+        this.map = new Tile[dim.height][dim.width];
+        this.entities = new ArrayList<Entity>();
     }
 
-    public Stage(Position dimensions) {
-        this.dimensions = dimensions;
-    }
-
-    public Stage(Position dimensions, Tile[][] tiles) {
-        this.dimensions = dimensions;
-        this.tilemap = tiles;
-    }
-
-    public Stage(Position dimensions, Tile[][] tiles, ArrayList<Entity> entities) {
-        this.dimensions = dimensions;
-        this.tilemap = tiles;
-        this.entities = entities;
-    }
-
-    public Tile[][] getTilemap() {
-        return this.tilemap;
-    }
-
-    public void setTilemap(Tile[][] tiles) {
-        // Set to null to refrain from having any possible memory leaks.
-        this.tilemap = null;
-        this.tilemap = tiles;
-    }
-
-    public ArrayList<Entity> getEntities() {
-        return this.entities;
-    }
-
-    public void setEntities(ArrayList<Entity> entities) {
-        this.entities = entities;
-    }
-
-    public boolean updateAvatarPosition(Position delta, Avatar avatar) {
+    /*public boolean updateAvatarPosition(Position delta, Avatar avatar) {
         Position current = avatar.getPosition();
-        Position modified = new Position(current.getX() + delta.getX(), current.getY() + delta.getY());
+        Position modified = new Position(current.x + delta.x, current.y + delta.y);
 
         // Notifies Game that the user cannot move.
-        if (!canMoveToTile(modified))
+        if (!isMovable(modified))
             return false;
 
-        Tile to = this.tilemap[modified.getY()][modified.getX()];
+        Tile to = map[modified.y][modified.x];
         to.setDecal(avatar.getDecal());
         avatar.move(modified);
         return true;
-    }
+    }*/
 
-    private void updateNpcPositions() {
-        // Update the position of the NPC's in the Stage.
-        for (Entity e : entities) {
-            Position current = e.getPosition();
-            Position newPosition = findNextPossibleMove(current);
-
-            e.move(newPosition);
-        }
-    }
-
-    private Position findNextPossibleMove(Position pos) {
-        // Keep checking if it's not a valid move.
-        while (true) {
-            int idx = coordinateGenerator.nextInt(MAX_DELTA_INDEX);
-            Position modified = new Position(pos.getX() + dx[idx], pos.getY() + dy[idx]);
-
-            if (canMoveToTile(modified)) {
-                return modified;
-            }
-        }
-    }
-
-    private boolean canMoveToTile(final Position pos) {
+    private boolean isMovable(Position pos) {
         if (pos == null)
             return false;
 
         // Check x-coordinate.
-        if (!(pos.getX() > -1 && pos.getX() < dimensions.getX()))
+        if (!(pos.x > -1 && pos.x < dimensions.height))
             return false;
 
         // Check y-coordinate.
-        if (!(pos.getY() > -1 && pos.getY() < dimensions.getY()))
+        if (!(pos.y > -1 && pos.y < dimensions.width))
             return false;
 
         // Check if the candidate Tile has a ObstacleItem, Impassable Terrain, or is null.
-        Tile candidate = this.tilemap[pos.getY()][pos.getX()];
+        Tile candidate = map[pos.x][pos.y];
         if (candidate == null || candidate.getTerrain().isCollidable() || candidate.getItem().isCollidable())
             return false;
 
@@ -116,16 +57,11 @@ public class Stage {
     }
 
     public Decal[][] getDecals() {
-        // TODO: Talk about whether creating an EmptyTile is worth having instead of doing null checks.
-//               Not sure how this will be implemented.
-        Decal[][] decals = new Decal[this.dimensions.getY()][this.dimensions.getX()];
-        for (int r = 0; r < dimensions.getY(); ++r) {
-            for (int c = 0; c < dimensions.getX(); ++c) {
-                Tile current = this.tilemap[r][c];
-                if (current == null)
-                    decals[r][c] = null;
-                else
-                    decals[r][c] = current.getDecal();
+        Decal[][] decals = new Decal[dimensions.height][dimensions.width];
+        for (int r = 0; r < dimensions.height; ++r) {
+            for (int c = 0; c < dimensions.width; ++c) {
+                Tile current = map[r][c];
+                decals[r][c] = current.getDecal();
             }
         }
 
