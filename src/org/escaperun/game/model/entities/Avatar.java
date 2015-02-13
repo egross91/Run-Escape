@@ -2,7 +2,9 @@ package org.escaperun.game.model.entities;
 
 import org.escaperun.game.model.Position;
 import org.escaperun.game.model.items.EquipableItem;
+import org.escaperun.game.model.items.ItemSlot;
 import org.escaperun.game.model.items.TakeableItem;
+import org.escaperun.game.model.items.UsableItem;
 import org.escaperun.game.view.Decal;
 
 import java.awt.*;
@@ -26,12 +28,19 @@ public class Avatar extends Entity{
         inventory.add(ti); //Add item.
     }
 
-    public void equipItem(EquipableItem equipableItem){
+    public void equipItem(int index){
         //TODO: Implement this method.
     }
 
-    public void unequipItem(EquipableItem equipableItem){
-        //TODO: Implement this method.
+    public void unequipItem(ItemSlot itemSlot){
+        if(inventory.getCapacity() - inventory.getSize() == 0)
+            return; //Don't need to do anything, inventory's full.
+        EquipableItem unequipped = equipment.unequipItem(itemSlot);
+        this.stats.removeEquipStats(unequipped.getStats());
+        this.addItemToInventory(unequipped);
     }
 
+    public void useItem(UsableItem usableItem){
+        //TODO: Implement this method.
+    }
 }

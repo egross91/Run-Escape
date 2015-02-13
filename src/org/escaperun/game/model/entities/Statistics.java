@@ -91,15 +91,25 @@ public class Statistics{
         Set<Map.Entry<StatEnum, Integer>> entries = itemstat.statsmap.entrySet();
         Iterator<Map.Entry<StatEnum, Integer>> iterator = entries.iterator();
 
-        for(; iterator.hasNext();)
+        while(iterator.hasNext())
         {
-            //this.statsmap.put()
+            Map.Entry<StatEnum, Integer> entry = iterator.next();
+            this.statsmap.put(entry.getKey(), (entry.getValue() + this.statsmap.get(entry.getKey())));
+            //Above statement: Put the new value at a certain key got from the entry, the current value found in our statsmap + the new value found in the entry.
         }
 
     }
 
     protected void removeEquipStats(Statistics itemstat){
+        Set<Map.Entry<StatEnum, Integer>> entries = itemstat.statsmap.entrySet();
+        Iterator<Map.Entry<StatEnum, Integer>> iterator = entries.iterator();
 
+        while(iterator.hasNext())
+        {
+            Map.Entry<StatEnum, Integer> entry = iterator.next();
+            this.statsmap.put(entry.getKey(), (entry.getValue() - this.statsmap.get(entry.getKey())));
+            //Above statement: Put the new value at a certain key got from the entry, the current value found in our statsmap + the new value found in the entry.
+        }
     }
 
     protected int getLevel() {

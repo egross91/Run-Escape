@@ -2,6 +2,8 @@ package org.escaperun.game.model.entities;
 
 import org.escaperun.game.model.Drawable;
 import org.escaperun.game.model.Position;
+import org.escaperun.game.model.items.EquipableItem;
+import org.escaperun.game.model.items.ItemSlot;
 import org.escaperun.game.model.items.UsableItem;
 import org.escaperun.game.view.Decal;
 
@@ -58,10 +60,6 @@ public abstract class Entity implements Drawable{
 
     public void move(Position position){
         this.setPosition(position);
-    }
-
-    public void useItem(UsableItem usableItem){
-
     }
 
 }

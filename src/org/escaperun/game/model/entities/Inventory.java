@@ -1,7 +1,6 @@
 package org.escaperun.game.model.entities;
 
 import org.escaperun.game.model.items.TakeableItem;
-import org.escaperun.game.model.items.UsableItem;
 
 import java.util.ArrayList;
 
@@ -51,7 +50,7 @@ public class Inventory {
     }
 
     //Remove the item that's at that index.
-    public void remove(int index){
-        inventoryarr.remove(index);
+    public TakeableItem remove(int index){
+        return inventoryarr.remove(index);
     }
 }
