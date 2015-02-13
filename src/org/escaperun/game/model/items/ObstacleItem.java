@@ -20,7 +20,7 @@ public class ObstacleItem extends Item implements Drawable {
     }
 
     @Override
-    public boolean isActivatable() {
+    public boolean isActivatable(Entity e) {
         return false;
     }
 }

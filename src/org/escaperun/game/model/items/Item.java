@@ -42,5 +42,5 @@ public abstract class Item implements Activatable, Collidable {
 
     public abstract void onTouch(Entity e);
 
-    public abstract boolean isActivatable();
+    public abstract boolean isActivatable(Entity e);
 }

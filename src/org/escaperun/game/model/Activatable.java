@@ -7,5 +7,5 @@ import org.escaperun.game.model.entities.Entity;
  */
 public interface Activatable {
     public void onTouch(Entity e);
-    public boolean isActivatable();
+    public boolean isActivatable(Entity e);
 }

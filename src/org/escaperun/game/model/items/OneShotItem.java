@@ -27,7 +27,7 @@ public class OneShotItem extends Item {
     }
 
     @Override
-    public boolean isActivatable() {
+    public boolean isActivatable(Entity e) {
         return true;
     }
 }

@@ -27,7 +27,7 @@ public class InteractiveItem extends Item {
     }
 
     @Override
-    public boolean isActivatable() {
+    public boolean isActivatable(Entity e) {
         // TODO: Implement logic for this.
         return false;
     }

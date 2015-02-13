@@ -21,7 +21,7 @@ public abstract class AreaEffect implements Activatable, Drawable {
 
     public abstract void areaEffect();
     public abstract void onTouch(Entity e);
-    public boolean isActivatable() { return true; }
+    public boolean isActivatable(Entity e) { return true; }
     public Decal getDecal(){return decal;}
 
 }

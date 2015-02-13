@@ -24,4 +24,9 @@ public class UsableItem extends TakeableItem {
     public void statChange(Entity e) {
         // TODO: Implement logic for Entity statistic changes.
     }
+    @Override
+    public boolean isActivatable(Entity e) {
+        // TODO: Implement logic for this.
+        return false;
+    }
 }

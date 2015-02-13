@@ -29,4 +29,9 @@ public class EquipableItem extends TakeableItem {
         return this.category; //Returns the category (ItemSlot) where the item should go to.
     }
 
+    @Override
+    public boolean isActivatable(Entity e) {
+        // TODO: Implement logic for this.
+        return false;
+    }
 }
