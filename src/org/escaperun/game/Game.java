@@ -13,7 +13,8 @@ public class Game {
         state = new MainMenu();
     }
 
-    public void update(boolean[] pressed) {
+    // return false if done updating (exit)
+    public boolean update(boolean[] pressed) {
         if (state == null) throw new RuntimeException("game has no state");
 
         GameState res = state.update(pressed);
@@ -21,6 +22,8 @@ public class Game {
             // game state changing!
             state = res;
         }
+
+        return true;
     }
 
     public Decal[][] getRenderable() {

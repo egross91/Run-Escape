@@ -3,12 +3,15 @@ package org.escaperun.game.states.mainmenu;
 import org.escaperun.game.Keyboard;
 import org.escaperun.game.states.GameState;
 import org.escaperun.game.view.Decal;
+import org.escaperun.game.view.GameWindow;
 
 public class MainMenu extends GameState {
 
     private static final Option[] OPTIONS = {
-        new Option("Create New Game"),
-            new Option("Load Game")
+        new Option("Start Game"),
+            new Option("Load Game"),
+            new Option("Exit"),
+            new Option("THE OPTION TO END ALL OPTIONS")
     };
 
     private int selectedOption = 0;
@@ -26,25 +29,34 @@ public class MainMenu extends GameState {
             selectedOption = nextIdx;
             ticksSince = 0;
         }
+        ticksSince++; // TODO: Make this type of behavior more abstract
         boolean enter = pressed[Keyboard.ENTER];
 
-        //TODO: Select and return new game state
+        // TODO: Select and return new game state
 
 
-        ticksSince++;
         return null;
     }
 
     @Override
     public Decal[][] getRenderable() {
-        Decal[][] ret = new Decal[OPTIONS.length][];
+        Decal[][] ret = new Decal[GameWindow.ROWS][GameWindow.COLUMNS];
+
         for (int i = 0; i < OPTIONS.length; i++) {
+            int x = GameWindow.ROWS/OPTIONS.length-2+OPTIONS.length*i;
+            int y = GameWindow.COLUMNS/2-OPTIONS[i].text.length()/2;
+            Decal[] toblit;
             if (selectedOption == i) {
-                ret[i] = OPTIONS[i].selected[0];
+                toblit = OPTIONS[i].selected[0];
             } else {
-                ret[i] = OPTIONS[i].unselected[0];
+                toblit = OPTIONS[i].unselected[0];
+            }
+            for (int j = 0; j < OPTIONS[i].text.length(); j++) {
+                ret[x][y+j] = toblit[j];
             }
         }
+
+        // TODO: Make beautiful animations
         return ret;
     }
 }

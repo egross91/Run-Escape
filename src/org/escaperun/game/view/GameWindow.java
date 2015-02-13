@@ -32,12 +32,14 @@ public class GameWindow extends JFrame {
         if (toRender != null) {
             for (int i = 0; i < Math.min(toRender.length, ROWS); i++) {
                 for (int j = 0; j < Math.min(toRender[i].length, COLUMNS); j++) {
-                    Color back = toRender[i][j].background;
-                    Color front = toRender[i][j].foreground;
-                    char ch = toRender[i][j].ch;
-                    cp.setBackgroundColor(back, i, j);
-                    cp.setForegroundColor(front, i, j);
-                    cp.setChar(ch, i, j);
+                    if (toRender[i][j] != null) {
+                        Color back = toRender[i][j].background;
+                        Color front = toRender[i][j].foreground;
+                        char ch = toRender[i][j].ch;
+                        cp.setBackgroundColor(back, i, j);
+                        cp.setForegroundColor(front, i, j);
+                        cp.setChar(ch, i, j);
+                    }
                 }
             }
         }

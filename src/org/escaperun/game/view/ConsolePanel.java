@@ -128,7 +128,7 @@ public class ConsolePanel extends JPanel {
                 offscreen.fillRect(x, y, CHAR_WIDTH, CHAR_HEIGHT);
 
                 /* draw foreground */
-                offscreen.setXORMode(foreground[i][j]);
+                offscreen.setXORMode(new Color(foreground[i][j].getRGB()^background[i][j].getRGB()));
                 offscreen.drawImage(FONT_GLYPHS[grid[i][j]], x, y, this);
                 offscreen.setPaintMode();
             }
