@@ -5,9 +5,6 @@ import org.escaperun.game.model.items.ItemSlot;
 
 import java.util.*;
 
-/**
- * Created by Jeff on 2015/02/12 (012), 06:44.
- */
 public class Equipment {
 
     private Map<ItemSlot, EquipableItem> equipment; //Our Map, which maps an ItemSlot category (HELMET, etc.) to the corresponding equipped item (if any)
@@ -43,6 +40,10 @@ public class Equipment {
 
     public EquipableItem unequipItem(ItemSlot category){
         return equipment.remove(category); //Map's remove() func returns "removed" item, or null if none.
+    }
+
+    protected Map<ItemSlot, EquipableItem> getEquipment(){
+        return equipment;
     }
 
     //TODO: Add all stat changes due to weapons/armor to Avatar/Entity's statistics.

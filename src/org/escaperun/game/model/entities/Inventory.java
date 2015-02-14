@@ -5,9 +5,6 @@ import org.escaperun.game.model.items.TakeableItem;
 
 import java.util.ArrayList;
 
-/**
- * Created by Jeff on 2015/02/12 (012), 06:45.
- */
 public class Inventory {
 
     private int capacity;
@@ -47,7 +44,7 @@ public class Inventory {
 
     //Pass UsableItem to avatar for it to use.
     public TakeableItem useItem(int index){
-        if(inventoryarr.get(index).getClass().getName().equals( "UsableItem")) //Hacky way of going about things. Probably best to figure out a better way to check for usability.
+        if(inventoryarr.get(index).getClass().getName().equals( "UsableIem")) //Hacky way of going about things. Probably best to figure out a better way to check for usability.
            return inventoryarr.remove(index);
         else return null;
     }
@@ -57,5 +54,6 @@ public class Inventory {
         return inventoryarr.remove(index);
     }
 
-    public TakeableItem getItem(int index) {return inventoryarr.get(index);}
+    public TakeableItem getItem(int index) { return inventoryarr.get(index);
+    }
 }

@@ -32,7 +32,13 @@ public class EquipableItem extends TakeableItem {
     @Override
     public boolean isActivatable(Entity e) {
         // TODO: Implement logic for this.
-        // make sure this calls e.equipment.equipItem(e.inventory.remove(this))
+        e.equipItem(this);//Equip this item!
         return false;
+    }
+
+    @Override
+    public void onTouch(Entity e) {
+        if(e.addItemToInventory(this));
+        //TODO: Add functionality based upon whether or not this add to inventory was successful (like keeping it on the Tile if not)
     }
 }

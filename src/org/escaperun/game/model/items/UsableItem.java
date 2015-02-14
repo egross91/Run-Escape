@@ -24,9 +24,16 @@ public class UsableItem extends TakeableItem {
     public void statChange(Entity e) {
         // TODO: Implement logic for Entity statistic changes.
     }
+
     @Override
     public boolean isActivatable(Entity e) {
-        // TODO: Implement logic for this.
+        e.useItem(this);
         return false;
+    }
+
+    @Override
+    public void onTouch(Entity e) {
+        if(e.addItemToInventory(this));
+        //TODO: Add functionality based upon whether or not this add to inventory was successful.
     }
 }

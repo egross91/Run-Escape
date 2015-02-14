@@ -9,13 +9,15 @@ import org.escaperun.game.view.Decal;
 
 import java.awt.*;
 
-/**
- * Created by Jeff on 2015/02/11 (011).
- */
 public class Avatar extends Entity{
 
     public Avatar(Occupation occupation){
-        super(occupation, 3, new Decal('@', Color.BLACK, Color.RED), new Position(1,1), new Inventory(), new Equipment());
+        super(occupation, 3, new Decal('@', Color.BLACK, occupation.getColor()), new Position(1,1), new Inventory(), new Equipment());
+        /*
+        NOTE: For avatar (and other entities), we can have the direction the character moved flash briefly
+        as soon as he moves, then go back to its static decal (for iteration 2; probably not feasible for this
+        iteration. Ex) If @ moves to the right, he will briefly change to > then back to @ (around 1/4 sec)
+         */
         //TODO: For Inventory and Equipment, add basic items that can be given to Avatar upon creation,
         //TODO: such as a wooden sword, 3 health potions, etc.
         //3 is standard number of lives for Avi; can change if need be
@@ -23,16 +25,23 @@ public class Avatar extends Entity{
     }
 
     //Pass that task along to our inventory object.
-    public void addItemToInventory(TakeableItem ti){
+    public boolean addItemToInventory(TakeableItem ti){
         if(inventory.getCapacity()-inventory.getSize() != 0)//If our knapsack is not full!
         inventory.add(ti); //Add item.
+        else return false;// We are full; Return operation unsuccessful.
+        return true; // It was good, return true (successful operation).
     }
 
-    public void equipItem(int index){
+    public void equipItem(EquipableItem equipableItem){
         //TODO: Implement this method.
         //This if statement checks if requirements of activateable are met. It would then remove from inventory and defer action to onTouch
-        //if(this.inventory.getItem(index).isActivatable(this)) this.inventory.remove(index).onTouch(this);
+        //if(equipableItem.isActivatable(this))
 
+        EquipableItem anyreturned = this.equipment.equipItem(equipableItem);
+        if(anyreturned != null) {
+            this.addItemToInventory(anyreturned);
+        }
+        stats.updateStats(equipment);
     }
 
     public void unequipItem(ItemSlot itemSlot){
@@ -46,5 +55,6 @@ public class Avatar extends Entity{
     public void useItem(UsableItem usableItem){
         //TODO: Implement this method.
         // can potentially be merged with equipItem b/c activateable will handle dynamically type check and perform the correct function
+        // Not so; We need to differentiate between if it's a UsableItem, or an EquipableItem as it passes itself -Jeff
     }
 }

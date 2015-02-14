@@ -1,13 +1,14 @@
 package org.escaperun.game.model.entities;
 
+import org.escaperun.game.model.items.EquipableItem;
+import org.escaperun.game.model.items.ItemSlot;
+
 import java.util.*;
 
-/**
- * Created by Jeff on 2015/02/11 (011), 06:30.
- */
 public class Statistics{
 
     protected Map<StatEnum, Integer> statsmap = new HashMap<StatEnum, Integer>();
+    protected Map<StatEnum, Integer> currentstats = new HashMap<StatEnum, Integer>(); //ONLY USED FOR AVATAR/ENTITY FOR TEMPORARY STATS. Do not use for Items; instead, use statsmap var.
 
     //Constructor for Entity-related Statistics
     public Statistics(Occupation occupation, int numoflives) {
@@ -23,6 +24,8 @@ public class Statistics{
         this.getOffensiveRate();//Calculate OR from the method provided initially.
         this.getDefensiveRate();//Calculate DR from the method provided initially.
         this.getArmorRate();//Calculate AR from the method provided initially.
+
+        currentstats.putAll(statsmap); //Initialize currentstats with a "copy" of our base stats.
     }
 
     //Constructor for weapon/armor-related Statistics... Utilizes a Map in order to find what stats it has.
@@ -56,6 +59,15 @@ public class Statistics{
         statsmap.put(StatEnum.ARMORRATE, 0);//store initial val of AR
     }
 
+    protected void updateStats(Equipment equipment){
+        currentstats.putAll(statsmap); //Reset our currentstats object to have default values.
+        Collection<EquipableItem> equipitems = equipment.getEquipment().values();
+        Iterator<EquipableItem> iterator = equipitems.iterator();
+        while(iterator.hasNext()){
+            addStats(iterator.next().getStats());
+        }
+    }
+
     //Boolean is for return from "isGameOver()" method. If game is over (num of lives is 0), returns true from it. else false
     protected boolean takeDamage(int damage){
         int newHP = (statsmap.get(StatEnum.CURRENTHP) - damage);
@@ -65,7 +77,7 @@ public class Statistics{
         }
         else{
             statsmap.put(StatEnum.CURRENTHP, 0);
-            return this.isGameOver();
+            return isGameOver();
         }
     }
 
@@ -87,14 +99,14 @@ public class Statistics{
         //TODO: Implement MP-related methods
     }
 
-    protected void addEquipStats(Statistics itemstat) {
+    protected void addStats(Statistics itemstat) {
         Set<Map.Entry<StatEnum, Integer>> entries = itemstat.statsmap.entrySet();
         Iterator<Map.Entry<StatEnum, Integer>> iterator = entries.iterator();
 
         while(iterator.hasNext())
         {
             Map.Entry<StatEnum, Integer> entry = iterator.next();
-            this.statsmap.put(entry.getKey(), (entry.getValue() + this.statsmap.get(entry.getKey())));
+            this.currentstats.put(entry.getKey(), (entry.getValue() + this.currentstats.get(entry.getKey())));
             //Above statement: Put the new value at a certain key got from the entry, the current value found in our statsmap + the new value found in the entry.
         }
 
@@ -107,7 +119,7 @@ public class Statistics{
         while(iterator.hasNext())
         {
             Map.Entry<StatEnum, Integer> entry = iterator.next();
-            this.statsmap.put(entry.getKey(), (entry.getValue() - this.statsmap.get(entry.getKey())));
+            statsmap.put(entry.getKey(), (entry.getValue() - statsmap.get(entry.getKey())));
             //Above statement: Put the new value at a certain key got from the entry, the current value found in our statsmap + the new value found in the entry.
         }
     }
@@ -124,14 +136,13 @@ public class Statistics{
     }
 
     protected int getOffensiveRate(){
-        //TODO: Make OffensiveRate Formula
-        statsmap.put(StatEnum.OFFENSERATE, (statsmap.get(StatEnum.STRENGTH)+this.getLevel()));
+        statsmap.put(StatEnum.OFFENSERATE, (statsmap.get(StatEnum.STRENGTH)+getLevel()));
         //Formula for OR: Strength + TempSTR + (derived) Level
         return statsmap.get(StatEnum.OFFENSERATE);
     }
 
     protected int getDefensiveRate(){
-       statsmap.put(StatEnum.DEFENSERATE, (statsmap.get(StatEnum.AGILITY)+this.getLevel()));
+       statsmap.put(StatEnum.DEFENSERATE, (statsmap.get(StatEnum.AGILITY)+getLevel()));
         //Formula for DR: Agility + TempAGI + (derived) Level
         return statsmap.get(StatEnum.DEFENSERATE);
     }

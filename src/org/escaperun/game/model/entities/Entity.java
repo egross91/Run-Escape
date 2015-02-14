@@ -3,13 +3,10 @@ package org.escaperun.game.model.entities;
 import org.escaperun.game.model.Drawable;
 import org.escaperun.game.model.Position;
 import org.escaperun.game.model.items.EquipableItem;
-import org.escaperun.game.model.items.ItemSlot;
+import org.escaperun.game.model.items.TakeableItem;
 import org.escaperun.game.model.items.UsableItem;
 import org.escaperun.game.view.Decal;
 
-/**
- * Created by Jeff on 2015/02/11 (011).
- */
 public abstract class Entity implements Drawable{
 
     public Entity(Occupation occupation, int numberoflives, Decal decal, Position position, Inventory inventory, Equipment equipment) {
@@ -62,4 +59,15 @@ public abstract class Entity implements Drawable{
         this.setPosition(position);
     }
 
+    public void equipItem(EquipableItem equipableItem) {
+        return; // Only want functionality for Avatar (to work with interface Activatable.)
+    }
+
+    public boolean addItemToInventory(TakeableItem ti){
+        return false; //same as above.
+    }
+
+    public void useItem(UsableItem usableItem){
+        return; //Same as above.
+    }
 }
