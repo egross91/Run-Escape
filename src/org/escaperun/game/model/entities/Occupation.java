@@ -9,7 +9,7 @@ public enum Occupation {
     //OCCUPATION(Strength, Agility, Intelligence)
     SMASHER(5,0,0,5,1, Color.RED),
     SUMMONER(0,0,5,3,1, Color.BLUE),
-    SEEKER(0,5,0,3,1, Color.GREEN);
+    SNEAK(0,5,0,3,1, Color.GREEN);
 
     private final int strength; // Strength modifier
     private final int intelligence; // Intelligence modifier

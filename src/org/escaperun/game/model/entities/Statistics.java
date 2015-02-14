@@ -1,7 +1,6 @@
 package org.escaperun.game.model.entities;
 
 import org.escaperun.game.model.items.EquipableItem;
-import org.escaperun.game.model.items.ItemSlot;
 
 import java.util.*;
 
@@ -24,9 +23,12 @@ public class Statistics{
         getOffensiveRate();//Calculate OR from the method provided initially.
         getDefensiveRate();//Calculate DR from the method provided initially.
         getArmorRate();//Calculate AR from the method provided initially.
-        //getMaxHP(); //Calculate HP from the method provided initially.
+        getMaxHP(); //Calculate HP from the method provided initially.
+        getMaxMP(); //Calculate MP from the method provided intiially.
 
         currentstats.putAll(statsmap); //Initialize currentstats with a "copy" of our base stats.
+        currentstats.put(StatEnum.MAXHP, statsmap.get(StatEnum.CURRENTHP)); //Current HP = Max HP
+        currentstats.put(StatEnum.MAXMP, statsmap.get(StatEnum.CURRENTMP)); //Current MP = Max MP
     }
 
     //Constructor for weapon/armor-related Statistics... Utilizes a Map in order to find what stats it has.
@@ -34,6 +36,10 @@ public class Statistics{
         this.initializeSM();//Initialize values of all possibilities.
 
         statsmap.putAll(itemstats); //Move those values from the item's generated Map to its Statistics object.
+    }
+
+    public Statistics(){
+        this.initializeSM();//Intiailize all things (except currentHP/MP) to Zero.
     }
 
     //Initializes the Map "statsmap" to have all zero values for the possible Enumeration types. Used in constructor methods.
@@ -53,8 +59,8 @@ public class Statistics{
 //        statsmap.put(StatEnum.TEMPHAR,0);//Temporary HAR = 0 at start.
         statsmap.put(StatEnum.MAXHP, 0);//store initial val of MaxHP
         statsmap.put(StatEnum.MAXMP, 0);//store initial val of MaxMP
-        statsmap.put(StatEnum.CURRENTHP, 0);//store initial val of CurrentHP
-        statsmap.put(StatEnum.CURRENTMP, 0);//store initial val of CurrentMP
+//        statsmap.put(StatEnum.CURRENTHP, 0);//store initial val of CurrentHP // Don't want current values to plague currentstats in updateStats() (e.g., rewrite to MaxHP or 0 val)
+//        statsmap.put(StatEnum.CURRENTMP, 0);//store initial val of CurrentMP // Don't want current values to plague currentstats in updateStats() (e.g., rewrite to MaxHP or 0 val)
         statsmap.put(StatEnum.OFFENSERATE, 0);//store initial val of OR
         statsmap.put(StatEnum.DEFENSERATE, 0);//store initial val of DR
         statsmap.put(StatEnum.ARMORRATE, 0);//store initial val of AR
@@ -107,33 +113,27 @@ public class Statistics{
         while(iterator.hasNext())
         {
             Map.Entry<StatEnum, Integer> entry = iterator.next();
-            this.currentstats.put(entry.getKey(), (entry.getValue() + this.currentstats.get(entry.getKey())));
-            //Above statement: Put the new value at a certain key got from the entry, the current value found in our statsmap + the new value found in the entry.
-        }
-
-    }
-
-    protected void removeEquipStats(Statistics itemstat){
-        Set<Map.Entry<StatEnum, Integer>> entries = itemstat.statsmap.entrySet();
-        Iterator<Map.Entry<StatEnum, Integer>> iterator = entries.iterator();
-
-        while(iterator.hasNext())
-        {
-            Map.Entry<StatEnum, Integer> entry = iterator.next();
-            statsmap.put(entry.getKey(), (entry.getValue() - statsmap.get(entry.getKey())));
+            currentstats.put(entry.getKey(), (entry.getValue() + this.currentstats.get(entry.getKey())));
             //Above statement: Put the new value at a certain key got from the entry, the current value found in our statsmap + the new value found in the entry.
         }
     }
-
-
-    //***************************
-    //Jeff lets talk about combining these two methods to updateStats()
-    // it will effectively just iterate through all gear and add what is there. we dont need to worry about subtracting ever
 
     protected int getLevel() {
         statsmap.put(StatEnum.LEVEL, 1 + (statsmap.get(StatEnum.EXP) / 10));//Simple EXP->LVL formula for now; will model it more later;
         //TODO: Put in special functionality if a check determines that calculated level and level stored are different, aka Avatar leveled.
         return statsmap.get(StatEnum.LEVEL); //Return the newly updated (if at all) value of level calculated.
+    }
+
+    protected int getMaxHP(){
+        statsmap.put(StatEnum.MAXHP, getLevel() + statsmap.get(StatEnum.HARDINESS));
+        //Formula for MaxHP: Hardiness + Level
+        return statsmap.get(StatEnum.MAXHP);
+    }
+
+    protected int getMaxMP(){
+        statsmap.put(StatEnum.MAXHP, getLevel() + statsmap.get(StatEnum.INTELLECT));
+        //Formula for MaxHP: Intellect + Level
+        return statsmap.get(StatEnum.MAXMP);
     }
 
     protected int getOffensiveRate(){
@@ -154,9 +154,7 @@ public class Statistics{
         return statsmap.get(StatEnum.ARMORRATE);
     }
 
-    protected int getStat(StatEnum se){
-        return statsmap.get(se);//Generic "getter" method for use with any StatEnum.
-    }
+    //Unnecessary getter method removed. -Jeff
 
     protected void setStat(StatEnum se, int valueofchange)
     {

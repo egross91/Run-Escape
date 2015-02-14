@@ -26,8 +26,8 @@ public class Avatar extends Entity{
 
     //Pass that task along to our inventory object.
     public boolean addItemToInventory(TakeableItem ti){
-        if(inventory.getCapacity()-inventory.getSize() != 0)//If our knapsack is not full!
-        inventory.add(ti); //Add item.
+        if((inventory.getCapacity()-inventory.getSize() != 0) && (ti != null))//If our knapsack is not full and we were not passed a null reference!
+            inventory.add(ti); //Add item.
         else return false;// We are full; Return operation unsuccessful.
         return true; // It was good, return true (successful operation).
     }
@@ -37,19 +37,20 @@ public class Avatar extends Entity{
         //This if statement checks if requirements of activateable are met. It would then remove from inventory and defer action to onTouch
         //if(equipableItem.isActivatable(this))
 
-        EquipableItem anyreturned = this.equipment.equipItem(equipableItem);
+        EquipableItem anyreturned = equipment.equipItem(equipableItem);
         if(anyreturned != null) {
-            this.addItemToInventory(anyreturned);
+            addItemToInventory(anyreturned);
         }
         stats.updateStats(equipment);
     }
 
     public void unequipItem(ItemSlot itemSlot){
+        //If a different parameter needs to be passed in order to use this method, let me know.
         if(inventory.getCapacity() - inventory.getSize() == 0)
             return; //Don't need to do anything, inventory's full.
         EquipableItem unequipped = equipment.unequipItem(itemSlot);
-        this.stats.removeEquipStats(unequipped.getStats());
-        this.addItemToInventory(unequipped);
+        stats.updateStats(equipment);
+        addItemToInventory(unequipped);
     }
 
     public void useItem(UsableItem usableItem){
