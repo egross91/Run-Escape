@@ -2,6 +2,7 @@ package org.escaperun.game.model.entities;
 
 import org.escaperun.game.model.items.EquipableItem;
 import org.escaperun.game.model.items.ItemSlot;
+import org.escaperun.game.view.Decal;
 
 import java.util.*;
 
@@ -46,6 +47,15 @@ public class Equipment {
         return equipment;
     }
 
-    //TODO: Add all stat changes due to weapons/armor to Avatar/Entity's statistics.
+    protected ArrayList<Decal> getEquipDecals(){
+        ArrayList<Decal> ald = new ArrayList<Decal>(); // Initiailize new arrayList
+        //ORDER: HELMET, ARMOR, GLOVES, BOOTS, WEAPON (for what the ArrayList will return)
+        ald.add(equipment.get(ItemSlot.HELMET).getDecal());
+        ald.add(equipment.get(ItemSlot.ARMOR).getDecal());
+        ald.add(equipment.get(ItemSlot.GLOVES).getDecal());
+        ald.add(equipment.get(ItemSlot.BOOTS).getDecal());
+        ald.add(equipment.get(ItemSlot.WEAPON).getDecal());
+        return ald;
+    }
 
 }
