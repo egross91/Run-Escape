@@ -59,6 +59,7 @@ public class Stage {
             return false;
 
         avatar.move(next);
+        map[next.x][next.y].onTouch(avatar);
         return true;
     }
 

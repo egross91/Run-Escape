@@ -1,6 +1,7 @@
 package org.escaperun.game.model.tile;
 
 import org.escaperun.game.model.Drawable;
+import org.escaperun.game.model.entities.Entity;
 import org.escaperun.game.model.items.Item;
 import org.escaperun.game.view.Decal;
 
@@ -62,6 +63,13 @@ public class Tile implements Drawable {
         AreaEffect aoe = areaEffect;
         areaEffect = null;
         return aoe;
+    }
+
+    public void onTouch(Entity entity){
+        if (item != null)
+            item.onTouch(entity);
+        if (areaEffect != null)
+            areaEffect.onTouch(entity);
     }
 
     @Override
