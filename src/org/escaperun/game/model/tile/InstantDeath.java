@@ -15,6 +15,6 @@ public class InstantDeath extends AreaEffect{
     }
     @Override
     public void onTouch(Entity e) {
-        // TODO: figure out implementation (most likely call areaEffect() )
+        e.takeDamage(9999999); //Auto-kill gg wp no-re
     }
 }

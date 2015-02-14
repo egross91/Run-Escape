@@ -9,10 +9,14 @@ public class TakeDamage extends AreaEffect{
         super(decal);
     }
 
+    public TakeDamage(Decal decal, int damage){
+        super(decal, damage);
+    }
+
     public void areaEffect(){
         //TODO: Figure out implementation
     }
     public void onTouch(Entity e){
-        //TODO: Figure out implementation (most likely call areaEffect() )
+        e.takeDamage(valueofchange);
     }
 }

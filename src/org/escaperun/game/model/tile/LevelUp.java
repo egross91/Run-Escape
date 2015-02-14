@@ -13,6 +13,6 @@ public class LevelUp extends AreaEffect{
         //TODO: Figure out implementation
     }
     public void onTouch(Entity e){
-        //TODO: Figure out implementation (most likely call areaEffect() )
+        e.levelUp();
     }
 }

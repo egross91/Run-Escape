@@ -7,12 +7,17 @@ import org.escaperun.game.view.Decal;
 
 public abstract class AreaEffect implements Activatable, Drawable {
 
-    private final Decal decal;
+    protected Decal decal;
 
     public AreaEffect(Decal decal){
         this.decal = decal;
     }
+    public AreaEffect(Decal decal, int value) {
+        this.decal = decal;
+        this.valueofchange = value;
+    }
 
+    protected int valueofchange;
     public abstract void areaEffect();
     public abstract void onTouch(Entity e);
 

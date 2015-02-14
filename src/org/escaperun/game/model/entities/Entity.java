@@ -52,6 +52,12 @@ public abstract class Entity implements Drawable{
     //Return our position.
     public Position getPosition(){ return this.position; }
 
+    public void levelUp() {
+        stats.setStat(StatEnum.EXP, stats.statsmap.get(StatEnum.EXP)+10);//Auto-level since we only need 10 exp per level.
+        stats.getLevel();//Update our level.
+        stats.updateStats(equipment);//Update stats.
+    }
+
     //Used only by our "move()" method, to reset the current position to the new position.
     private void setPosition(Position oldposition){
         this.position = new Position(oldposition.x, oldposition.y);

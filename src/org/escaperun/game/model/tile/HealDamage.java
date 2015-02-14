@@ -5,14 +5,14 @@ import org.escaperun.game.view.Decal;
 
 public class HealDamage extends AreaEffect{
 
-    public HealDamage(Decal decal) {
-        super(decal);
+    public HealDamage(Decal decal, int heal) {
+        super(decal, heal);
     }
 
     public void areaEffect(){
         //TODO: Figure out implementation
     }
     public void onTouch(Entity e){
-        //TODO: Figure out implementation (most likely call areaEffect() )
+        e.healDamage(valueofchange); //Auto-heal iz de bes!
     }
 }
