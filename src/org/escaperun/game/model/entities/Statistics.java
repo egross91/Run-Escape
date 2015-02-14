@@ -77,13 +77,14 @@ public class Statistics{
 
     //Boolean is for return from "isGameOver()" method. If game is over (num of lives is 0), returns true from it. else false
     protected boolean takeDamage(int damage){
-        int newHP = (statsmap.get(StatEnum.CURRENTHP) - damage);
+        int newHP = (currentstats.get(StatEnum.CURRENTHP) - damage);
         if(newHP > 0){//If we're still alive.
-            statsmap.put(StatEnum.CURRENTHP, newHP);
+            currentstats.put(StatEnum.CURRENTHP, newHP);
             return false;
         }
         else{
-            statsmap.put(StatEnum.CURRENTHP, 0);
+            currentstats.put(StatEnum.CURRENTHP, 0);
+            System.out.println("WE ARE DEAD!!!");
             return isGameOver();
         }
     }
@@ -91,15 +92,17 @@ public class Statistics{
     //Method that is (as of now) called only by takeDamage if our currentHP drops to or below zero.
     protected boolean isGameOver(){
         statsmap.put(StatEnum.NUMOFLIVES, statsmap.get(StatEnum.NUMOFLIVES)-1);
-        if(statsmap.get(StatEnum.NUMOFLIVES) == 0)
+        if(statsmap.get(StatEnum.NUMOFLIVES) == 0) {
+            System.out.println("GAME OVER!");
             return true;
+        }
         else return false;
     }
 
     protected void healDamage(int healz){
-        if(statsmap.get(StatEnum.CURRENTHP) + healz > statsmap.get(StatEnum.MAXHP))
-            statsmap.put(StatEnum.CURRENTHP, statsmap.get(StatEnum.MAXHP));
-        else statsmap.put(StatEnum.CURRENTHP, statsmap.get(StatEnum.CURRENTHP)+healz);
+        if(currentstats.get(StatEnum.CURRENTHP) + healz > currentstats.get(StatEnum.MAXHP))
+            currentstats.put(StatEnum.CURRENTHP, currentstats.get(StatEnum.MAXHP));
+        else currentstats.put(StatEnum.CURRENTHP, currentstats.get(StatEnum.CURRENTHP)+healz);
     }
 
     protected void useMana(int mana){
@@ -119,8 +122,11 @@ public class Statistics{
     }
 
     protected int getLevel() {
+        int before = statsmap.get(StatEnum.LEVEL);
         statsmap.put(StatEnum.LEVEL, 1 + (statsmap.get(StatEnum.EXP) / 10));//Simple EXP->LVL formula for now; will model it more later;
         //TODO: Put in special functionality if a check determines that calculated level and level stored are different, aka Avatar leveled.
+        if(before != statsmap.get(StatEnum.LEVEL) && before > 0)
+            System.out.println("ENTITY LEVELED UP!!!");
         return statsmap.get(StatEnum.LEVEL); //Return the newly updated (if at all) value of level calculated.
     }
 
