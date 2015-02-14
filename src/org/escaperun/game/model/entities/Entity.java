@@ -80,4 +80,8 @@ public abstract class Entity implements Drawable{
     public void useItem(UsableItem usableItem){
         return; //Same as above.
     }
+
+    public Statistics getStats(){
+        return this.stats;
+    }
 }

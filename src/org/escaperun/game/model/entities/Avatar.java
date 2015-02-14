@@ -54,4 +54,6 @@ public class Avatar extends Entity{
         // can potentially be merged with equipItem b/c activateable will handle dynamically type check and perform the correct function
         // Not so; We need to differentiate between if it's a UsableItem, or an EquipableItem as it passes itself -Jeff
     }
+
+
 }

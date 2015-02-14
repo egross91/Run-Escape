@@ -149,7 +149,7 @@ public class Statistics{
     }
 
     protected int getDefensiveRate(){
-       statsmap.put(StatEnum.DEFENSERATE, (statsmap.get(StatEnum.AGILITY)+getLevel()));
+        statsmap.put(StatEnum.DEFENSERATE, (statsmap.get(StatEnum.AGILITY)+getLevel()));
         //Formula for DR: Agility + TempAGI + (derived) Level
         return statsmap.get(StatEnum.DEFENSERATE);
     }
@@ -167,5 +167,69 @@ public class Statistics{
         statsmap.put(se, valueofchange);
     }
 
+    public String leveltoString() {
+        String stat = "Level: " + currentstats.get(StatEnum.LEVEL);
+        return stat;
+    }
+
+    public String exptoString() {
+        String stat = "Exp:" + currentstats.get(StatEnum.EXP);
+        return stat;
+    }
+
+    public String livestoString() {
+        String stat = "Lives: " + currentstats.get(StatEnum.NUMOFLIVES);
+        return stat;
+    }
+
+    public String healthtoString() {
+        String stat = "Health: " + currentstats.get(StatEnum.CURRENTHP) + "/" + currentstats.get(StatEnum.MAXHP);
+        return stat;
+    }
+
+    public String manatoString() {
+        String stat = "Mana: " + currentstats.get(StatEnum.CURRENTMP) + "/" + currentstats.get(StatEnum.MAXMP);
+        return stat;
+    }
+
+    public String offensetoString() {
+        String stat = "Offense: " + currentstats.get(StatEnum.OFFENSERATE);
+        return stat;
+    }
+
+    public String defensetoString() {
+        String stat = "Defense: " + currentstats.get(StatEnum.DEFENSERATE);
+        return stat;
+    }
+
+    public String armourtoString() {
+        String stat = "Armour: " + currentstats.get(StatEnum.ARMORRATE);
+        return stat;
+    }
+
+    public String strengthtoString() {
+        String stat = "Strength: " + currentstats.get(StatEnum.STRENGTH);
+        return stat;
+    }
+
+    public String agilitytoString() {
+        String stat = "Agility: " + currentstats.get(StatEnum.AGILITY);
+        return stat;
+    }
+
+    public String intellecttoString() {
+        String stat = "Intellect: " + currentstats.get(StatEnum.INTELLECT);
+        return stat;
+    }
+
+    public String hardinesstoString() {
+        String stat = "Hardiness: " + currentstats.get(StatEnum.HARDINESS);
+        return stat;
+    }
+
+    public String movementtoString() {
+        String stat ="Movement: " + currentstats.get(StatEnum.MOVEMENT);
+        return stat;
+    }
 }
 
