@@ -62,9 +62,10 @@ public class Stage implements Tickable {
         this.moveAvatar(start);
     }
 
-    public Stage(Tile[][] map, Dimension dim, Position start) {
+    public Stage(Tile[][] map, Dimension dim, Position start, Avatar avatar) {
         this.map = map;
         this.dimensions = dim;
+        this.avatar = avatar;
         this.moveAvatar(start);
     }
 

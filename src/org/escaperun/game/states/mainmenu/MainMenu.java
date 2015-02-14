@@ -4,6 +4,7 @@ import org.escaperun.game.Keyboard;
 import org.escaperun.game.model.Stage;
 import org.escaperun.game.model.entities.Avatar;
 import org.escaperun.game.model.entities.Occupation;
+import org.escaperun.game.serialization.SaveManager;
 import org.escaperun.game.states.GameState;
 import org.escaperun.game.states.Option;
 import org.escaperun.game.states.loading.LoadGame;

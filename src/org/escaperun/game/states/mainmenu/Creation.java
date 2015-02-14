@@ -4,6 +4,7 @@ import org.escaperun.game.Keyboard;
 import org.escaperun.game.model.Stage;
 import org.escaperun.game.model.entities.Avatar;
 import org.escaperun.game.model.entities.Occupation;
+import org.escaperun.game.serialization.SaveManager;
 import org.escaperun.game.states.GameState;
 import org.escaperun.game.states.Option;
 import org.escaperun.game.states.loading.LoadGame;
@@ -13,15 +14,14 @@ import org.escaperun.game.view.GameWindow;
 
 import java.security.Key;
 
-/**
- * Created by Matthew LoGalbo on 2/13/2015.
- */
 public class Creation extends GameState {
     public static final int TICKS_PER_MOVEMENT = 10;
+    private static SaveManager saveManager = new SaveManager();
+
     private static final Option[] OPTIONS = {
-            new Option("SUMMONER", new Playing(new Stage(new Avatar(Occupation.SUMMONER)))),
-            new Option("SMASHER", new Playing(new Stage(new Avatar(Occupation.SMASHER)))),
-            new Option("SNEAK", new Playing(new Stage(new Avatar(Occupation.SNEAK)))),
+            new Option("SUMMONER", new Playing(saveManager.startNewGame(new Avatar(Occupation.SUMMONER)))),
+            new Option("SMASHER", new Playing(saveManager.startNewGame(new Avatar(Occupation.SMASHER)))),
+            new Option("SNEAK", new Playing(saveManager.startNewGame(new Avatar(Occupation.SNEAK)))),
             new Option("Never Mind", new MainMenu())
     };
 

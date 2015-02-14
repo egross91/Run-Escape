@@ -7,6 +7,6 @@ import java.awt.*;
 public class Mountain extends Terrain{
 
     public Mountain(){
-        super(new Decal('\u26F0', Color.BLACK, Color.LIGHT_GRAY), true);
+        super(new Decal('M', Color.BLACK, Color.LIGHT_GRAY), true);
     }
 }
