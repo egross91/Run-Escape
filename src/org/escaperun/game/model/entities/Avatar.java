@@ -33,10 +33,6 @@ public class Avatar extends Entity{
     }
 
     public void equipItem(EquipableItem equipableItem){
-        //TODO: Implement this method.
-        //This if statement checks if requirements of activateable are met. It would then remove from inventory and defer action to onTouch
-        //if(equipableItem.isActivatable(this))
-
         EquipableItem anyreturned = equipment.equipItem(equipableItem);
         if(anyreturned != null) {
             addItemToInventory(anyreturned);

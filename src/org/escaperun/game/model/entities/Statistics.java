@@ -27,8 +27,8 @@ public class Statistics{
         getMaxMP(); //Calculate MP from the method provided intiially.
 
         currentstats.putAll(statsmap); //Initialize currentstats with a "copy" of our base stats.
-        currentstats.put(StatEnum.MAXHP, statsmap.get(StatEnum.CURRENTHP)); //Current HP = Max HP
-        currentstats.put(StatEnum.MAXMP, statsmap.get(StatEnum.CURRENTMP)); //Current MP = Max MP
+        currentstats.put(StatEnum.CURRENTHP, statsmap.get(StatEnum.MAXHP)); //Current HP = Max HP
+        currentstats.put(StatEnum.CURRENTMP, statsmap.get(StatEnum.MAXMP)); //Current MP = Max MP
     }
 
     //Constructor for weapon/armor-related Statistics... Utilizes a Map in order to find what stats it has.

@@ -33,7 +33,7 @@ public class EquipableItem extends TakeableItem {
 
     @Override
     public Decal getDecal() {
-        // TODO: Return the decal based on the ItemSlot enum of the Item.
+        getCategory().getDecal();
         return null;
     }
 
