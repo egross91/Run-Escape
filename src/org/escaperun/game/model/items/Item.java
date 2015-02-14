@@ -20,7 +20,7 @@ public abstract class Item implements Activatable, Touchable, Collidable {
 
     public Item(Statistics stats) {
         this.stats = stats;
-        this.decal = getDecal();
+        this.decal = null;
         this.collidable = false;
     }
 

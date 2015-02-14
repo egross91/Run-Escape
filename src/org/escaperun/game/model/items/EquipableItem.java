@@ -33,8 +33,7 @@ public class EquipableItem extends TakeableItem {
 
     @Override
     public Decal getDecal() {
-        getCategory().getDecal();
-        return null;
+        return getCategory().getDecal();
     }
 
     @Override

@@ -73,14 +73,19 @@ public class SaveManager {
 
     private Terrain getTerrainProperties(Element node) {
         Element terrain = (Element)node.getElementsByTagName("Terrain").item(0);
+        if (terrain == null)
+            return null;
+
         String type = getType(terrain).toUpperCase();
 
-        if (type.equals("WATER"))
+        if (type.equals("GRASS"))
+            return new Grass();
+        else if (type.equals("WATER"))
             return new Water();
         else if (type.equals("MOUNTAIN"))
             return new Mountain();
 
-        return new Grass();
+        return null;
     }
 
     private Item getItemProperties(Element node) {
@@ -94,7 +99,7 @@ public class SaveManager {
 
             // Making the assumption that we will never instantiate a TakeableItem.
             if (type.equals("EQUIPABLE")) {
-                ItemSlot slot = getItemSlot(node);
+                ItemSlot slot = getItemSlot(item);
                 return new EquipableItem(stats, slot);
             }
             else if (type.equals("USABLE")) {
