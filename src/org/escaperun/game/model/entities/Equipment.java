@@ -47,15 +47,15 @@ public class Equipment {
         return equipment;
     }
 
-    protected ArrayList<Decal> getEquipDecals(){
-        ArrayList<Decal> ald = new ArrayList<Decal>(); // Initiailize new arrayList
+    protected Decal[] getEquipDecals(){
+        Decal[] decals = new Decal[5];
         //ORDER: HELMET, ARMOR, GLOVES, BOOTS, WEAPON (for what the ArrayList will return)
-        ald.add(equipment.get(ItemSlot.HELMET).getDecal());
-        ald.add(equipment.get(ItemSlot.ARMOR).getDecal());
-        ald.add(equipment.get(ItemSlot.GLOVES).getDecal());
-        ald.add(equipment.get(ItemSlot.BOOTS).getDecal());
-        ald.add(equipment.get(ItemSlot.WEAPON).getDecal());
-        return ald;
+        decals[0] = equipment.get(ItemSlot.HELMET).getDecal();
+        decals[1] = equipment.get(ItemSlot.ARMOR).getDecal();
+        decals[2] = equipment.get(ItemSlot.GLOVES).getDecal();
+        decals[3] = equipment.get(ItemSlot.BOOTS).getDecal();
+        decals[4] = equipment.get(ItemSlot.WEAPON).getDecal();
+        return decals;
     }
 
 }
