@@ -18,6 +18,7 @@
     </Tile>
     <Tile x="0" y="2">
         <Terrain type="grass"></Terrain>
+        <AreaEffect type="LEVELUP">1</AreaEffect>
     </Tile>
     <Tile x="0" y="3">
         <Terrain type=""></Terrain>
