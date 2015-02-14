@@ -6,6 +6,7 @@ import org.escaperun.game.model.entities.Avatar;
 import org.escaperun.game.model.entities.Occupation;
 import org.escaperun.game.serialization.SaveManager;
 import org.escaperun.game.states.GameState;
+import org.escaperun.game.states.MapCreation.CreateMap;
 import org.escaperun.game.states.Option;
 import org.escaperun.game.states.loading.LoadGame;
 import org.escaperun.game.states.playing.Playing;
@@ -17,7 +18,7 @@ public class MainMenu extends GameState {
     public static final int TICKS_PER_MOVEMENT = 10;
 
     private static final Option[] OPTIONS = {
-        new Option("Create Map", null),
+        new Option("Create Map", new CreateMap(new Stage(new Avatar(Occupation.SNEAK)))),
         new Option("New Game", new Creation()),
         new Option("Load Game", new LoadGame()),
         new Option("Exit", new Exit()),
