@@ -10,6 +10,18 @@ public class Tile implements Drawable {
     private AreaEffect areaEffect;
     private Item item;
 
+    public Tile() {
+        this.terrain = new Grass();
+        this.areaEffect = null;
+        this.item = null;
+    }
+
+    public Tile(Terrain terrain, Item item, AreaEffect area) {
+        this.terrain = terrain;
+        this.item = item;
+        this.areaEffect = area;
+    }
+
     public Terrain getTerrain() {
         return terrain;
     }

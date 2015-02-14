@@ -17,13 +17,14 @@ public class Stage {
     public final Dimension dimensions;
     public final Tile[][] map;
     private Avatar avatar;
+    private final Position startPosition;
 
 
     public Stage(Avatar avatar) {
-        this(new Dimension(DEFAULT_WIDTH, DEFAULT_HEIGHT), avatar);
+        this(new Dimension(DEFAULT_WIDTH, DEFAULT_HEIGHT), avatar, new Position(0, 0));
     }
 
-    public Stage(Dimension dim, Avatar avatar) {
+    public Stage(Dimension dim, Avatar avatar, Position start) {
         this.dimensions = dim;
         this.map = new Tile[dim.height][dim.width];
         for (int i = 0; i < dim.height; i++) {
@@ -38,6 +39,19 @@ public class Stage {
             }
         }
         this.avatar = avatar;
+        this.startPosition = start;
+    }
+
+    public Stage(Dimension dim, Position start) {
+        this.dimensions = dim;
+        this.map = new Tile[dim.height][dim.width];
+        this.startPosition = start;
+    }
+
+    public Stage(Tile[][] map, Dimension dim, Position start) {
+        this.map = map;
+        this.dimensions = dim;
+        this.startPosition = start;
     }
 
     public boolean moveAvatar(Position next) {
@@ -50,6 +64,10 @@ public class Stage {
 
     public Avatar getAvatar() {
         return avatar;
+    }
+
+    public void setTile() {
+
     }
 
     private boolean isMovable(Position pos) {
