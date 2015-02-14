@@ -24,7 +24,7 @@ public class Statistics{
         getOffensiveRate();//Calculate OR from the method provided initially.
         getDefensiveRate();//Calculate DR from the method provided initially.
         getArmorRate();//Calculate AR from the method provided initially.
-        getMaxHP(); //Calculate HP from the method provided initially.
+        //getMaxHP(); //Calculate HP from the method provided initially.
 
         currentstats.putAll(statsmap); //Initialize currentstats with a "copy" of our base stats.
     }
