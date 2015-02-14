@@ -14,6 +14,5 @@ public class HealDamage extends AreaEffect {
     @Override
     public void onTouch(Entity e) {
         e.healDamage(valueofchange); //Auto-heal iz de bes!
-        System.out.println("ENTITY GOT HEAL!!!");
     }
 }
