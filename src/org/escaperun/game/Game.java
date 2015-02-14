@@ -1,7 +1,7 @@
 package org.escaperun.game;
 
-import org.escaperun.game.model.Drawable;
 import org.escaperun.game.states.GameState;
+import org.escaperun.game.states.mainmenu.Exit;
 import org.escaperun.game.states.mainmenu.MainMenu;
 import org.escaperun.game.view.Decal;
 
@@ -14,7 +14,7 @@ public class Game {
     }
 
     // return false if done updating (exit)
-    public boolean update(boolean[] pressed) {
+    public void update(boolean[] pressed) {
         if (state == null) throw new RuntimeException("game has no state");
 
         GameState res = state.update(pressed);
@@ -22,8 +22,10 @@ public class Game {
             // game state changing!
             state = res;
         }
+    }
 
-        return true;
+    public boolean isOver() {
+        return state instanceof Exit;
     }
 
     public Decal[][] getRenderable() {

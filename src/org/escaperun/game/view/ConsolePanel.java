@@ -16,12 +16,14 @@ public class ConsolePanel extends JPanel {
     public static final Image[] FONT_GLYPHS = new BufferedImage[256];
     public static final Color DEFAULT_BACKGROUND = Color.BLACK;
     public static final Color DEFAULT_FOREGROUND = Color.WHITE;
+    public static final char DEFAULT_CHARACTER = '\u0000';
 
     static {
         // load font glyphs:
         BufferedImage cp437 = null;
         try {
             cp437 = ImageIO.read(new File(System.getProperty("user.dir") + "/assets/codepage437.png"));
+
             for (int i = 0; i < FONT_GLYPHS.length; i++) {
                 // i = 32*row+column (ignoring offsets)
                 // we recover row and column
@@ -81,7 +83,9 @@ public class ConsolePanel extends JPanel {
 
     public void clear(int row, int column) throws IllegalArgumentException {
         verifyBounds(row, column);
-        grid[row][column] = '\u0000';
+        grid[row][column] = DEFAULT_CHARACTER;
+        background[row][column] = DEFAULT_BACKGROUND;
+        foreground[row][column] = DEFAULT_FOREGROUND;
     }
 
     public void clear(int rowLow, int rowHigh, int columnLow, int columnHigh) throws IllegalArgumentException {

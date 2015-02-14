@@ -34,7 +34,8 @@ public class RunGame implements Runnable {
 
             boolean update = false;
             while (unprocessed >= SECONDS_PER_TICK) {
-                if (!game.update(keyboard.pressed)) {
+                game.update(keyboard.pressed);
+                if (game.isOver()) {
                     window.dispose();
                     return;
                 }

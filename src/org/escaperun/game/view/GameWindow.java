@@ -9,8 +9,8 @@ import java.awt.event.KeyListener;
 
 public class GameWindow extends JFrame {
 
-    public static final int ROWS = 50; // TODO
-    public static final int COLUMNS = 100; // TODO
+    public static final int ROWS = 80; // TODO
+    public static final int COLUMNS = 150; // TODO
 
     private Game game;
     private ConsolePanel cp;
