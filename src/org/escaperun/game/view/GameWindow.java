@@ -16,6 +16,7 @@ public class GameWindow extends JFrame {
     private ConsolePanel cp;
 
     public GameWindow(Game game, KeyListener keylistener) {
+        super("Run-Escape");
         this.game = game;
         this.cp = new ConsolePanel(ROWS, COLUMNS);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

@@ -16,10 +16,10 @@ public class MainMenu extends GameState {
     public static final int TICKS_PER_MOVEMENT = 10;
 
     private static final Option[] OPTIONS = {
-        new Option("Start Game", new Playing(new Stage(new Avatar(Occupation.SUMMONER)))),
+            new Option("Create Map", null),
+            new Option("Start Game", new Playing(new Stage(new Avatar(Occupation.SUMMONER)))),
             new Option("Load Game", new LoadGame()),
             new Option("Exit", new Exit()),
-            new Option("THE OPTION TO END ALL OPTIONS", null),
             new Option("WHATS UP THIS IS A REALLY BIG OPTION BIG", null)
     };
 

@@ -3,16 +3,17 @@ package org.escaperun.game.model.tile;
 import org.escaperun.game.model.entities.Entity;
 import org.escaperun.game.view.Decal;
 
-public class HealDamage extends AreaEffect{
+import java.awt.*;
 
-    public HealDamage(Decal decal, int heal) {
-        super(decal, heal);
+public class HealDamage extends AreaEffect {
+
+    public HealDamage(int heal) {
+        super(new Decal((char) 3, Color.BLACK, Color.RED.brighter()), heal);
     }
 
-    public void areaEffect(){
-        //TODO: Figure out implementation
-    }
-    public void onTouch(Entity e){
+    @Override
+    public void onTouch(Entity e) {
         e.healDamage(valueofchange); //Auto-heal iz de bes!
+        System.out.println("ENTITY GOT HEAL!!!");
     }
 }

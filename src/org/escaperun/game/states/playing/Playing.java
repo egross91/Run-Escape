@@ -19,29 +19,45 @@ public class Playing extends GameState {
 
     @Override
     public GameState update(boolean[] pressed) {
+        handleMovement(pressed);
+        return null;
+    }
 
+    private void handleMovement(boolean[] pressed) {
         boolean up = pressed[Keyboard.UP];
         boolean down = pressed[Keyboard.DOWN];
         boolean left = pressed[Keyboard.LEFT];
         boolean right = pressed[Keyboard.RIGHT];
-        Position avatarPos = stage.getAvatar().getPosition();
-        int nextX = avatarPos.x;
-        int nextY = avatarPos.y;
-        if (up) nextX--;
-        if (down) nextX++;
-        if (left) nextY--;
-        if (right) nextY++;
 
 
         if (ticksSince >= (stage.getAvatar().getOccupation().getMovement()*TICKS_PER_MOVEMENT)
                 && (up || down || left || right)) {
-            if (stage.moveAvatar(new Position(nextX, nextY))) {
+            boolean moved = false;
+
+            if (up) {
+                moved |= tryMove(-1, 0);
+            }
+            if (down) {
+                moved |= tryMove(1, 0);
+            }
+            if (left) {
+                moved |= tryMove(0, -1);
+            }
+            if (right) {
+                moved |= tryMove(0, 1);
+            }
+
+            if (moved) {
                 ticksSince = 0;
             }
         }
         ticksSince++;
+    }
 
-        return null;
+    private boolean tryMove(int dx, int dy) {
+        int nextX = stage.getAvatar().getPosition().x + dx;
+        int nextY = stage.getAvatar().getPosition().y + dy;
+        return stage.moveAvatar(new Position(nextX, nextY));
     }
 
     @Override

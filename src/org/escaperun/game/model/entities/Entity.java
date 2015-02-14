@@ -60,7 +60,7 @@ public abstract class Entity implements Drawable{
 
     //Used only by our "move()" method, to reset the current position to the new position.
     private void setPosition(Position oldposition){
-        this.position = new Position(oldposition.x, oldposition.y);
+        this.position = oldposition;
     }
 
     public Decal getDecal(){ return this.decal; }

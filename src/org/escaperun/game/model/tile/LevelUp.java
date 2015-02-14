@@ -3,16 +3,16 @@ package org.escaperun.game.model.tile;
 import org.escaperun.game.model.entities.Entity;
 import org.escaperun.game.view.Decal;
 
-public class LevelUp extends AreaEffect{
+import java.awt.*;
 
-    public LevelUp(Decal decal) {
-        super(decal);
+public class LevelUp extends AreaEffect {
+
+    public LevelUp() {
+        super(new Decal('*', Color.BLACK, new Color(255, 215, 0)));
     }
 
-    public void areaEffect(){
-        //TODO: Figure out implementation
-    }
     public void onTouch(Entity e){
         e.levelUp();
+        System.out.println("ENTITY GOT LEVEL UP!!!");
     }
 }

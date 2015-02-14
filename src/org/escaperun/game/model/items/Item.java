@@ -1,12 +1,13 @@
 package org.escaperun.game.model.items;
 
 import org.escaperun.game.model.Activatable;
+import org.escaperun.game.model.Touchable;
 import org.escaperun.game.model.Collidable;
 import org.escaperun.game.model.entities.Entity;
 import org.escaperun.game.model.entities.Statistics;
 import org.escaperun.game.view.Decal;
 
-public abstract class Item implements Activatable, Collidable {
+public abstract class Item implements Activatable, Touchable, Collidable {
     private Statistics stats;
     private final boolean collidable;
     private final Decal decal;
@@ -40,8 +41,4 @@ public abstract class Item implements Activatable, Collidable {
     public boolean isCollidable() {
         return this.collidable;
     }
-
-    public abstract void onTouch(Entity e);
-
-    public abstract boolean isActivatable(Entity e);
 }

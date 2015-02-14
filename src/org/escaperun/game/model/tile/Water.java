@@ -4,11 +4,8 @@ import org.escaperun.game.view.Decal;
 
 import java.awt.*;
 
-/**
- * Created by Matthew LoGalbo on 2/11/2015.
- */
 public class Water extends Terrain {
     public Water(){
-        super(new Decal('W', Color.BLACK, Color.BLUE), true);
+        super(new Decal((char) 247, Color.BLACK, new Color(0, 200, 255)), true);
     }
 }

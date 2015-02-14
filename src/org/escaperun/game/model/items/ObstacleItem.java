@@ -6,21 +6,19 @@ import org.escaperun.game.view.Decal;
 
 import java.awt.*;
 
-/**
- * Created by Eric on 2/11/2015.
- */
 public class ObstacleItem extends Item implements Drawable {
+
     public ObstacleItem() {
         super(new Decal('B', Color.BLACK, Color.DARK_GRAY), null, true);
     }
 
     @Override
-    public void onTouch(Entity e) {
-        // Swallow the function call.
+    public void doAction(Entity e) {
+
     }
 
     @Override
-    public boolean isActivatable(Entity e) {
-        return false;
+    public void onTouch(Entity e) {
+        // Swallow the function call.
     }
 }

@@ -12,7 +12,7 @@ public class Tile implements Drawable {
     private Item item;
 
     public Tile() {
-        this.terrain = new Grass();
+        this.terrain = null;
         this.areaEffect = null;
         this.item = null;
     }

@@ -1,15 +1,14 @@
 package org.escaperun.game.model;
 
 import org.escaperun.game.model.entities.Avatar;
-import org.escaperun.game.model.tile.Grass;
-import org.escaperun.game.model.tile.Tile;
+import org.escaperun.game.model.tile.*;
 import org.escaperun.game.view.Decal;
 import org.escaperun.game.view.GameWindow;
 
 import java.awt.*;
 import java.util.Random;
 
-public class Stage {
+public class Stage implements Tickable {
 
     public static final int DEFAULT_WIDTH = 50;
     public static final int DEFAULT_HEIGHT = 50;
@@ -17,8 +16,6 @@ public class Stage {
     public final Dimension dimensions;
     public final Tile[][] map;
     private Avatar avatar;
-    private final Position startPosition;
-
 
     public Stage(Avatar avatar) {
         this(new Dimension(DEFAULT_WIDTH, DEFAULT_HEIGHT), avatar, new Position(0, 0));
@@ -29,46 +26,67 @@ public class Stage {
         this.map = new Tile[dim.height][dim.width];
         for (int i = 0; i < dim.height; i++) {
             for (int j = 0; j < dim.width; j++) {
-                int rnd = RANDOM.nextInt(3);
+                map[i][j] = new Tile();
+                int rnd = RANDOM.nextInt(5);
                 if (rnd == 0) {
-                    map[i][j] = new Tile();
                     map[i][j].setTerrain(new Grass());
-                } else {
-                    map[i][j] = new Tile();
+                }
+                rnd = RANDOM.nextInt(20);
+                if (rnd == 0) {
+                    map[i][j].setTerrain(new Water());
+                }
+                rnd = RANDOM.nextInt(20);
+                if (rnd == 0 && (map[i][j].getTerrain() == null || map[i][j].getTerrain() instanceof Grass)) {
+                    int rnd2 = RANDOM.nextInt(4);
+                    AreaEffect aoe;
+                    if (rnd2 == 0) {
+                        aoe = new InstantDeath();
+                    } else if (rnd2 == 1) {
+                        aoe = new LevelUp();
+                    } else if (rnd2 == 2) {
+                        aoe = new HealDamage(100);
+                    } else {
+                        aoe = new TakeDamage(100);
+                    }
+                    map[i][j].setAreaEffect(aoe);
                 }
             }
         }
         this.avatar = avatar;
-        this.startPosition = start;
+        this.moveAvatar(start);
     }
 
     public Stage(Dimension dim, Position start) {
         this.dimensions = dim;
         this.map = new Tile[dim.height][dim.width];
-        this.startPosition = start;
+        this.moveAvatar(start);
     }
 
     public Stage(Tile[][] map, Dimension dim, Position start) {
         this.map = map;
         this.dimensions = dim;
-        this.startPosition = start;
+        this.moveAvatar(start);
+    }
+
+    @Override
+    public void tick() {
+
     }
 
     public boolean moveAvatar(Position next) {
         if (!isMovable(next))
             return false;
 
+        Tile moveTo = map[next.x][next.y];
         avatar.move(next);
-        map[next.x][next.y].onTouch(avatar);
+        if (moveTo.getAreaEffect() != null) {
+            moveTo.removeAreaEffect().onTouch(avatar);
+        }
         return true;
     }
 
     public Avatar getAvatar() {
         return avatar;
-    }
-
-    public void setTile() {
-
     }
 
     private boolean isMovable(Position pos) {
@@ -94,7 +112,6 @@ public class Stage {
         Decal[][] ret = new Decal[GameWindow.ROWS][GameWindow.COLUMNS];
         int x = avatar.getPosition().x;
         int y = avatar.getPosition().y;
-
         if (GameWindow.ROWS % 2 == 0 || GameWindow.COLUMNS % 2 == 0) throw new RuntimeException("THIS IS NOT GOOD");
         int midX = GameWindow.ROWS/2;
         int midY = GameWindow.COLUMNS/2;
