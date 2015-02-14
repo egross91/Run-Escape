@@ -16,11 +16,12 @@ public class MainMenu extends GameState {
     public static final int TICKS_PER_MOVEMENT = 10;
 
     private static final Option[] OPTIONS = {
-            new Option("Create Map", null),
-            new Option("Start Game", new Playing(new Stage(new Avatar(Occupation.SUMMONER)))),
-            new Option("Load Game", new LoadGame()),
-            new Option("Exit", new Exit()),
-            new Option("WHATS UP THIS IS A REALLY BIG OPTION BIG", null)
+        new Option("Create Map", null),
+        new Option("New Game", new Creation()),
+        new Option("Load Game", new LoadGame()),
+        new Option("Exit", new Exit()),
+        new Option("THE OPTION TO END ALL OPTIONS", null),
+        new Option("WHATS UP THIS IS A REALLY BIG OPTION BIG", null)
     };
 
     private int selectedOption = 0;
@@ -41,6 +42,7 @@ public class MainMenu extends GameState {
         boolean enter = pressed[Keyboard.ENTER];
         if (enter) {
             GameState next = OPTIONS[selectedOption].nextState;
+            pressed[Keyboard.ENTER] = false;
             return next;
         }
         return null;
