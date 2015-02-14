@@ -6,11 +6,6 @@ import org.escaperun.game.model.entities.Entity;
 import org.escaperun.game.model.entities.Statistics;
 import org.escaperun.game.view.Decal;
 
-import java.awt.*;
-
-/**
- * Created by Eric on 2/11/2015.
- */
 public abstract class Item implements Activatable, Collidable {
     private Statistics stats;
     private final boolean collidable;
@@ -20,6 +15,12 @@ public abstract class Item implements Activatable, Collidable {
         this.collidable = false;
         this.stats = null;
         this.decal = null;
+    }
+
+    public Item(Statistics stats) {
+        this.stats = stats;
+        this.decal = getDecal();
+        this.collidable = false;
     }
 
     public Item(Decal decal, Statistics stats, boolean collidable) {

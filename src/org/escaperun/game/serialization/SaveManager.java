@@ -2,10 +2,12 @@ package org.escaperun.game.serialization;
 
 import org.escaperun.game.model.Position;
 import org.escaperun.game.model.Stage;
+import org.escaperun.game.model.entities.Statistics;
+import org.escaperun.game.model.items.EquipableItem;
 import org.escaperun.game.model.items.Item;
-import org.escaperun.game.model.tile.AreaEffect;
-import org.escaperun.game.model.tile.Terrain;
-import org.escaperun.game.model.tile.Tile;
+import org.escaperun.game.model.items.ItemSlot;
+import org.escaperun.game.model.tile.*;
+import org.omg.PortableServer.REQUEST_PROCESSING_POLICY_ID;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -51,6 +53,7 @@ public class SaveManager {
                     int y = getCoord(ele, "y");
 
                     Tile tile = getTileProperties(ele);
+                    map[x][y] = tile;
                 }
             }
 
@@ -74,15 +77,66 @@ public class SaveManager {
     }
 
     private Terrain getTerrainProperties(Element node) {
-        return null;
+        Element terrain = (Element)node.getElementsByTagName("Terrain").item(0);
+        String type = getType(terrain).toUpperCase();
+
+        if (type.equals("WATER"))
+            return new Water();
+        else if (type.equals("MOUNTAIN"))
+            return new Mountain();
+
+        return new Grass();
     }
 
     private Item getItemProperties(Element node) {
-        return null;
+        try {
+            Element element = (Element)node.getElementsByTagName("Item").item(0);
+            String type = getType(element).toUpperCase();
+            Statistics stats = getStatisticsProperties(element);
+
+            // Making the assumption that we will never instantiate a TakeableItem.
+            if (type.equals("EQUIPABLEITEM")) {
+                ItemSlot slot = getItemSlot(element);
+                return new EquipableItem();
+            }
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+
+        return null; // Placeholder
     }
 
     private AreaEffect getAreaEffectProperties(Element node) {
         return null;
+    }
+
+    private Statistics getStatisticsProperties(Element node) {
+
+        return null;
+    }
+
+    private ItemSlot getItemSlot(Element node) {
+        int slot = toInt(node.getAttribute("itemslot"));
+        switch (slot) {
+            case (0):
+                return ItemSlot.HELMET;
+            case (1):
+                return ItemSlot.WEAPON;
+            case (2):
+                return ItemSlot.BOOTS;
+            case (3):
+                return ItemSlot.GLOVES;
+            case (4):
+                return ItemSlot.ARMOR;
+            default:
+                throw new IllegalArgumentException("");
+        }
+    }
+
+    private String getType(Element node) {
+        return node.getAttribute("type");
     }
 
     private int toInt(String value) {

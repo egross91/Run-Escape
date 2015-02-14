@@ -4,15 +4,17 @@ import org.escaperun.game.model.entities.Entity;
 import org.escaperun.game.model.entities.Statistics;
 import org.escaperun.game.view.Decal;
 
-/**
- * Created by Eric on 2/11/2015.
- */
 public class EquipableItem extends TakeableItem {
     //Category which an EquipableItem falls under; Choices are HELMET, WEAPON, BOOTS, GLOVES, ARMOR for now.
     private ItemSlot category = null;
 
     public EquipableItem() {
         super();
+    }
+
+    public EquipableItem(Statistics stats, ItemSlot slot) {
+        super(stats);
+        this.category = slot;
     }
 
     public EquipableItem(Decal decal, Statistics stats, ItemSlot category) {
@@ -27,6 +29,12 @@ public class EquipableItem extends TakeableItem {
 
     public ItemSlot getCategory(){
         return this.category; //Returns the category (ItemSlot) where the item should go to.
+    }
+
+    @Override
+    public Decal getDecal() {
+        // TODO: Return the decal based on the ItemSlot enum of the Item.
+        return null;
     }
 
     @Override

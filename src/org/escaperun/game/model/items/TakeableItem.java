@@ -13,6 +13,10 @@ public class TakeableItem extends Item {
         super();
     }
 
+    public TakeableItem(Statistics stats) {
+        super(stats);
+    }
+
     public TakeableItem(Decal decal, Statistics stats) {
         super(decal, stats, false);
     }

@@ -1,12 +1,19 @@
 package org.escaperun.game.model.items;
 
-/**
- * Created by Jeff on 2015/02/11 (011).
- */
 public enum ItemSlot {
-    HELMET,
-    WEAPON,
-    BOOTS,
-    GLOVES,
-    ARMOR;
+    HELMET(0),
+    WEAPON(1),
+    BOOTS(2),
+    GLOVES(3),
+    ARMOR(4);
+
+    private final int value;
+
+    ItemSlot(int v) {
+        this.value = v;
+    }
+
+    public int getValue() {
+        return value;
+    }
 }
