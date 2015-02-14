@@ -45,6 +45,10 @@ public abstract class Entity implements Drawable{
         stats.setStat(se, valueofchange);
     }
 
+    public Occupation getOccupation() {
+        return occupation;
+    }
+
     //Return our position.
     public Position getPosition(){ return this.position; }
 

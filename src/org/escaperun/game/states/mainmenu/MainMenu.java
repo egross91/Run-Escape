@@ -1,7 +1,11 @@
 package org.escaperun.game.states.mainmenu;
 
 import org.escaperun.game.Keyboard;
+import org.escaperun.game.model.Stage;
+import org.escaperun.game.model.entities.Avatar;
+import org.escaperun.game.model.entities.Occupation;
 import org.escaperun.game.states.GameState;
+import org.escaperun.game.states.Option;
 import org.escaperun.game.states.loading.LoadGame;
 import org.escaperun.game.states.playing.Playing;
 import org.escaperun.game.view.Decal;
@@ -12,7 +16,7 @@ public class MainMenu extends GameState {
     public static final int TICKS_PER_MOVEMENT = 10;
 
     private static final Option[] OPTIONS = {
-        new Option("Start Game", new Playing()),
+        new Option("Start Game", new Playing(new Stage(new Avatar(Occupation.SUMMONER)))),
             new Option("Load Game", new LoadGame()),
             new Option("Exit", new Exit()),
             new Option("THE OPTION TO END ALL OPTIONS", null),

@@ -56,6 +56,7 @@ public class Tile implements Drawable {
     public Decal getDecal() {
         if (item != null) return item.getDecal();
         if (areaEffect != null) return areaEffect.getDecal();
-        return terrain.getDecal();
+        if (terrain != null) return terrain.getDecal();
+        return null;
     }
 }

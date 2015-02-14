@@ -1,8 +1,6 @@
-package org.escaperun.game.states.mainmenu;
+package org.escaperun.game.states;
 
-import org.escaperun.game.states.GameState;
 import org.escaperun.game.view.Decal;
-import org.escaperun.game.view.GameWindow;
 
 import java.awt.*;
 

@@ -12,7 +12,7 @@ import java.awt.*;
 public class Avatar extends Entity{
 
     public Avatar(Occupation occupation){
-        super(occupation, 3, new Decal('@', Color.BLACK, occupation.getColor()), new Position(1,1), new Inventory(), new Equipment());
+        super(occupation, 3, new Decal('@', Color.BLACK, occupation.getColor()), new Position(0, 0), new Inventory(), new Equipment());
         /*
         NOTE: For avatar (and other entities), we can have the direction the character moved flash briefly
         as soon as he moves, then go back to its static decal (for iteration 2; probably not feasible for this
