@@ -20,10 +20,11 @@ public class Statistics{
         statsmap.put(StatEnum.HARDINESS, occupation.getHardiness());//get initial HARD stat from whatever occupation was
         statsmap.put(StatEnum.MOVEMENT, occupation.getMovement());//get initial MOV stat from whatever occupation was
         statsmap.put(StatEnum.NUMOFLIVES, numoflives);//NumberOfLives is arg passed in (usu. 3 for avi, 1 for else)
-        this.getLevel();//Derived level initially from started EXP (0).
-        this.getOffensiveRate();//Calculate OR from the method provided initially.
-        this.getDefensiveRate();//Calculate DR from the method provided initially.
-        this.getArmorRate();//Calculate AR from the method provided initially.
+        getLevel();//Derived level initially from started EXP (0).
+        getOffensiveRate();//Calculate OR from the method provided initially.
+        getDefensiveRate();//Calculate DR from the method provided initially.
+        getArmorRate();//Calculate AR from the method provided initially.
+        getMaxHP(); //Calculate HP from the method provided initially.
 
         currentstats.putAll(statsmap); //Initialize currentstats with a "copy" of our base stats.
     }
@@ -44,7 +45,7 @@ public class Statistics{
         statsmap.put(StatEnum.MOVEMENT, 0);//get initial MOV stat
         statsmap.put(StatEnum.NUMOFLIVES, 0);//NumberOfLives
         statsmap.put(StatEnum.LEVEL, 0);//Derived level initially from started EXP (0).
-//        statsmap.put(StatEnum.EXP, 0);//EXP always starts at level zero (or one if we choose to do it that way).
+        statsmap.put(StatEnum.EXP, 0);//EXP always starts at level zero (or one if we choose to do it that way).
 //        statsmap.put(StatEnum.TEMPSTR, 0);//Temporary STR = 0 at start.
 //        statsmap.put(StatEnum.TEMPAGI, 0);//Temporary AGI = 0 at start.
 //        statsmap.put(StatEnum.TEMPINT, 0);//Temporary INT = 0 at start.
@@ -161,5 +162,6 @@ public class Statistics{
     {
         statsmap.put(se, valueofchange);
     }
+
 }
 
