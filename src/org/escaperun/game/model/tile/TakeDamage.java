@@ -13,6 +13,5 @@ public class TakeDamage extends AreaEffect{
 
     public void onTouch(Entity e){
         e.takeDamage(valueofchange);
-        System.out.println("ENTITY GOT TAKE DAMAGE!!!");
     }
 }
