@@ -43,8 +43,14 @@ public class Playing extends GameState {
             return false;
         }
 
-<<<<<<< HEAD
-=======
+        if(inv && !invOpen){
+            System.out.println("open da inv");
+            invOpen = true;
+        }
+        else if(inv && invOpen){
+            System.out.println("closei da inv");
+            invOpen = false;
+        }
 
         if(inv && !invOpen){
             System.out.println("open da inv");
@@ -55,7 +61,6 @@ public class Playing extends GameState {
             invOpen = false;
         }
 
->>>>>>> a6e6e8d00af7c64dc855d4b0b80484f455e2585c
         if (ticksSince >= (stage.getAvatar().getOccupation().getMovement()*TICKS_PER_MOVEMENT)
                 && (up || down || left || right)) {
             boolean moved = false;
