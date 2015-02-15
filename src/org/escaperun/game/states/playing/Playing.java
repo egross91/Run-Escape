@@ -54,7 +54,7 @@ public class Playing extends GameState {
         boolean esc = pressed[Keyboard.ESCAPE];
 
         if (esc) {
-            Creation.saveManager.saveCurrentGame(stage, "LOL");
+            Creation.saveManager.saveCurrentGame(stage, stage.getAvatar(), "LOL");
             return false;
         }
 

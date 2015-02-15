@@ -13,7 +13,6 @@
 <Terrain type="grass"/>
 </Tile>
 <Tile x="0" y="4">
-<AreaEffect type="takedamage">2</AreaEffect>
 <Terrain type="grass"/>
 </Tile>
 <Tile x="0" y="5">
@@ -353,30 +352,6 @@
 <Tile x="4" y="15">
 <Terrain type="water"/>
 </Tile>
-<<<<<<< Updated upstream
-<Tile x="1" y="1">
-<Item type="obstacle">
-<Statistics>
-<Level>0</Level>
-<DefenseRate>0</DefenseRate>
-<NumOfLives>0</NumOfLives>
-<Movement>0</Movement>
-<MaxHP>0</MaxHP>
-<Strength>0</Strength>
-<Hardiness>0</Hardiness>
-<Exp>0</Exp>
-<Intellect>0</Intellect>
-<ArmorRate>0</ArmorRate>
-<OffenseRate>0</OffenseRate>
-<MaxMP>0</MaxMP>
-<Agility>0</Agility>
-</Statistics>
-</Item>
-<Terrain type="grass"/>
-</Tile>
-<Tile x="1" y="2">
-<Item itemslot="0" type="equipable"/>
-=======
 <Tile x="4" y="16">
 <Terrain type="water"/>
 </Tile>
@@ -456,7 +431,6 @@
 <Terrain type="grass"/>
 </Tile>
 <Tile x="5" y="0">
->>>>>>> Stashed changes
 <Terrain type="grass"/>
 </Tile>
 <Tile x="5" y="1"/>
@@ -493,30 +467,6 @@
 <Tile x="5" y="26">
 <Terrain type="water"/>
 </Tile>
-<<<<<<< Updated upstream
-<Tile x="1" y="4">
-<AreaEffect type="healdamage">1</AreaEffect>
-<Terrain type="grass"/>
-</Tile>
-<Tile x="2" y="0">
-<Item type="oneshot">
-<Statistics>
-<Level>0</Level>
-<DefenseRate>0</DefenseRate>
-<NumOfLives>1</NumOfLives>
-<Movement>5</Movement>
-<MaxHP>50</MaxHP>
-<Strength>5</Strength>
-<Hardiness>5</Hardiness>
-<Exp>0</Exp>
-<Intellect>5</Intellect>
-<ArmorRate>0</ArmorRate>
-<OffenseRate>0</OffenseRate>
-<MaxMP>50</MaxMP>
-<Agility>3</Agility>
-</Statistics>
-</Item>
-=======
 <Tile x="5" y="27"/>
 <Tile x="5" y="28"/>
 <Tile x="5" y="29"/>
@@ -3260,7 +3210,6 @@
 <Terrain type="grass"/>
 </Tile>
 <Tile x="49" y="45">
->>>>>>> Stashed changes
 <Terrain type="grass"/>
 </Tile>
 <Tile x="49" y="46">

@@ -11,8 +11,9 @@ import org.escaperun.game.view.GameWindow;
 public class LoadGame extends GameState {
     private static final int TICKS_PER_MOVEMENT = 10;
 
-    private static final Option[] OPTIONS = new Option[]{
-            new Option("n00b", new Playing(Creation.saveManager.loadSavedGame("LOL")))
+    private static final Option[] OPTIONS = {
+            new Option("n00b", new Playing(Creation.saveManager.loadSavedGame("LOL"))),
+            new Option("DemoMap", new Playing(Creation.saveManager.loadSavedGame("Adam")))
     };
 
     private int selectedOption = 0;
@@ -25,8 +26,12 @@ public class LoadGame extends GameState {
 
         int nextIdx = selectedOption;
 
-        if (ticksSince >= TICKS_PER_MOVEMENT && (up || down)) {
+        if (up) nextIdx--;
+        if (down) nextIdx++;
+
+        if (nextIdx >= 0 && nextIdx < OPTIONS.length && ticksSince >= TICKS_PER_MOVEMENT && (up || down)) {
             selectedOption = nextIdx;
+            ticksSince = 0;
         }
         ++ticksSince;
 
@@ -42,28 +47,21 @@ public class LoadGame extends GameState {
 
     @Override
     public Decal[][] getRenderable() {
-        // TODO: Make this center.
         Decal[][] ret = new Decal[GameWindow.ROWS][GameWindow.COLUMNS];
-        int word_length = OPTIONS[0].text.length();
-        int x = (GameWindow.COLUMNS - word_length)/4;
-        int y = GameWindow.ROWS/2 - 2;
-        Decal[] toblit;
-        for (int i = 0; i < OPTIONS.length-1; i++) {
-            if (i == selectedOption)
+        for (int i = 0; i < OPTIONS.length; i++) {
+            int x = GameWindow.ROWS/OPTIONS.length-2+OPTIONS.length*i;
+            int y = GameWindow.COLUMNS/2-OPTIONS[i].text.length()/2;
+            Decal[] toblit;
+            if (selectedOption == i) {
                 toblit = OPTIONS[i].selected[0];
-            else
+            } else {
                 toblit = OPTIONS[i].unselected[0];
-
-            for (int j = 0; j < OPTIONS[i].text.length(); j++)
-                ret[y][x+j] = toblit[j];
-            x += (GameWindow.COLUMNS - word_length)/4 + OPTIONS[i].text.length();
+            }
+            for (int j = 0; j < OPTIONS[i].text.length(); j++) {
+                ret[x][y+j] = toblit[j];
+            }
         }
-
-        y = GameWindow.ROWS/2 + 1;
-        toblit = OPTIONS[0].selected[0];
-        for (int i = 0; i < toblit.length; i++)
-            ret[y][x+i] = toblit[i];
-
+        // TODO: Make beautiful animations
         return ret;
     }
 }
