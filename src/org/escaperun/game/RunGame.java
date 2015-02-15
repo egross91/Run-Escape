@@ -25,6 +25,7 @@ public class RunGame implements Runnable {
         boolean running = true;
         long last = System.currentTimeMillis(); // time from last tick
         double unprocessed = 0.0; // unprocessed time
+
         while (running) {
             long current = System.currentTimeMillis();
             long elapsed = current-last; // time between last

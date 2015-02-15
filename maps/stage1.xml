@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<Stage rows="2" cols="4" startX="1" startY="1">
+    <Tile x="0" y="0">
+        <Terrain type="grass"></Terrain>
+    </Tile>
+    <Tile x="0" y="1">
+        <Terrain type="grass"></Terrain>
+    </Tile>
+    <Tile x="1" y="0">
+        <Terrain type="mountain"></Terrain>
+    </Tile>
+    <Tile x="1" y="1">
+        <Terrain type="grass"></Terrain>
+        <Item type="obstacle"></Item>
+    </Tile>
+    <Tile x="0" y="1">
+        <Terrain type="grass"></Terrain>
+    </Tile>
+    <Tile x="0" y="2">
+        <Terrain type="grass"></Terrain>
+        <AreaEffect type="LEVELUP">1</AreaEffect>
+    </Tile>
+    <Tile x="0" y="3">
+        <Terrain type=""></Terrain>
+    </Tile>
+    <Tile x="1" y="2">
+        <Terrain type="grass"></Terrain>
+        <Item type="equipable" itemslot="0"></Item>
+    </Tile>
+    <Tile x="1" y="3">
+        <Terrain type="water"></Terrain>
+    </Tile>
+</Stage>

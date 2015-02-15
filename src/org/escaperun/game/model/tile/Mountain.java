@@ -1,12 +1,26 @@
 package org.escaperun.game.model.tile;
 
 import org.escaperun.game.view.Decal;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
 
 import java.awt.*;
 
 public class Mountain extends Terrain{
 
     public Mountain(){
-        super(new Decal('\u26F0', Color.BLACK, Color.LIGHT_GRAY), true);
+        super(new Decal('M', Color.BLACK, Color.LIGHT_GRAY), true);
+    }
+
+    public String getTypeToString() {
+        return "mountain";
+    }
+
+    @Override
+    public Element save(Document dom) {
+        Element mountainTerrain = super.save(dom);
+        mountainTerrain.setAttribute("type", getTypeToString());
+
+        return mountainTerrain;
     }
 }

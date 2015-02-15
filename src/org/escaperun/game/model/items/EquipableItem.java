@@ -3,6 +3,8 @@ package org.escaperun.game.model.items;
 import org.escaperun.game.model.entities.Entity;
 import org.escaperun.game.model.entities.Statistics;
 import org.escaperun.game.view.Decal;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
 
 public class EquipableItem extends TakeableItem {
     //Category which an EquipableItem falls under; Choices are HELMET, WEAPON, BOOTS, GLOVES, ARMOR for now.
@@ -33,8 +35,7 @@ public class EquipableItem extends TakeableItem {
 
     @Override
     public Decal getDecal() {
-        getCategory().getDecal();
-        return null;
+        return getCategory().getDecal();
     }
 
     @Override
@@ -46,5 +47,18 @@ public class EquipableItem extends TakeableItem {
     public void onTouch(Entity e) {
         if(e.addItemToInventory(this));
         // TODO: Add functionality based upon whether or not this add to inventory was successful (like keeping it on the Tile if not)
+    }
+
+    public String getTypeToString() {
+        return "equipable";
+    }
+
+    @Override
+    public Element save(Document dom) {
+        Element itemElement = super.save(dom);
+        itemElement.setAttribute("type", getTypeToString());
+        itemElement.setAttribute("itemslot", Integer.toString(category.getItemSlot()));
+
+        return itemElement;
     }
 }

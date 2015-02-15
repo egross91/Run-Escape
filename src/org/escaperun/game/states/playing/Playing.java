@@ -3,8 +3,9 @@ package org.escaperun.game.states.playing;
 import org.escaperun.game.Keyboard;
 import org.escaperun.game.model.Position;
 import org.escaperun.game.model.Stage;
-import org.escaperun.game.model.entities.Statistics;
 import org.escaperun.game.states.GameState;
+import org.escaperun.game.states.mainmenu.Creation;
+import org.escaperun.game.states.mainmenu.Exit;
 import org.escaperun.game.view.Decal;
 
 import java.awt.*;
@@ -22,15 +23,22 @@ public class Playing extends GameState {
 
     @Override
     public GameState update(boolean[] pressed) {
-        handleMovement(pressed);
-        return null;
+        if (handleMovement(pressed))
+            return null;
+        return new Exit();
     }
 
-    private void handleMovement(boolean[] pressed) {
+    private boolean handleMovement(boolean[] pressed) {
         boolean up = pressed[Keyboard.UP];
         boolean down = pressed[Keyboard.DOWN];
         boolean left = pressed[Keyboard.LEFT];
         boolean right = pressed[Keyboard.RIGHT];
+        boolean esc = pressed[Keyboard.ESCAPE];
+
+        if (esc) {
+            Creation.saveManager.saveCurrentGame(stage);
+            return false;
+        }
 
 
         if (ticksSince >= (stage.getAvatar().getOccupation().getMovement()*TICKS_PER_MOVEMENT)
@@ -55,6 +63,8 @@ public class Playing extends GameState {
             }
         }
         ticksSince++;
+
+        return true;
     }
 
     private boolean tryMove(int dx, int dy) {
@@ -72,92 +82,169 @@ public class Playing extends GameState {
 
 
     private Decal[][] createView(){
-        int statusRow, row, column, testRows = 0;
+        int statusRow, row, collumn, testRows = 0;
 
         Decal[][] gottenStage = stage.getRenderable();
 
         row = gottenStage.length;
-        column = gottenStage[0].length;
+        collumn = gottenStage[0].length;
         testRows = row;
 
         row = row + row%5;
         statusRow = row/5;
 
-        Decal[][] view = new Decal[statusRow + testRows][column];  // new 2D array with space for both viewports
+        Decal[][] view = new Decal[statusRow + testRows][collumn];  // new 2D array with space for both viewports
 
+        //if(stage.avatar.inv open)
         if(false){
             for(int x = 0; x < row; x++){
 
-                for(int y = 0; y < column; y++){
+                for(int y = 0; y < collumn; y++){
 
                 }
             }
         }
-        /*else if(stage.avatar.inv open) {
-            //here is where we would display an inventory, IF WE HAD ANY
-            //my thoughts are that there is going to be redundant code here & in the status view
-            //but I digress
-
-            //the edges of the window are gonna be '+'
-            Decal inventory_corner = new Decal('+', Color.GREEN, Color.BLACK);
-            view[testRows-statusRow][0] = inventory_corner;
-            view[testRows-statusRow][column-1] = inventory_corner;
-            view[testRows-1][0] = inventory_corner;
-            view[testRows-1][column-1] = inventory_corner;
-
-            //the rest of the border is '-'
-            Decal inventory_edge = new Decal('-', Color.GREEN, Color.BLACK);
-            for(int x = (testRows-statusRow); x < testRows; ++x){
-                for(int y = 0; y<column; ++y){
-                    if ((x == testRows-statusRow) && (y != 0) && (y != column-1)) {
-                        view[x][y] = inventory_edge;
-                    }
-                    else if ((x == testRows-1) && (y != 0) && (y != column-1)) {
-                        view[x][y] = inventory_edge;
-                    }
-                    else if ((y == 0) || (y == column-1)) {
-                        view[x][y] = inventory_edge;
-                    }
-                    else
-                        view[x][y] = new Decal(';', Color.BLACK, Color.GREEN);
-                }
-            }
-        }*/
         //else show status viewport
         else{
-            String stats = this.stage.getAvatar().getStats().toString();
+            String stats = "";
             int col0, col1, col2,row0,row1,row2,row3,row4 = 0;
-            col0 = column/4;
+            int workCollumn = collumn - collumn%4;
+
+            col0 = workCollumn/4;
             col1 = 2*col0;
             col2 = 3*col0;
 
 
-            for(int xx = 0; xx < (testRows - statusRow); xx++){ //prob gonna display this stuff no matter what
-                for(int yy = 0; yy < column; yy++){
+
+
+            for(int xx = 0; xx < (testRows - statusRow); xx++){
+                for(int yy = 0; yy < collumn; yy++){
                     view[xx][yy] = gottenStage[xx][yy];
                 }
             }
-            Decal inventory_corner = new Decal('+', Color.GREEN, Color.BLACK);
-            view[testRows-statusRow][0] = inventory_corner;
-            view[testRows-statusRow][column-1] = inventory_corner;
-            view[testRows-1][0] = inventory_corner;
-            view[testRows-1][column-1] = inventory_corner;
 
-            //the rest of the border is '-'
-            Decal inventory_edge = new Decal('-', Color.GREEN, Color.BLACK);
-            for(int x = (testRows-statusRow); x < testRows; ++x){
-                for(int y = 0; y<column; ++y){
-                    if ((x == testRows-statusRow) && (y != 0) && (y != column-1)) {
-                        view[x][y] = inventory_edge;
+            for(int x3 = (testRows-statusRow); x3 < testRows; x3++){
+                for(int y3 = 0; y3<collumn; y3++){
+                    if(x3 == (testRows-statusRow)){
+                        if(y3 == (col0 - 5)){ //print Level
+                            stats = stage.getAvatar().getStats().leveltoString();
+                            for(int i = 0; i <stats.length(); i++){
+                                view[x3][y3] = new Decal(stats.charAt(i), Color.BLACK, Color.WHITE);
+                                y3++;
+                            }
+                        }
+                        else if(y3 == (col1 - 6)){ //print health
+                            stats = stage.getAvatar().getStats().healthtoString();
+                            for(int i = 0; i <stats.length(); i++){
+                                view[x3][y3] = new Decal(stats.charAt(i), Color.BLACK, Color.WHITE);
+                                y3++;
+                            }
+                        }
+                        else if(y3 == (col2 - 8)){ // print strength
+                            stats = stage.getAvatar().getStats().strengthtoString();
+                            for(int i = 0; i <stats.length(); i++){
+                                view[x3][y3] = new Decal(stats.charAt(i), Color.BLACK, Color.WHITE);
+                                y3++;
+                            }
+                        }
+                        else{
+                            view[x3][y3] = null;
+                        }
                     }
-                    else if ((x == testRows-1) && (y != 0) && (y != column-1)) {
-                        view[x][y] = inventory_edge;
+                    else if(x3 == (testRows - statusRow + 1)){
+                        if(y3 == (col0 - 5)){ //print Lives
+                            stats = stage.getAvatar().getStats().livestoString();
+                            for(int i = 0; i <stats.length(); i++){
+                                view[x3][y3] = new Decal(stats.charAt(i), Color.BLACK, Color.WHITE);
+                                y3++;
+                            }
+                        }
+                        else if(y3 == (col1 - 4)){ //print Mana
+                            stats = stage.getAvatar().getStats().manatoString();
+                            for(int i = 0; i <stats.length(); i++){
+                                view[x3][y3] = new Decal(stats.charAt(i), Color.BLACK, Color.WHITE);
+                                y3++;
+                            }
+                        }
+                        else if(y3 == (col2 - 7)){ // print agility
+                            stats = stage.getAvatar().getStats().agilitytoString();
+                            for(int i = 0; i <stats.length(); i++){
+                                view[x3][y3] = new Decal(stats.charAt(i), Color.BLACK, Color.WHITE);
+                                y3++;
+                            }
+                        }
+                        else{
+                            view[x3][y3] = null;
+                        }
                     }
-                    else if ((y == 0) || (y == column-1)) {
-                        view[x][y] = inventory_edge;
+                    else if(x3 == (testRows - statusRow + 2)){
+                        if(y3 == (col0 - 3)){ //print EXP
+                            stats = stage.getAvatar().getStats().exptoString();
+                            for(int i = 0; i <stats.length(); i++){
+                                view[x3][y3] = new Decal(stats.charAt(i), Color.BLACK, Color.WHITE);
+                                y3++;
+                            }
+                        }
+                        else if(y3 == (col1 - 7)){ //print Offense
+                            stats = stage.getAvatar().getStats().offensetoString();
+                            for(int i = 0; i <stats.length(); i++){
+                                view[x3][y3] = new Decal(stats.charAt(i), Color.BLACK, Color.WHITE);
+                                y3++;
+                            }
+                        }
+                        else if(y3 == (col2 - 9)){ // print Intellect
+                            stats = stage.getAvatar().getStats().intellecttoString();
+                            for(int i = 0; i <stats.length(); i++){
+                                view[x3][y3] = new Decal(stats.charAt(i), Color.BLACK, Color.WHITE);
+                                y3++;
+                            }
+                        }
+                        else{
+                            view[x3][y3] = null;
+                        }
                     }
-                    else
-                        view[x][y] = new Decal(';', Color.BLACK, Color.GREEN);
+                    else if(x3 == (testRows - statusRow + 3)){
+                        if(y3 == (col1 - 7)){ //print Defense
+                            stats = stage.getAvatar().getStats().defensetoString();
+                            for(int i = 0; i <stats.length(); i++){
+                                view[x3][y3] = new Decal(stats.charAt(i), Color.BLACK, Color.WHITE);
+                                y3++;
+                            }
+                        }
+                        else if(y3 == (col2 - 9)){ // print hardiness
+                            stats = stage.getAvatar().getStats().hardinesstoString();
+                            for(int i = 0; i <stats.length(); i++){
+                                view[x3][y3] = new Decal(stats.charAt(i), Color.BLACK, Color.WHITE);
+                                y3++;
+                            }
+                        }
+                        else{
+                            view[x3][y3] = null;
+                        }
+                    }
+                    else if(x3 == (testRows - statusRow + 4)){
+                        if(y3 == (col1 - 6)){ //print Armour
+                            stats = stage.getAvatar().getStats().armourtoString();
+                            for(int i = 0; i <stats.length(); i++){
+                                view[x3][y3] = new Decal(stats.charAt(i), Color.BLACK, Color.WHITE);
+                                y3++;
+                            }
+                        }
+                        else if(y3 == (col2 - 8)){ // print Movement
+                            stats = stage.getAvatar().getStats().movementtoString();
+                            for(int i = 0; i <stats.length(); i++){
+                                view[x3][y3] = new Decal(stats.charAt(i), Color.BLACK, Color.WHITE);
+                                y3++;
+                            }
+                        }
+                        else{
+                            view[x3][y3] = null;
+                        }
+                    }
+                    else {
+                        view[x3][y3] = null;
+                    }
+                    //view[x3][y3] = new Decal('%', Color.LIGHT_GRAY, Color.blue);
                 }
             }
         }

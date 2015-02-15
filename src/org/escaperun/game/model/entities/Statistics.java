@@ -1,10 +1,13 @@
 package org.escaperun.game.model.entities;
 
 import org.escaperun.game.model.items.EquipableItem;
+import org.escaperun.game.serialization.Savable;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
 
 import java.util.*;
 
-public class Statistics{
+public class Statistics implements Savable {
 
     protected Map<StatEnum, Integer> statsmap = new HashMap<StatEnum, Integer>();
     protected Map<StatEnum, Integer> currentstats = new HashMap<StatEnum, Integer>(); //ONLY USED FOR AVATAR/ENTITY FOR TEMPORARY STATS. Do not use for Items; instead, use statsmap var.
@@ -230,6 +233,20 @@ public class Statistics{
     public String movementtoString() {
         String stat ="Movement: " + currentstats.get(StatEnum.MOVEMENT);
         return stat;
+    }
+
+    @Override
+    public Element save(Document dom) {
+        Element statsElement = dom.createElement("Statistics");
+        for (Map.Entry<StatEnum, Integer> stat : statsmap.entrySet()) {
+            StatEnum statEnum = stat.getKey();
+            Element currentStat = dom.createElement(statEnum.toString());
+            currentStat.setTextContent(Integer.toString(stat.getValue()));
+
+            statsElement.appendChild(currentStat);
+        }
+
+        return statsElement;
     }
 }
 

@@ -3,11 +3,14 @@ package org.escaperun.game.model.items;
 import org.escaperun.game.model.Activatable;
 import org.escaperun.game.model.Touchable;
 import org.escaperun.game.model.Collidable;
-import org.escaperun.game.model.entities.Entity;
 import org.escaperun.game.model.entities.Statistics;
+import org.escaperun.game.serialization.Savable;
 import org.escaperun.game.view.Decal;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
 
-public abstract class Item implements Activatable, Touchable, Collidable {
+
+public abstract class Item implements Activatable, Touchable, Collidable, Savable {
     private Statistics stats;
     private final boolean collidable;
     private final Decal decal;
@@ -20,7 +23,7 @@ public abstract class Item implements Activatable, Touchable, Collidable {
 
     public Item(Statistics stats) {
         this.stats = stats;
-        this.decal = getDecal();
+        this.decal = null;
         this.collidable = false;
     }
 
@@ -40,5 +43,15 @@ public abstract class Item implements Activatable, Touchable, Collidable {
 
     public boolean isCollidable() {
         return this.collidable;
+    }
+
+    public Element save(Document dom) {
+        Element itemElement = dom.createElement("Item");
+        if (stats != null) {
+            Element statsElement = stats.save(dom);
+            itemElement.appendChild(statsElement);
+        }
+
+        return itemElement;
     }
 }

@@ -1,6 +1,8 @@
 package org.escaperun.game.model.tile;
 
 import org.escaperun.game.view.Decal;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
 
 import java.awt.*;
 import java.util.Random;
@@ -27,5 +29,17 @@ public class Grass extends Terrain {
             return Color.GREEN.brighter().brighter();
         }
         return null;
+    }
+
+    public String getTypeToString() {
+        return "grass";
+    }
+
+    @Override
+    public Element save(Document dom) {
+        Element grassTerrain = super.save(dom);
+        grassTerrain.setAttribute("type", getTypeToString());
+
+        return grassTerrain;
     }
 }
