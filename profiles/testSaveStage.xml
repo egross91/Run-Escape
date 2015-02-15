@@ -34,7 +34,6 @@
 <Terrain type="grass"/>
 </Tile>
 <Tile x="1" y="2">
-<Item itemslot="0" type="equipable"/>
 <Terrain type="grass"/>
 </Tile>
 <Tile x="1" y="3">
