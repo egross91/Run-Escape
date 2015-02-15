@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<Stage cols="5" rows="3" startX="1" startY="1">
+<Tile x="0" y="0">
+<Terrain type="grass"/>
+</Tile>
+<Tile x="0" y="1">
+<Terrain type="grass"/>
+</Tile>
+<Tile x="0" y="2">
+<Terrain type="grass"/>
+</Tile>
+<Tile x="0" y="3"/>
+<Tile x="0" y="4">
+<Terrain type="grass"/>
+</Tile>
+<Tile x="1" y="0">
+<Terrain type="mountain"/>
+</Tile>
+<Tile x="1" y="1">
+<Item type="obstacle">
+<Statistics>
+<Hardiness>0</Hardiness>
+<Movement>0</Movement>
+<Intellect>0</Intellect>
+<Level>0</Level>
+<DefenseRate>0</DefenseRate>
+<NumOfLives>0</NumOfLives>
+<Exp>0</Exp>
+<ArmorRate>0</ArmorRate>
+<MaxHP>0</MaxHP>
+<Strength>0</Strength>
+<MaxMP>0</MaxMP>
+<OffenseRate>0</OffenseRate>
+<Agility>0</Agility>
+</Statistics>
+</Item>
+<Terrain type="grass"/>
+</Tile>
+<Tile x="1" y="2">
+<Terrain type="grass"/>
+</Tile>
+<Tile x="1" y="3">
+<Terrain type="water"/>
+</Tile>
+<Tile x="1" y="4">
+<Terrain type="grass"/>
+</Tile>
+<Tile x="2" y="0">
+<Terrain type="grass"/>
+</Tile>
+<Tile x="2" y="1">
+<Terrain type="grass"/>
+</Tile>
+<Tile x="2" y="2">
+<Terrain type="grass"/>
+</Tile>
+<Tile x="2" y="3">
+<Terrain type="grass"/>
+</Tile>
+<Tile x="2" y="4">
+<Terrain type="grass"/>
+</Tile>
+</Stage>
