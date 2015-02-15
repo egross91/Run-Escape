@@ -100,7 +100,7 @@ public class Statistics implements Savable {
             currentstats.put(StatEnum.CURRENTHP, 0);
             System.out.println("WE ARE DEAD!!!");
             isGameOver();
-            System.out.println("Num of lives left: "+statsmap.get(StatEnum.NUMOFLIVES));
+            System.out.println("Num of lives left: " + statsmap.get(StatEnum.NUMOFLIVES));
             return true;
         }
     }
@@ -127,14 +127,31 @@ public class Statistics implements Savable {
 
     protected void addStats(Statistics itemstat) {
         Set<Map.Entry<StatEnum, Integer>> entries = itemstat.statsmap.entrySet();
+        System.out.println(entries);
         Iterator<Map.Entry<StatEnum, Integer>> iterator = entries.iterator();
 
         while(iterator.hasNext())
         {
             Map.Entry<StatEnum, Integer> entry = iterator.next();
             currentstats.put(entry.getKey(), (entry.getValue() + this.currentstats.get(entry.getKey())));
-            //Above statement: Put the new value at a certain key got from the entry, the current value found in our statsmap + the new value found in the entry.
+            //Above statement: Put the new value at a certain key got from the entry, the current value found in our CURRENT STATS + the new value found in the entry.
+            //This one is for equipments only, since those are temporary.
         }
+    }
+
+    protected void addBaseStats(Statistics itemstat){
+        Set<Map.Entry<StatEnum, Integer>> entries = itemstat.statsmap.entrySet();
+        Iterator<Map.Entry<StatEnum, Integer>> iterator = entries.iterator();
+
+        while(iterator.hasNext())
+        {
+            Map.Entry<StatEnum, Integer> entry = iterator.next();
+            statsmap.put(entry.getKey(), (entry.getValue() + this.statsmap.get(entry.getKey())));
+            //Above statement: Put the new value at a certain key got from the entry, the current value found in our statsmap + the new value found in the entry.
+            if(entry.getValue() != 0)
+                System.out.println(entry.getKey()+" was boosted by "+entry.getValue()+"!");
+        }
+
     }
 
     protected int getLevel() {

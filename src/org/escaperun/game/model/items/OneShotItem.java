@@ -27,7 +27,7 @@ public class OneShotItem extends Item {
 
     @Override
     public void onTouch(Entity e) {
-        // TODO: Apply the items stat changing effects to Entity.
+        e.getHitWithItem(this);
     }
 
     public String getTypeToString() {

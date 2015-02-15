@@ -9,6 +9,7 @@ import org.escaperun.game.model.entities.StatEnum;
 import org.escaperun.game.model.entities.Statistics;
 import org.escaperun.game.model.items.*;
 import org.escaperun.game.model.tile.*;
+import org.escaperun.game.view.Decal;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import org.w3c.dom.Node;
@@ -31,7 +32,7 @@ public class SaveManager {
     private final String MAPS_DIRECTORY = "/maps/";
 
     // TODO: Hook into this and allow for the 'stage' to be saved.
-    public boolean saveCurrentGame(Stage stage) {
+    public boolean saveCurrentGame(Stage stage, String playerName) {
         Dimension dimensions = stage.dimensions;
         Position start = stage.start;
         Tile[][] savables = stage.map;
@@ -56,7 +57,11 @@ public class SaveManager {
         xmlDom.appendChild(root);
         try {
             Transformer transformer = TransformerFactory.newInstance().newTransformer();
-            File saveFile = new File(System.getProperty("user.dir") + PROFILE_DIRECTORY + "testSaveStage.xml");
+            File saveFile = new File(System.getProperty("user.dir") + PROFILE_DIRECTORY + "/" + playerName + "/testSaveStage.xml");
+            if (!saveFile.exists()) {
+                saveFile.mkdir();
+            }
+
             DOMSource source = new DOMSource(xmlDom);
             StreamResult result = new StreamResult(saveFile);
 
@@ -72,20 +77,30 @@ public class SaveManager {
     public Stage loadSavedGame(String playerName) {
         // TODO: Load the Avatar and Save the avatar to/from file.
 //        Avatar avatar = loadPlayerAvatar(playerName);
-        return loadStage(System.getProperty("user.dir") + PROFILE_DIRECTORY + "testSaveStage.xml", new Avatar(Occupation.SMASHER));
+        return loadStage(System.getProperty("user.dir") + PROFILE_DIRECTORY + "/" + playerName + "/testSaveStage.xml", new Avatar(Occupation.SMASHER));
     }
 
     public Stage startNewGame(Avatar avatar) {
         return loadStage(System.getProperty("user.dir") + MAPS_DIRECTORY + "stage1.xml", avatar);
     }
 
+    private Avatar loadPlayerAvatar(String playerName) {
+        try {
+            File loadFile = new File(System.getProperty("user.dir") + PROFILE_DIRECTORY + "/" + playerName + "/avatar.xml");
+            Document dom = getDom(loadFile);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return null;
+    }
+
     private Stage loadStage(String filePath, Avatar avatar) {
         try {
             // TODO: Add functionality to read from String[] of map files.
             File stageFile = new File(filePath);
-            DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-            DocumentBuilder builder = factory.newDocumentBuilder();
-            Document dom = builder.parse(stageFile);
+            Document dom = getDom(stageFile);
 
             dom.getDocumentElement().normalize();
             NodeList nodes = dom.getElementsByTagName("Stage");
@@ -113,6 +128,17 @@ public class SaveManager {
             }
 
             return new Stage(map, new Dimension(cols, rows), new Position(startX, startY), avatar);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    private Document getDom(File file) {
+        try {
+            DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+            DocumentBuilder builder = factory.newDocumentBuilder();
+            return builder.parse(file);
         } catch (Exception e) {
             e.printStackTrace();
             return null;
@@ -170,7 +196,7 @@ public class SaveManager {
                 return new InteractiveItem();
             }
             else if (type.equals("ONESHOT")) {
-                return new OneShotItem();
+                return new OneShotItem(new Decal('?', Color.BLACK, Color.CYAN), stats);
             }
 
         } catch (Exception e) {

@@ -9,7 +9,7 @@ import org.escaperun.game.view.Decal;
 
 import java.awt.*;
 
-public class Avatar extends Entity{
+public class Avatar extends Entity {
 
     public Avatar(Occupation occupation){
         super(occupation, 3, new Decal('@', Color.BLACK, occupation.getColor()), new Position(0, 0), new Inventory(), new Equipment());
@@ -22,6 +22,10 @@ public class Avatar extends Entity{
         //TODO: such as a wooden sword, 3 health potions, etc.
         //3 is standard number of lives for Avi; can change if need be
         //Avatar is red @ sign Decal -- Can change it need be
+    }
+
+    public Avatar(Occupation occupation, int lives, Decal decal, Position position, Inventory inventory, Equipment equipment) {
+        super(occupation, lives, decal, position, inventory, equipment);
     }
 
     //Pass that task along to our inventory object.
@@ -62,5 +66,6 @@ public class Avatar extends Entity{
             stats.currentstats.put(StatEnum.CURRENTHP, stats.statsmap.get(StatEnum.MAXHP)); //reset HP
         }
     }
+
 
 }

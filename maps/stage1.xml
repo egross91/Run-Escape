@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<Stage rows="2" cols="5" startX="1" startY="1">
+<Stage rows="3" cols="5" startX="1" startY="1">
     <Tile x="0" y="0">
         <Terrain type="grass"></Terrain>
     </Tile>
@@ -26,7 +26,7 @@
     </Tile>
     <Tile x="0" y="4">
         <Terrain type="grass"></Terrain>
-        <AreaEffect type="INSTANTDEATH">200</AreaEffect>
+        <AreaEffect type="TAKEDAMAGE">2</AreaEffect>
     </Tile>
     <Tile x="1" y="2">
         <Terrain type="grass"></Terrain>
@@ -36,6 +36,39 @@
         <Terrain type="water"></Terrain>
     </Tile>
     <Tile x="1" y="4">
+        <Terrain type="grass"></Terrain>
+        <AreaEffect type="HEALDAMAGE">1</AreaEffect>
+    </Tile>
+    <Tile x="2" y="0">
+        <Terrain type="grass"></Terrain>
+        <Item type="ONESHOT">
+            <Statistics>
+                <Hardiness>0</Hardiness>
+                <Movement>0</Movement>
+                <Intellect>0</Intellect>
+                <Level>0</Level>
+                <DefenseRate>0</DefenseRate>
+                <NumOfLives>0</NumOfLives>
+                <Exp>0</Exp>
+                <ArmorRate>0</ArmorRate>
+                <MaxHP>0</MaxHP>
+                <Strength>0</Strength>
+                <MaxMP>0</MaxMP>
+                <OffenseRate>0</OffenseRate>
+                <Agility>3</Agility>
+            </Statistics>
+        </Item>
+    </Tile>
+    <Tile x="2" y="1">
+        <Terrain type="grass"></Terrain>
+    </Tile>
+    <Tile x="2" y="2">
+        <Terrain type="grass"></Terrain>
+    </Tile>
+    <Tile x="2" y="3">
+        <Terrain type="grass"></Terrain>
+    </Tile>
+    <Tile x="2" y="4">
         <Terrain type="grass"></Terrain>
     </Tile>
 </Stage>
