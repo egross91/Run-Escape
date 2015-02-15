@@ -30,6 +30,13 @@ import java.util.Map;
 public class SaveManager {
     private final String PROFILE_DIRECTORY = "/profiles/";
     private final String MAPS_DIRECTORY = "/maps/";
+    private final File SAVE_FILE_DIRECTORY = new File(System.getProperty("user.dir") + PROFILE_DIRECTORY + "/LOL/");
+
+    public SaveManager() {
+        if (!SAVE_FILE_DIRECTORY.exists()) {
+            SAVE_FILE_DIRECTORY.mkdirs();
+        }
+    }
 
     // TODO: Hook into this and allow for the 'stage' to be saved.
     public boolean saveCurrentGame(Stage stage, String playerName) {
@@ -57,7 +64,12 @@ public class SaveManager {
         xmlDom.appendChild(root);
         try {
             Transformer transformer = TransformerFactory.newInstance().newTransformer();
+            File saveProfileDir = new File(System.getProperty("user.dir") + PROFILE_DIRECTORY + "/" + playerName + "/");
+            if (!saveProfileDir.exists()) {
+                saveProfileDir.mkdir();
+            }
             File saveFile = new File(System.getProperty("user.dir") + PROFILE_DIRECTORY + "/" + playerName + "/testSaveStage.xml");
+
             DOMSource source = new DOMSource(xmlDom);
             StreamResult result = new StreamResult(saveFile);
 

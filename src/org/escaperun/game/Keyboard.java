@@ -20,6 +20,7 @@ public class Keyboard implements KeyListener {
     public static final char ESCAPE = (char) 27;
 
     public final boolean[] pressed = new boolean[65536]; // There are 2^16 = 65536 possible chars.
+    public final boolean[] pressedActual= new boolean[65536];
 
     @Override
     public void keyTyped(KeyEvent e) {
@@ -32,5 +33,5 @@ public class Keyboard implements KeyListener {
     }
 
     @Override
-    public void keyPressed(KeyEvent e) { }
+    public void keyPressed(KeyEvent e) { pressedActual[Character.toLowerCase(e.getKeyChar())] = true;}
 }
