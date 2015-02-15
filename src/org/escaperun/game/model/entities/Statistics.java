@@ -280,5 +280,11 @@ public class Statistics implements Savable {
 
         return statsElement;
     }
+
+    public String getItemStats(){
+        return offensetoString()+'\n'+armourtoString()+'\n'+
+               strengthtoString()+'\n'+intellecttoString()+'\n'+
+               agilitytoString()+'\n'+hardinesstoString()+'\n';
+    }
 }
 
