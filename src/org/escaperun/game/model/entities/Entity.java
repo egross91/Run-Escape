@@ -3,6 +3,7 @@ package org.escaperun.game.model.entities;
 import org.escaperun.game.model.Drawable;
 import org.escaperun.game.model.Position;
 import org.escaperun.game.model.items.EquipableItem;
+import org.escaperun.game.model.items.OneShotItem;
 import org.escaperun.game.model.items.TakeableItem;
 import org.escaperun.game.model.items.UsableItem;
 import org.escaperun.game.serialization.Savable;
@@ -57,6 +58,11 @@ public abstract class Entity implements Drawable, Savable {
 
     public void levelUp() {
         stats.setStat(StatEnum.EXP, stats.statsmap.get(StatEnum.EXP) + 10);//Auto-level since we only need 10 exp per level.
+        stats.setStat(StatEnum.STRENGTH, stats.statsmap.get(StatEnum.STRENGTH)+stats.statsmap.get(StatEnum.LEVEL));//BOOST THIS STAT ON LVL UP
+        stats.setStat(StatEnum.INTELLECT, stats.statsmap.get(StatEnum.INTELLECT)+stats.statsmap.get(StatEnum.LEVEL));//BOOST THIS STAT ON LVL UP
+        stats.setStat(StatEnum.AGILITY, stats.statsmap.get(StatEnum.AGILITY)+stats.statsmap.get(StatEnum.LEVEL));//BOOST THIS STAT ON LVL UP
+        stats.setStat(StatEnum.HARDINESS, stats.statsmap.get(StatEnum.HARDINESS)+stats.statsmap.get(StatEnum.LEVEL));//BOOST THIS STAT ON LVL UP
+        stats.setStat(StatEnum.MOVEMENT, stats.statsmap.get(StatEnum.MOVEMENT)+1);//BOOST THIS STAT ON LVL UP
         stats.updateStats(equipment);//Update stats.
     }
 
@@ -99,5 +105,9 @@ public abstract class Entity implements Drawable, Savable {
         dom.appendChild(equipment.save(dom));
 
         return entityElement;
+    }
+    public void getHitWithItem(OneShotItem osi){
+        stats.addBaseStats(osi.getStats());
+        stats.updateStats(equipment);
     }
 }
