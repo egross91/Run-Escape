@@ -13,6 +13,7 @@ public class Keyboard implements KeyListener {
     public static final char RIGHT = 'd';
     public static final char BLANK = 'b';
     public static final char GRASS = 'g';
+    public static final char INV = 'i';
     public static final char ENTER = (char) 10;
     public static final char ESCAPE = (char) 27;
 

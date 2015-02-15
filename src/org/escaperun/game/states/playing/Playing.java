@@ -17,6 +17,8 @@ public class Playing extends GameState {
     private Stage stage;
     private int ticksSince = 0;
 
+    private boolean invOpen= false;
+
     public Playing(Stage stage) {
         this.stage = stage;
     }
@@ -33,14 +35,27 @@ public class Playing extends GameState {
         boolean down = pressed[Keyboard.DOWN];
         boolean left = pressed[Keyboard.LEFT];
         boolean right = pressed[Keyboard.RIGHT];
+        boolean inv = pressed[Keyboard.INV];
         boolean esc = pressed[Keyboard.ESCAPE];
 
         if (esc) {
-            Creation.saveManager.saveCurrentGame(stage);
+            Creation.saveManager.saveCurrentGame(stage, "LOL");
             return false;
         }
 
+<<<<<<< HEAD
+=======
 
+        if(inv && !invOpen){
+            System.out.println("open da inv");
+            invOpen = true;
+        }
+        else if(inv && invOpen){
+            System.out.println("closei da inv");
+            invOpen = false;
+        }
+
+>>>>>>> a6e6e8d00af7c64dc855d4b0b80484f455e2585c
         if (ticksSince >= (stage.getAvatar().getOccupation().getMovement()*TICKS_PER_MOVEMENT)
                 && (up || down || left || right)) {
             boolean moved = false;
@@ -95,12 +110,14 @@ public class Playing extends GameState {
 
         Decal[][] view = new Decal[statusRow + testRows][collumn];  // new 2D array with space for both viewports
 
+
         //if(stage.avatar.inv open)
-        if(false){
+        if(invOpen){
+            System.out.println(invOpen);
             for(int x = 0; x < row; x++){
 
                 for(int y = 0; y < collumn; y++){
-
+                    view[x][y] = new Decal('%', Color.LIGHT_GRAY, Color.blue);
                 }
             }
         }

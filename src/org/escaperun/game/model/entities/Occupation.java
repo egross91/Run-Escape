@@ -1,11 +1,12 @@
 package org.escaperun.game.model.entities;
 
+import org.escaperun.game.serialization.Savable;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+
 import java.awt.*;
 
-/**
- * Created by Jeff on 2015/02/11 (011).
- */
-public enum Occupation {
+public enum Occupation implements Savable {
     //OCCUPATION(Strength, Agility, Intelligence)
     SMASHER(5,0,0,5,1, Color.RED),
     SUMMONER(0,0,5,3,1, Color.BLUE),
@@ -50,5 +51,30 @@ public enum Occupation {
 
     public Color getColor() {
         return color;
+    }
+
+    private String getColorString() {
+        if (color == Color.RED) {
+            return "red";
+        }
+        else if (color == Color.BLUE) {
+            return "blue";
+        }
+        else {
+            return "green";
+        }
+    }
+
+    @Override
+    public Element save(Document dom) {
+        Element occupationElement = dom.createElement("Occupation");
+        occupationElement.setAttribute("strength", Integer.toString(strength));
+        occupationElement.setAttribute("intelligence", Integer.toString(intelligence));
+        occupationElement.setAttribute("agility", Integer.toString(agility));
+        occupationElement.setAttribute("hardiness", Integer.toString(hardiness));
+        occupationElement.setAttribute("movement", Integer.toString(movement));
+        occupationElement.setAttribute("color", getColorString());
+
+        return occupationElement;
     }
 }

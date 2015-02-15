@@ -5,9 +5,12 @@ import org.escaperun.game.model.Position;
 import org.escaperun.game.model.items.EquipableItem;
 import org.escaperun.game.model.items.TakeableItem;
 import org.escaperun.game.model.items.UsableItem;
+import org.escaperun.game.serialization.Savable;
 import org.escaperun.game.view.Decal;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
 
-public abstract class Entity implements Drawable{
+public abstract class Entity implements Drawable, Savable {
 
     public Entity(Occupation occupation, int numberoflives, Decal decal, Position position, Inventory inventory, Equipment equipment) {
         this.occupation = occupation; //Get occupation from constructor.
@@ -53,7 +56,7 @@ public abstract class Entity implements Drawable{
     public Position getPosition(){ return this.position; }
 
     public void levelUp() {
-        stats.setStat(StatEnum.EXP, stats.statsmap.get(StatEnum.EXP)+10);//Auto-level since we only need 10 exp per level.
+        stats.setStat(StatEnum.EXP, stats.statsmap.get(StatEnum.EXP) + 10);//Auto-level since we only need 10 exp per level.
         stats.updateStats(equipment);//Update stats.
     }
 
@@ -82,5 +85,18 @@ public abstract class Entity implements Drawable{
 
     public Statistics getStats(){
         return this.stats;
+    }
+
+    @Override
+    public Element save(Document dom) {
+        Element entityElement = dom.createElement("Entity");
+        entityElement.setAttribute("x", Integer.toString(position.x));
+        entityElement.setAttribute("y", Integer.toString(position.y));
+
+        dom.appendChild(occupation.save(dom));
+        dom.appendChild(stats.save(dom));
+        dom.appendChild(inventory.save(dom));
+
+        return entityElement;
     }
 }
