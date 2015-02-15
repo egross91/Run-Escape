@@ -54,7 +54,6 @@ public abstract class Entity implements Drawable{
 
     public void levelUp() {
         stats.setStat(StatEnum.EXP, stats.statsmap.get(StatEnum.EXP)+10);//Auto-level since we only need 10 exp per level.
-        stats.getLevel();//Update our level.
         stats.updateStats(equipment);//Update stats.
     }
 
