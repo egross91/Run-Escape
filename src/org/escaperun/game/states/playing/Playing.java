@@ -34,10 +34,18 @@ public class Playing extends GameState {
         boolean left = pressed[Keyboard.LEFT];
         boolean right = pressed[Keyboard.RIGHT];
         boolean esc = pressed[Keyboard.ESCAPE];
+        boolean inv = pressed[Keyboard.INVENTORY];
 
         if (esc) {
             Creation.saveManager.saveCurrentGame(stage);
             return false;
+        }
+
+        if (inv) {
+            //display inventory
+            //idk stuff
+
+            stage.getAvatar().openInventoryDisplay();
         }
 
 
@@ -82,49 +90,76 @@ public class Playing extends GameState {
 
 
     private Decal[][] createView(){
-        int statusRow, row, collumn, testRows = 0;
+        int statusRow, row, column, testRows = 0;
 
         Decal[][] gottenStage = stage.getRenderable();
 
         row = gottenStage.length;
-        collumn = gottenStage[0].length;
+        column = gottenStage[0].length;
         testRows = row;
 
         row = row + row%5;
         statusRow = row/5;
 
-        Decal[][] view = new Decal[statusRow + testRows][collumn];  // new 2D array with space for both viewports
+        Decal[][] view = new Decal[statusRow + testRows][column];  // new 2D array with space for both viewports
 
-        //if(stage.avatar.inv open)
+        //this displays the map
+        for(int xx = 0; xx < (testRows - statusRow); xx++){
+            for(int yy = 0; yy < column; yy++){
+                view[xx][yy] = gottenStage[xx][yy];
+            }
+        }
+
         if(false){
             for(int x = 0; x < row; x++){
 
-                for(int y = 0; y < collumn; y++){
+                for(int y = 0; y < column; y++){
 
                 }
             }
         }
+
+         else if(stage.getAvatar().isInventoryOpen()) {
+            //here is where we would display an inventory, IF WE HAD ANY
+            //but I digress
+
+            //the rest of the border is '-'
+            Decal inventory_edge_horizontal = new Decal('-', Color.BLACK, Color.WHITE);
+            Decal inventory_edge_vertical = new Decal('|', Color.BLACK, Color.WHITE);
+            for(int x = (testRows-statusRow); x < testRows; ++x){
+                for(int y = 0; y<column; ++y){
+                    if ((x == testRows-statusRow) || (x== testRows -5)) {
+                        view[x][y] = inventory_edge_horizontal;
+                    }
+                    else if ((y == 0) || (y == column-1)) {
+                        view[x][y] = inventory_edge_vertical;
+                    }
+                    else
+                        view[x][y] = new Decal('I', Color.BLACK, Color.GREEN);
+                }
+            }
+            //the edges of the window are gonna be '+'
+            Decal inventory_corner = new Decal('+', Color.BLACK, Color.WHITE);
+            view[testRows-statusRow][0] = inventory_corner;
+            view[testRows-statusRow][column-1] = inventory_corner;
+            view[testRows-5][0] = inventory_corner;
+            view[testRows-5][column-1] = inventory_corner;
+
+            //the game window is cutoff on mine screen, so the bottom rows may need to be adjusted
+        }
+
         //else show status viewport
         else{
             String stats = "";
             int col0, col1, col2,row0,row1,row2,row3,row4 = 0;
-            int workCollumn = collumn - collumn%4;
+            int workcolumn = column - column%4;
 
-            col0 = workCollumn/4;
+            col0 = workcolumn/4;
             col1 = 2*col0;
             col2 = 3*col0;
 
-
-
-
-            for(int xx = 0; xx < (testRows - statusRow); xx++){
-                for(int yy = 0; yy < collumn; yy++){
-                    view[xx][yy] = gottenStage[xx][yy];
-                }
-            }
-
             for(int x3 = (testRows-statusRow); x3 < testRows; x3++){
-                for(int y3 = 0; y3<collumn; y3++){
+                for(int y3 = 0; y3<column; y3++){
                     if(x3 == (testRows-statusRow)){
                         if(y3 == (col0 - 5)){ //print Level
                             stats = stage.getAvatar().getStats().leveltoString();
