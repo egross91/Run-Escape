@@ -17,6 +17,7 @@ public class Playing extends GameState {
     private Stage stage;
     private int ticksSince = 0;
 
+    private int invTicks = 500;
     private boolean invOpen= false;
 
     public Playing(Stage stage) {
@@ -25,10 +26,24 @@ public class Playing extends GameState {
 
     @Override
     public GameState update(boolean[] pressed) {
-        if (handleMovement(pressed))
+        if (pressed[Keyboard.INV]) {
+            if (!invOpen && (invTicks >= 8)) {
+                invOpen = true;
+                invTicks = 0;
+            } else if (invOpen && (invTicks >= 8)) {
+                invOpen = false;
+                invTicks = 0;
+            }
+            invTicks++;
             return null;
+        }
+        if (handleMovement(pressed)){
+            invTicks++;
+            return null;
+        }
         return new Exit();
     }
+
 
     private boolean handleMovement(boolean[] pressed) {
         boolean up = pressed[Keyboard.UP];
@@ -52,14 +67,12 @@ public class Playing extends GameState {
             invOpen = false;
         }
 
-        if(inv && !invOpen){
-            System.out.println("open da inv");
-            invOpen = true;
-        }
-        else if(inv && invOpen){
-            System.out.println("closei da inv");
-            invOpen = false;
-        }
+//        if(inv && !invOpen){
+//            invOpen = true;
+//        }
+//        else if(inv && invOpen){
+//            invOpen = false;
+//        }
 
         if (ticksSince >= (stage.getAvatar().getOccupation().getMovement()*TICKS_PER_MOVEMENT)
                 && (up || down || left || right)) {
@@ -118,7 +131,6 @@ public class Playing extends GameState {
 
         //if(stage.avatar.inv open)
         if(invOpen){
-            System.out.println(invOpen);
             for(int x = 0; x < row; x++){
 
                 for(int y = 0; y < collumn; y++){
