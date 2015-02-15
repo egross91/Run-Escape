@@ -43,18 +43,18 @@
         <Terrain type="grass"></Terrain>
         <Item type="ONESHOT">
             <Statistics>
-                <Hardiness>0</Hardiness>
-                <Movement>0</Movement>
-                <Intellect>0</Intellect>
+                <Hardiness>5</Hardiness>
+                <Movement>5</Movement>
+                <Intellect>5</Intellect>
                 <Level>0</Level>
                 <DefenseRate>0</DefenseRate>
-                <NumOfLives>0</NumOfLives>
+                <NumOfLives>1</NumOfLives>
                 <Exp>0</Exp>
                 <ArmorRate>0</ArmorRate>
-                <MaxHP>0</MaxHP>
-                <Strength>0</Strength>
-                <MaxMP>0</MaxMP>
-                <OffenseRate>0</OffenseRate>
+                <MaxHP>50</MaxHP>
+                <Strength>5</Strength>
+                <MaxMP>50</MaxMP>
+                <OffenseRate>3</OffenseRate>
                 <Agility>3</Agility>
             </Statistics>
         </Item>
