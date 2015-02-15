@@ -2,11 +2,14 @@ package org.escaperun.game.model.entities;
 
 import org.escaperun.game.model.items.EquipableItem;
 import org.escaperun.game.model.items.ItemSlot;
+import org.escaperun.game.serialization.Savable;
 import org.escaperun.game.view.Decal;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
 
 import java.util.*;
 
-public class Equipment {
+public class Equipment implements Savable {
 
     private Map<ItemSlot, EquipableItem> equipment; //Our Map, which maps an ItemSlot category (HELMET, etc.) to the corresponding equipped item (if any)
 
@@ -58,4 +61,11 @@ public class Equipment {
         return decals;
     }
 
+    @Override
+    public Element save(Document dom) {
+        Element equipmentElement = dom.createElement("Equipment");
+
+
+        return equipmentElement;
+    }
 }

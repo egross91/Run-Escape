@@ -58,6 +58,10 @@ public class SaveManager {
         try {
             Transformer transformer = TransformerFactory.newInstance().newTransformer();
             File saveFile = new File(System.getProperty("user.dir") + PROFILE_DIRECTORY + "/" + playerName + "/testSaveStage.xml");
+            if (!saveFile.exists()) {
+                saveFile.mkdir();
+            }
+
             DOMSource source = new DOMSource(xmlDom);
             StreamResult result = new StreamResult(saveFile);
 

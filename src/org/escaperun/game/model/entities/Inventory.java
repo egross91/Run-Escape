@@ -67,6 +67,14 @@ public class Inventory implements Savable {
     @Override
     public Element save(Document dom) {
         Element inventoryElement = dom.createElement("Inventory");
+        inventoryElement.setAttribute("capacity", Integer.toString(capacity));
+
+        for (int i = 0; i < inventoryarr.size(); ++i) {
+            Item currentItem = inventoryarr.get(i);
+            Element itemElement = currentItem.save(dom);
+
+            inventoryElement.appendChild(itemElement);
+        }
 
         return inventoryElement;
     }

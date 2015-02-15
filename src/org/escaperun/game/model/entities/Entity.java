@@ -93,9 +93,10 @@ public abstract class Entity implements Drawable, Savable {
         entityElement.setAttribute("x", Integer.toString(position.x));
         entityElement.setAttribute("y", Integer.toString(position.y));
 
-        dom.appendChild(occupation.save(dom));
         dom.appendChild(stats.save(dom));
+        dom.appendChild(occupation.save(dom));
         dom.appendChild(inventory.save(dom));
+        dom.appendChild(equipment.save(dom));
 
         return entityElement;
     }
