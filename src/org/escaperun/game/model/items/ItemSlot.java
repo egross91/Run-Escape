@@ -40,6 +40,10 @@ public enum ItemSlot {
         }
     }
 
+    public int getItemSlot() {
+        return value;
+    }
+
     public Decal getDecal(){
         return decal;
     }

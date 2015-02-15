@@ -15,6 +15,7 @@ public class Stage implements Tickable {
     public static final Random RANDOM = new Random();
     public final Dimension dimensions;
     public final Tile[][] map;
+    public final Position start;
     private Avatar avatar;
 
     public Stage(Avatar avatar) {
@@ -53,12 +54,14 @@ public class Stage implements Tickable {
             }
         }
         this.avatar = avatar;
+        this.start = start;
         this.moveAvatar(start);
     }
 
     public Stage(Dimension dim, Position start) {
         this.dimensions = dim;
         this.map = new Tile[dim.height][dim.width];
+        this.start = start;
         this.moveAvatar(start);
     }
 
@@ -66,6 +69,7 @@ public class Stage implements Tickable {
         this.map = map;
         this.dimensions = dim;
         this.avatar = avatar;
+        this.start = start;
         this.moveAvatar(start);
     }
 

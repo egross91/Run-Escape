@@ -3,8 +3,9 @@ package org.escaperun.game.states.playing;
 import org.escaperun.game.Keyboard;
 import org.escaperun.game.model.Position;
 import org.escaperun.game.model.Stage;
-import org.escaperun.game.model.entities.Statistics;
 import org.escaperun.game.states.GameState;
+import org.escaperun.game.states.mainmenu.Creation;
+import org.escaperun.game.states.mainmenu.Exit;
 import org.escaperun.game.view.Decal;
 
 import java.awt.*;
@@ -22,15 +23,22 @@ public class Playing extends GameState {
 
     @Override
     public GameState update(boolean[] pressed) {
-        handleMovement(pressed);
-        return null;
+        if (handleMovement(pressed))
+            return null;
+        return new Exit();
     }
 
-    private void handleMovement(boolean[] pressed) {
+    private boolean handleMovement(boolean[] pressed) {
         boolean up = pressed[Keyboard.UP];
         boolean down = pressed[Keyboard.DOWN];
         boolean left = pressed[Keyboard.LEFT];
         boolean right = pressed[Keyboard.RIGHT];
+        boolean esc = pressed[Keyboard.ESCAPE];
+
+        if (esc) {
+            Creation.saveManager.saveCurrentGame(stage);
+            return false;
+        }
 
 
         if (ticksSince >= (stage.getAvatar().getOccupation().getMovement()*TICKS_PER_MOVEMENT)
@@ -55,6 +63,8 @@ public class Playing extends GameState {
             }
         }
         ticksSince++;
+
+        return true;
     }
 
     private boolean tryMove(int dx, int dy) {

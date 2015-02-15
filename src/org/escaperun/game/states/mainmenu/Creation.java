@@ -16,7 +16,7 @@ import java.security.Key;
 
 public class Creation extends GameState {
     public static final int TICKS_PER_MOVEMENT = 10;
-    private static SaveManager saveManager = new SaveManager();
+    public final static SaveManager saveManager = new SaveManager();
 
     private static final Option[] OPTIONS = {
             new Option("SUMMONER", new Playing(saveManager.startNewGame(new Avatar(Occupation.SUMMONER)))),

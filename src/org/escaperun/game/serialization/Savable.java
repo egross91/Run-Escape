@@ -1,8 +1,9 @@
 package org.escaperun.game.serialization;
 
-import javax.xml.bind.Element;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
 
-interface Savable {
-    public Element save();
-    public Object load(Element e);
+public interface Savable {
+    public Element save(Document dom);
+//    public Object load(Element e);
 }

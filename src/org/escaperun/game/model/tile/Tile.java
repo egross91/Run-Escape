@@ -3,9 +3,13 @@ package org.escaperun.game.model.tile;
 import org.escaperun.game.model.Drawable;
 import org.escaperun.game.model.entities.Entity;
 import org.escaperun.game.model.items.Item;
+import org.escaperun.game.serialization.Savable;
 import org.escaperun.game.view.Decal;
 
-public class Tile implements Drawable {
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+
+public class Tile implements Drawable, Savable {
 
     private Terrain terrain;
     private AreaEffect areaEffect;
@@ -78,5 +82,21 @@ public class Tile implements Drawable {
         if (areaEffect != null) return areaEffect.getDecal();
         if (terrain != null) return terrain.getDecal();
         return null;
+    }
+
+    @Override
+    public Element save(Document dom) {
+        Element tileElement = dom.createElement("Tile");
+        if (item != null) {
+            tileElement.appendChild(item.save(dom));
+        }
+        if (areaEffect != null) {
+            tileElement.appendChild(areaEffect.save(dom));
+        }
+        if (terrain != null) {
+            tileElement.appendChild(terrain.save(dom));
+        }
+
+        return tileElement;
     }
 }

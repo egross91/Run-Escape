@@ -3,10 +3,9 @@ package org.escaperun.game.model.items;
 import org.escaperun.game.model.entities.Entity;
 import org.escaperun.game.model.entities.Statistics;
 import org.escaperun.game.view.Decal;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
 
-/**
- * Created by Eric on 2/11/2015.
- */
 public class InteractiveItem extends Item {
 
     public InteractiveItem() {
@@ -29,5 +28,17 @@ public class InteractiveItem extends Item {
     @Override
     public void doAction(Entity e) {
 
+    }
+
+    public String getTypeToString() {
+        return "interactive";
+    }
+
+    @Override
+    public Element save(Document dom) {
+        Element interactiveElement = super.save(dom);
+        interactiveElement.setAttribute("type", getTypeToString());
+
+        return interactiveElement;
     }
 }

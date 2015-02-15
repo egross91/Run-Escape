@@ -1,8 +1,10 @@
 package org.escaperun.game.serialization;
 
+import com.sun.org.apache.xerces.internal.dom.DocumentImpl;
 import org.escaperun.game.model.Position;
 import org.escaperun.game.model.Stage;
 import org.escaperun.game.model.entities.Avatar;
+import org.escaperun.game.model.entities.Occupation;
 import org.escaperun.game.model.entities.StatEnum;
 import org.escaperun.game.model.entities.Statistics;
 import org.escaperun.game.model.items.*;
@@ -14,6 +16,11 @@ import org.w3c.dom.NodeList;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.transform.OutputKeys;
+import javax.xml.transform.Transformer;
+import javax.xml.transform.TransformerFactory;
+import javax.xml.transform.dom.DOMSource;
+import javax.xml.transform.stream.StreamResult;
 import java.awt.*;
 import java.io.File;
 import java.util.HashMap;
@@ -23,10 +30,59 @@ public class SaveManager {
     private final String PROFILE_DIRECTORY = "/profiles/";
     private final String MAPS_DIRECTORY = "/maps/";
 
+    // TODO: Hook into this and allow for the 'stage' to be saved.
+    public boolean saveCurrentGame(Stage stage) {
+        Dimension dimensions = stage.dimensions;
+        Position start = stage.start;
+        Tile[][] savables = stage.map;
+        Document xmlDom = new DocumentImpl();
+        Element root = xmlDom.createElement("Stage");
+        root.setAttribute("cols", Integer.toString((int)dimensions.getWidth()));
+        root.setAttribute("rows", Integer.toString((int)dimensions.getHeight()));
+        root.setAttribute("startX", Integer.toString(start.x));
+        root.setAttribute("startY", Integer.toString(start.y));
+
+        for (int r = 0; r < dimensions.getHeight(); ++r) {
+            for (int c = 0; c < dimensions.getWidth(); ++c) {
+                Tile tile = savables[r][c];
+                Element tileElement = tile.save(xmlDom);
+                tileElement.setAttribute("x", Integer.toString(r));
+                tileElement.setAttribute("y", Integer.toString(c));
+
+                root.appendChild(tileElement);
+            }
+        }
+
+        xmlDom.appendChild(root);
+        try {
+            Transformer transformer = TransformerFactory.newInstance().newTransformer();
+            File saveFile = new File(System.getProperty("user.dir") + PROFILE_DIRECTORY + "testSaveStage.xml");
+            DOMSource source = new DOMSource(xmlDom);
+            StreamResult result = new StreamResult(saveFile);
+
+            transformer.setOutputProperty(OutputKeys.INDENT, "yes");
+            transformer.transform(source, result);
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    public Stage loadSavedGame(String playerName) {
+        // TODO: Load the Avatar and Save the avatar to/from file.
+//        Avatar avatar = loadPlayerAvatar(playerName);
+        return loadStage(System.getProperty("user.dir") + PROFILE_DIRECTORY + "testSaveStage.xml", new Avatar(Occupation.SMASHER));
+    }
+
     public Stage startNewGame(Avatar avatar) {
+        return loadStage(System.getProperty("user.dir") + MAPS_DIRECTORY + "stage1.xml", avatar);
+    }
+
+    private Stage loadStage(String filePath, Avatar avatar) {
         try {
             // TODO: Add functionality to read from String[] of map files.
-            File stageFile = new File(System.getProperty("user.dir") + MAPS_DIRECTORY + "stage1.xml");
+            File stageFile = new File(filePath);
             DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
             DocumentBuilder builder = factory.newDocumentBuilder();
             Document dom = builder.parse(stageFile);
@@ -146,8 +202,9 @@ public class SaveManager {
             stats.put(getStatEnum("OffenseRate"), toInt(statElement.getElementsByTagName("OffenseRate").item(0).getTextContent()));
             stats.put(getStatEnum("DefenseRate"), toInt(statElement.getElementsByTagName("DefenseRate").item(0).getTextContent()));
             stats.put(getStatEnum("ArmorRate"), toInt(statElement.getElementsByTagName("ArmorRate").item(0).getTextContent()));
-            stats.put(getStatEnum("CurrentHP"), toInt(statElement.getElementsByTagName("CurrentHP").item(0).getTextContent()));
-            stats.put(getStatEnum("CurrentMP"), toInt(statElement.getElementsByTagName("CurrentMP").item(0).getTextContent()));
+            // TODO: Ask Jeff about the StatEnum and having these enums.
+//            stats.put(getStatEnum("CurrentHP"), toInt(statElement.getElementsByTagName("CurrentHP").item(0).getTextContent()));
+//            stats.put(getStatEnum("CurrentMP"), toInt(statElement.getElementsByTagName("CurrentMP").item(0).getTextContent()));
 
             return new Statistics(stats);
         } catch (Exception e) {
@@ -241,6 +298,8 @@ public class SaveManager {
                 return StatEnum.CURRENTMP;
             else if (value.equals("CURRENTHP"))
                 return StatEnum.CURRENTHP;
+            else if (value.equals("NUMOFLIVES"))
+                return StatEnum.NUMOFLIVES;
         } catch (Exception e) {
             e.printStackTrace();
             return null;
