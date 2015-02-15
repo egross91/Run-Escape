@@ -11,12 +11,14 @@ import org.escaperun.game.states.loading.LoadGame;
 import org.escaperun.game.view.Decal;
 import org.escaperun.game.view.GameWindow;
 
+import java.awt.*;
+
 public class MainMenu extends GameState {
 
     public static final int TICKS_PER_MOVEMENT = 10;
 
     private static final Option[] OPTIONS = {
-        new Option("Create Map", new CreateMap(new Stage(new Avatar(Occupation.SNEAK)))),
+        new Option("Create Map", new CreateMap(new Stage(new Dimension(50, 50), new Avatar(Occupation.SNEAK)))),
         new Option("New Game", new Creation()),
         new Option("Load Game", new LoadGame()),
         new Option("Exit", new Exit()),
