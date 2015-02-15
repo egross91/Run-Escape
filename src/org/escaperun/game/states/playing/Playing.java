@@ -26,6 +26,11 @@ public class Playing extends GameState {
 
     @Override
     public GameState update(boolean[] pressed) {
+        if (pressed[Keyboard.ESCAPE]) {
+            Creation.saveManager.saveCurrentGame(stage,"LOL");
+            return new Exit();
+        }
+
         if (pressed[Keyboard.INV]) {
             if (!invOpen && (invTicks >= 8)) {
                 invOpen = true;
@@ -35,13 +40,12 @@ public class Playing extends GameState {
                 invTicks = 0;
             }
             invTicks++;
-            return null;
         }
+
         if (handleMovement(pressed)){
             invTicks++;
-            return null;
         }
-        return new Exit();
+        return null;
     }
 
 
@@ -50,22 +54,6 @@ public class Playing extends GameState {
         boolean down = pressed[Keyboard.DOWN];
         boolean left = pressed[Keyboard.LEFT];
         boolean right = pressed[Keyboard.RIGHT];
-        boolean inv = pressed[Keyboard.INV];
-        boolean esc = pressed[Keyboard.ESCAPE];
-
-        if (esc) {
-            Creation.saveManager.saveCurrentGame(stage, stage.getAvatar(), "LOL");
-            return false;
-        }
-
-        if(inv && !invOpen){
-            System.out.println("open da inv");
-            invOpen = true;
-        }
-        else if(inv && invOpen){
-            System.out.println("closei da inv");
-            invOpen = false;
-        }
 
         if (ticksSince >= (stage.getAvatar().getOccupation().getMovement()*TICKS_PER_MOVEMENT)
                 && (up || down || left || right)) {

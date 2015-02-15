@@ -1,10 +1,9 @@
-package org.escaperun.game.states.MapCreation;
+package org.escaperun.game.states.mapcreation;
 
 import org.escaperun.game.Keyboard;
 import org.escaperun.game.model.Position;
 import org.escaperun.game.model.Stage;
 import org.escaperun.game.model.tile.Grass;
-import org.escaperun.game.model.tile.Tile;
 import org.escaperun.game.model.tile.Water;
 import org.escaperun.game.states.GameState;
 import org.escaperun.game.states.mainmenu.Creation;
@@ -61,7 +60,7 @@ public class CreateMap extends GameState {
         if (right) nextY++;
 
         if(esc){
-            Creation.saveManager.saveCurrentGame(stage, stage.getAvatar(), "Adam");
+            Creation.saveManager.saveCurrentGame(stage, "Adam");
             pressed[Keyboard.ESCAPE] = false;
             return true;
         }

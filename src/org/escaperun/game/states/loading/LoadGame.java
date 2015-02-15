@@ -9,8 +9,8 @@ import org.escaperun.game.view.Decal;
 import org.escaperun.game.view.GameWindow;
 
 public class LoadGame extends GameState {
-    private static final int TICKS_PER_MOVEMENT = 10;
 
+    private static final int TICKS_PER_MOVEMENT = 10;
     private static final Option[] OPTIONS = {
             new Option("n00b", new Playing(Creation.saveManager.loadSavedGame("LOL"))),
             new Option("DemoMap", new Playing(Creation.saveManager.loadSavedGame("Adam")))
