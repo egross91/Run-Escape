@@ -87,6 +87,9 @@ public class Stage implements Tickable {
         if (moveTo.getAreaEffect() != null) {
             moveTo.removeAreaEffect().onTouch(avatar);
         }
+        if(moveTo.getItem() != null){
+            moveTo.removeItem().onTouch(avatar);
+        }
         return true;
     }
 

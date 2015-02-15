@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<Stage rows="2" cols="4" startX="1" startY="1">
+<Stage rows="2" cols="5" startX="1" startY="1">
     <Tile x="0" y="0">
         <Terrain type="grass"></Terrain>
     </Tile>
@@ -22,6 +22,11 @@
     </Tile>
     <Tile x="0" y="3">
         <Terrain type=""></Terrain>
+        <AreaEffect type="LEVELUP">100</AreaEffect>
+    </Tile>
+    <Tile x="0" y="4">
+        <Terrain type="grass"></Terrain>
+        <AreaEffect type="INSTANTDEATH">200</AreaEffect>
     </Tile>
     <Tile x="1" y="2">
         <Terrain type="grass"></Terrain>
@@ -29,5 +34,8 @@
     </Tile>
     <Tile x="1" y="3">
         <Terrain type="water"></Terrain>
+    </Tile>
+    <Tile x="1" y="4">
+        <Terrain type="grass"></Terrain>
     </Tile>
 </Stage>

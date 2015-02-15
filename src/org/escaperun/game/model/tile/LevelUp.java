@@ -15,7 +15,7 @@ public class LevelUp extends AreaEffect {
 
     public void onTouch(Entity e){
         e.levelUp();
-        System.out.println("ENTITY GOT LEVEL UP!!!");
+        e.healDamage(99999);
     }
 
     public String getTypeToString() {

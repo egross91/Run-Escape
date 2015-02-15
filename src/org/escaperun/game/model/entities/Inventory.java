@@ -37,9 +37,13 @@ public class Inventory {
     }
 
     public void add(TakeableItem ti){
+
+        System.out.println("Inv contents: "+getSize());
         if(!(ti.equals(null))) {            // check if item is null, pertains to equip/unequip returns if nothing is equipped
             inventoryarr.add(ti);
         }
+        System.out.println("Added "+ti.toString());
+        System.out.println("Inv contents: "+getSize());
     }
 
     //Pass UsableItem to avatar for it to use.
