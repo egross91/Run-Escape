@@ -6,7 +6,7 @@ import org.escaperun.game.model.entities.Avatar;
 import org.escaperun.game.model.entities.Occupation;
 import org.escaperun.game.states.GameState;
 import org.escaperun.game.states.loading.EditGame;
-import org.escaperun.game.states.MapCreation.CreateMap;
+import org.escaperun.game.states.mapcreation.CreateMap;
 import org.escaperun.game.states.Option;
 import org.escaperun.game.states.loading.LoadGame;
 import org.escaperun.game.view.Decal;
@@ -34,8 +34,8 @@ public class MainMenu extends GameState {
 
     @Override
     public GameState update(boolean[] pressed) {
-        boolean up = pressed[Keyboard.UP];
-        boolean down = pressed[Keyboard.DOWN];
+        boolean up = pressed[Keyboard.UP] || pressed[Keyboard.NUM_UP];
+        boolean down = pressed[Keyboard.DOWN] || pressed[Keyboard.NUM_DOWN];
         int nextIdx = selectedOption;
         if (up) nextIdx--;
         if (down) nextIdx++;

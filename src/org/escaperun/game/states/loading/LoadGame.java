@@ -31,8 +31,8 @@ public class LoadGame extends GameState {
 
     @Override
     public GameState update(boolean[] pressed) {
-        boolean up = pressed[Keyboard.UP];
-        boolean down = pressed[Keyboard.DOWN];
+        boolean up = pressed[Keyboard.UP] || pressed[Keyboard.NUM_UP];
+        boolean down = pressed[Keyboard.DOWN] || pressed[Keyboard.NUM_DOWN];
 
         int nextIdx = selectedOption;
 

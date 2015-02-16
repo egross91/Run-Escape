@@ -1,4 +1,4 @@
-package org.escaperun.game.states.MapCreation;
+package org.escaperun.game.states.mapcreation;
 
 import org.escaperun.game.Keyboard;
 import org.escaperun.game.model.Position;
@@ -37,10 +37,10 @@ public class CreateMap extends GameState {
     }
 
     private boolean exitGame(boolean[] pressed) {
-        boolean up = pressed[Keyboard.UP];
-        boolean down = pressed[Keyboard.DOWN];
-        boolean left = pressed[Keyboard.LEFT];
-        boolean right = pressed[Keyboard.RIGHT];
+        boolean up = pressed[Keyboard.UP] || pressed[Keyboard.NUM_UP];
+        boolean down = pressed[Keyboard.DOWN] || pressed[Keyboard.NUM_DOWN];
+        boolean left = pressed[Keyboard.LEFT] || pressed[Keyboard.NUM_LEFT];
+        boolean right = pressed[Keyboard.RIGHT] || pressed[Keyboard.NUM_RIGHT];
         boolean blankTile = pressed[Keyboard.BLANK];
         boolean grass = pressed[Keyboard.GRASS];
         boolean water = pressed[Keyboard.WATER];
