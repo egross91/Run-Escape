@@ -36,6 +36,7 @@ public class Equipment implements Savable {
         if(!equipment.containsKey(equipableItem.getCategory())) //If we do not have any mapping to that current ItemSlot
         {
             equipment.put(equipableItem.getCategory(), equipableItem); //add that equipment to the spot that has none
+            System.out.println(equipment);
             //this.changeStats(equipableItem.getStats()); //Change the stats
         }
 

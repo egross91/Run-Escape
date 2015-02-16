@@ -44,6 +44,7 @@ public class Avatar extends Entity {
 
     public void equipItem(EquipableItem equipableItem){
         EquipableItem anyreturned = equipment.equipItem(equipableItem);
+        System.out.println("ANYRET: " + anyreturned);
         if(anyreturned != null) {
             addItemToInventory(anyreturned);
         }
