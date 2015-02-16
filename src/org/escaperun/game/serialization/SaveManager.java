@@ -268,7 +268,7 @@ public class SaveManager {
 
     private static Tile getTileProperties(Element node) {
         Terrain terrain = getTerrainProperties(node);
-        Item item = getItemProperties(node);
+        Item item = getItemProperties((Element) node.getElementsByTagName("Item").item(0));
         AreaEffect effect = getAreaEffectProperties(node);
 
         return new Tile(terrain, item, effect);
@@ -292,12 +292,11 @@ public class SaveManager {
     }
 
     private static Item getItemProperties(Element node) {
-        Element item = (Element)node.getElementsByTagName("Item").item(0);
-        if (item == null)
-            return null;
-
+        Element item = node;
+        if (item == null) return null;
         try {
             String type = getType(item).toUpperCase();
+            if (type == null || type.equals("")) return null;
             Statistics stats = new Statistics(getStatisticsProperties(item));
 
             // Making the assumption that we will never instantiate a TakeableItem.
@@ -392,7 +391,6 @@ public class SaveManager {
         NodeList nodes = node.getElementsByTagName("Item");
         for (int i = 0; i < nodes.getLength(); ++i) {
             Item takeable = getItemProperties((Element)nodes.item(i));
-
             inventory.add((TakeableItem)takeable);
         }
 
@@ -400,8 +398,9 @@ public class SaveManager {
     }
 
     private static Equipment getEquipmentProperties(Element node) {
-        if (node == null)
+        if (node == null) {
             return null;
+        }
 
 
         NodeList nodes = node.getElementsByTagName("Item");

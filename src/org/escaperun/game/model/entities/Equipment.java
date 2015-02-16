@@ -28,7 +28,7 @@ public class Equipment implements Savable {
         }
     }
 
-    public Equipment(HashMap<ItemSlot, EquipableItem> equipement) {
+    public Equipment(HashMap<ItemSlot, EquipableItem> equipment) {
         this.equipment = equipment;
     }
 
@@ -59,7 +59,7 @@ public class Equipment implements Savable {
     public Decal[] getEquipDecals(){
         Decal[] decals = new Decal[5];
         //ORDER: HELMET, ARMOR, GLOVES, BOOTS, WEAPON (for what the ArrayList will return)
-        if(decals[0] == null){
+        if (decals[0] == null) {
             decals[0] = new Decal('-', Color.BLACK,Color.BLACK);
         }else{
             decals[0] = equipment.get(ItemSlot.HELMET).getDecal();
@@ -91,6 +91,10 @@ public class Equipment implements Savable {
     @Override
     public Element save(Document dom) {
         Element equipmentElement = dom.createElement("Equipment");
+        if (equipment == null) {
+            throw new RuntimeException("PROBLEM");
+            //return equipmentElement;
+        }
         for (Map.Entry<ItemSlot, EquipableItem> current : equipment.entrySet()) {
             ItemSlot slotEnum = current.getKey();
             Item currentItem = current.getValue();
