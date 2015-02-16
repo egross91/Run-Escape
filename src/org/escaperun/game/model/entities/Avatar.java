@@ -70,6 +70,7 @@ public class Avatar extends Entity {
             move(new Position(0,0)); //Reset position; we died.
             stats.currentstats.putAll(stats.statsmap);//Reset all temporary stats because of death.
             stats.currentstats.put(StatEnum.CURRENTHP, stats.statsmap.get(StatEnum.MAXHP)); //reset HP
+            stats.currentstats.put(StatEnum.CURRENTMP, stats.statsmap.get(StatEnum.MAXMP)); //reset MP
 
         }
     }
@@ -84,15 +85,6 @@ public class Avatar extends Entity {
     @Override
     public Element save(Document dom) {
         Element entityElement = super.save(dom);
-
-        Statistics stats = getStats();
-        Element currentHpElement = dom.createElement("CurrentHP");
-        currentHpElement.setTextContent(Integer.toString(stats.getCurrentHp()));
-        Element currentMpElement = dom.createElement("CurrentMP");
-        currentMpElement.setTextContent(Integer.toString(stats.getCurrentMp()));
-
-        entityElement.getElementsByTagName("Statistics").item(0).appendChild(currentHpElement);
-        entityElement.getElementsByTagName("Statistics").item(0).appendChild(currentMpElement);
 
         return entityElement;
     }

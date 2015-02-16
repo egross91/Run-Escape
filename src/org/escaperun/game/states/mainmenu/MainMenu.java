@@ -26,7 +26,7 @@ public class MainMenu extends GameState {
         options = new Option[4];
         options[0] = new Option("Create Map", new CreateMap(new Stage(new Dimension(50, 50), new Avatar(Occupation.SNEAK))));
         options[1] = new Option("New Game", new Creation(this));
-        options[2] = new Option("Load Game", new LoadGame());
+        options[2] = new Option("Load Game", new LoadGame(this));
         options[3] = new Option("Exit", new Exit());
     }
 

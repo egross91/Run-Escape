@@ -43,7 +43,7 @@ public class Inventory implements Savable {
     public void add(TakeableItem ti){
 
         System.out.println("Inv contents: "+getSize());
-        if(!(ti.equals(null))) { // check if item is null, pertains to equip/unequip returns if nothing is equipped
+        if (ti != null) { // check if item is null, pertains to equip/unequip returns if nothing is equipped
             inventoryarr.add(ti);
         }
     }

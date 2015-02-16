@@ -1,23 +1,29 @@
 package org.escaperun.game.states.loading;
 
 import org.escaperun.game.Keyboard;
+import org.escaperun.game.serialization.SaveManager;
 import org.escaperun.game.states.GameState;
 import org.escaperun.game.states.Option;
 import org.escaperun.game.states.mainmenu.Creation;
+import org.escaperun.game.states.mainmenu.MainMenu;
 import org.escaperun.game.states.playing.Playing;
 import org.escaperun.game.view.Decal;
 import org.escaperun.game.view.GameWindow;
 
+import java.awt.*;
+
 public class LoadGame extends GameState {
 
     private static final int TICKS_PER_MOVEMENT = 10;
-    private static final Option[] OPTIONS = {
-            new Option("n00b", new Playing(Creation.saveManager.loadSavedGame("LOL"))),
-            new Option("DemoMap", new Playing(Creation.saveManager.loadSavedGame("Adam")))
-    };
+    private Option[] options;
 
-    public LoadGame() {
-
+    public LoadGame(MainMenu from) {
+        String[] saveManager = SaveManager.getProfiles();
+        options = new Option[saveManager.length+1];
+        for (int i = 0; i < options.length-1; i++) {
+            options[i] = new Option(saveManager[i], new Playing(SaveManager.loadSavedGame(saveManager[i])));
+        }
+        options[options.length-1] = new Option("Return", from);
     }
 
     private int selectedOption = 0;
@@ -33,7 +39,7 @@ public class LoadGame extends GameState {
         if (up) nextIdx--;
         if (down) nextIdx++;
 
-        if (nextIdx >= 0 && nextIdx < OPTIONS.length && ticksSince >= TICKS_PER_MOVEMENT && (up || down)) {
+        if (nextIdx >= 0 && nextIdx < options.length && ticksSince >= TICKS_PER_MOVEMENT && (up || down)) {
             selectedOption = nextIdx;
             ticksSince = 0;
         }
@@ -41,7 +47,7 @@ public class LoadGame extends GameState {
 
         boolean enter = pressed[Keyboard.ENTER];
         if (enter) {
-            GameState next = OPTIONS[selectedOption].nextState;
+            GameState next = options[selectedOption].nextState;
             pressed[Keyboard.ENTER] = false;
             return next;
         }
@@ -52,16 +58,16 @@ public class LoadGame extends GameState {
     @Override
     public Decal[][] getRenderable() {
         Decal[][] ret = new Decal[GameWindow.ROWS][GameWindow.COLUMNS];
-        for (int i = 0; i < OPTIONS.length; i++) {
-            int x = GameWindow.ROWS/OPTIONS.length-2+OPTIONS.length*i;
-            int y = GameWindow.COLUMNS/2-OPTIONS[i].text.length()/2;
+        for (int i = 0; i < options.length; i++) {
+            int x = GameWindow.ROWS/options.length-2+options.length*i;
+            int y = GameWindow.COLUMNS/2-options[i].text.length()/2;
             Decal[] toblit;
             if (selectedOption == i) {
-                toblit = OPTIONS[i].selected[0];
+                toblit = options[i].selected[0];
             } else {
-                toblit = OPTIONS[i].unselected[0];
+                toblit = options[i].unselected[0];
             }
-            for (int j = 0; j < OPTIONS[i].text.length(); j++) {
+            for (int j = 0; j < options[i].text.length(); j++) {
                 ret[x][y+j] = toblit[j];
             }
         }

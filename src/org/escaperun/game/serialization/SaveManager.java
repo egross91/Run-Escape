@@ -66,9 +66,29 @@ public class SaveManager {
         return saveToFile(playerName, xmlDom, "savedStage");
     }
 
+    public static String[] getProfiles() {
+        int cnt = 0;
+        for (File profile : SAVE_FILE_DIRECTORY.listFiles()) {
+            if (profile.isDirectory()) {
+                cnt++;
+            }
+        }
+        String[] retval = new String[cnt];
+        cnt = 0;
+        for (File profile : SAVE_FILE_DIRECTORY.listFiles()) {
+            if (profile.isDirectory()) {
+                retval[cnt++] = profile.getName();
+            }
+        }
+        return retval;
+    }
+
     public static Stage loadSavedGame(String playerName) {
         Avatar avatar = loadPlayerAvatar(playerName);
-        return loadStage(SAVE_FILE_DIRECTORY + "/" + playerName + "/savedStage.xml", avatar);
+        if (avatar == null) return null;
+        Stage stage = loadStage(SAVE_FILE_DIRECTORY + "/" + playerName + "/savedStage.xml", avatar);
+        if (stage == null) return null;
+        return stage;
     }
 
     public static Stage startNewGame(Avatar avatar) {
@@ -104,7 +124,8 @@ public class SaveManager {
         try {
             File avatarFile = new File(SAVE_FILE_DIRECTORY + "/" + playerName + "/avatar.xml");
             if (!avatarFile.exists()) {
-                avatarFile.createNewFile();
+                return null;
+                //avatarFile.createNewFile();
             }
             Document dom = getDom(avatarFile);
             try {
@@ -134,7 +155,8 @@ public class SaveManager {
         try {
             // TODO: Add functionality to read from String[] of map files.
             File stageFile = new File(filePath);
-            makeDirectory(stageFile);
+            if (!stageFile.exists()) return null;
+            //makeDirectory(stageFile);
             Document dom = getDom(stageFile);
 
             dom.getDocumentElement().normalize();
@@ -282,7 +304,7 @@ public class SaveManager {
 
     private static Map<StatEnum, Integer> getAvatarStatisticsProperties(Element node) {
         Map<StatEnum, Integer> avatarStats = getStatisticsProperties(node);
-        Element statElement = (Element)node.getElementsByTagName("Statistics").item(0);
+        Element statElement = (Element) node.getElementsByTagName("Statistics").item(0);
 
         avatarStats.put(getStatEnum("CurrentHP"), toInt(statElement.getElementsByTagName("CurrentHP").item(0).getTextContent()));
         avatarStats.put(getStatEnum("CurrentMP"), toInt(statElement.getElementsByTagName("CurrentMP").item(0).getTextContent()));

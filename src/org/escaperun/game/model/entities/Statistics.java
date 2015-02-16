@@ -76,10 +76,6 @@ public class Statistics implements Savable {
     public void updateStats(Equipment equipment){
         int before = statsmap.get(StatEnum.LEVEL);
         getLevel();//Derived level
-        if(before != statsmap.get(StatEnum.LEVEL) && before > 0){
-            currentstats.put(StatEnum.CURRENTHP, statsmap.get(StatEnum.MAXHP));
-            currentstats.put(StatEnum.CURRENTMP, statsmap.get(StatEnum.MAXMP));
-        }
 
         getOffensiveRate();//Calculate OR from the method provided initially.
         getDefensiveRate();//Calculate DR from the method provided initially.
@@ -87,6 +83,10 @@ public class Statistics implements Savable {
         getMaxHP(); //Calculate HP from the method provided initially.
         getMaxMP(); //Calculate MP from the method provided intiially.
         currentstats.putAll(statsmap); //Reset our currentstats object to have default values.
+        if(before != statsmap.get(StatEnum.LEVEL) && before > 0){
+            currentstats.put(StatEnum.CURRENTHP, statsmap.get(StatEnum.MAXHP));
+            currentstats.put(StatEnum.CURRENTMP, statsmap.get(StatEnum.MAXMP));
+        }
         if (equipment.getEquipment() == null)
             return;
         Collection<EquipableItem> equipitems = equipment.getEquipment().values();
@@ -280,6 +280,14 @@ public class Statistics implements Savable {
     public Element save(Document dom) {
         Element statsElement = dom.createElement("Statistics");
         for (Map.Entry<StatEnum, Integer> stat : statsmap.entrySet()) {
+            StatEnum statEnum = stat.getKey();
+            Element currentStat = dom.createElement(statEnum.toString());
+            currentStat.setTextContent(Integer.toString(stat.getValue()));
+
+            statsElement.appendChild(currentStat);
+        }
+
+        for (Map.Entry<StatEnum, Integer> stat : currentstats.entrySet()) {
             StatEnum statEnum = stat.getKey();
             Element currentStat = dom.createElement(statEnum.toString());
             currentStat.setTextContent(Integer.toString(stat.getValue()));

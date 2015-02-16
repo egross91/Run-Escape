@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<Stage cols="4" rows="2" startX="1" startY="1">
+<Stage cols="5" rows="3" startX="1" startY="1">
 <Tile x="0" y="0">
 <Terrain type="grass"/>
 </Tile>
@@ -10,6 +10,10 @@
 <Terrain type="grass"/>
 </Tile>
 <Tile x="0" y="3"/>
+<Tile x="0" y="4">
+<AreaEffect type="takedamage">50</AreaEffect>
+<Terrain type="grass"/>
+</Tile>
 <Tile x="1" y="0">
 <Terrain type="mountain"/>
 </Tile>
@@ -38,5 +42,25 @@
 </Tile>
 <Tile x="1" y="3">
 <Terrain type="water"/>
+</Tile>
+<Tile x="1" y="4">
+<AreaEffect type="takedamage">50</AreaEffect>
+<Terrain type="grass"/>
+</Tile>
+<Tile x="2" y="0">
+<Terrain type="grass"/>
+</Tile>
+<Tile x="2" y="1">
+<Terrain type="grass"/>
+</Tile>
+<Tile x="2" y="2">
+<Terrain type="grass"/>
+</Tile>
+<Tile x="2" y="3">
+<Terrain type="grass"/>
+</Tile>
+<Tile x="2" y="4">
+<AreaEffect type="takedamage">50</AreaEffect>
+<Terrain type="grass"/>
 </Tile>
 </Stage>
