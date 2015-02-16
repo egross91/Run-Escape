@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<Avatar x="2" y="40">
+<Occupation occ="smasher"/>
+<Statistics>
+<OffenseRate>6</OffenseRate>
+<MaxMP>1</MaxMP>
+<MaxHP>6</MaxHP>
+<Intellect>0</Intellect>
+<Movement>1</Movement>
+<Exp>0</Exp>
+<Agility>0</Agility>
+<DefenseRate>1</DefenseRate>
+<Strength>5</Strength>
+<Level>1</Level>
+<ArmorRate>5</ArmorRate>
+<Hardiness>5</Hardiness>
+<NumOfLives>3</NumOfLives>
+<OffenseRate>6</OffenseRate>
+<CurrentHP>6</CurrentHP>
+<MaxMP>1</MaxMP>
+<MaxHP>6</MaxHP>
+<Intellect>0</Intellect>
+<Movement>1</Movement>
+<Exp>0</Exp>
+<Agility>0</Agility>
+<DefenseRate>1</DefenseRate>
+<Strength>5</Strength>
+<Level>1</Level>
+<CurrentMP>1</CurrentMP>
+<ArmorRate>5</ArmorRate>
+<Hardiness>5</Hardiness>
+<NumOfLives>3</NumOfLives>
+</Statistics>
+<Equipment/>
+<Inventory capacity="50">
+<Item type="usable">
+<Statistics>
+<OffenseRate>3</OffenseRate>
+<MaxMP>50</MaxMP>
+<MaxHP>50</MaxHP>
+<Intellect>5</Intellect>
+<Movement>5</Movement>
+<Exp>0</Exp>
+<Agility>0</Agility>
+<DefenseRate>0</DefenseRate>
+<Strength>1</Strength>
+<Level>0</Level>
+<ArmorRate>2</ArmorRate>
+<Hardiness>5</Hardiness>
+<NumOfLives>0</NumOfLives>
+</Statistics>
+<Decal background="-16777216" char="?" foreground="-256"/>
+</Item>
+</Inventory>
+</Avatar>

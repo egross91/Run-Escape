@@ -47,10 +47,12 @@ public class Avatar extends Entity {
     public void equipItem(EquipableItem equipableItem){
         EquipableItem anyreturned = equipment.equipItem(equipableItem);
         System.out.println("ANYRET: " + anyreturned);
+        System.out.println(this.stats.getMaxHP());
         if(anyreturned != null) {
             addItemToInventory(anyreturned);
         }
         stats.updateStats(equipment);
+        System.out.print(stats.getMaxHP());
     }
 
     public void unequipItem(ItemSlot itemSlot){
@@ -72,8 +74,8 @@ public class Avatar extends Entity {
         if(stats.takeDamage(dmg) && stats.statsmap.get(StatEnum.NUMOFLIVES) != 0){
             move(startposition); //Reset position; we died.
             stats.currentstats.putAll(stats.statsmap);//Reset all temporary stats because of death.
-            stats.currentstats.put(StatEnum.CURRENTHP, stats.statsmap.get(StatEnum.MAXHP)); //reset HP
-            stats.currentstats.put(StatEnum.CURRENTMP, stats.statsmap.get(StatEnum.MAXMP)); //reset MP
+            stats.currentstats.put(StatEnum.CURRENTHP, stats.getMaxHP()); //reset HP
+            stats.currentstats.put(StatEnum.CURRENTMP, stats.getMaxMP()); //reset MP
             stats.updateStats(equipment);
         }
     }

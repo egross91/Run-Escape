@@ -46,7 +46,7 @@ public class Inventory implements Savable{
         if (ti != null) { // check if item is null, pertains to equip/unequip returns if nothing is equipped
             inventoryarr.add(ti);
         }
-        System.out.println("Inv contents: "+getSize());
+//        System.out.println("Inv contents: "+getSize());
     }
 
     //Pass UsableItem to avatar for it to use.

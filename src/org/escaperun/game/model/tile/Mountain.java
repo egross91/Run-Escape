@@ -8,8 +8,13 @@ import java.awt.*;
 
 public class Mountain extends Terrain{
 
+//    public Mountain(){
+//        super(new Decal('M', Color.BLACK, Color.LIGHT_GRAY), true);
+//    }
+
+    //Changed the decal to look more like a mountain... please revert if this is not good.
     public Mountain(){
-        super(new Decal('M', Color.BLACK, Color.LIGHT_GRAY), true);
+        super(new Decal((char) 30, Color.BLACK, Color.LIGHT_GRAY), true);
     }
 
     public String getTypeToString() {

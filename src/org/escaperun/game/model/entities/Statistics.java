@@ -134,7 +134,7 @@ public class Statistics implements Savable {
 
     protected void addStats(Statistics itemstat) {
         Set<Map.Entry<StatEnum, Integer>> entries = itemstat.statsmap.entrySet();
-        System.out.println(entries);
+        //System.out.println(entries);
         Iterator<Map.Entry<StatEnum, Integer>> iterator = entries.iterator();
 
         while(iterator.hasNext())
