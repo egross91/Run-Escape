@@ -261,7 +261,6 @@ public class Playing extends GameState {
                     for(int i = 0; i < 10; i++) {
                         if(((ix +10) == xx) && ((iy +2) == yy) && !(inventory[invCounter] == null)){
                             char fChar = inventory[invCounter].ch;
-                            System.out.println(fChar);
                             Decal focused = new Decal(fChar, Color.BLACK, Color.RED);
                             view[xx][yy] = focused;
                         }else {
