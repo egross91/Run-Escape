@@ -35,8 +35,8 @@ public class Pausing extends GameState {
             return prevState;
         }
 
-        boolean up = pressed[Keyboard.UP];
-        boolean down = pressed[Keyboard.DOWN];
+        boolean up = pressed[Keyboard.UP] || pressed[Keyboard.NUM_UP];
+        boolean down = pressed[Keyboard.DOWN] || pressed[Keyboard.NUM_DOWN];
         int nextIdx = selectedOption;
         if (up) nextIdx--;
         if (down) nextIdx++;
@@ -53,8 +53,6 @@ public class Pausing extends GameState {
             pressed[Keyboard.ENTER] = false;
             return next;
         }
-
-
         return null;
     }
 

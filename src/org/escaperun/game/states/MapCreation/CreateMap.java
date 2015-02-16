@@ -29,14 +29,18 @@ public class CreateMap extends GameState {
     }
 
     private boolean exitGame(boolean[] pressed) {
-        boolean up = pressed[Keyboard.UP];
-        boolean down = pressed[Keyboard.DOWN];
-        boolean left = pressed[Keyboard.LEFT];
-        boolean right = pressed[Keyboard.RIGHT];
+        boolean up = pressed[Keyboard.UP] || pressed[Keyboard.NUM_UP];
+        boolean down = pressed[Keyboard.DOWN] || pressed[Keyboard.NUM_DOWN];
+        boolean left = pressed[Keyboard.LEFT] || pressed[Keyboard.NUM_LEFT];
+        boolean right = pressed[Keyboard.RIGHT] || pressed[Keyboard.NUM_RIGHT];
         boolean blankTile = pressed[Keyboard.BLANK];
         boolean grass = pressed[Keyboard.GRASS];
         boolean water = pressed[Keyboard.WATER];
         boolean esc = pressed[Keyboard.ESCAPE];
+        boolean num_upright = pressed[Keyboard.NUM_UPRIGHT];
+        boolean num_upleft = pressed[Keyboard.NUM_UPLEFT];
+        boolean num_downright = pressed[Keyboard.NUM_DOWNRIGHT];
+        boolean num_downleft = pressed[Keyboard.NUM_DOWNLEFT];
         Position avatarPos = stage.getAvatar().getPosition();
         int nextX = avatarPos.x;
         int nextY = avatarPos.y;
@@ -52,12 +56,16 @@ public class CreateMap extends GameState {
             stage.map[nextX][nextY - 1].setTerrain(null);
             stage.map[nextX + 1][nextY].setTerrain(null);
             stage.map[nextX - 1][nextY].setTerrain(null);
-
         }
+
         if (up) nextX--;
         if (down) nextX++;
         if (left) nextY--;
         if (right) nextY++;
+        if (num_upleft) {nextX--; nextY--;}
+        if (num_upright) {nextX--; nextY++;}
+        if (num_downleft) {nextX++; nextY--;}
+        if (num_downright) {nextX++; nextY++;}
 
         if(esc){
             Creation.saveManager.saveCurrentGame(stage, stage.getAvatar(), "Adam");
@@ -65,9 +73,10 @@ public class CreateMap extends GameState {
             return true;
         }
 
-
         if (ticksSince >= (stage.getAvatar().getOccupation().getMovement()*TICKS_PER_MOVEMENT)
-                && (up || down || left || right)) {
+                && (up || down || left || right || num_downleft || num_downright
+                || num_upleft || num_upright))
+        {
             if (stage.moveAvatar(new Position(nextX, nextY))) {
                 ticksSince = 0;
             }
