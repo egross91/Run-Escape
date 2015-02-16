@@ -1,4 +1,4 @@
-package org.escaperun.game.states.mapcreation;
+package org.escaperun.game.states.MapCreation;
 
 import org.escaperun.game.Keyboard;
 import org.escaperun.game.model.Position;
