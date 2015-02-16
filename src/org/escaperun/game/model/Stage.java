@@ -27,12 +27,15 @@ public class Stage implements Tickable {
         for (int i = 0; i < dim.height; ++i) {
             for (int j = 0; j < dim.width; ++j) {
                 map[i][j] = new Tile();
+                map[i][j].setTerrain(new Grass());
+                /*
                 if (i == 0 || i == (dim.height - 1)) {
                     map[i][j].setTerrain(new Grass());
                 }
                 if (j == 0 || j == (dim.width - 1)) {
                     map[i][j].setTerrain(new Grass());
                 }
+                */
             }
         }
         this.avatar = avatar;

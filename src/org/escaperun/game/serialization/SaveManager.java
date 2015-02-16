@@ -63,6 +63,48 @@ public class SaveManager {
         return saveToFile(playerName, xmlDom, "savedStage");
     }
 
+    public static boolean saveCreatedMap(Stage stage) {
+
+        Dimension dimensions = stage.dimensions;
+        Tile[][] savables = stage.map;
+        Document xmlDom = new DocumentImpl();
+        Element root = xmlDom.createElement("Stage");
+        root.setAttribute("cols", Integer.toString((int)dimensions.getWidth()));
+        root.setAttribute("rows", Integer.toString((int)dimensions.getHeight()));
+
+
+        for (int r = 0; r < dimensions.getHeight(); ++r) {
+            for (int c = 0; c < dimensions.getWidth(); ++c) {
+                Tile tile = savables[r][c];
+                Element tileElement = tile.save(xmlDom);
+                tileElement.setAttribute("x", Integer.toString(r));
+                tileElement.setAttribute("y", Integer.toString(c));
+
+                root.appendChild(tileElement);
+            }
+        }
+
+        xmlDom.appendChild(root);
+        return saveMapToFile(xmlDom, "stage_save");
+    }
+
+    private static boolean saveMapToFile(Document dom, String fileName) {
+        try {
+            Transformer transformer = TransformerFactory.newInstance().newTransformer();
+            File saveFile = new File(System.getProperty("user.dir") + "/maps/" + fileName + ".xml");
+
+            DOMSource source = new DOMSource(dom);
+            StreamResult result = new StreamResult(saveFile);
+
+            transformer.setOutputProperty(OutputKeys.INDENT, "yes");
+            transformer.transform(source, result);
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
     public static String[] getProfiles() {
         int cnt = 0;
         for (File profile : SAVE_FILE_DIRECTORY.listFiles()) {
@@ -89,7 +131,7 @@ public class SaveManager {
     }
 
     public static Stage startNewGame(Avatar avatar) {
-        return loadStage(System.getProperty("user.dir") + MAPS_DIRECTORY + "stage1.xml", avatar);
+        return loadStage(System.getProperty("user.dir") + MAPS_DIRECTORY + "stage_save.xml", avatar);
     }
 
     private static boolean saveAvatar(Avatar avatar, String playerName) {

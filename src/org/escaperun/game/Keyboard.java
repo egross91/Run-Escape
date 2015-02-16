@@ -9,45 +9,28 @@ public class Keyboard implements KeyListener {
 
     // change when we decide to actually deploy game
     // I (josh) can't use numpad (laptop) so these are really convenient for me
-    /*
-    public static final char UP = 'w';
-    public static final char DOWN = 's';
-    public static final char LEFT = 'a';
-    public static final char RIGHT = 'd';
-    public static final char BLANK = 'b';
-    public static final char GRASS = 'g';
-    public static final char INV = 'i';
-    public static final char WATER = 'h';
-    */
 
-    public static final int UP = KeyEvent.VK_W;
-    public static final int DOWN = KeyEvent.VK_S;
-    public static final int LEFT = KeyEvent.VK_A;
-    public static final int RIGHT = KeyEvent.VK_D;
-    public static final int BLANK = KeyEvent.VK_B;
-    public static final int GRASS = KeyEvent.VK_G;
-    public static final int INV = KeyEvent.VK_I;
-    public static final int WATER = KeyEvent.VK_H;
+    public static final int UP = 'w';
+    public static final int DOWN = 's';
+    public static final int LEFT = 'a';
+    public static final int RIGHT = 'd';
+    public static final int BLANK = 'b';
+    public static final int GRASS = 'g';
+    public static final int INV = 'i';
 
-    //numpad
-    public static final int NUM_DOWN = KeyEvent.VK_NUMPAD2;
-    public static final int NUM_UP = KeyEvent.VK_NUMPAD8;
-    public static final int NUM_LEFT = KeyEvent.VK_NUMPAD4;
-    public static final int NUM_RIGHT = KeyEvent.VK_NUMPAD6;
-    public static final int NUM_UPLEFT = KeyEvent.VK_NUMPAD7;
-    public static final int NUM_UPRIGHT = KeyEvent.VK_NUMPAD9;
-    public static final int NUM_DOWNRIGHT = KeyEvent.VK_NUMPAD3;
-    public static final int NUM_DOWNLEFT = KeyEvent.VK_NUMPAD1;
-
-    /*
+    public static final int WATER = (int) 'y';
+    public static final char MOUNTAIN = 'm';
+    public static final char INST_DEATH = 'p';
+    public static final char OBSTACLE = 'o';
+    public static final char USABLE_ITEM = 'u';
+    public static final char ONE_SHOT = 'k';
+    public static final char INTERACTIVE_ITEM = 'j';
+    public static final char LEVEL_UP = 'l';
+    public static final char TAKE_DAMAGE = 't';
+    public static final char HEAL_DAMAGE = 'h';
     public static final char ENTER = (char) 10;
     public static final char ESCAPE = (char) 27;
     public static final char BACKSPACE = (char) 8;
-    */
-
-    public static final int ENTER = KeyEvent.VK_ENTER;
-    public static final int ESCAPE = KeyEvent.VK_ESCAPE;
-    public static final int BACKSPACE = KeyEvent.VK_BACK_SPACE;
 
     public final boolean[] pressed = new boolean[65536]; // There are 2^16 = 65536 possible chars.
     public final boolean[] pressedActual= new boolean[65536];
@@ -62,13 +45,14 @@ public class Keyboard implements KeyListener {
     @Override
     public void keyReleased(KeyEvent e) {
         //pressed[Character.toLowerCase(e.getKeyChar())] = false;
-        pressed[e.getKeyCode()] = false;
+        pressed[(int)e.getKeyChar()] = false;
     }
 
     @Override
     public void keyPressed(KeyEvent e) {
         //pressedActual[Character.toLowerCase(e.getKeyChar())] = true;
        // pressedActual[e.getKeyCode()] = true;
-        pressed[e.getKeyCode()] = true;
+        //System.out.println((int) e.getKeyChar());
+        pressed[(int)e.getKeyChar()] = true;
     }
 }

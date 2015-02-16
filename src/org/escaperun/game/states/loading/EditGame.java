@@ -5,7 +5,7 @@ import org.escaperun.game.model.Stage;
 import org.escaperun.game.serialization.SaveManager;
 import org.escaperun.game.states.GameState;
 import org.escaperun.game.states.Option;
-import org.escaperun.game.states.mapcreation.CreateMap;
+import org.escaperun.game.states.MapCreation.CreateMap;
 import org.escaperun.game.view.Decal;
 import org.escaperun.game.view.GameWindow;
 import org.escaperun.game.states.mainmenu.MainMenu;
@@ -45,8 +45,8 @@ public class EditGame extends GameState {
 
     @Override
     public GameState update(boolean[] pressed) {
-        boolean up = pressed[Keyboard.UP] || pressed[Keyboard.NUM_UP];
-        boolean down = pressed[Keyboard.DOWN] || pressed[Keyboard.NUM_DOWN];
+        boolean up = pressed[Keyboard.UP];
+        boolean down = pressed[Keyboard.DOWN];
 
         int nextIdx = selected;
 
