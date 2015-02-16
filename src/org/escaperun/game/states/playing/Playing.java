@@ -52,7 +52,7 @@ public class Playing extends GameState {
         }
 
     }
->>>>>>> Stashed changes
+
     @Override
     public GameState update(boolean[] pressed) {
         if (pressed[Keyboard.ESCAPE]) {
