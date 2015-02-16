@@ -3,6 +3,10 @@ package org.escaperun.game.states.playing;
 import org.escaperun.game.Keyboard;
 import org.escaperun.game.model.Position;
 import org.escaperun.game.model.Stage;
+import org.escaperun.game.model.entities.StatEnum;
+import org.escaperun.game.model.items.EquipableItem;
+import org.escaperun.game.model.items.ItemSlot;
+import org.escaperun.game.model.items.TakeableItem;
 import org.escaperun.game.states.GameState;
 import org.escaperun.game.states.mainmenu.Creation;
 import org.escaperun.game.states.mainmenu.Exit;
@@ -22,37 +26,39 @@ public class Playing extends GameState {
     private int invTicks = 500;
     private int invMoveTicks = 30;
     private boolean invOpen= false;
-    private static boolean[][] invAllowedMoves = new boolean[6][10];
-    static{assigninvMoves();}
+
     private static int ix = 1;
     private static int iy = 0;
+
+    private boolean equip = true;
+    private int invIdx = 0;
+    private static final Position[] INVENTORY_GRID = new Position[50];
+    private static final Position[] EQUIPMENT_GRID = new Position[5];
+
+    static {
+        int x = 11; int y = 2;
+        for (int i = 0; i < 50; i++) {
+            INVENTORY_GRID[i] = new Position(x, y);
+            y++;
+            if (y >= 12) {
+                y = 2;
+                x++;
+            }
+        }
+
+        x = 4;
+        y = 27;
+        for (int i = 0; i < 5; i++) {
+            EQUIPMENT_GRID[i] = new Position(x, y);
+            y++;
+        }
+    }
 
     public Playing(Stage stage) {
         this.stage = stage;
     }
 
-
     public Stage getStage() { return stage; }
-
-    public static void assigninvMoves(){
-
-        invAllowedMoves[0][0] = true;
-        invAllowedMoves[0][1] = true;
-        invAllowedMoves[0][2] = true;
-        invAllowedMoves[0][3] = true;
-        invAllowedMoves[0][4] = true;
-        invAllowedMoves[0][5] = false;
-        invAllowedMoves[0][6] = false;
-        invAllowedMoves[0][7] = false;
-        invAllowedMoves[0][8] = false;
-        invAllowedMoves[0][9] = false;
-        for(int i = 0; i < 5; i++){
-            for(int j = 0; j < 10; j++){
-                invAllowedMoves[i][j] = true;
-            }
-        }
-
-    }
 
     @Override
     public GameState update(boolean[] pressed) {
@@ -84,52 +90,77 @@ public class Playing extends GameState {
         return null;
     }
 
-    private boolean handleInvMovement(boolean[] pressed){
+    private void handleInvMovement(boolean[] pressed){
         boolean up = pressed[Keyboard.UP];
         boolean down = pressed[Keyboard.DOWN];
         boolean left = pressed[Keyboard.LEFT];
         boolean right = pressed[Keyboard.RIGHT];
         boolean enter = pressed[Keyboard.ENTER];
 
-            if (up && invMoveTicks >=45) {
-                if ((ix - 1) >= 0 && invAllowedMoves[ix - 1][iy]) {
-                    ix = ix - 1;
-                    iy = iy;
-                    invMoveTicks= 0;
-                }
+           if (up && invMoveTicks >=10) {
+               if (!equip) {
+                   int nextIdx = invIdx - 11;
+                   if (nextIdx < 0) {
+                       equip = true;
+                       invIdx = 0;
+                   } else {
+                       invIdx = nextIdx;
+                   }
+                   invMoveTicks = 0;
+               }
             }
-            invMoveTicks++;
-            if (down && invMoveTicks >=45) {
-                if ((ix + 1) <= 5 && invAllowedMoves[ix + 1][iy]) {
-                    ix = ix + 1;
-                    iy = iy;
-                    invMoveTicks= 0;
+            if (down && invMoveTicks >=10) {
+                if (equip) {
+                    equip = false;
+                    invIdx = 0;
+                } else {
+                    int nextIdx = invIdx + 11;
+                    if (!(nextIdx >= 50)) {
+                        invIdx = nextIdx;
+                    }
+                }
+                invMoveTicks = 0;
+            }
+            if (left && invMoveTicks >=10) {
+                int nextIdx = invIdx-1;
+                if (nextIdx >= 0) {
+                    invIdx = nextIdx;
+                }
+                invMoveTicks = 0;
+            }
+            if (right && invMoveTicks >=10) {
+
+                int nextIdx = invIdx+1;
+                if (equip) {
+                    if (nextIdx <= 4) {
+                        invIdx = nextIdx;
+                    }
+                } else {
+                    if (nextIdx <= 49) {
+                        invIdx = nextIdx;
+                    }
+                }
+                invMoveTicks = 0;
+            }
+            if (enter && invMoveTicks >=10) {
+                if (!equip) {
+                    if (invIdx < stage.getAvatar().getInventory().getSize()) {
+                        TakeableItem remo = stage.getAvatar().getInventory().remove(invIdx);
+                        if (remo instanceof EquipableItem)
+                            stage.getAvatar().equipItem((EquipableItem) remo);
+                    }
+                } else {
+                    if (invIdx <= 4) {
+                        stage.getAvatar().unequipItem(ItemSlot.values()[invIdx]);
+                    }
                 }
 
-            }
-            invMoveTicks++;
-            if (left && invMoveTicks >=45) {
-                if ((iy - 1) >= 0 && invAllowedMoves[ix][iy - 1]) {
-                    ix = ix;
-                    iy = iy - 1;
-                    invMoveTicks = 0;
-                }
-            }
-            invMoveTicks++;
-            if (right && invMoveTicks >=45) {
-                if ((iy + 1) <= 9 && invAllowedMoves[ix][iy + 1]) {
-                    ix = ix;
-                    iy = iy + 1;
-                    invMoveTicks = 0;
-                }
-            }
-            invMoveTicks++;
-            if (enter && invMoveTicks >=45) {
-                stage.getAvatar().getInventory().remove((ix-1)*10 + iy).doAction(stage.getAvatar());
+
+                //TODO
+                //stage.getAvatar().getInventory().remove((ix-1)*10 + iy).doAction(stage.getAvatar());
                 invMoveTicks = 0;
             }
             invMoveTicks++;
-        return false;
     }
 
     private void handleMovement(boolean[] pressed) {
@@ -142,7 +173,7 @@ public class Playing extends GameState {
         boolean right = pressed[Keyboard.RIGHT];
 
 
-        if (ticksSince >= (stage.getAvatar().getOccupation().getMovement() * TICKS_PER_MOVEMENT)
+        if (ticksSince >= (TICKS_PER_MOVEMENT/stage.getAvatar().getStats().getStat(StatEnum.MOVEMENT))
                 && (up || down || left || right ))
         {
             boolean moved = false;
@@ -226,27 +257,28 @@ public class Playing extends GameState {
                 if(xx == irowBarrier && yy < icolBarrier){
                     view[xx][yy] = new Decal('_', Color.BLACK, Color.WHITE);
                 }
-                //Print "Equipment"
-                if(xx == irowEq && yy == icolLeft){
-                    for(int i = 0; i < eq.length(); i++){
-                        view[xx][yy] = new Decal(eq.charAt(i), Color.BLACK , Color.WHITE);
-                        yy++;
-                    }
-                }
-                //Print Actual Equips
-                if((xx == (irowEq + 2) && yy == icolEquips)){
 
-                    for(int i = 0; i < equi.length; i++){
-                        if(xx == (ix + 4) && (yy == (iy +27))){
-                            char fChar = equi[i].ch;
-                            Decal focused = new Decal(fChar, Color.BLACK, Color.RED);
-                            view[xx][yy] = focused;
-                        }else {
-                            view[xx][yy] = equi[i];
-                            yy++;
-                        }
+
+                for (int i = 0; i < inventory.length; i++) {
+                    char ch = '-';
+                    if (inventory[i] != null) ch = inventory[i].ch;
+                    if (!equip && i == invIdx) {
+                        view[INVENTORY_GRID[i].x][INVENTORY_GRID[i].y] = new Decal(ch, Color.BLACK, Color.RED);
+                    } else {
+                        view[INVENTORY_GRID[i].x][INVENTORY_GRID[i].y] = new Decal(ch, Color.BLACK, Color.WHITE);
                     }
                 }
+
+                for (int i = 0; i < equi.length; i++) {
+                    char ch = '-';
+                    if (equi[i] != null) ch = equi[i].ch;
+                    if (equip && i == invIdx) {
+                        view[EQUIPMENT_GRID[i].x][EQUIPMENT_GRID[i].y] = new Decal(ch, Color.BLACK, Color.RED);
+                    } else {
+                        view[EQUIPMENT_GRID[i].x][EQUIPMENT_GRID[i].y] = new Decal(ch, Color.BLACK, Color.WHITE);
+                    }
+                }
+
                 //Print "Inventory"
                 if(xx == irowInv && yy == icolLeft){
                     for(int i = 0; i < inv.length(); i++){
@@ -255,20 +287,12 @@ public class Playing extends GameState {
                     }
                 }
 
-                //Print Actual Inv may change icolLeft
-                if((xx >= (irowInv + 2)) && (yy>= icolLeft) && (invCounter < 50) && copy){
-                    for(int i = 0; i < 10; i++) {
-                        if(((ix +10) == xx) && ((iy +2) == yy) && !(inventory[invCounter] == null)){
-                            char fChar = inventory[invCounter].ch;
-                            Decal focused = new Decal(fChar, Color.BLACK, Color.RED);
-                            view[xx][yy] = focused;
-                        }else {
-                            view[xx][yy] = inventory[invCounter];
-                        }
-                        invCounter++;
+                //Print "Equipment"
+                if(xx == irowEq && yy == icolLeft){
+                    for(int i = 0; i < eq.length(); i++){
+                        view[xx][yy] = new Decal(eq.charAt(i), Color.BLACK , Color.WHITE);
                         yy++;
                     }
-                    copy = false;
                 }
 
 
@@ -411,7 +435,6 @@ public class Playing extends GameState {
                 //view[x3][y3] = new Decal('%', Color.LIGHT_GRAY, Color.blue);
             }
         }
-
         return view;
     }
 

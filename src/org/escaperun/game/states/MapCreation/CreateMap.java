@@ -1,4 +1,4 @@
-package org.escaperun.game.states.MapCreation;
+package org.escaperun.game.states.mapcreation;
 
 import org.escaperun.game.Keyboard;
 import org.escaperun.game.model.Position;
@@ -10,6 +10,7 @@ import org.escaperun.game.model.items.ObstacleItem;
 import org.escaperun.game.model.items.OneShotItem;
 import org.escaperun.game.model.items.UsableItem;
 import org.escaperun.game.model.tile.*;
+import org.escaperun.game.serialization.SaveManager;
 import org.escaperun.game.states.GameState;
 import org.escaperun.game.states.mainmenu.Creation;
 import org.escaperun.game.states.mainmenu.Exit;
@@ -89,12 +90,12 @@ public class CreateMap extends GameState {
         if (right) nextY++;
 
         if(esc){
-            Creation.saveManager.saveCreatedMap(stage);
+            SaveManager.saveCreatedMap(stage);
             pressed[Keyboard.ESCAPE] = false;
             return true;
         }
 
-        if (ticksSince >= (stage.getAvatar().getOccupation().getMovement()*TICKS_PER_MOVEMENT)
+        if (ticksSince >= (TICKS_PER_MOVEMENT/stage.getAvatar().getStats().getStat(StatEnum.MOVEMENT))
                 && (up || down || left || right))
         {
             if (stage.moveAvatar(new Position(nextX, nextY))) {

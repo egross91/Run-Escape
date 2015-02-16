@@ -36,10 +36,12 @@ public class Avatar extends Entity {
 
     //Pass that task along to our inventory object.
     public boolean addItemToInventory(TakeableItem ti){
-        if((inventory.getCapacity()-inventory.getSize() != 0) && (ti != null))//If our knapsack is not full and we were not passed a null reference!
+        if((inventory.getCapacity()-inventory.getSize() != 0) && (ti != null)) {//If our knapsack is not full and we were not passed a null reference!
             inventory.add(ti); //Add item.
-        else return false;// We are full; Return operation unsuccessful.
-        return true; // It was good, return true (successful operation).
+            return true;
+        } else {
+            return false;// We are full; Return operation unsuccessful.
+        }
     }
 
     public void equipItem(EquipableItem equipableItem){
