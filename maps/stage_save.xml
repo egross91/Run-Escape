@@ -1357,9 +1357,13 @@
 <Terrain type="grass"/>
 </Tile>
 <Tile x="5" y="39">
+
+    <AreaEffect type="instantdeath">0</AreaEffect>
 <Terrain type="grass"/>
 </Tile>
 <Tile x="5" y="40">
+
+    <AreaEffect type="instantdeath">0</AreaEffect>
 <Terrain type="grass"/>
 </Tile>
 <Tile x="5" y="41">
