@@ -1,19 +1,15 @@
-package org.escaperun.game.states.mainmenu;
+package org.escaperun.game.states.pause;
 
 import org.escaperun.game.Keyboard;
-import org.escaperun.game.model.Stage;
-import org.escaperun.game.model.entities.Avatar;
-import org.escaperun.game.model.entities.Occupation;
 import org.escaperun.game.states.GameState;
-import org.escaperun.game.states.mapcreation.CreateMap;
 import org.escaperun.game.states.Option;
-import org.escaperun.game.states.loading.LoadGame;
+import org.escaperun.game.states.mainmenu.MainMenu;
+import org.escaperun.game.states.playing.Playing;
+import org.escaperun.game.states.saving.SaveGame;
 import org.escaperun.game.view.Decal;
 import org.escaperun.game.view.GameWindow;
 
-import java.awt.*;
-
-public class MainMenu extends GameState {
+public class Pausing extends GameState {
 
     public static final int TICKS_PER_MOVEMENT = 10;
 
@@ -21,13 +17,14 @@ public class MainMenu extends GameState {
 
     private int selectedOption = 0;
     private int ticksSince = 0;
+    private Playing prevState;
 
-    public MainMenu() {
-        options = new Option[4];
-        options[0] = new Option("Create Map", new CreateMap(new Stage(new Dimension(50, 50), new Avatar(Occupation.SNEAK))));
-        options[1] = new Option("New Game", new Creation(this));
-        options[2] = new Option("Load Game", new LoadGame());
-        options[3] = new Option("Exit", new Exit());
+    public Pausing(Playing prevState) {
+        this.prevState = prevState;
+        options = new Option[3];
+        options[0] = new Option("Save Game", new SaveGame(prevState));
+        options[1] = new Option("Return", prevState);
+        options[2] = new Option("Exit to Main Menu", new MainMenu());
     }
 
     @Override
@@ -70,4 +67,5 @@ public class MainMenu extends GameState {
         // TODO: Make beautiful animations
         return ret;
     }
+
 }

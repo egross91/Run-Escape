@@ -6,6 +6,7 @@ import org.escaperun.game.model.Stage;
 import org.escaperun.game.states.GameState;
 import org.escaperun.game.states.mainmenu.Creation;
 import org.escaperun.game.states.mainmenu.Exit;
+import org.escaperun.game.states.pause.Pausing;
 import org.escaperun.game.view.Decal;
 
 import java.awt.*;
@@ -18,17 +19,18 @@ public class Playing extends GameState {
     private int ticksSince = 0;
 
     private int invTicks = 500;
-    private boolean invOpen= false;
+    private boolean invOpen = false;
 
     public Playing(Stage stage) {
         this.stage = stage;
     }
 
+    public Stage getStage() { return stage; }
+
     @Override
     public GameState update(boolean[] pressed) {
         if (pressed[Keyboard.ESCAPE]) {
-            Creation.saveManager.saveCurrentGame(stage,"LOL");
-            return new Exit();
+            return new Pausing(this);
         }
 
         if (pressed[Keyboard.INV]) {
@@ -39,12 +41,13 @@ public class Playing extends GameState {
                 invOpen = false;
                 invTicks = 0;
             }
-            invTicks++;
         }
 
-        if (handleMovement(pressed)){
-            invTicks++;
+        if (!invOpen && handleMovement(pressed)) {
+
         }
+
+        invTicks++;
         return null;
     }
 

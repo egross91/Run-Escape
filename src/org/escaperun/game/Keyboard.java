@@ -18,6 +18,7 @@ public class Keyboard implements KeyListener {
 
     public static final char ENTER = (char) 10;
     public static final char ESCAPE = (char) 27;
+    public static final char BACKSPACE = (char) 8;
 
     public final boolean[] pressed = new boolean[65536]; // There are 2^16 = 65536 possible chars.
     public final boolean[] pressedActual= new boolean[65536];
