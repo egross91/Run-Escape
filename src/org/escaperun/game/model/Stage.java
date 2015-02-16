@@ -22,6 +22,26 @@ public class Stage implements Tickable {
         this(new Dimension(DEFAULT_WIDTH, DEFAULT_HEIGHT), avatar, new Position(0, 0));
     }
 
+    public Stage (Dimension dim, Avatar avatar) {
+        this.dimensions = dim;
+        this.map = new Tile[dim.height][dim.width];
+        for(int i = 0; i < dim.height; ++i) {
+            for(int j = 0; j < dim.width; ++j){
+                map[i][j] = new Tile();
+                if(i == 0 || i == (dim.height - 1)){
+                    map[i][j].setTerrain(new Grass());
+            }
+                if(j == 0 || j == (dim.width - 1)) {
+                    map[i][j].setTerrain(new Grass());
+                }
+            }
+        }
+        this.start = new Position(0,0);
+        this.avatar = avatar;
+        this.moveAvatar(start);
+
+    }
+
     public Stage(Dimension dim, Avatar avatar, Position start) {
         this.dimensions = dim;
         this.map = new Tile[dim.height][dim.width];

@@ -11,10 +11,13 @@ public class Statistics implements Savable {
 
     protected Map<StatEnum, Integer> statsmap = new HashMap<StatEnum, Integer>();
     protected Map<StatEnum, Integer> currentstats = new HashMap<StatEnum, Integer>(); //ONLY USED FOR AVATAR/ENTITY FOR TEMPORARY STATS. Do not use for Items; instead, use statsmap var.
+    private Map<StatEnum, Integer> hpmpmap = new HashMap<StatEnum, Integer>(5); //ONLY USED FOR DERIVED STAT BOOSTS
 
     //Constructor for Entity-related Statistics
     public Statistics(Occupation occupation, int numoflives) {
-        this.initializeSM();//Initialize values of all possibilities.
+
+
+        initializeSM();//Initialize values of all possibilities.
 
         statsmap.put(StatEnum.STRENGTH, occupation.getStrength());//get initial STR stat from whatever occupation was
         statsmap.put(StatEnum.AGILITY, occupation.getAgility());//get initial AGI stat from whatever occupation was
@@ -28,8 +31,8 @@ public class Statistics implements Savable {
         getArmorRate();//Calculate AR from the method provided initially.
         getMaxHP(); //Calculate HP from the method provided initially.
         getMaxMP(); //Calculate MP from the method provided intiially.
-
         currentstats.putAll(statsmap); //Initialize currentstats with a "copy" of our base stats.
+
         currentstats.put(StatEnum.CURRENTHP, statsmap.get(StatEnum.MAXHP)); //Current HP = Max HP
         currentstats.put(StatEnum.CURRENTMP, statsmap.get(StatEnum.MAXMP)); //Current MP = Max MP
     }
@@ -55,11 +58,6 @@ public class Statistics implements Savable {
         statsmap.put(StatEnum.NUMOFLIVES, 0);//NumberOfLives
         statsmap.put(StatEnum.LEVEL, 0);//Derived level initially from started EXP (0).
         statsmap.put(StatEnum.EXP, 0);//EXP always starts at level zero (or one if we choose to do it that way).
-//        statsmap.put(StatEnum.TEMPSTR, 0);//Temporary STR = 0 at start.
-//        statsmap.put(StatEnum.TEMPAGI, 0);//Temporary AGI = 0 at start.
-//        statsmap.put(StatEnum.TEMPINT, 0);//Temporary INT = 0 at start.
-//        statsmap.put(StatEnum.TEMPMOV, 0);//Temporary MOV = 0 at start.
-//        statsmap.put(StatEnum.TEMPHAR,0);//Temporary HAR = 0 at start.
         statsmap.put(StatEnum.MAXHP, 0);//store initial val of MaxHP
         statsmap.put(StatEnum.MAXMP, 0);//store initial val of MaxMP
 //        statsmap.put(StatEnum.CURRENTHP, 0);//store initial val of CurrentHP // Don't want current values to plague currentstats in updateStats() (e.g., rewrite to MaxHP or 0 val)
@@ -67,6 +65,12 @@ public class Statistics implements Savable {
         statsmap.put(StatEnum.OFFENSERATE, 0);//store initial val of OR
         statsmap.put(StatEnum.DEFENSERATE, 0);//store initial val of DR
         statsmap.put(StatEnum.ARMORRATE, 0);//store initial val of AR
+
+        hpmpmap.put(StatEnum.MAXHP, 0);
+        hpmpmap.put(StatEnum.MAXMP, 0);
+        hpmpmap.put(StatEnum.OFFENSERATE, 0);
+        hpmpmap.put(StatEnum.DEFENSERATE, 0);
+        hpmpmap.put(StatEnum.ARMORRATE, 0);
     }
 
     protected void updateStats(Equipment equipment){
@@ -74,8 +78,8 @@ public class Statistics implements Savable {
         getLevel();//Derived level
         if(before != statsmap.get(StatEnum.LEVEL) && before > 0){
             currentstats.put(StatEnum.CURRENTHP, statsmap.get(StatEnum.MAXHP));
+            currentstats.put(StatEnum.CURRENTMP, statsmap.get(StatEnum.MAXMP));
         }
-        // System.out.println(currentstats.get(StatEnum.MAXHP));
 
         getOffensiveRate();//Calculate OR from the method provided initially.
         getDefensiveRate();//Calculate DR from the method provided initially.
@@ -133,7 +137,7 @@ public class Statistics implements Savable {
         while(iterator.hasNext())
         {
             Map.Entry<StatEnum, Integer> entry = iterator.next();
-            currentstats.put(entry.getKey(), (entry.getValue() + this.currentstats.get(entry.getKey())));
+            currentstats.put(entry.getKey(), (entry.getValue() + currentstats.get(entry.getKey())));
             //Above statement: Put the new value at a certain key got from the entry, the current value found in our CURRENT STATS + the new value found in the entry.
             //This one is for equipments only, since those are temporary.
         }
@@ -146,10 +150,13 @@ public class Statistics implements Savable {
         while(iterator.hasNext())
         {
             Map.Entry<StatEnum, Integer> entry = iterator.next();
-            statsmap.put(entry.getKey(), (entry.getValue() + this.statsmap.get(entry.getKey())));
+            statsmap.put(entry.getKey(), (entry.getValue() + statsmap.get(entry.getKey())));
             //Above statement: Put the new value at a certain key got from the entry, the current value found in our statsmap + the new value found in the entry.
             if(entry.getValue() != 0)
                 System.out.println(entry.getKey()+" was boosted by "+entry.getValue()+"!");
+            if(entry.getKey() == StatEnum.MAXHP || entry.getKey() == StatEnum.MAXMP || entry.getKey() == StatEnum.ARMORRATE || entry.getKey()
+                 == StatEnum.DEFENSERATE || entry.getKey() == StatEnum.OFFENSERATE)
+                hpmpmap.put(entry.getKey(), (entry.getValue() + hpmpmap.get(entry.getKey()))); //Put derived stat boosts in special Map.
         }
 
     }
@@ -161,36 +168,34 @@ public class Statistics implements Savable {
     }
 
     protected int getMaxHP(){
-        statsmap.put(StatEnum.MAXHP, getLevel() + statsmap.get(StatEnum.HARDINESS));
+        statsmap.put(StatEnum.MAXHP, getLevel() + statsmap.get(StatEnum.HARDINESS) + hpmpmap.get(StatEnum.MAXHP));
         //Formula for MaxHP: Hardiness + Level
         return statsmap.get(StatEnum.MAXHP);
     }
 
     protected int getMaxMP(){
-        statsmap.put(StatEnum.MAXHP, getLevel() + statsmap.get(StatEnum.INTELLECT));
+        statsmap.put(StatEnum.MAXMP, getLevel() + statsmap.get(StatEnum.INTELLECT) + hpmpmap.get(StatEnum.MAXMP));
         //Formula for MaxHP: Intellect + Level
         return statsmap.get(StatEnum.MAXMP);
     }
 
     protected int getOffensiveRate(){
-        statsmap.put(StatEnum.OFFENSERATE, (statsmap.get(StatEnum.STRENGTH)+getLevel()));
+        statsmap.put(StatEnum.OFFENSERATE, (statsmap.get(StatEnum.STRENGTH)+getLevel()+hpmpmap.get(StatEnum.OFFENSERATE)));
         //Formula for OR: Strength + TempSTR + (derived) Level
         return statsmap.get(StatEnum.OFFENSERATE);
     }
 
     protected int getDefensiveRate(){
-        statsmap.put(StatEnum.DEFENSERATE, (statsmap.get(StatEnum.AGILITY)+getLevel()));
+        statsmap.put(StatEnum.DEFENSERATE, (statsmap.get(StatEnum.AGILITY)+getLevel()+hpmpmap.get(StatEnum.DEFENSERATE)));
         //Formula for DR: Agility + TempAGI + (derived) Level
         return statsmap.get(StatEnum.DEFENSERATE);
     }
 
     protected int getArmorRate(){
-        statsmap.put(StatEnum.ARMORRATE, (statsmap.get(StatEnum.HARDINESS)));
+        statsmap.put(StatEnum.ARMORRATE, (statsmap.get(StatEnum.HARDINESS))+hpmpmap.get(StatEnum.ARMORRATE));
         //Formula for AR: Hardiness + TempHAR
         return statsmap.get(StatEnum.ARMORRATE);
     }
-
-    //Unnecessary getter method removed. -Jeff
 
     protected void setStat(StatEnum se, int valueofchange)
     {
@@ -274,6 +279,12 @@ public class Statistics implements Savable {
         }
 
         return statsElement;
+    }
+
+    public String getItemStats(){
+        return offensetoString()+'\n'+armourtoString()+'\n'+
+               strengthtoString()+'\n'+intellecttoString()+'\n'+
+               agilitytoString()+'\n'+hardinesstoString()+'\n';
     }
 }
 

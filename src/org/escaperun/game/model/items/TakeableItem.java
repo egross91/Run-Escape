@@ -32,4 +32,8 @@ public abstract class TakeableItem extends Item {
     public void onTouch(Entity e) {
 
     }
+
+    public String toString(){
+        return getStats().toString();
+    }
 }
