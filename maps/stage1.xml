@@ -5,6 +5,23 @@
     </Tile>
     <Tile x="0" y="1">
         <Terrain type="grass"/>
+        <Item type="equipable" itemslot="1">
+            <Statistics>
+                <MaxHP>0</MaxHP>
+                <DefenseRate>0</DefenseRate>
+                <Exp>0</Exp>
+                <Level>0</Level>
+                <Strength>0</Strength>
+                <Intellect>0</Intellect>
+                <NumOfLives>0</NumOfLives>
+                <MaxMP>0</MaxMP>
+                <Movement>10</Movement>
+                <ArmorRate>0</ArmorRate>
+                <OffenseRate>0</OffenseRate>
+                <Agility>0</Agility>
+                <Hardiness>0</Hardiness>
+            </Statistics>
+        </Item>
     </Tile>
     <Tile x="0" y="2">
         <Terrain type="grass"/>

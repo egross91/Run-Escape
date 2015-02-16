@@ -35,15 +35,17 @@ public class Equipment implements Savable {
     public EquipableItem equipItem(EquipableItem equipableItem){
         if(!equipment.containsKey(equipableItem.getCategory())) //If we do not have any mapping to that current ItemSlot
         {
-            equipment.put(equipableItem.getCategory(), equipableItem); //add that equipment to the spot that has none
-            System.out.println(equipment);
+
+            this.equipment.put(equipableItem.getCategory(), equipableItem); //add that equipment to the spot that has none
             //this.changeStats(equipableItem.getStats()); //Change the stats
+            //System.out.println(equipableItem.getCategory());
+
         }
 
         else
         {
             EquipableItem returneditem = this.unequipItem(equipableItem.getCategory()); //Remove the current item that is going to be replaced from our equipment line-up.
-            equipment.put(equipableItem.getCategory(), equipableItem); //Equip the new item.
+            this.equipment.put(equipableItem.getCategory(), equipableItem); //Equip the new item.
             return returneditem; //Return our swapped equipable item.
         }
         return null; //Return nothing since nothing was swapped from equipment.
@@ -53,34 +55,34 @@ public class Equipment implements Savable {
         return equipment.remove(category); //Map's remove() func returns "removed" item, or null if none.
     }
 
-    protected Map<ItemSlot, EquipableItem> getEquipment(){
+    public Map<ItemSlot, EquipableItem> getEquipment(){
         return equipment;
     }
 
     public Decal[] getEquipDecals(){
         Decal[] decals =new Decal[5];
         //ORDER: HELMET, ARMOR, GLOVES, BOOTS, WEAPON (for what the ArrayList will return)
-        if (equipment.get(0) == null) {
+        if (equipment.get(ItemSlot.values()[0]) == null) {
             decals[0] = new Decal('-', Color.BLACK,Color.WHITE);
         }else{
             decals[0] = equipment.get(ItemSlot.HELMET).getDecal();
         }
-        if(equipment.get(1) == null){
+        if(equipment.get(ItemSlot.values()[1]) == null){
             decals[1] = new Decal('-', Color.BLACK,Color.WHITE);
         }else{
             decals[1] = equipment.get(ItemSlot.ARMOR).getDecal();
         }
-        if(equipment.get(2) == null){
+        if(equipment.get(ItemSlot.values()[2]) == null){
             decals[2] = new Decal('-', Color.BLACK,Color.WHITE);
         }else{
             decals[2] = equipment.get(ItemSlot.GLOVES).getDecal();
         }
-        if(equipment.get(3) == null){
+        if(equipment.get(ItemSlot.values()[3]) == null){
             decals[3] = new Decal('-', Color.BLACK,Color.WHITE);
         }else{
             decals[3] = equipment.get(ItemSlot.BOOTS).getDecal();
         }
-        if(equipment.get(4) == null){
+        if(equipment.get(ItemSlot.values()[4]) == null){
             decals[4] = new Decal('-', Color.BLACK,Color.WHITE);
         }else{
             decals[4] = equipment.get(ItemSlot.WEAPON).getDecal();

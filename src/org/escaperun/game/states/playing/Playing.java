@@ -212,6 +212,10 @@ public class Playing extends GameState {
         Decal[] equi = stage.getAvatar().getEquipment().getEquipDecals();
         Decal[] inventory = stage.getAvatar().getInventory().getInventoryDecal();
 
+//            for(int i =0; i < 5; i++){
+//                System.out.println(stage.getAvatar().getEquipment().getEquipment().get(i));
+//            }
+
          for(int xx = 0; xx < (testRows - statusRow); xx++){
             for(int yy = 0; yy < column; yy++){
                 //collumn Barrier
@@ -231,9 +235,16 @@ public class Playing extends GameState {
                 }
                 //Print Actual Equips
                 if((xx == (irowEq + 2) && yy == icolEquips)){
+
                     for(int i = 0; i < equi.length; i++){
-                        view[xx][yy] = equi[i];
-                        yy++;
+                        if(xx == (ix + 4) && (yy == (iy +27))){
+                            char fChar = equi[i].ch;
+                            Decal focused = new Decal(fChar, Color.BLACK, Color.RED);
+                            view[xx][yy] = focused;
+                        }else {
+                            view[xx][yy] = equi[i];
+                            yy++;
+                        }
                     }
                 }
                 //Print "Inventory"
