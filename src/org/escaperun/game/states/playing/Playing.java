@@ -5,6 +5,7 @@ import org.escaperun.game.model.Position;
 import org.escaperun.game.model.Stage;
 import org.escaperun.game.model.entities.StatEnum;
 import org.escaperun.game.model.items.EquipableItem;
+import org.escaperun.game.model.items.Item;
 import org.escaperun.game.model.items.ItemSlot;
 import org.escaperun.game.model.items.TakeableItem;
 import org.escaperun.game.states.GameState;
@@ -261,7 +262,9 @@ public class Playing extends GameState {
 
          for(int xx = 0; xx < (testRows - statusRow); xx++){
             for(int yy = 0; yy < column; yy++){
-                //collumn Barrier
+                //column Barrier
+
+                Item focused_item = null;
                 if(yy == icolBarrier){
                     view[xx][yy] = new Decal('|', Color.BLACK, Color.WHITE);
                 }
@@ -272,9 +275,14 @@ public class Playing extends GameState {
 
 
                 for (int i = 0; i < inventory.length; i++) {
+                    Item item = null;
                     char ch = '-';
-                    if (inventory[i] != null) ch = inventory[i].ch;
+                    if (inventory[i] != null) {
+                        ch = inventory[i].ch;
+                        item = stage.getAvatar().getInventory().getItem(i);
+                    }
                     if (!equip && i == invIdx) {
+                        focused_item = item;
                         view[INVENTORY_GRID[i].x][INVENTORY_GRID[i].y] = new Decal(ch, Color.BLACK, Color.RED);
                     } else {
                         view[INVENTORY_GRID[i].x][INVENTORY_GRID[i].y] = new Decal(ch, Color.BLACK, Color.WHITE);
@@ -307,6 +315,15 @@ public class Playing extends GameState {
                     }
                 }
 
+                if ((focused_item != null) && (xx == irowInv-2 && yy == icolBarrier+2)) {
+                    //write item details
+                    String item_stats = "Item type: " + focused_item.getTypeToString();
+                    for(int i = 0; i < item_stats.length(); i++){
+                        view[xx][yy] = new Decal(item_stats.charAt(i), Color.BLACK, Color.WHITE);
+                        yy++;
+                    }
+                    System.out.println(item_stats);
+                }
 
             }
              copy = true;   // keeps
