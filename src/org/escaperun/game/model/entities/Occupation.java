@@ -53,27 +53,24 @@ public enum Occupation implements Savable {
         return color;
     }
 
-    private String getColorString() {
-        if (color == Color.RED) {
-            return "red";
-        }
-        else if (color == Color.BLUE) {
-            return "blue";
-        }
-        else {
-            return "green";
+    @Override
+    public String toString() {
+        switch (this) {
+            case SMASHER:
+                return "smasher";
+            case SUMMONER:
+                return "summoner";
+            case SNEAK:
+                return "sneak";
+            default:
+                return null;
         }
     }
 
     @Override
     public Element save(Document dom) {
         Element occupationElement = dom.createElement("Occupation");
-        occupationElement.setAttribute("strength", Integer.toString(strength));
-        occupationElement.setAttribute("intelligence", Integer.toString(intelligence));
-        occupationElement.setAttribute("agility", Integer.toString(agility));
-        occupationElement.setAttribute("hardiness", Integer.toString(hardiness));
-        occupationElement.setAttribute("movement", Integer.toString(movement));
-        occupationElement.setAttribute("color", getColorString());
+        occupationElement.setAttribute("occ", toString());
 
         return occupationElement;
     }

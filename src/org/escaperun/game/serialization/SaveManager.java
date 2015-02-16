@@ -3,10 +3,7 @@ package org.escaperun.game.serialization;
 import com.sun.org.apache.xerces.internal.dom.DocumentImpl;
 import org.escaperun.game.model.Position;
 import org.escaperun.game.model.Stage;
-import org.escaperun.game.model.entities.Avatar;
-import org.escaperun.game.model.entities.Occupation;
-import org.escaperun.game.model.entities.StatEnum;
-import org.escaperun.game.model.entities.Statistics;
+import org.escaperun.game.model.entities.*;
 import org.escaperun.game.model.items.*;
 import org.escaperun.game.model.tile.*;
 import org.escaperun.game.view.Decal;
@@ -28,18 +25,22 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class SaveManager {
-    private final String PROFILE_DIRECTORY = "/profiles/";
-    private final String MAPS_DIRECTORY = "/maps/";
-    private final File SAVE_FILE_DIRECTORY = new File(System.getProperty("user.dir") + PROFILE_DIRECTORY + "/LOL/");
+    private static final String PROFILE_DIRECTORY = "/profiles/";
+    private static final String MAPS_DIRECTORY = "/maps/";
+    private static final String SAVE_DIRECTORY = System.getProperty("user.dir") + PROFILE_DIRECTORY;
+    private static final File SAVE_FILE_DIRECTORY = new File(SAVE_DIRECTORY);
 
     public SaveManager() {
-        if (!SAVE_FILE_DIRECTORY.exists()) {
-            SAVE_FILE_DIRECTORY.mkdirs();
-        }
+        makeDirectory(SAVE_FILE_DIRECTORY);
     }
 
     // TODO: Hook into this and allow for the 'stage' to be saved.
-    public boolean saveCurrentGame(Stage stage, String playerName) {
+    public static boolean saveCurrentGame(Stage stage, Avatar avatar, String playerName) {
+//        if (!saveAvatar(avatar, playerName))
+//            return false;
+
+        saveAvatar(avatar, playerName);
+
         Dimension dimensions = stage.dimensions;
         Position start = stage.start;
         Tile[][] savables = stage.map;
@@ -62,41 +63,66 @@ public class SaveManager {
         }
 
         xmlDom.appendChild(root);
+        return saveToFile(playerName, xmlDom, "savedStage");
+    }
+
+    public static Stage loadSavedGame(String playerName) {
+        Avatar avatar = loadPlayerAvatar(playerName);
+        return loadStage(SAVE_FILE_DIRECTORY + "/" + playerName + "/savedStage.xml", avatar);
+    }
+
+    public static Stage startNewGame(Avatar avatar) {
+        return loadStage(System.getProperty("user.dir") + MAPS_DIRECTORY + "stage1.xml", avatar);
+    }
+
+    private static boolean saveAvatar(Avatar avatar, String playerName) {
         try {
-            Transformer transformer = TransformerFactory.newInstance().newTransformer();
-            File saveProfileDir = new File(System.getProperty("user.dir") + PROFILE_DIRECTORY + "/" + playerName + "/");
-            if (!saveProfileDir.exists()) {
-                saveProfileDir.mkdir();
-            }
-            File saveFile = new File(System.getProperty("user.dir") + PROFILE_DIRECTORY + "/" + playerName + "/testSaveStage.xml");
+            String directory = SAVE_FILE_DIRECTORY + "/" + playerName + "/";
+            makeDirectory(new File(directory));
+            File avatarFile = new File(directory + "avatar.xml");
+            avatarFile.createNewFile();
 
-            DOMSource source = new DOMSource(xmlDom);
-            StreamResult result = new StreamResult(saveFile);
+            Document xmlDom = new DocumentImpl();
+            Element root = xmlDom.createElement("Avatar");
+            root.setAttribute("x", Integer.toString(avatar.getPosition().x));
+            root.setAttribute("y", Integer.toString(avatar.getPosition().y));
 
-            transformer.setOutputProperty(OutputKeys.INDENT, "yes");
-            transformer.transform(source, result);
-            return true;
+            root.appendChild(avatar.getOccupation().save(xmlDom));
+            root.appendChild(avatar.getStats().save(xmlDom));
+            root.appendChild(avatar.getEquipment().save(xmlDom));
+            root.appendChild(avatar.getInventory().save(xmlDom));
+
+            xmlDom.appendChild(root);
+            return saveToFile(playerName, xmlDom, "avatar");
         } catch (Exception e) {
             e.printStackTrace();
             return false;
         }
     }
 
-    public Stage loadSavedGame(String playerName) {
-        // TODO: Load the Avatar and Save the avatar to/from file.
-//        Avatar avatar = loadPlayerAvatar(playerName);
-        return loadStage(System.getProperty("user.dir") + PROFILE_DIRECTORY + "/" + playerName + "/testSaveStage.xml", new Avatar(Occupation.SMASHER));
-    }
-
-    public Stage startNewGame(Avatar avatar) {
-        return loadStage(System.getProperty("user.dir") + MAPS_DIRECTORY + "stage1.xml", avatar);
-    }
-
-    private Avatar loadPlayerAvatar(String playerName) {
+    private static Avatar loadPlayerAvatar(String playerName) {
         try {
-            File loadFile = new File(System.getProperty("user.dir") + PROFILE_DIRECTORY + "/" + playerName + "/avatar.xml");
-            Document dom = getDom(loadFile);
+            File avatarFile = new File(SAVE_FILE_DIRECTORY + "/" + playerName + "/avatar.xml");
+            if (!avatarFile.exists()) {
+                avatarFile.createNewFile();
+            }
+            Document dom = getDom(avatarFile);
+            try {
+                dom.getDocumentElement().normalize();
+            } catch (Exception e) {
+                return new Avatar(Occupation.SMASHER);
+            }
 
+            Element lastPosition = (Element)dom.getElementsByTagName("Avatar").item(0);
+            int x = toInt(lastPosition.getAttribute("x"));
+            int y = toInt(lastPosition.getAttribute("y"));
+            Occupation occupation = getOccupationProperties((Element) dom.getElementsByTagName("Occupation").item(0));
+            Equipment equipment = getEquipmentProperties((Element)dom.getElementsByTagName("Equipment").item(0));
+            Statistics stats = new Statistics(getAvatarStatisticsProperties(dom.getDocumentElement()));
+            stats.updateStats(equipment);
+            Inventory inventory = getInventoryProperties((Element)dom.getElementsByTagName("Inventory").item(0));
+
+            return new Avatar(occupation, new Position(x, y), stats, inventory, equipment); // Placeholder.
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -104,10 +130,11 @@ public class SaveManager {
         return null;
     }
 
-    private Stage loadStage(String filePath, Avatar avatar) {
+    private static Stage loadStage(String filePath, Avatar avatar) {
         try {
             // TODO: Add functionality to read from String[] of map files.
             File stageFile = new File(filePath);
+            makeDirectory(stageFile);
             Document dom = getDom(stageFile);
 
             dom.getDocumentElement().normalize();
@@ -123,7 +150,7 @@ public class SaveManager {
 
             Tile[][] map = new Tile[rows][cols];
             for (int i = 0; i < nodes.getLength(); ++i) {
-                Node node = nodes.item(i); //
+                Node node = nodes.item(i);
 
                 if (node.getNodeType() == Node.ELEMENT_NODE) {
                     Element element = (Element)node; // <Tile>
@@ -142,18 +169,40 @@ public class SaveManager {
         }
     }
 
-    private Document getDom(File file) {
+    private static boolean saveToFile(String playerName, Document dom, String fileName) {
+        try {
+            Transformer transformer = TransformerFactory.newInstance().newTransformer();
+            makeDirectory(new File(SAVE_FILE_DIRECTORY + "/" + playerName + "/"));
+            File saveFile = new File(SAVE_FILE_DIRECTORY + "/" + playerName + "/" + fileName + ".xml");
+
+            DOMSource source = new DOMSource(dom);
+            StreamResult result = new StreamResult(saveFile);
+
+            transformer.setOutputProperty(OutputKeys.INDENT, "yes");
+            transformer.transform(source, result);
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    private static Document getDom(File file) {
         try {
             DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
             DocumentBuilder builder = factory.newDocumentBuilder();
-            return builder.parse(file);
+            try {
+                return builder.parse(file);
+            } catch (Exception e) {
+                return builder.newDocument();
+            }
         } catch (Exception e) {
             e.printStackTrace();
             return null;
         }
     }
 
-    private Tile getTileProperties(Element node) {
+    private static Tile getTileProperties(Element node) {
         Terrain terrain = getTerrainProperties(node);
         Item item = getItemProperties(node);
         AreaEffect effect = getAreaEffectProperties(node);
@@ -161,7 +210,7 @@ public class SaveManager {
         return new Tile(terrain, item, effect);
     }
 
-    private Terrain getTerrainProperties(Element node) {
+    private static Terrain getTerrainProperties(Element node) {
         Element terrain = (Element)node.getElementsByTagName("Terrain").item(0);
         if (terrain == null)
             return null;
@@ -178,14 +227,14 @@ public class SaveManager {
         return null;
     }
 
-    private Item getItemProperties(Element node) {
+    private static Item getItemProperties(Element node) {
         Element item = (Element)node.getElementsByTagName("Item").item(0);
         if (item == null)
             return null;
 
         try {
             String type = getType(item).toUpperCase();
-            Statistics stats = getStatisticsProperties(item);
+            Statistics stats = new Statistics(getStatisticsProperties(item));
 
             // Making the assumption that we will never instantiate a TakeableItem.
             if (type.equals("EQUIPABLE")) {
@@ -215,10 +264,36 @@ public class SaveManager {
         throw new IllegalArgumentException("Item is not of a valid type");
     }
 
-    private Statistics getStatisticsProperties(Element node) {
+    private static Occupation getOccupationProperties(Element node) {
+        if (node == null)
+            return null;
+
+        String occ = node.getAttribute("occ").toUpperCase();
+
+        if (occ.equals("SMASHER"))
+            return Occupation.SMASHER;
+        else if (occ.equals("SUMMONER"))
+            return Occupation.SUMMONER;
+        else if (occ.equals("SNEAK"))
+            return Occupation.SNEAK;
+
+        return null;
+    }
+
+    private static Map<StatEnum, Integer> getAvatarStatisticsProperties(Element node) {
+        Map<StatEnum, Integer> avatarStats = getStatisticsProperties(node);
+        Element statElement = (Element)node.getElementsByTagName("Statistics").item(0);
+
+        avatarStats.put(getStatEnum("CurrentHP"), toInt(statElement.getElementsByTagName("CurrentHP").item(0).getTextContent()));
+        avatarStats.put(getStatEnum("CurrentMP"), toInt(statElement.getElementsByTagName("CurrentMP").item(0).getTextContent()));
+
+        return avatarStats;
+    }
+
+    private static Map<StatEnum, Integer> getStatisticsProperties(Element node) {
         Element statElement = (Element)node.getElementsByTagName("Statistics").item(0);
         if (statElement == null)
-            return null;
+            return new HashMap<StatEnum,Integer>();
 
         try {
             Map<StatEnum, Integer> stats = new HashMap<StatEnum, Integer>();
@@ -236,18 +311,49 @@ public class SaveManager {
             stats.put(getStatEnum("OffenseRate"), toInt(statElement.getElementsByTagName("OffenseRate").item(0).getTextContent()));
             stats.put(getStatEnum("DefenseRate"), toInt(statElement.getElementsByTagName("DefenseRate").item(0).getTextContent()));
             stats.put(getStatEnum("ArmorRate"), toInt(statElement.getElementsByTagName("ArmorRate").item(0).getTextContent()));
-            // TODO: Ask Jeff about the StatEnum and having these enums.
-//            stats.put(getStatEnum("CurrentHP"), toInt(statElement.getElementsByTagName("CurrentHP").item(0).getTextContent()));
-//            stats.put(getStatEnum("CurrentMP"), toInt(statElement.getElementsByTagName("CurrentMP").item(0).getTextContent()));
 
-            return new Statistics(stats);
+            return stats;
         } catch (Exception e) {
             e.printStackTrace();
-            return null;
+            return new HashMap<StatEnum, Integer>();
         }
     }
 
-    private AreaEffect getAreaEffectProperties(Element node) {
+    private static Inventory getInventoryProperties(Element node) {
+        if (node == null)
+            return null;
+
+        int capacity = toInt(node.getAttribute("capacity"));
+        Inventory inventory = new Inventory(capacity);
+        NodeList nodes = node.getElementsByTagName("Item");
+        for (int i = 0; i < nodes.getLength(); ++i) {
+            Item takeable = getItemProperties((Element)nodes.item(i));
+
+            inventory.add((TakeableItem)takeable);
+        }
+
+        return inventory;
+    }
+
+    private static Equipment getEquipmentProperties(Element node) {
+        if (node == null)
+            return null;
+
+
+        NodeList nodes = node.getElementsByTagName("Item");
+        HashMap<ItemSlot, EquipableItem> equipment = new HashMap<ItemSlot, EquipableItem>();
+        for (int i = 0; i < nodes.getLength(); ++i) {
+            Element currentItem = (Element)nodes.item(i);
+            ItemSlot slot = getItemSlot(currentItem);
+            Item item = getItemProperties(currentItem);
+
+            equipment.put(slot, (EquipableItem)item);
+        }
+
+        return new Equipment(equipment);
+    }
+
+    private static AreaEffect getAreaEffectProperties(Element node) {
         Element element = (Element)node.getElementsByTagName("AreaEffect").item(0);
         if (element == null)
             return null;
@@ -273,7 +379,7 @@ public class SaveManager {
         throw new IllegalArgumentException("Invalid AreaEffect value");
     }
 
-    private ItemSlot getItemSlot(Element node) {
+    private static ItemSlot getItemSlot(Element node) {
         if (!node.hasAttribute("itemslot"))
             return null;
 
@@ -301,7 +407,7 @@ public class SaveManager {
         throw new IllegalArgumentException("Invalid ItemSlot value");
     }
 
-    private StatEnum getStatEnum(String value) {
+    private static StatEnum getStatEnum(String value) {
         value = value.toUpperCase();
         try {
             if (value.equals("STRENGTH"))
@@ -342,15 +448,32 @@ public class SaveManager {
         throw new IllegalArgumentException("Invalid value for StatEnum");
     }
 
-    private String getType(Element node) {
+//    private static Color getColor(String color) {
+//        if (color.equals("RED"))
+//            return Color.RED;
+//        else if (color.equals("BLUE"))
+//            return Color.BLUE;
+//        else if (color.equals("GREEN"))
+//            return Color.GREEN;
+//
+//        return Color.CYAN;
+//    }
+
+    private static String getType(Element node) {
         return node.getAttribute("type");
     }
 
-    private int getCoord(Element node, String dim) {
+    private static int getCoord(Element node, String dim) {
         return toInt(node.getAttribute(dim));
     }
 
-    private int toInt(String value) {
+    private static int toInt(String value) {
         return Integer.parseInt(value);
+    }
+
+    private static void makeDirectory(File file) {
+        if (!file.exists()) {
+            file.mkdirs();
+        }
     }
 }

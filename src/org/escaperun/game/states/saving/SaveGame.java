@@ -57,7 +57,7 @@ public class SaveGame extends GameState {
 
         boolean enter = pressed[Keyboard.ENTER];
         if (enter && name.length() > 0) {
-            Creation.saveManager.saveCurrentGame(playing.getStage(), name);
+            Creation.saveManager.saveCurrentGame(playing.getStage(), playing.getStage().getAvatar(),name);
             return playing;
         }
 

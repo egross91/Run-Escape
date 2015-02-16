@@ -1,6 +1,7 @@
 package org.escaperun.game.model.entities;
 
 import org.escaperun.game.model.items.EquipableItem;
+import org.escaperun.game.model.items.Item;
 import org.escaperun.game.model.items.ItemSlot;
 import org.escaperun.game.serialization.Savable;
 import org.escaperun.game.view.Decal;
@@ -25,6 +26,10 @@ public class Equipment implements Savable {
         {
             this.equipItem(item); //For each equipableItem put in our argument, equip it to our entity.
         }
+    }
+
+    public Equipment(HashMap<ItemSlot, EquipableItem> equipement) {
+        this.equipment = equipment;
     }
 
     public EquipableItem equipItem(EquipableItem equipableItem){
@@ -86,7 +91,14 @@ public class Equipment implements Savable {
     @Override
     public Element save(Document dom) {
         Element equipmentElement = dom.createElement("Equipment");
+        for (Map.Entry<ItemSlot, EquipableItem> current : equipment.entrySet()) {
+            ItemSlot slotEnum = current.getKey();
+            Item currentItem = current.getValue();
+            Element itemElement = currentItem.save(dom);
 
+            itemElement.setAttribute("itemslot", Integer.toString(slotEnum.getItemSlot()));
+            equipmentElement.appendChild(itemElement);
+        }
 
         return equipmentElement;
     }

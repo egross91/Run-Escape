@@ -73,7 +73,7 @@ public class Statistics implements Savable {
         hpmpmap.put(StatEnum.ARMORRATE, 0);
     }
 
-    protected void updateStats(Equipment equipment){
+    public void updateStats(Equipment equipment){
         int before = statsmap.get(StatEnum.LEVEL);
         getLevel();//Derived level
         if(before != statsmap.get(StatEnum.LEVEL) && before > 0){
@@ -87,6 +87,8 @@ public class Statistics implements Savable {
         getMaxHP(); //Calculate HP from the method provided initially.
         getMaxMP(); //Calculate MP from the method provided intiially.
         currentstats.putAll(statsmap); //Reset our currentstats object to have default values.
+        if (equipment.getEquipment() == null)
+            return;
         Collection<EquipableItem> equipitems = equipment.getEquipment().values();
         Iterator<EquipableItem> iterator = equipitems.iterator();
         while(iterator.hasNext()){
@@ -194,6 +196,14 @@ public class Statistics implements Savable {
         statsmap.put(StatEnum.ARMORRATE, (statsmap.get(StatEnum.HARDINESS))+hpmpmap.get(StatEnum.ARMORRATE));
         //Formula for AR: Hardiness + TempHAR
         return statsmap.get(StatEnum.ARMORRATE);
+    }
+
+    public int getCurrentHp() {
+        return currentstats.get(StatEnum.CURRENTHP);
+    }
+
+    public int getCurrentMp() {
+        return currentstats.get(StatEnum.CURRENTMP);
     }
 
     protected void setStat(StatEnum se, int valueofchange)

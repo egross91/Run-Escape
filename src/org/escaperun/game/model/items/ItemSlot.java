@@ -19,10 +19,6 @@ public enum ItemSlot {
         this.decal = setDecal();
     }
 
-    public int getValue() {
-        return value;
-    }
-
     private Decal setDecal() {
         switch (value) {
             case(0):

@@ -60,7 +60,7 @@ public class CreateMap extends GameState {
         if (right) nextY++;
 
         if(esc){
-            Creation.saveManager.saveCurrentGame(stage, "Adam");
+            Creation.saveManager.saveCurrentGame(stage, stage.getAvatar(), "Adam");
             pressed[Keyboard.ESCAPE] = false;
             return true;
         }

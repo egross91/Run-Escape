@@ -43,9 +43,27 @@
 <Terrain type="water"/>
 </Tile>
 <Tile x="1" y="4">
+<AreaEffect type="takedamage">50</AreaEffect>
 <Terrain type="grass"/>
 </Tile>
 <Tile x="2" y="0">
+<Item type="oneshot">
+<Statistics>
+<MaxHP>50</MaxHP>
+<DefenseRate>0</DefenseRate>
+<Exp>0</Exp>
+<Level>0</Level>
+<Strength>5</Strength>
+<Intellect>5</Intellect>
+<NumOfLives>1</NumOfLives>
+<MaxMP>50</MaxMP>
+<Movement>5</Movement>
+<ArmorRate>0</ArmorRate>
+<OffenseRate>3</OffenseRate>
+<Agility>3</Agility>
+<Hardiness>5</Hardiness>
+</Statistics>
+</Item>
 <Terrain type="grass"/>
 </Tile>
 <Tile x="2" y="1">
@@ -58,6 +76,7 @@
 <Terrain type="grass"/>
 </Tile>
 <Tile x="2" y="4">
+<AreaEffect type="takedamage">50</AreaEffect>
 <Terrain type="grass"/>
 </Tile>
 </Stage>

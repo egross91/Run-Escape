@@ -6,6 +6,8 @@ import org.escaperun.game.model.items.ItemSlot;
 import org.escaperun.game.model.items.TakeableItem;
 import org.escaperun.game.model.items.UsableItem;
 import org.escaperun.game.view.Decal;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
 
 import java.awt.*;
 
@@ -24,9 +26,13 @@ public class Avatar extends Entity {
         //Avatar is red @ sign Decal -- Can change it need be
     }
 
-    public Avatar(Occupation occupation, int lives, Decal decal, Position position, Inventory inventory, Equipment equipment) {
-        super(occupation, lives, decal, position, inventory, equipment);
+    public Avatar(Occupation occupation, Position position, Statistics stats, Inventory inventory, Equipment equipment) {
+        super(occupation, position, stats, inventory, equipment);
     }
+
+//    public Avatar(Occupation occupation, int lives, Position position, Inventory inventory, Equipment equipment) {
+//        super(occupation, lives, position, inventory, equipment);
+//    }
 
     //Pass that task along to our inventory object.
     public boolean addItemToInventory(TakeableItem ti){
@@ -70,4 +76,24 @@ public class Avatar extends Entity {
 
     public Equipment getEquipment(){return this.equipment;}
 
+
+    public Inventory getInventory() {
+        return inventory;
+    }
+
+    @Override
+    public Element save(Document dom) {
+        Element entityElement = super.save(dom);
+
+        Statistics stats = getStats();
+        Element currentHpElement = dom.createElement("CurrentHP");
+        currentHpElement.setTextContent(Integer.toString(stats.getCurrentHp()));
+        Element currentMpElement = dom.createElement("CurrentMP");
+        currentMpElement.setTextContent(Integer.toString(stats.getCurrentMp()));
+
+        entityElement.getElementsByTagName("Statistics").item(0).appendChild(currentHpElement);
+        entityElement.getElementsByTagName("Statistics").item(0).appendChild(currentMpElement);
+
+        return entityElement;
+    }
 }

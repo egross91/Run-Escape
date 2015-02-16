@@ -11,6 +11,8 @@ import org.escaperun.game.view.Decal;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 
+import java.awt.*;
+
 public abstract class Entity implements Drawable, Savable {
 
     public Entity(Occupation occupation, int numberoflives, Decal decal, Position position, Inventory inventory, Equipment equipment) {
@@ -20,6 +22,19 @@ public abstract class Entity implements Drawable, Savable {
         this.position = position;
         this.inventory = inventory;
         this.equipment = equipment;
+    }
+
+    public Entity(Occupation occupation, Position position, Statistics stats, Inventory inventory, Equipment equipment) {
+        this(occupation, new Decal('@', Color.BLACK, occupation.getColor()), position, stats, inventory, equipment);
+    }
+
+    public Entity(Occupation occupation, Decal decal, Position position, Statistics stats, Inventory inventory, Equipment equipment) {
+        this.occupation = occupation;
+        this.decal = decal;
+        this.position = position;
+        this.inventory = inventory;
+        this.equipment = equipment;
+        this.stats = stats;
     }
 
     protected Statistics stats;
