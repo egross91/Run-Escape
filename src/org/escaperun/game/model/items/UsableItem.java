@@ -38,12 +38,4 @@ public class UsableItem extends TakeableItem {
     public String getTypeToString() {
         return "usable";
     }
-
-    @Override
-    public Element save(Document dom) {
-        Element usableElement = super.save(dom);
-        usableElement.setAttribute("type", getTypeToString());
-
-        return usableElement;
-    }
 }

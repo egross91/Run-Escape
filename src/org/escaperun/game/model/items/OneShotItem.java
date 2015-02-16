@@ -33,12 +33,4 @@ public class OneShotItem extends Item {
     public String getTypeToString() {
         return "oneshot";
     }
-
-    @Override
-    public Element save(Document dom) {
-        Element oneShotElement = super.save(dom);
-        oneShotElement.setAttribute("type", getTypeToString());
-
-        return oneShotElement;
-    }
 }

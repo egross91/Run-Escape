@@ -5,7 +5,6 @@ import org.escaperun.game.model.Stage;
 import org.escaperun.game.serialization.SaveManager;
 import org.escaperun.game.states.GameState;
 import org.escaperun.game.states.Option;
-import org.escaperun.game.states.mainmenu.Creation;
 import org.escaperun.game.states.mapcreation.CreateMap;
 import org.escaperun.game.view.Decal;
 import org.escaperun.game.view.GameWindow;

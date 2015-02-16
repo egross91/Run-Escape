@@ -16,10 +16,9 @@ public class Stage implements Tickable {
     public final Dimension dimensions;
     public final Tile[][] map;
     private Avatar avatar;
-    public final Position start;
 
     public Stage(Avatar avatar) {
-        this(new Dimension(DEFAULT_WIDTH, DEFAULT_HEIGHT), avatar, new Position(0, 0));
+        this(new Dimension(DEFAULT_WIDTH, DEFAULT_HEIGHT), avatar);
     }
 
     public Stage(Dimension dim, Avatar avatar) {
@@ -36,13 +35,11 @@ public class Stage implements Tickable {
                 }
             }
         }
-        this.start = new Position(0, 0);
         this.avatar = avatar;
-        this.moveAvatar(start);
 
     }
 
-    public Stage(Dimension dim, Avatar avatar, Position start) {
+    /*public Stage(Dimension dim, Avatar avatar) {
         this.dimensions = dim;
         this.map = new Tile[dim.height][dim.width];
         for (int i = 0; i < dim.height; i++) {
@@ -74,23 +71,17 @@ public class Stage implements Tickable {
             }
         }
         this.avatar = avatar;
-        this.start = start;
-        this.moveAvatar(start);
-    }
+    }*/
 
-    public Stage(Dimension dim, Position start) {
+    public Stage(Dimension dim) {
         this.dimensions = dim;
         this.map = new Tile[dim.height][dim.width];
-        this.start = start;
-        this.moveAvatar(start);
     }
 
-    public Stage(Tile[][] map, Dimension dim, Position start, Avatar avatar) {
+    public Stage(Tile[][] map, Dimension dim, Avatar avatar) {
         this.map = map;
         this.dimensions = dim;
         this.avatar = avatar;
-        this.start = start;
-        this.moveAvatar(start);
     }
 
     @Override

@@ -56,7 +56,6 @@ public class EquipableItem extends TakeableItem {
     @Override
     public Element save(Document dom) {
         Element itemElement = super.save(dom);
-        itemElement.setAttribute("type", getTypeToString());
         itemElement.setAttribute("itemslot", Integer.toString(category.getItemSlot()));
 
         return itemElement;

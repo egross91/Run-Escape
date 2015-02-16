@@ -11,8 +11,8 @@ import java.awt.*;
 
 public class ObstacleItem extends Item implements Drawable {
 
-    public ObstacleItem() {
-        super(new Decal('B', Color.BLACK, Color.DARK_GRAY), new Statistics(), true);
+    public ObstacleItem(Decal decal) {
+        super(decal, new Statistics(), true);
     }
 
     @Override
@@ -27,13 +27,5 @@ public class ObstacleItem extends Item implements Drawable {
 
     public String getTypeToString() {
         return "obstacle";
-    }
-
-    @Override
-    public Element save(Document dom) {
-        Element obstacleElement = super.save(dom);
-        obstacleElement.setAttribute("type", getTypeToString());
-
-        return obstacleElement;
     }
 }

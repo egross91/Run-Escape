@@ -42,14 +42,11 @@ public class SaveManager {
         saveAvatar(avatar, playerName);
 
         Dimension dimensions = stage.dimensions;
-        Position start = stage.start;
         Tile[][] savables = stage.map;
         Document xmlDom = new DocumentImpl();
         Element root = xmlDom.createElement("Stage");
         root.setAttribute("cols", Integer.toString((int)dimensions.getWidth()));
         root.setAttribute("rows", Integer.toString((int)dimensions.getHeight()));
-        root.setAttribute("startX", Integer.toString(start.x));
-        root.setAttribute("startY", Integer.toString(start.y));
 
         for (int r = 0; r < dimensions.getHeight(); ++r) {
             for (int c = 0; c < dimensions.getWidth(); ++c) {
@@ -167,8 +164,6 @@ public class SaveManager {
             Element dimensions = (Element)nodes.item(0);
             int rows = toInt(dimensions.getAttribute("rows"));
             int cols = toInt(dimensions.getAttribute("cols"));
-            int startX = toInt(dimensions.getAttribute("startX"));
-            int startY = toInt(dimensions.getAttribute("startY"));
 
             nodes = dom.getElementsByTagName("Tile");
 
@@ -186,7 +181,7 @@ public class SaveManager {
                 }
             }
 
-            return new Stage(map, new Dimension(cols, rows), new Position(startX, startY), new Avatar(Occupation.SMASHER));
+            return new Stage(map, new Dimension(cols, rows), new Avatar(Occupation.SMASHER));
         } catch (Exception e) {
             e.printStackTrace();
             return null;
@@ -207,8 +202,6 @@ public class SaveManager {
             Element dimensions = (Element)nodes.item(0);
             int rows = toInt(dimensions.getAttribute("rows"));
             int cols = toInt(dimensions.getAttribute("cols"));
-            int startX = toInt(dimensions.getAttribute("startX"));
-            int startY = toInt(dimensions.getAttribute("startY"));
 
             nodes = dom.getElementsByTagName("Tile");
 
@@ -225,8 +218,7 @@ public class SaveManager {
                     map[x][y] = tile;
                 }
             }
-
-            return new Stage(map, new Dimension(cols, rows), new Position(startX, startY), avatar);
+            return new Stage(map, new Dimension(cols, rows), avatar);
         } catch (Exception e) {
             e.printStackTrace();
             return null;
@@ -291,6 +283,11 @@ public class SaveManager {
         return null;
     }
 
+    private static Decal getDecal(Element node) {
+        if (node == null) return null;
+        return new Decal(node.getAttribute("char").charAt(0), new Color(Integer.parseInt(node.getAttribute("background"))), new Color(Integer.parseInt(node.getAttribute("foreground"))));
+    }
+
     private static Item getItemProperties(Element node) {
         Element item = node;
         if (item == null) return null;
@@ -298,25 +295,23 @@ public class SaveManager {
             String type = getType(item).toUpperCase();
             if (type == null || type.equals("")) return null;
             Statistics stats = new Statistics(getStatisticsProperties(item));
-
+            Decal decal = getDecal((Element) node.getElementsByTagName("Decal").item(0));
             // Making the assumption that we will never instantiate a TakeableItem.
             if (type.equals("EQUIPABLE")) {
                 ItemSlot slot = getItemSlot(item);
-                return new EquipableItem(stats, slot);
+                return new EquipableItem(decal, stats, slot);
             }
             else if (type.equals("USABLE")) {
-                // TODO: Figure out the decal situation.
-                return new UsableItem();
+                return new UsableItem(decal, stats);
             }
             else if (type.equals("OBSTACLE")) {
-                return new ObstacleItem();
+                return new ObstacleItem(decal);
             }
             else if (type.equals("INTERACTIVE")) {
-                // TODO: Figure out the decal situation.
-                return new InteractiveItem();
+                return new InteractiveItem(decal, stats);
             }
             else if (type.equals("ONESHOT")) {
-                return new OneShotItem(new Decal('?', Color.BLACK, Color.CYAN), stats);
+                return new OneShotItem(decal, stats);
             }
 
         } catch (Exception e) {
@@ -401,7 +396,6 @@ public class SaveManager {
         if (node == null) {
             return null;
         }
-
 
         NodeList nodes = node.getElementsByTagName("Item");
         HashMap<ItemSlot, EquipableItem> equipment = new HashMap<ItemSlot, EquipableItem>();

@@ -45,13 +45,21 @@ public abstract class Item implements Activatable, Touchable, Collidable, Savabl
         return this.collidable;
     }
 
+
+    public abstract String getTypeToString();
+
+    @Override
     public Element save(Document dom) {
         Element itemElement = dom.createElement("Item");
+        itemElement.setAttribute("type", getTypeToString());
         if (stats != null) {
             Element statsElement = stats.save(dom);
             itemElement.appendChild(statsElement);
         }
-
+        if (decal != null) {
+            Element decalElement = decal.save(dom);
+            itemElement.appendChild(decalElement);
+        }
         return itemElement;
     }
 }
