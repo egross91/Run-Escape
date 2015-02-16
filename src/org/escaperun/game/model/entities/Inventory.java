@@ -3,13 +3,14 @@ package org.escaperun.game.model.entities;
 import org.escaperun.game.model.items.Item;
 import org.escaperun.game.model.items.TakeableItem;
 import org.escaperun.game.serialization.Savable;
+import org.escaperun.game.model.Touchable;
 import org.escaperun.game.view.Decal;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
 import java.awt.Color;
 import java.util.ArrayList;
 
-public class Inventory implements Savable {
+public class Inventory implements Savable{
 
     private int capacity;
     private ArrayList<TakeableItem> inventoryarr;
@@ -94,4 +95,8 @@ public class Inventory implements Savable {
         }
         return d;
     }
+
+//    public void Ontouch(Entity e){
+//        e.equipment.equipItem(remove())
+//    }
 }

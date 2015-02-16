@@ -19,7 +19,7 @@ public class Playing extends GameState {
     private int ticksSince = 0;
 
     private int invTicks = 500;
-
+    private int invMoveTicks = 30;
     private boolean invOpen= false;
     private static boolean[][] invAllowedMoves = new boolean[6][10];
     static{assigninvMoves();}
@@ -61,15 +61,15 @@ public class Playing extends GameState {
         }
 
         if (pressed[Keyboard.INV]) {
-            if (!invOpen && (invTicks >= 12)) {
+            if (!invOpen && (invTicks >= 10)) {
                 invOpen = true;
                 invTicks = 0;
-            } else if (invOpen && (invTicks >= 12)) {
+            } else if (invOpen && (invTicks >= 10)) {
                 invOpen = false;
                 invTicks = 0;
             }
         }
-        invTicks++;
+
 
         if (!invOpen) {
             handleMovement(pressed);
@@ -78,6 +78,7 @@ public class Playing extends GameState {
         else if(invOpen){
             handleInvMovement(pressed);
         }
+        invMoveTicks++;
         invTicks++;
         return null;
     }
@@ -87,9 +88,46 @@ public class Playing extends GameState {
         boolean down = pressed[Keyboard.DOWN];
         boolean left = pressed[Keyboard.LEFT];
         boolean right = pressed[Keyboard.RIGHT];
+        boolean enter = pressed[Keyboard.ENTER];
 
+            if (up && invMoveTicks >=45) {
+                if ((ix - 1) >= 0 && invAllowedMoves[ix - 1][iy]) {
+                    ix = ix - 1;
+                    iy = iy;
+                    invMoveTicks= 0;
+                }
+            }
+            invMoveTicks++;
+            if (down && invMoveTicks >=45) {
+                if ((ix + 1) <= 5 && invAllowedMoves[ix + 1][iy]) {
+                    ix = ix + 1;
+                    iy = iy;
+                    invMoveTicks= 0;
+                }
 
-
+            }
+            invMoveTicks++;
+            if (left && invMoveTicks >=45) {
+                if ((iy - 1) >= 0 && invAllowedMoves[ix][iy - 1]) {
+                    ix = ix;
+                    iy = iy - 1;
+                    invMoveTicks = 0;
+                }
+            }
+            invMoveTicks++;
+            if (right && invMoveTicks >=45) {
+                if ((iy + 1) <= 9 && invAllowedMoves[ix][iy + 1]) {
+                    ix = ix;
+                    iy = iy + 1;
+                    invMoveTicks = 0;
+                }
+            }
+            invMoveTicks++;
+            if (enter && invMoveTicks >=45) {
+                stage.getAvatar().getInventory().remove((ix-1)*10 + iy).doAction(stage.getAvatar());
+                invMoveTicks = 0;
+            }
+            invMoveTicks++;
         return false;
     }
 
@@ -149,7 +187,7 @@ public class Playing extends GameState {
         row = gottenStage.length;
         column = gottenStage[0].length;
         testRows = row;
-
+        boolean copy = true;
         row = row + row%5;
         statusRow = row/5;
 
@@ -173,9 +211,7 @@ public class Playing extends GameState {
         col2 = 3*col0;
 
         if(invOpen){
-         //here is where we would display an inventory, IF WE HAD ANY
-         //but I digress
-         //the rest of the border is '-'
+
         Decal[] equi = stage.getAvatar().getEquipment().getEquipDecals();
         Decal[] inventory = stage.getAvatar().getInventory().getInventoryDecal();
 
@@ -212,42 +248,27 @@ public class Playing extends GameState {
                 }
 
                 //Print Actual Inv may change icolLeft
-                if((xx >= irowInv + 2) && (yy== icolLeft) && (invCounter < 50)){
-                    for(int i = 0; (i < 10); i++){
-                        view[xx][yy] = inventory[invCounter];
+                if((xx >= (irowInv + 2)) && (yy>= icolLeft) && (invCounter < 50) && copy){
+                    for(int i = 0; i < 10; i++) {
+                        if(((ix +10) == xx) && ((iy +2) == yy) && !(inventory[invCounter].equals(null))){
+                            char fChar = inventory[invCounter].ch;
+                            System.out.println(fChar);
+                            Decal focused = new Decal(fChar, Color.BLACK, Color.RED);
+                            view[xx][yy] = focused;
+                        }else {
+                            view[xx][yy] = inventory[invCounter];
+                        }
                         invCounter++;
                         yy++;
                     }
+                    copy = false;
                 }
 
 
             }
+             copy = true;   // keeps
          }
-
-//         Decal inventory_edge_horizontal = new Decal('-', Color.BLACK, Color.WHITE);
-//         Decal inventory_edge_vertical = new Decal('|', Color.BLACK, Color.WHITE);
-//         for(int x = (testRows-statusRow); x < testRows; ++x){
-//             for(int y = 0; y<column; ++y){
-//                 if ((x == testRows-statusRow) || (x== testRows -5)) {
-//                     view[x][y] = inventory_edge_horizontal;
-//                 }
-//                 else if ((y == 0) || (y == column-1)) {
-//                     view[x][y] = inventory_edge_vertical;
-//                 }
-//                 else
-//                     view[x][y] = new Decal('I', Color.BLACK, Color.GREEN);
-//                }
-//            }
-//         //the edges of the window are gonna be '+'
-//         Decal inventory_corner = new Decal('+', Color.BLACK, Color.WHITE);
-//         view[testRows-statusRow][0] = inventory_corner;
-//         view[testRows-statusRow][column-1] = inventory_corner;
-//         view[testRows-5][0] = inventory_corner;
-//         view[testRows-5][column-1] = inventory_corner;
-//
-         //the game window is cutoff on mine screen, so the bottom rows may need to be adjusted
         }
-
 
         //else show status viewport
         else{

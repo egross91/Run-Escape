@@ -46,7 +46,7 @@ public class EquipableItem extends TakeableItem {
     @Override
     public void onTouch(Entity e) {
         if(e.addItemToInventory(this));
-        // TODO: Add functionality based upon whether or not this add to inventory was successful (like keeping it on the Tile if not)
+
     }
 
     public String getTypeToString() {
