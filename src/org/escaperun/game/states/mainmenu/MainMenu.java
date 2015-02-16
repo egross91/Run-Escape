@@ -5,6 +5,7 @@ import org.escaperun.game.model.Stage;
 import org.escaperun.game.model.entities.Avatar;
 import org.escaperun.game.model.entities.Occupation;
 import org.escaperun.game.states.GameState;
+import org.escaperun.game.states.loading.EditGame;
 import org.escaperun.game.states.mapcreation.CreateMap;
 import org.escaperun.game.states.Option;
 import org.escaperun.game.states.loading.LoadGame;
@@ -23,11 +24,12 @@ public class MainMenu extends GameState {
     private int ticksSince = 0;
 
     public MainMenu() {
-        options = new Option[4];
+        options = new Option[5];
         options[0] = new Option("Create Map", new CreateMap(new Stage(new Dimension(50, 50), new Avatar(Occupation.SNEAK))));
-        options[1] = new Option("New Game", new Creation(this));
-        options[2] = new Option("Load Game", new LoadGame(this));
-        options[3] = new Option("Exit", new Exit());
+        options[1] = new Option("Edit Map", new EditGame(this));
+        options[2] = new Option("New Game", new Creation(this));
+        options[3] = new Option("Load Game", new LoadGame(this));
+        options[4] = new Option("Exit", new Exit());
     }
 
     @Override
