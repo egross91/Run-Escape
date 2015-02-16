@@ -20,6 +20,7 @@ public abstract class Entity implements Drawable, Savable {
         this.stats = new Statistics(occupation, numberoflives); //3 is "numberoflives", c.f. Statistics.java
         this.decal = decal;
         this.position = position;
+        this.startposition = position;
         this.inventory = inventory;
         this.equipment = equipment;
     }
@@ -32,6 +33,7 @@ public abstract class Entity implements Drawable, Savable {
         this.occupation = occupation;
         this.decal = decal;
         this.position = position;
+        this.startposition = position;
         this.inventory = inventory;
         this.equipment = equipment;
         this.stats = stats;
@@ -43,6 +45,7 @@ public abstract class Entity implements Drawable, Savable {
     protected Decal decal;
     protected Inventory inventory;
     protected Equipment equipment;
+    protected final Position startposition;
 
     //Delegate task of takeDamage to our Statistics object
     public void takeDamage(int dmg){

@@ -15,29 +15,28 @@ public class Stage implements Tickable {
     public static final Random RANDOM = new Random();
     public final Dimension dimensions;
     public final Tile[][] map;
-    public final Position start;
     private Avatar avatar;
-    private boolean gameover = false;
+    public final Position start;
 
     public Stage(Avatar avatar) {
         this(new Dimension(DEFAULT_WIDTH, DEFAULT_HEIGHT), avatar, new Position(0, 0));
     }
 
-    public Stage (Dimension dim, Avatar avatar) {
+    public Stage(Dimension dim, Avatar avatar) {
         this.dimensions = dim;
         this.map = new Tile[dim.height][dim.width];
-        for(int i = 0; i < dim.height; ++i) {
-            for(int j = 0; j < dim.width; ++j){
+        for (int i = 0; i < dim.height; ++i) {
+            for (int j = 0; j < dim.width; ++j) {
                 map[i][j] = new Tile();
-                if(i == 0 || i == (dim.height - 1)){
+                if (i == 0 || i == (dim.height - 1)) {
                     map[i][j].setTerrain(new Grass());
-            }
-                if(j == 0 || j == (dim.width - 1)) {
+                }
+                if (j == 0 || j == (dim.width - 1)) {
                     map[i][j].setTerrain(new Grass());
                 }
             }
         }
-        this.start = new Position(0,0);
+        this.start = new Position(0, 0);
         this.avatar = avatar;
         this.moveAvatar(start);
 
@@ -108,7 +107,7 @@ public class Stage implements Tickable {
         if (moveTo.getAreaEffect() != null) {
             moveTo.removeAreaEffect().onTouch(avatar);
         }
-        if(moveTo.getItem() != null){
+        if (moveTo.getItem() != null) {
             moveTo.removeItem().onTouch(avatar);
         }
         return true;
@@ -142,25 +141,25 @@ public class Stage implements Tickable {
         int x = avatar.getPosition().x;
         int y = avatar.getPosition().y;
         if (GameWindow.ROWS % 2 == 0 || GameWindow.COLUMNS % 2 == 0) throw new RuntimeException("THIS IS NOT GOOD");
-        int midX = GameWindow.ROWS/2;
-        int midY = GameWindow.COLUMNS/2;
+        int midX = GameWindow.ROWS / 2;
+        int midY = GameWindow.COLUMNS / 2;
         ret[midX][midY] = avatar.getDecal();
         for (int i = -midX; i <= +midX; i++) {
             for (int j = -midY; j <= +midY; j++) {
                 if (i == 0 && j == 0) continue; // the avatars pos :'(
-                int toX = x+i;
-                int toY = y+j;
+                int toX = x + i;
+                int toY = y + j;
                 if (isValid(toX, toY)) {
                     Tile current = map[toX][toY];
                     if (current == null) continue;
-                    ret[midX+i][midY+j] = current.getDecal();
+                    ret[midX + i][midY + j] = current.getDecal();
                 }
             }
         }
         return ret;
     }
 
-    public boolean getGameOver(){
+    public boolean getGameOver() {
         return avatar.getStats().isGameOver();
     }
 }

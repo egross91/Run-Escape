@@ -141,6 +141,10 @@ public class SaveManager {
             Equipment equipment = getEquipmentProperties((Element)dom.getElementsByTagName("Equipment").item(0));
             Statistics stats = new Statistics(getAvatarStatisticsProperties(dom.getDocumentElement()));
             stats.updateStats(equipment);
+            if(stats.getStat(StatEnum.CURRENTHP) > stats.getStat(StatEnum.MAXHP))
+            stats.setCurrStat(StatEnum.CURRENTHP, stats.getStat(StatEnum.MAXHP));
+            if(stats.getStat(StatEnum.CURRENTMP) > stats.getStat(StatEnum.MAXMP))
+                stats.setCurrStat(StatEnum.CURRENTMP, stats.getStat(StatEnum.MAXMP));
             Inventory inventory = getInventoryProperties((Element)dom.getElementsByTagName("Inventory").item(0));
 
             return new Avatar(occupation, new Position(x, y), stats, inventory, equipment); // Placeholder.

@@ -211,6 +211,13 @@ public class Statistics implements Savable {
         statsmap.put(se, valueofchange);
     }
 
+    public void setCurrStat(StatEnum se, int valueofchange){
+        currentstats.put(se, valueofchange);
+    }
+
+    public int getStat(StatEnum se){
+        return currentstats.get(se);
+    }
     public String leveltoString() {
         String stat = "Level: " + currentstats.get(StatEnum.LEVEL);
         return stat;
