@@ -259,7 +259,7 @@ public class Playing extends GameState {
                 //Print Actual Inv may change icolLeft
                 if((xx >= (irowInv + 2)) && (yy>= icolLeft) && (invCounter < 50) && copy){
                     for(int i = 0; i < 10; i++) {
-                        if(((ix +10) == xx) && ((iy +2) == yy) && !(inventory[invCounter].equals(null))){
+                        if(((ix +10) == xx) && ((iy +2) == yy) && !(inventory[invCounter] == null)){
                             char fChar = inventory[invCounter].ch;
                             System.out.println(fChar);
                             Decal focused = new Decal(fChar, Color.BLACK, Color.RED);
