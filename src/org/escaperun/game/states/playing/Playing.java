@@ -19,14 +19,40 @@ public class Playing extends GameState {
     private int ticksSince = 0;
 
     private int invTicks = 500;
-    private boolean invOpen = false;
+
+    private boolean invOpen= false;
+    private static boolean[][] invAllowedMoves = new boolean[6][10];
+    static{assigninvMoves();}
+    private static int ix = 1;
+    private static int iy = 0;
 
     public Playing(Stage stage) {
         this.stage = stage;
     }
 
+
     public Stage getStage() { return stage; }
 
+    public static void assigninvMoves(){
+
+        invAllowedMoves[0][0] = true;
+        invAllowedMoves[0][1] = true;
+        invAllowedMoves[0][2] = true;
+        invAllowedMoves[0][3] = true;
+        invAllowedMoves[0][4] = true;
+        invAllowedMoves[0][5] = false;
+        invAllowedMoves[0][6] = false;
+        invAllowedMoves[0][7] = false;
+        invAllowedMoves[0][8] = false;
+        invAllowedMoves[0][9] = false;
+        for(int i = 0; i < 5; i++){
+            for(int j = 0; j < 10; j++){
+                invAllowedMoves[i][j] = true;
+            }
+        }
+
+    }
+>>>>>>> Stashed changes
     @Override
     public GameState update(boolean[] pressed) {
         if (pressed[Keyboard.ESCAPE]) {
@@ -48,9 +74,24 @@ public class Playing extends GameState {
         if (!invOpen) {
             handleMovement(pressed);
         }
+
+        else if(invOpen){
+            handleInvMovement(pressed);
+        }
+        invTicks++;
         return null;
     }
 
+    private boolean handleInvMovement(boolean[] pressed){
+        boolean up = pressed[Keyboard.UP];
+        boolean down = pressed[Keyboard.DOWN];
+        boolean left = pressed[Keyboard.LEFT];
+        boolean right = pressed[Keyboard.RIGHT];
+
+
+
+        return false;
+    }
 
     private void handleMovement(boolean[] pressed) {
         if(stage.getGameOver())
