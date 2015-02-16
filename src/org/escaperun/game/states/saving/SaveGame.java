@@ -2,6 +2,7 @@ package org.escaperun.game.states.saving;
 
 import org.escaperun.game.Keyboard;
 import org.escaperun.game.model.Stage;
+import org.escaperun.game.serialization.SaveManager;
 import org.escaperun.game.states.GameState;
 import org.escaperun.game.states.mainmenu.Creation;
 import org.escaperun.game.states.playing.Playing;
@@ -57,7 +58,7 @@ public class SaveGame extends GameState {
 
         boolean enter = pressed[Keyboard.ENTER];
         if (enter && name.length() > 0) {
-            Creation.saveManager.saveCurrentGame(playing.getStage(), playing.getStage().getAvatar(),name);
+            SaveManager.saveCurrentGame(playing.getStage(), playing.getStage().getAvatar(), name);
             return playing;
         }
 

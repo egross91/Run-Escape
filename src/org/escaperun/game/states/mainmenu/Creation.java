@@ -14,7 +14,6 @@ import java.security.Key;
 
 public class Creation extends GameState {
     public static final int TICKS_PER_MOVEMENT = 10;
-    public final static SaveManager saveManager = new SaveManager();
 
     private final Option[] options;
 
@@ -23,9 +22,9 @@ public class Creation extends GameState {
 
     public Creation(MainMenu from) {
         options = new Option[4];
-        options[0] = new Option("SUMMONER", new Playing(saveManager.startNewGame(new Avatar(Occupation.SUMMONER))));
-        options[1] = new Option("SMASHER", new Playing(saveManager.startNewGame(new Avatar(Occupation.SMASHER))));
-        options[2] = new Option("SNEAK", new Playing(saveManager.startNewGame(new Avatar(Occupation.SNEAK))));
+        options[0] = new Option("SUMMONER", new Playing(SaveManager.startNewGame(new Avatar(Occupation.SUMMONER))));
+        options[1] = new Option("SMASHER", new Playing(SaveManager.startNewGame(new Avatar(Occupation.SMASHER))));
+        options[2] = new Option("SNEAK", new Playing(SaveManager.startNewGame(new Avatar(Occupation.SNEAK))));
         options[3] = new Option("Never Mind", from);
     }
 

@@ -7,6 +7,7 @@ import org.escaperun.game.model.entities.StatEnum;
 import org.escaperun.game.model.entities.Statistics;
 import org.escaperun.game.model.items.*;
 import org.escaperun.game.model.tile.*;
+import org.escaperun.game.serialization.SaveManager;
 import org.escaperun.game.states.GameState;
 import org.escaperun.game.states.mainmenu.Creation;
 import org.escaperun.game.states.mainmenu.Exit;
@@ -87,12 +88,12 @@ public class CreateMap extends GameState {
         if (right) nextY++;
 
         if(esc){
-            Creation.saveManager.saveCreatedMap(stage);
+            SaveManager.saveCreatedMap(stage);
             pressed[Keyboard.ESCAPE] = false;
             return true;
         }
 
-        if (ticksSince >= (stage.getAvatar().getOccupation().getMovement()*TICKS_PER_MOVEMENT)
+        if (ticksSince >= (TICKS_PER_MOVEMENT/stage.getAvatar().getStats().getStat(StatEnum.MOVEMENT))
                 && (up || down || left || right))
         {
             if (stage.moveAvatar(new Position(nextX, nextY))) {

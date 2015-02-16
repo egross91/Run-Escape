@@ -40,7 +40,7 @@ public class EquipableItem extends TakeableItem {
 
     @Override
     public void doAction(Entity e) {
-        e.equipItem(this); // Equip this item!
+
     }
 
     @Override
