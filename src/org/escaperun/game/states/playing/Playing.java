@@ -43,22 +43,24 @@ public class Playing extends GameState {
             }
         }
 
-        if (!invOpen && handleMovement(pressed)) {
-
-        }
-
         invTicks++;
+        if (!invOpen) {
+            handleMovement(pressed);
+        }
         return null;
     }
 
 
-    private boolean handleMovement(boolean[] pressed) {
+    private void handleMovement(boolean[] pressed) {
+        if(stage.getGameOver())
+            return;
+
         boolean up = pressed[Keyboard.UP];
         boolean down = pressed[Keyboard.DOWN];
         boolean left = pressed[Keyboard.LEFT];
         boolean right = pressed[Keyboard.RIGHT];
 
-        if (ticksSince >= (stage.getAvatar().getOccupation().getMovement()*TICKS_PER_MOVEMENT)
+        if (ticksSince >= (stage.getAvatar().getOccupation().getMovement() * TICKS_PER_MOVEMENT)
                 && (up || down || left || right)) {
             boolean moved = false;
 
@@ -80,8 +82,6 @@ public class Playing extends GameState {
             }
         }
         ticksSince++;
-
-        return true;
     }
 
     private boolean tryMove(int dx, int dy) {

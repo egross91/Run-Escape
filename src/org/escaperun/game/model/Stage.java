@@ -17,6 +17,7 @@ public class Stage implements Tickable {
     public final Tile[][] map;
     public final Position start;
     private Avatar avatar;
+    private boolean gameover = false;
 
     public Stage(Avatar avatar) {
         this(new Dimension(DEFAULT_WIDTH, DEFAULT_HEIGHT), avatar, new Position(0, 0));
@@ -157,5 +158,9 @@ public class Stage implements Tickable {
             }
         }
         return ret;
+    }
+
+    public boolean getGameOver(){
+        return avatar.getStats().isGameOver();
     }
 }

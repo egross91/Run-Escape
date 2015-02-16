@@ -60,10 +60,11 @@ public class Avatar extends Entity {
     }
 
     public void takeDamage(int dmg){
-        if(stats.takeDamage(dmg)){
+        if(stats.takeDamage(dmg) && stats.statsmap.get(StatEnum.NUMOFLIVES) != 0){
             move(new Position(0,0)); //Reset position; we died.
             stats.currentstats.putAll(stats.statsmap);//Reset all temporary stats because of death.
             stats.currentstats.put(StatEnum.CURRENTHP, stats.statsmap.get(StatEnum.MAXHP)); //reset HP
+
         }
     }
 

@@ -26,7 +26,7 @@
     </Tile>
     <Tile x="0" y="4">
         <Terrain type="grass"></Terrain>
-        <AreaEffect type="TAKEDAMAGE">2</AreaEffect>
+        <AreaEffect type="TAKEDAMAGE">50</AreaEffect>
     </Tile>
     <Tile x="1" y="2">
         <Terrain type="grass"></Terrain>
@@ -37,7 +37,7 @@
     </Tile>
     <Tile x="1" y="4">
         <Terrain type="grass"></Terrain>
-        <AreaEffect type="HEALDAMAGE">1</AreaEffect>
+        <AreaEffect type="TAKEDAMAGE">50</AreaEffect>
     </Tile>
     <Tile x="2" y="0">
         <Terrain type="grass"></Terrain>
@@ -70,5 +70,6 @@
     </Tile>
     <Tile x="2" y="4">
         <Terrain type="grass"></Terrain>
+        <AreaEffect type="TAKEDAMAGE">50</AreaEffect>
     </Tile>
 </Stage>

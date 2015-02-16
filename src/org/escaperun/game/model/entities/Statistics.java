@@ -102,6 +102,7 @@ public class Statistics implements Savable {
         }
         else{
             currentstats.put(StatEnum.CURRENTHP, 0);
+            statsmap.put(StatEnum.NUMOFLIVES, statsmap.get(StatEnum.NUMOFLIVES)-1);
             System.out.println("WE ARE DEAD!!!");
             isGameOver();
             System.out.println("Num of lives left: " + statsmap.get(StatEnum.NUMOFLIVES));
@@ -110,10 +111,8 @@ public class Statistics implements Savable {
     }
 
     //Method that is (as of now) called only by takeDamage if our currentHP drops to or below zero.
-    protected boolean isGameOver(){
-        statsmap.put(StatEnum.NUMOFLIVES, statsmap.get(StatEnum.NUMOFLIVES)-1);
+    public boolean isGameOver(){
         if(statsmap.get(StatEnum.NUMOFLIVES) == 0) {
-            System.out.println("GAME OVER!");
             return true;
         }
         else return false;
