@@ -10,6 +10,8 @@ import org.escaperun.game.states.playing.Playing;
 import org.escaperun.game.view.Decal;
 import org.escaperun.game.view.GameWindow;
 
+import java.security.Key;
+
 public class Creation extends GameState {
     public static final int TICKS_PER_MOVEMENT = 10;
 
@@ -28,10 +30,10 @@ public class Creation extends GameState {
 
     @Override
     public GameState update(boolean[] pressed) {
-        boolean up = pressed[Keyboard.UP];
-        boolean down = pressed[Keyboard.DOWN];
-        boolean left = pressed[Keyboard.LEFT];
-        boolean right = pressed[Keyboard.RIGHT];
+        boolean up = pressed[Keyboard.UP] || pressed[Keyboard.NUM_UP];
+        boolean down = pressed[Keyboard.DOWN] || pressed[Keyboard.NUM_DOWN];
+        boolean left = pressed[Keyboard.LEFT] || pressed[Keyboard.NUM_LEFT];
+        boolean right = pressed[Keyboard.RIGHT] || pressed[Keyboard.NUM_RIGHT];
 
         int nextIdx = selectedOption;
 

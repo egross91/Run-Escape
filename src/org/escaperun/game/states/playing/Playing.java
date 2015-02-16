@@ -167,14 +167,18 @@ public class Playing extends GameState {
         if(stage.getGameOver())
             return;
 
-        boolean up = pressed[Keyboard.UP];
-        boolean down = pressed[Keyboard.DOWN];
-        boolean left = pressed[Keyboard.LEFT];
-        boolean right = pressed[Keyboard.RIGHT];
+        boolean up = pressed[Keyboard.UP] || pressed[Keyboard.NUM_UP];
+        boolean down = pressed[Keyboard.DOWN] || pressed[Keyboard.NUM_DOWN];
+        boolean left = pressed[Keyboard.LEFT] || pressed[Keyboard.NUM_LEFT];
+        boolean right = pressed[Keyboard.RIGHT] || pressed[Keyboard.NUM_RIGHT];
+        boolean upright = pressed[Keyboard.NUM_UPRIGHT];
+        boolean upleft = pressed[Keyboard.NUM_UPLEFT];
+        boolean downright = pressed[Keyboard.NUM_DOWNRIGHT];
+        boolean downleft = pressed[Keyboard.NUM_DOWNLEFT];
 
 
         if (ticksSince >= (TICKS_PER_MOVEMENT/stage.getAvatar().getStats().getStat(StatEnum.MOVEMENT))
-                && (up || down || left || right ))
+                && (up || down || left || right || upright || upleft || downright || downleft))
         {
             boolean moved = false;
 
@@ -186,6 +190,14 @@ public class Playing extends GameState {
                 moved |= tryMove(0, -1);
             if (right)
                 moved |= tryMove(0, 1);
+            if (upright)
+                moved |= tryMove(-1, 1);
+            if (upleft)
+                moved |= tryMove(-1,-1);
+            if (downleft)
+                moved |= tryMove(1,-1);
+            if (downright)
+                moved |= tryMove(1,1);
             if (moved)
                 ticksSince = 0;
         }
