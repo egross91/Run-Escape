@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<Avatar x="0" y="0">
+<Occupation occ="smasher"/>
+<Statistics>
+<MaxHP>6</MaxHP>
+<DefenseRate>1</DefenseRate>
+<Exp>0</Exp>
+<Level>1</Level>
+<Strength>5</Strength>
+<Intellect>0</Intellect>
+<NumOfLives>3</NumOfLives>
+<MaxMP>1</MaxMP>
+<Movement>1</Movement>
+<ArmorRate>5</ArmorRate>
+<OffenseRate>6</OffenseRate>
+<Agility>0</Agility>
+<Hardiness>5</Hardiness>
+</Statistics>
+<Equipment/>
+<Inventory capacity="50"/>
+</Avatar>
