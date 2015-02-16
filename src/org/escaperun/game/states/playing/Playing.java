@@ -30,6 +30,7 @@ public class Playing extends GameState {
     @Override
     public GameState update(boolean[] pressed) {
         if (pressed[Keyboard.ESCAPE]) {
+            pressed[Keyboard.ESCAPE] = false;
             return new Pausing(this);
         }
 
@@ -42,8 +43,8 @@ public class Playing extends GameState {
                 invTicks = 0;
             }
         }
-
         invTicks++;
+
         if (!invOpen) {
             handleMovement(pressed);
         }

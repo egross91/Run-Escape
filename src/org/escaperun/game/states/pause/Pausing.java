@@ -29,6 +29,12 @@ public class Pausing extends GameState {
 
     @Override
     public GameState update(boolean[] pressed) {
+        boolean escape = pressed[Keyboard.ESCAPE];
+        if (escape) {
+            pressed[Keyboard.ESCAPE] = false; // TODO: Global cooldown on keys.
+            return prevState;
+        }
+
         boolean up = pressed[Keyboard.UP];
         boolean down = pressed[Keyboard.DOWN];
         int nextIdx = selectedOption;
@@ -39,12 +45,16 @@ public class Pausing extends GameState {
             ticksSince = 0;
         }
         ticksSince++;
+
+
         boolean enter = pressed[Keyboard.ENTER];
         if (enter) {
             GameState next = options[selectedOption].nextState;
             pressed[Keyboard.ENTER] = false;
             return next;
         }
+
+
         return null;
     }
 

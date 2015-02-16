@@ -16,6 +16,10 @@ public class LoadGame extends GameState {
             new Option("DemoMap", new Playing(Creation.saveManager.loadSavedGame("Adam")))
     };
 
+    public LoadGame() {
+
+    }
+
     private int selectedOption = 0;
     private int ticksSince = 0;
 
