@@ -7,10 +7,46 @@
 <Terrain type="grass"/>
 </Tile>
 <Tile x="0" y="2">
+<Item type="obstacle">
+<Statistics>
+<MaxHP>0</MaxHP>
+<DefenseRate>0</DefenseRate>
+<Exp>0</Exp>
+<Level>0</Level>
+<Strength>0</Strength>
+<Intellect>0</Intellect>
+<NumOfLives>0</NumOfLives>
+<MaxMP>0</MaxMP>
+<Movement>0</Movement>
+<ArmorRate>0</ArmorRate>
+<OffenseRate>0</OffenseRate>
+<Agility>0</Agility>
+<Hardiness>0</Hardiness>
+</Statistics>
+<Decal background="-16777216" char="B" foreground="-12566464"/>
+</Item>
 <Terrain type="grass"/>
 </Tile>
 <Tile x="0" y="3">
-<Terrain type="mountain"/>
+<Item type="obstacle">
+<Statistics>
+<MaxHP>0</MaxHP>
+<DefenseRate>0</DefenseRate>
+<Exp>0</Exp>
+<Level>0</Level>
+<Strength>0</Strength>
+<Intellect>0</Intellect>
+<NumOfLives>0</NumOfLives>
+<MaxMP>0</MaxMP>
+<Movement>0</Movement>
+<ArmorRate>0</ArmorRate>
+<OffenseRate>0</OffenseRate>
+<Agility>0</Agility>
+<Hardiness>0</Hardiness>
+</Statistics>
+<Decal background="-16777216" char="B" foreground="-12566464"/>
+</Item>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="0" y="4">
 <Item type="obstacle">
@@ -169,28 +205,10 @@
 <Terrain type="grass"/>
 </Tile>
 <Tile x="0" y="14">
-<Item type="interactive">
-<Statistics>
-<MaxHP>50</MaxHP>
-<DefenseRate>0</DefenseRate>
-<Exp>0</Exp>
-<Level>0</Level>
-<Strength>1</Strength>
-<Intellect>5</Intellect>
-<NumOfLives>0</NumOfLives>
-<MaxMP>50</MaxMP>
-<Movement>5</Movement>
-<ArmorRate>2</ArmorRate>
-<OffenseRate>3</OffenseRate>
-<Agility>0</Agility>
-<Hardiness>5</Hardiness>
-</Statistics>
-<Decal background="-65536" char="?" foreground="-16776961"/>
-</Item>
 <Terrain type="grass"/>
 </Tile>
 <Tile x="0" y="15">
-<Terrain type="mountain"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="0" y="16">
 <Terrain type="grass"/>
@@ -202,13 +220,13 @@
 <Terrain type="grass"/>
 </Tile>
 <Tile x="0" y="19">
-<Terrain type="mountain"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="0" y="20">
-<Terrain type="mountain"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="0" y="21">
-<Terrain type="mountain"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="0" y="22">
 <Terrain type="mountain"/>
@@ -217,16 +235,16 @@
 <Terrain type="mountain"/>
 </Tile>
 <Tile x="0" y="24">
-<Terrain type="mountain"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="0" y="25">
-<Terrain type="mountain"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="0" y="26">
-<Terrain type="mountain"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="0" y="27">
-<Terrain type="mountain"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="0" y="28">
 <Terrain type="grass"/>
@@ -262,234 +280,36 @@
 <Terrain type="grass"/>
 </Tile>
 <Tile x="0" y="39">
-<Item type="obstacle">
-<Statistics>
-<MaxHP>0</MaxHP>
-<DefenseRate>0</DefenseRate>
-<Exp>0</Exp>
-<Level>0</Level>
-<Strength>0</Strength>
-<Intellect>0</Intellect>
-<NumOfLives>0</NumOfLives>
-<MaxMP>0</MaxMP>
-<Movement>0</Movement>
-<ArmorRate>0</ArmorRate>
-<OffenseRate>0</OffenseRate>
-<Agility>0</Agility>
-<Hardiness>0</Hardiness>
-</Statistics>
-<Decal background="-16777216" char="B" foreground="-12566464"/>
-</Item>
 <Terrain type="grass"/>
 </Tile>
 <Tile x="0" y="40">
-<Item type="obstacle">
-<Statistics>
-<MaxHP>0</MaxHP>
-<DefenseRate>0</DefenseRate>
-<Exp>0</Exp>
-<Level>0</Level>
-<Strength>0</Strength>
-<Intellect>0</Intellect>
-<NumOfLives>0</NumOfLives>
-<MaxMP>0</MaxMP>
-<Movement>0</Movement>
-<ArmorRate>0</ArmorRate>
-<OffenseRate>0</OffenseRate>
-<Agility>0</Agility>
-<Hardiness>0</Hardiness>
-</Statistics>
-<Decal background="-16777216" char="B" foreground="-12566464"/>
-</Item>
 <Terrain type="grass"/>
 </Tile>
 <Tile x="0" y="41">
-<Item type="obstacle">
-<Statistics>
-<MaxHP>0</MaxHP>
-<DefenseRate>0</DefenseRate>
-<Exp>0</Exp>
-<Level>0</Level>
-<Strength>0</Strength>
-<Intellect>0</Intellect>
-<NumOfLives>0</NumOfLives>
-<MaxMP>0</MaxMP>
-<Movement>0</Movement>
-<ArmorRate>0</ArmorRate>
-<OffenseRate>0</OffenseRate>
-<Agility>0</Agility>
-<Hardiness>0</Hardiness>
-</Statistics>
-<Decal background="-16777216" char="B" foreground="-12566464"/>
-</Item>
 <Terrain type="grass"/>
 </Tile>
 <Tile x="0" y="42">
-<Item type="obstacle">
-<Statistics>
-<MaxHP>0</MaxHP>
-<DefenseRate>0</DefenseRate>
-<Exp>0</Exp>
-<Level>0</Level>
-<Strength>0</Strength>
-<Intellect>0</Intellect>
-<NumOfLives>0</NumOfLives>
-<MaxMP>0</MaxMP>
-<Movement>0</Movement>
-<ArmorRate>0</ArmorRate>
-<OffenseRate>0</OffenseRate>
-<Agility>0</Agility>
-<Hardiness>0</Hardiness>
-</Statistics>
-<Decal background="-16777216" char="B" foreground="-12566464"/>
-</Item>
 <Terrain type="grass"/>
 </Tile>
 <Tile x="0" y="43">
-<Item type="obstacle">
-<Statistics>
-<MaxHP>0</MaxHP>
-<DefenseRate>0</DefenseRate>
-<Exp>0</Exp>
-<Level>0</Level>
-<Strength>0</Strength>
-<Intellect>0</Intellect>
-<NumOfLives>0</NumOfLives>
-<MaxMP>0</MaxMP>
-<Movement>0</Movement>
-<ArmorRate>0</ArmorRate>
-<OffenseRate>0</OffenseRate>
-<Agility>0</Agility>
-<Hardiness>0</Hardiness>
-</Statistics>
-<Decal background="-16777216" char="B" foreground="-12566464"/>
-</Item>
 <Terrain type="grass"/>
 </Tile>
 <Tile x="0" y="44">
-<Item type="obstacle">
-<Statistics>
-<MaxHP>0</MaxHP>
-<DefenseRate>0</DefenseRate>
-<Exp>0</Exp>
-<Level>0</Level>
-<Strength>0</Strength>
-<Intellect>0</Intellect>
-<NumOfLives>0</NumOfLives>
-<MaxMP>0</MaxMP>
-<Movement>0</Movement>
-<ArmorRate>0</ArmorRate>
-<OffenseRate>0</OffenseRate>
-<Agility>0</Agility>
-<Hardiness>0</Hardiness>
-</Statistics>
-<Decal background="-16777216" char="B" foreground="-12566464"/>
-</Item>
 <Terrain type="grass"/>
 </Tile>
 <Tile x="0" y="45">
-<Item type="obstacle">
-<Statistics>
-<MaxHP>0</MaxHP>
-<DefenseRate>0</DefenseRate>
-<Exp>0</Exp>
-<Level>0</Level>
-<Strength>0</Strength>
-<Intellect>0</Intellect>
-<NumOfLives>0</NumOfLives>
-<MaxMP>0</MaxMP>
-<Movement>0</Movement>
-<ArmorRate>0</ArmorRate>
-<OffenseRate>0</OffenseRate>
-<Agility>0</Agility>
-<Hardiness>0</Hardiness>
-</Statistics>
-<Decal background="-16777216" char="B" foreground="-12566464"/>
-</Item>
 <Terrain type="grass"/>
 </Tile>
 <Tile x="0" y="46">
-<Item type="obstacle">
-<Statistics>
-<MaxHP>0</MaxHP>
-<DefenseRate>0</DefenseRate>
-<Exp>0</Exp>
-<Level>0</Level>
-<Strength>0</Strength>
-<Intellect>0</Intellect>
-<NumOfLives>0</NumOfLives>
-<MaxMP>0</MaxMP>
-<Movement>0</Movement>
-<ArmorRate>0</ArmorRate>
-<OffenseRate>0</OffenseRate>
-<Agility>0</Agility>
-<Hardiness>0</Hardiness>
-</Statistics>
-<Decal background="-16777216" char="B" foreground="-12566464"/>
-</Item>
 <Terrain type="grass"/>
 </Tile>
 <Tile x="0" y="47">
-<Item type="obstacle">
-<Statistics>
-<MaxHP>0</MaxHP>
-<DefenseRate>0</DefenseRate>
-<Exp>0</Exp>
-<Level>0</Level>
-<Strength>0</Strength>
-<Intellect>0</Intellect>
-<NumOfLives>0</NumOfLives>
-<MaxMP>0</MaxMP>
-<Movement>0</Movement>
-<ArmorRate>0</ArmorRate>
-<OffenseRate>0</OffenseRate>
-<Agility>0</Agility>
-<Hardiness>0</Hardiness>
-</Statistics>
-<Decal background="-16777216" char="B" foreground="-12566464"/>
-</Item>
 <Terrain type="grass"/>
 </Tile>
 <Tile x="0" y="48">
-<Item type="obstacle">
-<Statistics>
-<MaxHP>0</MaxHP>
-<DefenseRate>0</DefenseRate>
-<Exp>0</Exp>
-<Level>0</Level>
-<Strength>0</Strength>
-<Intellect>0</Intellect>
-<NumOfLives>0</NumOfLives>
-<MaxMP>0</MaxMP>
-<Movement>0</Movement>
-<ArmorRate>0</ArmorRate>
-<OffenseRate>0</OffenseRate>
-<Agility>0</Agility>
-<Hardiness>0</Hardiness>
-</Statistics>
-<Decal background="-16777216" char="B" foreground="-12566464"/>
-</Item>
 <Terrain type="grass"/>
 </Tile>
 <Tile x="0" y="49">
-<Item type="obstacle">
-<Statistics>
-<MaxHP>0</MaxHP>
-<DefenseRate>0</DefenseRate>
-<Exp>0</Exp>
-<Level>0</Level>
-<Strength>0</Strength>
-<Intellect>0</Intellect>
-<NumOfLives>0</NumOfLives>
-<MaxMP>0</MaxMP>
-<Movement>0</Movement>
-<ArmorRate>0</ArmorRate>
-<OffenseRate>0</OffenseRate>
-<Agility>0</Agility>
-<Hardiness>0</Hardiness>
-</Statistics>
-<Decal background="-16777216" char="B" foreground="-12566464"/>
-</Item>
 <Terrain type="grass"/>
 </Tile>
 <Tile x="1" y="0">
@@ -502,7 +322,25 @@
 <Terrain type="grass"/>
 </Tile>
 <Tile x="1" y="3">
-<Terrain type="mountain"/>
+<Item type="obstacle">
+<Statistics>
+<MaxHP>0</MaxHP>
+<DefenseRate>0</DefenseRate>
+<Exp>0</Exp>
+<Level>0</Level>
+<Strength>0</Strength>
+<Intellect>0</Intellect>
+<NumOfLives>0</NumOfLives>
+<MaxMP>0</MaxMP>
+<Movement>0</Movement>
+<ArmorRate>0</ArmorRate>
+<OffenseRate>0</OffenseRate>
+<Agility>0</Agility>
+<Hardiness>0</Hardiness>
+</Statistics>
+<Decal background="-16777216" char="B" foreground="-12566464"/>
+</Item>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="1" y="4">
 <Item type="obstacle">
@@ -610,15 +448,6 @@
 <Terrain type="grass"/>
 </Tile>
 <Tile x="1" y="9">
-<Terrain type="grass"/>
-</Tile>
-<Tile x="1" y="10">
-<Terrain type="grass"/>
-</Tile>
-<Tile x="1" y="11">
-<Terrain type="grass"/>
-</Tile>
-<Tile x="1" y="12">
 <Item type="obstacle">
 <Statistics>
 <MaxHP>0</MaxHP>
@@ -639,6 +468,33 @@
 </Item>
 <Terrain type="grass"/>
 </Tile>
+<Tile x="1" y="10">
+<Item type="obstacle">
+<Statistics>
+<MaxHP>0</MaxHP>
+<DefenseRate>0</DefenseRate>
+<Exp>0</Exp>
+<Level>0</Level>
+<Strength>0</Strength>
+<Intellect>0</Intellect>
+<NumOfLives>0</NumOfLives>
+<MaxMP>0</MaxMP>
+<Movement>0</Movement>
+<ArmorRate>0</ArmorRate>
+<OffenseRate>0</OffenseRate>
+<Agility>0</Agility>
+<Hardiness>0</Hardiness>
+</Statistics>
+<Decal background="-16777216" char="B" foreground="-12566464"/>
+</Item>
+<Terrain type="grass"/>
+</Tile>
+<Tile x="1" y="11">
+<Terrain type="grass"/>
+</Tile>
+<Tile x="1" y="12">
+<Terrain type="grass"/>
+</Tile>
 <Tile x="1" y="13">
 <Terrain type="grass"/>
 </Tile>
@@ -646,7 +502,7 @@
 <Terrain type="grass"/>
 </Tile>
 <Tile x="1" y="15">
-<Terrain type="mountain"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="1" y="16">
 <Terrain type="grass"/>
@@ -658,10 +514,10 @@
 <Terrain type="grass"/>
 </Tile>
 <Tile x="1" y="19">
-<Terrain type="mountain"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="1" y="20">
-<Terrain type="mountain"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="1" y="21">
 <Terrain type="mountain"/>
@@ -673,16 +529,16 @@
 <Terrain type="mountain"/>
 </Tile>
 <Tile x="1" y="24">
-<Terrain type="mountain"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="1" y="25">
-<Terrain type="mountain"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="1" y="26">
-<Terrain type="mountain"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="1" y="27">
-<Terrain type="mountain"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="1" y="28">
 <Terrain type="grass"/>
@@ -691,25 +547,25 @@
 <Terrain type="grass"/>
 </Tile>
 <Tile x="1" y="30">
-<Terrain type="water"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="1" y="31">
-<Terrain type="water"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="1" y="32">
-<Terrain type="water"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="1" y="33">
-<Terrain type="water"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="1" y="34">
-<Terrain type="water"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="1" y="35">
-<Terrain type="water"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="1" y="36">
-<Terrain type="water"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="1" y="37">
 <Terrain type="grass"/>
@@ -718,24 +574,6 @@
 <Terrain type="grass"/>
 </Tile>
 <Tile x="1" y="39">
-<Item type="obstacle">
-<Statistics>
-<MaxHP>0</MaxHP>
-<DefenseRate>0</DefenseRate>
-<Exp>0</Exp>
-<Level>0</Level>
-<Strength>0</Strength>
-<Intellect>0</Intellect>
-<NumOfLives>0</NumOfLives>
-<MaxMP>0</MaxMP>
-<Movement>0</Movement>
-<ArmorRate>0</ArmorRate>
-<OffenseRate>0</OffenseRate>
-<Agility>0</Agility>
-<Hardiness>0</Hardiness>
-</Statistics>
-<Decal background="-16777216" char="B" foreground="-12566464"/>
-</Item>
 <Terrain type="grass"/>
 </Tile>
 <Tile x="1" y="40">
@@ -763,27 +601,21 @@
 <Terrain type="grass"/>
 </Tile>
 <Tile x="1" y="48">
-<Item type="oneshot">
-<Statistics>
-<MaxHP>50</MaxHP>
-<DefenseRate>0</DefenseRate>
-<Exp>0</Exp>
-<Level>0</Level>
-<Strength>1</Strength>
-<Intellect>5</Intellect>
-<NumOfLives>0</NumOfLives>
-<MaxMP>50</MaxMP>
-<Movement>5</Movement>
-<ArmorRate>2</ArmorRate>
-<OffenseRate>3</OffenseRate>
-<Agility>0</Agility>
-<Hardiness>5</Hardiness>
-</Statistics>
-<Decal background="-16777216" char="?" foreground="-16711681"/>
-</Item>
 <Terrain type="grass"/>
 </Tile>
 <Tile x="1" y="49">
+<Terrain type="grass"/>
+</Tile>
+<Tile x="2" y="0">
+<Terrain type="water"/>
+</Tile>
+<Tile x="2" y="1">
+<Terrain type="grass"/>
+</Tile>
+<Tile x="2" y="2">
+<Terrain type="grass"/>
+</Tile>
+<Tile x="2" y="3">
 <Item type="obstacle">
 <Statistics>
 <MaxHP>0</MaxHP>
@@ -803,18 +635,6 @@
 <Decal background="-16777216" char="B" foreground="-12566464"/>
 </Item>
 <Terrain type="grass"/>
-</Tile>
-<Tile x="2" y="0">
-<Terrain type="water"/>
-</Tile>
-<Tile x="2" y="1">
-<Terrain type="grass"/>
-</Tile>
-<Tile x="2" y="2">
-<Terrain type="grass"/>
-</Tile>
-<Tile x="2" y="3">
-<Terrain type="mountain"/>
 </Tile>
 <Tile x="2" y="4">
 <Item type="obstacle">
@@ -880,75 +700,75 @@
 <Terrain type="grass"/>
 </Tile>
 <Tile x="2" y="7">
+<Item type="obstacle">
+<Statistics>
+<MaxHP>0</MaxHP>
+<DefenseRate>0</DefenseRate>
+<Exp>0</Exp>
+<Level>0</Level>
+<Strength>0</Strength>
+<Intellect>0</Intellect>
+<NumOfLives>0</NumOfLives>
+<MaxMP>0</MaxMP>
+<Movement>0</Movement>
+<ArmorRate>0</ArmorRate>
+<OffenseRate>0</OffenseRate>
+<Agility>0</Agility>
+<Hardiness>0</Hardiness>
+</Statistics>
+<Decal background="-16777216" char="B" foreground="-12566464"/>
+</Item>
 <Terrain type="grass"/>
 </Tile>
 <Tile x="2" y="8">
+<Item type="obstacle">
+<Statistics>
+<MaxHP>0</MaxHP>
+<DefenseRate>0</DefenseRate>
+<Exp>0</Exp>
+<Level>0</Level>
+<Strength>0</Strength>
+<Intellect>0</Intellect>
+<NumOfLives>0</NumOfLives>
+<MaxMP>0</MaxMP>
+<Movement>0</Movement>
+<ArmorRate>0</ArmorRate>
+<OffenseRate>0</OffenseRate>
+<Agility>0</Agility>
+<Hardiness>0</Hardiness>
+</Statistics>
+<Decal background="-16777216" char="B" foreground="-12566464"/>
+</Item>
 <Terrain type="grass"/>
 </Tile>
 <Tile x="2" y="9">
+<Item type="obstacle">
+<Statistics>
+<MaxHP>0</MaxHP>
+<DefenseRate>0</DefenseRate>
+<Exp>0</Exp>
+<Level>0</Level>
+<Strength>0</Strength>
+<Intellect>0</Intellect>
+<NumOfLives>0</NumOfLives>
+<MaxMP>0</MaxMP>
+<Movement>0</Movement>
+<ArmorRate>0</ArmorRate>
+<OffenseRate>0</OffenseRate>
+<Agility>0</Agility>
+<Hardiness>0</Hardiness>
+</Statistics>
+<Decal background="-16777216" char="B" foreground="-12566464"/>
+</Item>
 <Terrain type="grass"/>
 </Tile>
 <Tile x="2" y="10">
-<Item type="obstacle">
-<Statistics>
-<MaxHP>0</MaxHP>
-<DefenseRate>0</DefenseRate>
-<Exp>0</Exp>
-<Level>0</Level>
-<Strength>0</Strength>
-<Intellect>0</Intellect>
-<NumOfLives>0</NumOfLives>
-<MaxMP>0</MaxMP>
-<Movement>0</Movement>
-<ArmorRate>0</ArmorRate>
-<OffenseRate>0</OffenseRate>
-<Agility>0</Agility>
-<Hardiness>0</Hardiness>
-</Statistics>
-<Decal background="-16777216" char="B" foreground="-12566464"/>
-</Item>
 <Terrain type="grass"/>
 </Tile>
 <Tile x="2" y="11">
-<Item type="obstacle">
-<Statistics>
-<MaxHP>0</MaxHP>
-<DefenseRate>0</DefenseRate>
-<Exp>0</Exp>
-<Level>0</Level>
-<Strength>0</Strength>
-<Intellect>0</Intellect>
-<NumOfLives>0</NumOfLives>
-<MaxMP>0</MaxMP>
-<Movement>0</Movement>
-<ArmorRate>0</ArmorRate>
-<OffenseRate>0</OffenseRate>
-<Agility>0</Agility>
-<Hardiness>0</Hardiness>
-</Statistics>
-<Decal background="-16777216" char="B" foreground="-12566464"/>
-</Item>
 <Terrain type="grass"/>
 </Tile>
 <Tile x="2" y="12">
-<Item type="obstacle">
-<Statistics>
-<MaxHP>0</MaxHP>
-<DefenseRate>0</DefenseRate>
-<Exp>0</Exp>
-<Level>0</Level>
-<Strength>0</Strength>
-<Intellect>0</Intellect>
-<NumOfLives>0</NumOfLives>
-<MaxMP>0</MaxMP>
-<Movement>0</Movement>
-<ArmorRate>0</ArmorRate>
-<OffenseRate>0</OffenseRate>
-<Agility>0</Agility>
-<Hardiness>0</Hardiness>
-</Statistics>
-<Decal background="-16777216" char="B" foreground="-12566464"/>
-</Item>
 <Terrain type="grass"/>
 </Tile>
 <Tile x="2" y="13">
@@ -958,7 +778,7 @@
 <Terrain type="grass"/>
 </Tile>
 <Tile x="2" y="15">
-<Terrain type="mountain"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="2" y="16">
 <Terrain type="grass"/>
@@ -976,7 +796,7 @@
 <Terrain type="grass"/>
 </Tile>
 <Tile x="2" y="21">
-<Terrain type="mountain"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="2" y="22">
 <Terrain type="mountain"/>
@@ -985,10 +805,10 @@
 <Terrain type="mountain"/>
 </Tile>
 <Tile x="2" y="24">
-<Terrain type="mountain"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="2" y="25">
-<Terrain type="mountain"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="2" y="26">
 <Terrain type="grass"/>
@@ -1000,28 +820,28 @@
 <Terrain type="grass"/>
 </Tile>
 <Tile x="2" y="29">
-<Terrain type="water"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="2" y="30">
-<Terrain type="water"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="2" y="31">
-<Terrain type="water"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="2" y="32">
-<Terrain type="water"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="2" y="33">
-<Terrain type="water"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="2" y="34">
-<Terrain type="water"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="2" y="35">
-<Terrain type="water"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="2" y="36">
-<Terrain type="water"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="2" y="37">
 <Terrain type="grass"/>
@@ -1030,24 +850,6 @@
 <Terrain type="grass"/>
 </Tile>
 <Tile x="2" y="39">
-<Item type="obstacle">
-<Statistics>
-<MaxHP>0</MaxHP>
-<DefenseRate>0</DefenseRate>
-<Exp>0</Exp>
-<Level>0</Level>
-<Strength>0</Strength>
-<Intellect>0</Intellect>
-<NumOfLives>0</NumOfLives>
-<MaxMP>0</MaxMP>
-<Movement>0</Movement>
-<ArmorRate>0</ArmorRate>
-<OffenseRate>0</OffenseRate>
-<Agility>0</Agility>
-<Hardiness>0</Hardiness>
-</Statistics>
-<Decal background="-16777216" char="B" foreground="-12566464"/>
-</Item>
 <Terrain type="grass"/>
 </Tile>
 <Tile x="2" y="40">
@@ -1060,42 +862,24 @@
 <Terrain type="grass"/>
 </Tile>
 <Tile x="2" y="43">
-<Terrain type="mountain"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="2" y="44">
-<Terrain type="mountain"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="2" y="45">
-<Terrain type="mountain"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="2" y="46">
-<Terrain type="mountain"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="2" y="47">
-<Terrain type="mountain"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="2" y="48">
-<Terrain type="mountain"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="2" y="49">
-<Item type="obstacle">
-<Statistics>
-<MaxHP>0</MaxHP>
-<DefenseRate>0</DefenseRate>
-<Exp>0</Exp>
-<Level>0</Level>
-<Strength>0</Strength>
-<Intellect>0</Intellect>
-<NumOfLives>0</NumOfLives>
-<MaxMP>0</MaxMP>
-<Movement>0</Movement>
-<ArmorRate>0</ArmorRate>
-<OffenseRate>0</OffenseRate>
-<Agility>0</Agility>
-<Hardiness>0</Hardiness>
-</Statistics>
-<Decal background="-16777216" char="B" foreground="-12566464"/>
-</Item>
 <Terrain type="grass"/>
 </Tile>
 <Tile x="3" y="0">
@@ -1108,177 +892,51 @@
 <Terrain type="grass"/>
 </Tile>
 <Tile x="3" y="3">
-<Terrain type="mountain"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="3" y="4">
-<Item type="obstacle">
-<Statistics>
-<MaxHP>0</MaxHP>
-<DefenseRate>0</DefenseRate>
-<Exp>0</Exp>
-<Level>0</Level>
-<Strength>0</Strength>
-<Intellect>0</Intellect>
-<NumOfLives>0</NumOfLives>
-<MaxMP>0</MaxMP>
-<Movement>0</Movement>
-<ArmorRate>0</ArmorRate>
-<OffenseRate>0</OffenseRate>
-<Agility>0</Agility>
-<Hardiness>0</Hardiness>
-</Statistics>
-<Decal background="-16777216" char="B" foreground="-12566464"/>
-</Item>
 <Terrain type="grass"/>
 </Tile>
 <Tile x="3" y="5">
-<Item type="obstacle">
-<Statistics>
-<MaxHP>0</MaxHP>
-<DefenseRate>0</DefenseRate>
-<Exp>0</Exp>
-<Level>0</Level>
-<Strength>0</Strength>
-<Intellect>0</Intellect>
-<NumOfLives>0</NumOfLives>
-<MaxMP>0</MaxMP>
-<Movement>0</Movement>
-<ArmorRate>0</ArmorRate>
-<OffenseRate>0</OffenseRate>
-<Agility>0</Agility>
-<Hardiness>0</Hardiness>
-</Statistics>
-<Decal background="-16777216" char="B" foreground="-12566464"/>
-</Item>
 <Terrain type="grass"/>
 </Tile>
 <Tile x="3" y="6">
-<Item type="obstacle">
-<Statistics>
-<MaxHP>0</MaxHP>
-<DefenseRate>0</DefenseRate>
-<Exp>0</Exp>
-<Level>0</Level>
-<Strength>0</Strength>
-<Intellect>0</Intellect>
-<NumOfLives>0</NumOfLives>
-<MaxMP>0</MaxMP>
-<Movement>0</Movement>
-<ArmorRate>0</ArmorRate>
-<OffenseRate>0</OffenseRate>
-<Agility>0</Agility>
-<Hardiness>0</Hardiness>
-</Statistics>
-<Decal background="-16777216" char="B" foreground="-12566464"/>
-</Item>
 <Terrain type="grass"/>
 </Tile>
 <Tile x="3" y="7">
 <Terrain type="grass"/>
 </Tile>
 <Tile x="3" y="8">
-<Item type="obstacle">
-<Statistics>
-<MaxHP>0</MaxHP>
-<DefenseRate>0</DefenseRate>
-<Exp>0</Exp>
-<Level>0</Level>
-<Strength>0</Strength>
-<Intellect>0</Intellect>
-<NumOfLives>0</NumOfLives>
-<MaxMP>0</MaxMP>
-<Movement>0</Movement>
-<ArmorRate>0</ArmorRate>
-<OffenseRate>0</OffenseRate>
-<Agility>0</Agility>
-<Hardiness>0</Hardiness>
-</Statistics>
-<Decal background="-16777216" char="B" foreground="-12566464"/>
-</Item>
 <Terrain type="grass"/>
 </Tile>
 <Tile x="3" y="9">
-<Item type="obstacle">
-<Statistics>
-<MaxHP>0</MaxHP>
-<DefenseRate>0</DefenseRate>
-<Exp>0</Exp>
-<Level>0</Level>
-<Strength>0</Strength>
-<Intellect>0</Intellect>
-<NumOfLives>0</NumOfLives>
-<MaxMP>0</MaxMP>
-<Movement>0</Movement>
-<ArmorRate>0</ArmorRate>
-<OffenseRate>0</OffenseRate>
-<Agility>0</Agility>
-<Hardiness>0</Hardiness>
-</Statistics>
-<Decal background="-16777216" char="B" foreground="-12566464"/>
-</Item>
 <Terrain type="grass"/>
 </Tile>
 <Tile x="3" y="10">
-<Item type="obstacle">
-<Statistics>
-<MaxHP>0</MaxHP>
-<DefenseRate>0</DefenseRate>
-<Exp>0</Exp>
-<Level>0</Level>
-<Strength>0</Strength>
-<Intellect>0</Intellect>
-<NumOfLives>0</NumOfLives>
-<MaxMP>0</MaxMP>
-<Movement>0</Movement>
-<ArmorRate>0</ArmorRate>
-<OffenseRate>0</OffenseRate>
-<Agility>0</Agility>
-<Hardiness>0</Hardiness>
-</Statistics>
-<Decal background="-16777216" char="B" foreground="-12566464"/>
-</Item>
 <Terrain type="grass"/>
 </Tile>
 <Tile x="3" y="11">
-<Item type="obstacle">
+<Item type="interactive">
 <Statistics>
-<MaxHP>0</MaxHP>
+<MaxHP>50</MaxHP>
 <DefenseRate>0</DefenseRate>
 <Exp>0</Exp>
 <Level>0</Level>
-<Strength>0</Strength>
-<Intellect>0</Intellect>
+<Strength>1</Strength>
+<Intellect>5</Intellect>
 <NumOfLives>0</NumOfLives>
-<MaxMP>0</MaxMP>
-<Movement>0</Movement>
-<ArmorRate>0</ArmorRate>
-<OffenseRate>0</OffenseRate>
+<MaxMP>50</MaxMP>
+<Movement>5</Movement>
+<ArmorRate>2</ArmorRate>
+<OffenseRate>3</OffenseRate>
 <Agility>0</Agility>
-<Hardiness>0</Hardiness>
+<Hardiness>5</Hardiness>
 </Statistics>
-<Decal background="-16777216" char="B" foreground="-12566464"/>
+<Decal background="-16777216" char="?" foreground="-16776961"/>
 </Item>
 <Terrain type="grass"/>
 </Tile>
 <Tile x="3" y="12">
-<Item type="obstacle">
-<Statistics>
-<MaxHP>0</MaxHP>
-<DefenseRate>0</DefenseRate>
-<Exp>0</Exp>
-<Level>0</Level>
-<Strength>0</Strength>
-<Intellect>0</Intellect>
-<NumOfLives>0</NumOfLives>
-<MaxMP>0</MaxMP>
-<Movement>0</Movement>
-<ArmorRate>0</ArmorRate>
-<OffenseRate>0</OffenseRate>
-<Agility>0</Agility>
-<Hardiness>0</Hardiness>
-</Statistics>
-<Decal background="-16777216" char="B" foreground="-12566464"/>
-</Item>
 <Terrain type="grass"/>
 </Tile>
 <Tile x="3" y="13">
@@ -1288,17 +946,15 @@
 <Terrain type="grass"/>
 </Tile>
 <Tile x="3" y="15">
-<Terrain type="mountain"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="3" y="16">
 <Terrain type="grass"/>
 </Tile>
 <Tile x="3" y="17">
-<AreaEffect type="takedamage">2</AreaEffect>
 <Terrain type="grass"/>
 </Tile>
 <Tile x="3" y="18">
-<AreaEffect type="takedamage">2</AreaEffect>
 <Terrain type="grass"/>
 </Tile>
 <Tile x="3" y="19">
@@ -1308,7 +964,7 @@
 <Terrain type="grass"/>
 </Tile>
 <Tile x="3" y="21">
-<Terrain type="grass"/>
+<Terrain type="mountain"/>
 </Tile>
 <Tile x="3" y="22">
 <Terrain type="mountain"/>
@@ -1317,7 +973,7 @@
 <Terrain type="mountain"/>
 </Tile>
 <Tile x="3" y="24">
-<Terrain type="mountain"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="3" y="25">
 <Terrain type="grass"/>
@@ -1329,15 +985,16 @@
 <Terrain type="grass"/>
 </Tile>
 <Tile x="3" y="28">
-<Terrain type="water"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="3" y="29">
-<Terrain type="water"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="3" y="30">
 <Terrain type="grass"/>
 </Tile>
 <Tile x="3" y="31">
+<AreaEffect type="takedamage">2</AreaEffect>
 <Terrain type="grass"/>
 </Tile>
 <Tile x="3" y="32">
@@ -1362,108 +1019,37 @@
 <Terrain type="grass"/>
 </Tile>
 <Tile x="3" y="39">
-<Item type="obstacle">
-<Statistics>
-<MaxHP>0</MaxHP>
-<DefenseRate>0</DefenseRate>
-<Exp>0</Exp>
-<Level>0</Level>
-<Strength>0</Strength>
-<Intellect>0</Intellect>
-<NumOfLives>0</NumOfLives>
-<MaxMP>0</MaxMP>
-<Movement>0</Movement>
-<ArmorRate>0</ArmorRate>
-<OffenseRate>0</OffenseRate>
-<Agility>0</Agility>
-<Hardiness>0</Hardiness>
-</Statistics>
-<Decal background="-16777216" char="B" foreground="-12566464"/>
-</Item>
 <Terrain type="grass"/>
 </Tile>
 <Tile x="3" y="40">
-<Item type="obstacle">
-<Statistics>
-<MaxHP>0</MaxHP>
-<DefenseRate>0</DefenseRate>
-<Exp>0</Exp>
-<Level>0</Level>
-<Strength>0</Strength>
-<Intellect>0</Intellect>
-<NumOfLives>0</NumOfLives>
-<MaxMP>0</MaxMP>
-<Movement>0</Movement>
-<ArmorRate>0</ArmorRate>
-<OffenseRate>0</OffenseRate>
-<Agility>0</Agility>
-<Hardiness>0</Hardiness>
-</Statistics>
-<Decal background="-16777216" char="B" foreground="-12566464"/>
-</Item>
 <Terrain type="grass"/>
 </Tile>
 <Tile x="3" y="41">
-<Item type="obstacle">
-<Statistics>
-<MaxHP>0</MaxHP>
-<DefenseRate>0</DefenseRate>
-<Exp>0</Exp>
-<Level>0</Level>
-<Strength>0</Strength>
-<Intellect>0</Intellect>
-<NumOfLives>0</NumOfLives>
-<MaxMP>0</MaxMP>
-<Movement>0</Movement>
-<ArmorRate>0</ArmorRate>
-<OffenseRate>0</OffenseRate>
-<Agility>0</Agility>
-<Hardiness>0</Hardiness>
-</Statistics>
-<Decal background="-16777216" char="B" foreground="-12566464"/>
-</Item>
+<AreaEffect type="healdamage">2</AreaEffect>
 <Terrain type="grass"/>
 </Tile>
 <Tile x="3" y="42">
 <Terrain type="grass"/>
 </Tile>
 <Tile x="3" y="43">
-<Terrain type="mountain"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="3" y="44">
-<Terrain type="mountain"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="3" y="45">
-<Terrain type="mountain"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="3" y="46">
-<Terrain type="mountain"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="3" y="47">
-<Terrain type="mountain"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="3" y="48">
-<Terrain type="mountain"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="3" y="49">
-<Item type="obstacle">
-<Statistics>
-<MaxHP>0</MaxHP>
-<DefenseRate>0</DefenseRate>
-<Exp>0</Exp>
-<Level>0</Level>
-<Strength>0</Strength>
-<Intellect>0</Intellect>
-<NumOfLives>0</NumOfLives>
-<MaxMP>0</MaxMP>
-<Movement>0</Movement>
-<ArmorRate>0</ArmorRate>
-<OffenseRate>0</OffenseRate>
-<Agility>0</Agility>
-<Hardiness>0</Hardiness>
-</Statistics>
-<Decal background="-16777216" char="B" foreground="-12566464"/>
-</Item>
 <Terrain type="grass"/>
 </Tile>
 <Tile x="4" y="0">
@@ -1473,126 +1059,36 @@
 <Terrain type="water"/>
 </Tile>
 <Tile x="4" y="2">
-<Terrain type="grass"/>
+<Terrain type="mountain"/>
 </Tile>
 <Tile x="4" y="3">
-<Terrain type="grass"/>
+<Terrain type="mountain"/>
 </Tile>
 <Tile x="4" y="4">
-<Terrain type="grass"/>
+<Terrain type="mountain"/>
 </Tile>
 <Tile x="4" y="5">
-<Terrain type="grass"/>
+<Terrain type="mountain"/>
 </Tile>
 <Tile x="4" y="6">
-<Terrain type="grass"/>
+<Terrain type="water"/>
 </Tile>
 <Tile x="4" y="7">
 <Terrain type="grass"/>
 </Tile>
 <Tile x="4" y="8">
-<Item type="obstacle">
-<Statistics>
-<MaxHP>0</MaxHP>
-<DefenseRate>0</DefenseRate>
-<Exp>0</Exp>
-<Level>0</Level>
-<Strength>0</Strength>
-<Intellect>0</Intellect>
-<NumOfLives>0</NumOfLives>
-<MaxMP>0</MaxMP>
-<Movement>0</Movement>
-<ArmorRate>0</ArmorRate>
-<OffenseRate>0</OffenseRate>
-<Agility>0</Agility>
-<Hardiness>0</Hardiness>
-</Statistics>
-<Decal background="-16777216" char="B" foreground="-12566464"/>
-</Item>
 <Terrain type="grass"/>
 </Tile>
 <Tile x="4" y="9">
-<Item type="obstacle">
-<Statistics>
-<MaxHP>0</MaxHP>
-<DefenseRate>0</DefenseRate>
-<Exp>0</Exp>
-<Level>0</Level>
-<Strength>0</Strength>
-<Intellect>0</Intellect>
-<NumOfLives>0</NumOfLives>
-<MaxMP>0</MaxMP>
-<Movement>0</Movement>
-<ArmorRate>0</ArmorRate>
-<OffenseRate>0</OffenseRate>
-<Agility>0</Agility>
-<Hardiness>0</Hardiness>
-</Statistics>
-<Decal background="-16777216" char="B" foreground="-12566464"/>
-</Item>
 <Terrain type="grass"/>
 </Tile>
 <Tile x="4" y="10">
-<Item type="obstacle">
-<Statistics>
-<MaxHP>0</MaxHP>
-<DefenseRate>0</DefenseRate>
-<Exp>0</Exp>
-<Level>0</Level>
-<Strength>0</Strength>
-<Intellect>0</Intellect>
-<NumOfLives>0</NumOfLives>
-<MaxMP>0</MaxMP>
-<Movement>0</Movement>
-<ArmorRate>0</ArmorRate>
-<OffenseRate>0</OffenseRate>
-<Agility>0</Agility>
-<Hardiness>0</Hardiness>
-</Statistics>
-<Decal background="-16777216" char="B" foreground="-12566464"/>
-</Item>
 <Terrain type="grass"/>
 </Tile>
 <Tile x="4" y="11">
-<Item type="obstacle">
-<Statistics>
-<MaxHP>0</MaxHP>
-<DefenseRate>0</DefenseRate>
-<Exp>0</Exp>
-<Level>0</Level>
-<Strength>0</Strength>
-<Intellect>0</Intellect>
-<NumOfLives>0</NumOfLives>
-<MaxMP>0</MaxMP>
-<Movement>0</Movement>
-<ArmorRate>0</ArmorRate>
-<OffenseRate>0</OffenseRate>
-<Agility>0</Agility>
-<Hardiness>0</Hardiness>
-</Statistics>
-<Decal background="-16777216" char="B" foreground="-12566464"/>
-</Item>
 <Terrain type="grass"/>
 </Tile>
 <Tile x="4" y="12">
-<Item type="obstacle">
-<Statistics>
-<MaxHP>0</MaxHP>
-<DefenseRate>0</DefenseRate>
-<Exp>0</Exp>
-<Level>0</Level>
-<Strength>0</Strength>
-<Intellect>0</Intellect>
-<NumOfLives>0</NumOfLives>
-<MaxMP>0</MaxMP>
-<Movement>0</Movement>
-<ArmorRate>0</ArmorRate>
-<OffenseRate>0</OffenseRate>
-<Agility>0</Agility>
-<Hardiness>0</Hardiness>
-</Statistics>
-<Decal background="-16777216" char="B" foreground="-12566464"/>
-</Item>
 <Terrain type="grass"/>
 </Tile>
 <Tile x="4" y="13">
@@ -1611,7 +1107,6 @@
 <Terrain type="grass"/>
 </Tile>
 <Tile x="4" y="18">
-<AreaEffect type="takedamage">2</AreaEffect>
 <Terrain type="grass"/>
 </Tile>
 <Tile x="4" y="19">
@@ -1624,7 +1119,7 @@
 <Terrain type="grass"/>
 </Tile>
 <Tile x="4" y="22">
-<Terrain type="grass"/>
+<Terrain type="mountain"/>
 </Tile>
 <Tile x="4" y="23">
 <Terrain type="mountain"/>
@@ -1633,17 +1128,34 @@
 <Terrain type="grass"/>
 </Tile>
 <Tile x="4" y="25">
-<AreaEffect type="healdamage">2</AreaEffect>
 <Terrain type="grass"/>
 </Tile>
 <Tile x="4" y="26">
 <Terrain type="grass"/>
 </Tile>
 <Tile x="4" y="27">
-<Terrain type="water"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="4" y="28">
-<Terrain type="water"/>
+<Item itemslot="1" type="equipable">
+<Statistics>
+<MaxHP>50</MaxHP>
+<DefenseRate>0</DefenseRate>
+<Exp>0</Exp>
+<Level>0</Level>
+<Strength>1</Strength>
+<Intellect>5</Intellect>
+<NumOfLives>0</NumOfLives>
+<MaxMP>50</MaxMP>
+<Movement>5</Movement>
+<ArmorRate>2</ArmorRate>
+<OffenseRate>3</OffenseRate>
+<Agility>0</Agility>
+<Hardiness>5</Hardiness>
+</Statistics>
+<Decal background="-16777216" char="?" foreground="-20561"/>
+</Item>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="4" y="29">
 <Terrain type="grass"/>
@@ -1655,153 +1167,28 @@
 <Terrain type="grass"/>
 </Tile>
 <Tile x="4" y="32">
-<Terrain type="mountain"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="4" y="33">
-<Item type="obstacle">
-<Statistics>
-<MaxHP>0</MaxHP>
-<DefenseRate>0</DefenseRate>
-<Exp>0</Exp>
-<Level>0</Level>
-<Strength>0</Strength>
-<Intellect>0</Intellect>
-<NumOfLives>0</NumOfLives>
-<MaxMP>0</MaxMP>
-<Movement>0</Movement>
-<ArmorRate>0</ArmorRate>
-<OffenseRate>0</OffenseRate>
-<Agility>0</Agility>
-<Hardiness>0</Hardiness>
-</Statistics>
-<Decal background="-16777216" char="B" foreground="-12566464"/>
-</Item>
-<Terrain type="mountain"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="4" y="34">
-<Item type="obstacle">
-<Statistics>
-<MaxHP>0</MaxHP>
-<DefenseRate>0</DefenseRate>
-<Exp>0</Exp>
-<Level>0</Level>
-<Strength>0</Strength>
-<Intellect>0</Intellect>
-<NumOfLives>0</NumOfLives>
-<MaxMP>0</MaxMP>
-<Movement>0</Movement>
-<ArmorRate>0</ArmorRate>
-<OffenseRate>0</OffenseRate>
-<Agility>0</Agility>
-<Hardiness>0</Hardiness>
-</Statistics>
-<Decal background="-16777216" char="B" foreground="-12566464"/>
-</Item>
 <Terrain type="grass"/>
 </Tile>
 <Tile x="4" y="35">
-<Item type="obstacle">
-<Statistics>
-<MaxHP>0</MaxHP>
-<DefenseRate>0</DefenseRate>
-<Exp>0</Exp>
-<Level>0</Level>
-<Strength>0</Strength>
-<Intellect>0</Intellect>
-<NumOfLives>0</NumOfLives>
-<MaxMP>0</MaxMP>
-<Movement>0</Movement>
-<ArmorRate>0</ArmorRate>
-<OffenseRate>0</OffenseRate>
-<Agility>0</Agility>
-<Hardiness>0</Hardiness>
-</Statistics>
-<Decal background="-16777216" char="B" foreground="-12566464"/>
-</Item>
 <Terrain type="grass"/>
 </Tile>
 <Tile x="4" y="36">
-<Item type="obstacle">
-<Statistics>
-<MaxHP>0</MaxHP>
-<DefenseRate>0</DefenseRate>
-<Exp>0</Exp>
-<Level>0</Level>
-<Strength>0</Strength>
-<Intellect>0</Intellect>
-<NumOfLives>0</NumOfLives>
-<MaxMP>0</MaxMP>
-<Movement>0</Movement>
-<ArmorRate>0</ArmorRate>
-<OffenseRate>0</OffenseRate>
-<Agility>0</Agility>
-<Hardiness>0</Hardiness>
-</Statistics>
-<Decal background="-16777216" char="B" foreground="-12566464"/>
-</Item>
+<AreaEffect type="levelup">0</AreaEffect>
 <Terrain type="grass"/>
 </Tile>
 <Tile x="4" y="37">
-<Item type="obstacle">
-<Statistics>
-<MaxHP>0</MaxHP>
-<DefenseRate>0</DefenseRate>
-<Exp>0</Exp>
-<Level>0</Level>
-<Strength>0</Strength>
-<Intellect>0</Intellect>
-<NumOfLives>0</NumOfLives>
-<MaxMP>0</MaxMP>
-<Movement>0</Movement>
-<ArmorRate>0</ArmorRate>
-<OffenseRate>0</OffenseRate>
-<Agility>0</Agility>
-<Hardiness>0</Hardiness>
-</Statistics>
-<Decal background="-16777216" char="B" foreground="-12566464"/>
-</Item>
 <Terrain type="grass"/>
 </Tile>
 <Tile x="4" y="38">
-<Item type="obstacle">
-<Statistics>
-<MaxHP>0</MaxHP>
-<DefenseRate>0</DefenseRate>
-<Exp>0</Exp>
-<Level>0</Level>
-<Strength>0</Strength>
-<Intellect>0</Intellect>
-<NumOfLives>0</NumOfLives>
-<MaxMP>0</MaxMP>
-<Movement>0</Movement>
-<ArmorRate>0</ArmorRate>
-<OffenseRate>0</OffenseRate>
-<Agility>0</Agility>
-<Hardiness>0</Hardiness>
-</Statistics>
-<Decal background="-16777216" char="B" foreground="-12566464"/>
-</Item>
 <Terrain type="grass"/>
 </Tile>
 <Tile x="4" y="39">
-<Item type="obstacle">
-<Statistics>
-<MaxHP>0</MaxHP>
-<DefenseRate>0</DefenseRate>
-<Exp>0</Exp>
-<Level>0</Level>
-<Strength>0</Strength>
-<Intellect>0</Intellect>
-<NumOfLives>0</NumOfLives>
-<MaxMP>0</MaxMP>
-<Movement>0</Movement>
-<ArmorRate>0</ArmorRate>
-<OffenseRate>0</OffenseRate>
-<Agility>0</Agility>
-<Hardiness>0</Hardiness>
-</Statistics>
-<Decal background="-16777216" char="B" foreground="-12566464"/>
-</Item>
 <Terrain type="grass"/>
 </Tile>
 <Tile x="4" y="40">
@@ -1814,43 +1201,24 @@
 <Terrain type="grass"/>
 </Tile>
 <Tile x="4" y="43">
-<Terrain type="mountain"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="4" y="44">
-<Terrain type="mountain"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="4" y="45">
-<Terrain type="mountain"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="4" y="46">
-<Terrain type="mountain"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="4" y="47">
-<Terrain type="mountain"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="4" y="48">
-<AreaEffect type="levelup">0</AreaEffect>
 <Terrain type="grass"/>
 </Tile>
 <Tile x="4" y="49">
-<Item type="obstacle">
-<Statistics>
-<MaxHP>0</MaxHP>
-<DefenseRate>0</DefenseRate>
-<Exp>0</Exp>
-<Level>0</Level>
-<Strength>0</Strength>
-<Intellect>0</Intellect>
-<NumOfLives>0</NumOfLives>
-<MaxMP>0</MaxMP>
-<Movement>0</Movement>
-<ArmorRate>0</ArmorRate>
-<OffenseRate>0</OffenseRate>
-<Agility>0</Agility>
-<Hardiness>0</Hardiness>
-</Statistics>
-<Decal background="-16777216" char="B" foreground="-12566464"/>
-</Item>
 <Terrain type="grass"/>
 </Tile>
 <Tile x="5" y="0">
@@ -1860,40 +1228,22 @@
 <Terrain type="water"/>
 </Tile>
 <Tile x="5" y="2">
-<Terrain type="grass"/>
+<Terrain type="mountain"/>
 </Tile>
 <Tile x="5" y="3">
 <Terrain type="mountain"/>
 </Tile>
 <Tile x="5" y="4">
-<Item type="obstacle">
-<Statistics>
-<MaxHP>0</MaxHP>
-<DefenseRate>0</DefenseRate>
-<Exp>0</Exp>
-<Level>0</Level>
-<Strength>0</Strength>
-<Intellect>0</Intellect>
-<NumOfLives>0</NumOfLives>
-<MaxMP>0</MaxMP>
-<Movement>0</Movement>
-<ArmorRate>0</ArmorRate>
-<OffenseRate>0</OffenseRate>
-<Agility>0</Agility>
-<Hardiness>0</Hardiness>
-</Statistics>
-<Decal background="-16777216" char="B" foreground="-12566464"/>
-</Item>
-<Terrain type="grass"/>
+<Terrain type="mountain"/>
 </Tile>
 <Tile x="5" y="5">
-<Terrain type="grass"/>
+<Terrain type="mountain"/>
 </Tile>
 <Tile x="5" y="6">
-<Terrain type="grass"/>
+<Terrain type="mountain"/>
 </Tile>
 <Tile x="5" y="7">
-<Terrain type="grass"/>
+<Terrain type="water"/>
 </Tile>
 <Tile x="5" y="8">
 <Terrain type="grass"/>
@@ -1914,19 +1264,18 @@
 <Terrain type="grass"/>
 </Tile>
 <Tile x="5" y="14">
-<Terrain type="mountain"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="5" y="15">
-<Terrain type="mountain"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="5" y="16">
-<Terrain type="mountain"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="5" y="17">
 <Terrain type="grass"/>
 </Tile>
 <Tile x="5" y="18">
-<AreaEffect type="takedamage">2</AreaEffect>
 <Terrain type="grass"/>
 </Tile>
 <Tile x="5" y="19">
@@ -1936,13 +1285,13 @@
 <Terrain type="grass"/>
 </Tile>
 <Tile x="5" y="21">
-<Terrain type="grass"/>
+<Terrain type="mountain"/>
 </Tile>
 <Tile x="5" y="22">
-<Terrain type="grass"/>
+<Terrain type="mountain"/>
 </Tile>
 <Tile x="5" y="23">
-<Terrain type="grass"/>
+<Terrain type="mountain"/>
 </Tile>
 <Tile x="5" y="24">
 <Terrain type="grass"/>
@@ -1951,13 +1300,13 @@
 <Terrain type="grass"/>
 </Tile>
 <Tile x="5" y="26">
-<Terrain type="water"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="5" y="27">
-<Terrain type="water"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="5" y="28">
-<Terrain type="water"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="5" y="29">
 <Terrain type="grass"/>
@@ -1966,10 +1315,28 @@
 <Terrain type="grass"/>
 </Tile>
 <Tile x="5" y="31">
-<Terrain type="mountain"/>
+<Item type="oneshot">
+<Statistics>
+<MaxHP>50</MaxHP>
+<DefenseRate>0</DefenseRate>
+<Exp>0</Exp>
+<Level>0</Level>
+<Strength>1</Strength>
+<Intellect>5</Intellect>
+<NumOfLives>0</NumOfLives>
+<MaxMP>50</MaxMP>
+<Movement>5</Movement>
+<ArmorRate>2</ArmorRate>
+<OffenseRate>3</OffenseRate>
+<Agility>0</Agility>
+<Hardiness>5</Hardiness>
+</Statistics>
+<Decal background="-16777216" char="?" foreground="-16711681"/>
+</Item>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="5" y="32">
-<Terrain type="mountain"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="5" y="33">
 <Terrain type="grass"/>
@@ -1996,6 +1363,7 @@
 <Terrain type="grass"/>
 </Tile>
 <Tile x="5" y="41">
+<AreaEffect type="instantdeath">0</AreaEffect>
 <Terrain type="grass"/>
 </Tile>
 <Tile x="5" y="42">
@@ -2005,39 +1373,21 @@
 <Terrain type="grass"/>
 </Tile>
 <Tile x="5" y="44">
-<Terrain type="mountain"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="5" y="45">
-<Terrain type="mountain"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="5" y="46">
-<Terrain type="mountain"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="5" y="47">
-<Terrain type="mountain"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="5" y="48">
 <Terrain type="grass"/>
 </Tile>
 <Tile x="5" y="49">
-<Item type="obstacle">
-<Statistics>
-<MaxHP>0</MaxHP>
-<DefenseRate>0</DefenseRate>
-<Exp>0</Exp>
-<Level>0</Level>
-<Strength>0</Strength>
-<Intellect>0</Intellect>
-<NumOfLives>0</NumOfLives>
-<MaxMP>0</MaxMP>
-<Movement>0</Movement>
-<ArmorRate>0</ArmorRate>
-<OffenseRate>0</OffenseRate>
-<Agility>0</Agility>
-<Hardiness>0</Hardiness>
-</Statistics>
-<Decal background="-16777216" char="B" foreground="-12566464"/>
-</Item>
 <Terrain type="grass"/>
 </Tile>
 <Tile x="6" y="0">
@@ -2047,62 +1397,25 @@
 <Terrain type="water"/>
 </Tile>
 <Tile x="6" y="2">
-<Terrain type="grass"/>
+<Terrain type="mountain"/>
 </Tile>
 <Tile x="6" y="3">
 <Terrain type="mountain"/>
 </Tile>
 <Tile x="6" y="4">
-<Item type="obstacle">
-<Statistics>
-<MaxHP>0</MaxHP>
-<DefenseRate>0</DefenseRate>
-<Exp>0</Exp>
-<Level>0</Level>
-<Strength>0</Strength>
-<Intellect>0</Intellect>
-<NumOfLives>0</NumOfLives>
-<MaxMP>0</MaxMP>
-<Movement>0</Movement>
-<ArmorRate>0</ArmorRate>
-<OffenseRate>0</OffenseRate>
-<Agility>0</Agility>
-<Hardiness>0</Hardiness>
-</Statistics>
-<Decal background="-16777216" char="B" foreground="-12566464"/>
-</Item>
-<Terrain type="grass"/>
+<Terrain type="mountain"/>
 </Tile>
 <Tile x="6" y="5">
-<Item type="obstacle">
-<Statistics>
-<MaxHP>0</MaxHP>
-<DefenseRate>0</DefenseRate>
-<Exp>0</Exp>
-<Level>0</Level>
-<Strength>0</Strength>
-<Intellect>0</Intellect>
-<NumOfLives>0</NumOfLives>
-<MaxMP>0</MaxMP>
-<Movement>0</Movement>
-<ArmorRate>0</ArmorRate>
-<OffenseRate>0</OffenseRate>
-<Agility>0</Agility>
-<Hardiness>0</Hardiness>
-</Statistics>
-<Decal background="-16777216" char="B" foreground="-12566464"/>
-</Item>
-<Terrain type="grass"/>
+<Terrain type="mountain"/>
 </Tile>
 <Tile x="6" y="6">
-<Terrain type="grass"/>
+<Terrain type="mountain"/>
 </Tile>
 <Tile x="6" y="7">
-<AreaEffect type="healdamage">2</AreaEffect>
-<Terrain type="grass"/>
+<Terrain type="mountain"/>
 </Tile>
 <Tile x="6" y="8">
-<Terrain type="grass"/>
+<Terrain type="water"/>
 </Tile>
 <Tile x="6" y="9">
 <Item type="obstacle">
@@ -2210,19 +1523,108 @@
 <Terrain type="grass"/>
 </Tile>
 <Tile x="6" y="14">
+<Item type="obstacle">
+<Statistics>
+<MaxHP>0</MaxHP>
+<DefenseRate>0</DefenseRate>
+<Exp>0</Exp>
+<Level>0</Level>
+<Strength>0</Strength>
+<Intellect>0</Intellect>
+<NumOfLives>0</NumOfLives>
+<MaxMP>0</MaxMP>
+<Movement>0</Movement>
+<ArmorRate>0</ArmorRate>
+<OffenseRate>0</OffenseRate>
+<Agility>0</Agility>
+<Hardiness>0</Hardiness>
+</Statistics>
+<Decal background="-16777216" char="B" foreground="-12566464"/>
+</Item>
 <Terrain type="grass"/>
 </Tile>
 <Tile x="6" y="15">
+<Item type="obstacle">
+<Statistics>
+<MaxHP>0</MaxHP>
+<DefenseRate>0</DefenseRate>
+<Exp>0</Exp>
+<Level>0</Level>
+<Strength>0</Strength>
+<Intellect>0</Intellect>
+<NumOfLives>0</NumOfLives>
+<MaxMP>0</MaxMP>
+<Movement>0</Movement>
+<ArmorRate>0</ArmorRate>
+<OffenseRate>0</OffenseRate>
+<Agility>0</Agility>
+<Hardiness>0</Hardiness>
+</Statistics>
+<Decal background="-16777216" char="B" foreground="-12566464"/>
+</Item>
 <Terrain type="grass"/>
 </Tile>
 <Tile x="6" y="16">
+<Item type="obstacle">
+<Statistics>
+<MaxHP>0</MaxHP>
+<DefenseRate>0</DefenseRate>
+<Exp>0</Exp>
+<Level>0</Level>
+<Strength>0</Strength>
+<Intellect>0</Intellect>
+<NumOfLives>0</NumOfLives>
+<MaxMP>0</MaxMP>
+<Movement>0</Movement>
+<ArmorRate>0</ArmorRate>
+<OffenseRate>0</OffenseRate>
+<Agility>0</Agility>
+<Hardiness>0</Hardiness>
+</Statistics>
+<Decal background="-16777216" char="B" foreground="-12566464"/>
+</Item>
 <Terrain type="grass"/>
 </Tile>
 <Tile x="6" y="17">
+<Item type="obstacle">
+<Statistics>
+<MaxHP>0</MaxHP>
+<DefenseRate>0</DefenseRate>
+<Exp>0</Exp>
+<Level>0</Level>
+<Strength>0</Strength>
+<Intellect>0</Intellect>
+<NumOfLives>0</NumOfLives>
+<MaxMP>0</MaxMP>
+<Movement>0</Movement>
+<ArmorRate>0</ArmorRate>
+<OffenseRate>0</OffenseRate>
+<Agility>0</Agility>
+<Hardiness>0</Hardiness>
+</Statistics>
+<Decal background="-16777216" char="B" foreground="-12566464"/>
+</Item>
 <Terrain type="grass"/>
 </Tile>
 <Tile x="6" y="18">
-<AreaEffect type="takedamage">2</AreaEffect>
+<Item type="obstacle">
+<Statistics>
+<MaxHP>0</MaxHP>
+<DefenseRate>0</DefenseRate>
+<Exp>0</Exp>
+<Level>0</Level>
+<Strength>0</Strength>
+<Intellect>0</Intellect>
+<NumOfLives>0</NumOfLives>
+<MaxMP>0</MaxMP>
+<Movement>0</Movement>
+<ArmorRate>0</ArmorRate>
+<OffenseRate>0</OffenseRate>
+<Agility>0</Agility>
+<Hardiness>0</Hardiness>
+</Statistics>
+<Decal background="-16777216" char="B" foreground="-12566464"/>
+</Item>
 <Terrain type="grass"/>
 </Tile>
 <Tile x="6" y="19">
@@ -2235,19 +1637,19 @@
 <Terrain type="grass"/>
 </Tile>
 <Tile x="6" y="22">
-<Terrain type="grass"/>
+<Terrain type="mountain"/>
 </Tile>
 <Tile x="6" y="23">
-<Terrain type="grass"/>
+<Terrain type="mountain"/>
 </Tile>
 <Tile x="6" y="24">
 <Terrain type="grass"/>
 </Tile>
 <Tile x="6" y="25">
-<Terrain type="water"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="6" y="26">
-<Terrain type="water"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="6" y="27">
 <Terrain type="grass"/>
@@ -2262,7 +1664,7 @@
 <Terrain type="grass"/>
 </Tile>
 <Tile x="6" y="31">
-<Terrain type="mountain"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="6" y="32">
 <Terrain type="grass"/>
@@ -2271,43 +1673,43 @@
 <Terrain type="grass"/>
 </Tile>
 <Tile x="6" y="34">
-<Terrain type="mountain"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="6" y="35">
-<Terrain type="mountain"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="6" y="36">
 <Terrain type="grass"/>
 </Tile>
 <Tile x="6" y="37">
-<Terrain type="mountain"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="6" y="38">
-<Terrain type="mountain"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="6" y="39">
-<Terrain type="mountain"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="6" y="40">
-<Terrain type="mountain"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="6" y="41">
-<Terrain type="mountain"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="6" y="42">
-<Terrain type="mountain"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="6" y="43">
-<Terrain type="mountain"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="6" y="44">
-<Terrain type="mountain"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="6" y="45">
-<Terrain type="mountain"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="6" y="46">
-<Terrain type="mountain"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="6" y="47">
 <Terrain type="grass"/>
@@ -2316,24 +1718,6 @@
 <Terrain type="grass"/>
 </Tile>
 <Tile x="6" y="49">
-<Item type="obstacle">
-<Statistics>
-<MaxHP>0</MaxHP>
-<DefenseRate>0</DefenseRate>
-<Exp>0</Exp>
-<Level>0</Level>
-<Strength>0</Strength>
-<Intellect>0</Intellect>
-<NumOfLives>0</NumOfLives>
-<MaxMP>0</MaxMP>
-<Movement>0</Movement>
-<ArmorRate>0</ArmorRate>
-<OffenseRate>0</OffenseRate>
-<Agility>0</Agility>
-<Hardiness>0</Hardiness>
-</Statistics>
-<Decal background="-16777216" char="B" foreground="-12566464"/>
-</Item>
 <Terrain type="grass"/>
 </Tile>
 <Tile x="7" y="0">
@@ -2343,109 +1727,55 @@
 <Terrain type="water"/>
 </Tile>
 <Tile x="7" y="2">
-<Terrain type="grass"/>
+<Terrain type="mountain"/>
 </Tile>
 <Tile x="7" y="3">
 <Terrain type="mountain"/>
 </Tile>
 <Tile x="7" y="4">
-<Item type="obstacle">
-<Statistics>
-<MaxHP>0</MaxHP>
-<DefenseRate>0</DefenseRate>
-<Exp>0</Exp>
-<Level>0</Level>
-<Strength>0</Strength>
-<Intellect>0</Intellect>
-<NumOfLives>0</NumOfLives>
-<MaxMP>0</MaxMP>
-<Movement>0</Movement>
-<ArmorRate>0</ArmorRate>
-<OffenseRate>0</OffenseRate>
-<Agility>0</Agility>
-<Hardiness>0</Hardiness>
-</Statistics>
-<Decal background="-16777216" char="B" foreground="-12566464"/>
-</Item>
-<Terrain type="grass"/>
+<Terrain type="mountain"/>
 </Tile>
 <Tile x="7" y="5">
-<Item type="obstacle">
-<Statistics>
-<MaxHP>0</MaxHP>
-<DefenseRate>0</DefenseRate>
-<Exp>0</Exp>
-<Level>0</Level>
-<Strength>0</Strength>
-<Intellect>0</Intellect>
-<NumOfLives>0</NumOfLives>
-<MaxMP>0</MaxMP>
-<Movement>0</Movement>
-<ArmorRate>0</ArmorRate>
-<OffenseRate>0</OffenseRate>
-<Agility>0</Agility>
-<Hardiness>0</Hardiness>
-</Statistics>
-<Decal background="-16777216" char="B" foreground="-12566464"/>
-</Item>
-<Terrain type="grass"/>
+<Terrain type="mountain"/>
 </Tile>
 <Tile x="7" y="6">
-<Item type="obstacle">
-<Statistics>
-<MaxHP>0</MaxHP>
-<DefenseRate>0</DefenseRate>
-<Exp>0</Exp>
-<Level>0</Level>
-<Strength>0</Strength>
-<Intellect>0</Intellect>
-<NumOfLives>0</NumOfLives>
-<MaxMP>0</MaxMP>
-<Movement>0</Movement>
-<ArmorRate>0</ArmorRate>
-<OffenseRate>0</OffenseRate>
-<Agility>0</Agility>
-<Hardiness>0</Hardiness>
-</Statistics>
-<Decal background="-16777216" char="B" foreground="-12566464"/>
-</Item>
-<Terrain type="grass"/>
+<Terrain type="mountain"/>
 </Tile>
 <Tile x="7" y="7">
-<Item type="obstacle">
+<Terrain type="mountain"/>
+</Tile>
+<Tile x="7" y="8">
+<Terrain type="water"/>
+</Tile>
+<Tile x="7" y="9">
+<Terrain type="water"/>
+</Tile>
+<Tile x="7" y="10">
+<Item type="usable">
 <Statistics>
-<MaxHP>0</MaxHP>
+<MaxHP>50</MaxHP>
 <DefenseRate>0</DefenseRate>
 <Exp>0</Exp>
 <Level>0</Level>
-<Strength>0</Strength>
-<Intellect>0</Intellect>
+<Strength>1</Strength>
+<Intellect>5</Intellect>
 <NumOfLives>0</NumOfLives>
-<MaxMP>0</MaxMP>
-<Movement>0</Movement>
-<ArmorRate>0</ArmorRate>
-<OffenseRate>0</OffenseRate>
+<MaxMP>50</MaxMP>
+<Movement>5</Movement>
+<ArmorRate>2</ArmorRate>
+<OffenseRate>3</OffenseRate>
 <Agility>0</Agility>
-<Hardiness>0</Hardiness>
+<Hardiness>5</Hardiness>
 </Statistics>
-<Decal background="-16777216" char="B" foreground="-12566464"/>
+<Decal background="-16777216" char="?" foreground="-256"/>
 </Item>
 <Terrain type="grass"/>
 </Tile>
-<Tile x="7" y="8">
-<Terrain type="mountain"/>
-</Tile>
-<Tile x="7" y="9">
-<Terrain type="mountain"/>
-</Tile>
-<Tile x="7" y="10">
-<Terrain type="mountain"/>
-</Tile>
 <Tile x="7" y="11">
-<Terrain type="mountain"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="7" y="12">
-<Terrain type="mountain"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="7" y="13">
 <Terrain type="grass"/>
@@ -2454,19 +1784,15 @@
 <Terrain type="grass"/>
 </Tile>
 <Tile x="7" y="15">
-<AreaEffect type="takedamage">2</AreaEffect>
 <Terrain type="grass"/>
 </Tile>
 <Tile x="7" y="16">
-<AreaEffect type="takedamage">2</AreaEffect>
 <Terrain type="grass"/>
 </Tile>
 <Tile x="7" y="17">
-<AreaEffect type="takedamage">2</AreaEffect>
 <Terrain type="grass"/>
 </Tile>
 <Tile x="7" y="18">
-<AreaEffect type="takedamage">2</AreaEffect>
 <Terrain type="grass"/>
 </Tile>
 <Tile x="7" y="19">
@@ -2482,16 +1808,16 @@
 <Terrain type="grass"/>
 </Tile>
 <Tile x="7" y="23">
-<Terrain type="grass"/>
+<Terrain type="mountain"/>
 </Tile>
 <Tile x="7" y="24">
 <Terrain type="grass"/>
 </Tile>
 <Tile x="7" y="25">
-<Terrain type="water"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="7" y="26">
-<Terrain type="water"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="7" y="27">
 <Terrain type="grass"/>
@@ -2512,10 +1838,10 @@
 <Terrain type="grass"/>
 </Tile>
 <Tile x="7" y="33">
-<Terrain type="mountain"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="7" y="34">
-<Terrain type="mountain"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="7" y="35">
 <Terrain type="grass"/>
@@ -2524,31 +1850,31 @@
 <Terrain type="grass"/>
 </Tile>
 <Tile x="7" y="37">
-<Terrain type="mountain"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="7" y="38">
-<Terrain type="mountain"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="7" y="39">
-<Terrain type="mountain"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="7" y="40">
-<Terrain type="mountain"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="7" y="41">
-<Terrain type="mountain"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="7" y="42">
-<Terrain type="mountain"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="7" y="43">
-<Terrain type="mountain"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="7" y="44">
 <Terrain type="grass"/>
 </Tile>
 <Tile x="7" y="45">
-<Terrain type="mountain"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="7" y="46">
 <Terrain type="grass"/>
@@ -2560,24 +1886,6 @@
 <Terrain type="grass"/>
 </Tile>
 <Tile x="7" y="49">
-<Item type="obstacle">
-<Statistics>
-<MaxHP>0</MaxHP>
-<DefenseRate>0</DefenseRate>
-<Exp>0</Exp>
-<Level>0</Level>
-<Strength>0</Strength>
-<Intellect>0</Intellect>
-<NumOfLives>0</NumOfLives>
-<MaxMP>0</MaxMP>
-<Movement>0</Movement>
-<ArmorRate>0</ArmorRate>
-<OffenseRate>0</OffenseRate>
-<Agility>0</Agility>
-<Hardiness>0</Hardiness>
-</Statistics>
-<Decal background="-16777216" char="B" foreground="-12566464"/>
-</Item>
 <Terrain type="grass"/>
 </Tile>
 <Tile x="8" y="0">
@@ -2587,145 +1895,73 @@
 <Terrain type="water"/>
 </Tile>
 <Tile x="8" y="2">
-<Terrain type="grass"/>
+<Terrain type="water"/>
 </Tile>
 <Tile x="8" y="3">
-<Terrain type="mountain"/>
+<Terrain type="water"/>
 </Tile>
 <Tile x="8" y="4">
-<Item type="obstacle">
-<Statistics>
-<MaxHP>0</MaxHP>
-<DefenseRate>0</DefenseRate>
-<Exp>0</Exp>
-<Level>0</Level>
-<Strength>0</Strength>
-<Intellect>0</Intellect>
-<NumOfLives>0</NumOfLives>
-<MaxMP>0</MaxMP>
-<Movement>0</Movement>
-<ArmorRate>0</ArmorRate>
-<OffenseRate>0</OffenseRate>
-<Agility>0</Agility>
-<Hardiness>0</Hardiness>
-</Statistics>
-<Decal background="-16777216" char="B" foreground="-12566464"/>
-</Item>
-<Terrain type="grass"/>
+<Terrain type="water"/>
 </Tile>
 <Tile x="8" y="5">
-<Item type="obstacle">
-<Statistics>
-<MaxHP>0</MaxHP>
-<DefenseRate>0</DefenseRate>
-<Exp>0</Exp>
-<Level>0</Level>
-<Strength>0</Strength>
-<Intellect>0</Intellect>
-<NumOfLives>0</NumOfLives>
-<MaxMP>0</MaxMP>
-<Movement>0</Movement>
-<ArmorRate>0</ArmorRate>
-<OffenseRate>0</OffenseRate>
-<Agility>0</Agility>
-<Hardiness>0</Hardiness>
-</Statistics>
-<Decal background="-16777216" char="B" foreground="-12566464"/>
-</Item>
-<Terrain type="grass"/>
+<Terrain type="water"/>
 </Tile>
 <Tile x="8" y="6">
-<Item type="obstacle">
-<Statistics>
-<MaxHP>0</MaxHP>
-<DefenseRate>0</DefenseRate>
-<Exp>0</Exp>
-<Level>0</Level>
-<Strength>0</Strength>
-<Intellect>0</Intellect>
-<NumOfLives>0</NumOfLives>
-<MaxMP>0</MaxMP>
-<Movement>0</Movement>
-<ArmorRate>0</ArmorRate>
-<OffenseRate>0</OffenseRate>
-<Agility>0</Agility>
-<Hardiness>0</Hardiness>
-</Statistics>
-<Decal background="-16777216" char="B" foreground="-12566464"/>
-</Item>
-<Terrain type="grass"/>
+<Terrain type="water"/>
 </Tile>
 <Tile x="8" y="7">
-<Item type="obstacle">
-<Statistics>
-<MaxHP>0</MaxHP>
-<DefenseRate>0</DefenseRate>
-<Exp>0</Exp>
-<Level>0</Level>
-<Strength>0</Strength>
-<Intellect>0</Intellect>
-<NumOfLives>0</NumOfLives>
-<MaxMP>0</MaxMP>
-<Movement>0</Movement>
-<ArmorRate>0</ArmorRate>
-<OffenseRate>0</OffenseRate>
-<Agility>0</Agility>
-<Hardiness>0</Hardiness>
-</Statistics>
-<Decal background="-16777216" char="B" foreground="-12566464"/>
-</Item>
-<Terrain type="grass"/>
+<Terrain type="water"/>
 </Tile>
 <Tile x="8" y="8">
-<Terrain type="mountain"/>
+<Terrain type="water"/>
 </Tile>
 <Tile x="8" y="9">
-<Terrain type="mountain"/>
+<Terrain type="water"/>
 </Tile>
 <Tile x="8" y="10">
-<Terrain type="mountain"/>
+<Terrain type="water"/>
 </Tile>
 <Tile x="8" y="11">
-<Terrain type="mountain"/>
+<Terrain type="water"/>
 </Tile>
 <Tile x="8" y="12">
-<Terrain type="mountain"/>
+<Terrain type="water"/>
 </Tile>
 <Tile x="8" y="13">
-<Terrain type="grass"/>
+<Terrain type="water"/>
 </Tile>
 <Tile x="8" y="14">
-<Terrain type="grass"/>
+<Terrain type="water"/>
 </Tile>
 <Tile x="8" y="15">
-<Terrain type="grass"/>
+<Terrain type="water"/>
 </Tile>
 <Tile x="8" y="16">
-<Terrain type="grass"/>
+<Terrain type="water"/>
 </Tile>
 <Tile x="8" y="17">
-<Terrain type="grass"/>
+<Terrain type="water"/>
 </Tile>
 <Tile x="8" y="18">
-<Terrain type="grass"/>
+<Terrain type="water"/>
 </Tile>
 <Tile x="8" y="19">
-<Terrain type="grass"/>
+<Terrain type="water"/>
 </Tile>
 <Tile x="8" y="20">
-<Terrain type="grass"/>
+<Terrain type="water"/>
 </Tile>
 <Tile x="8" y="21">
-<Terrain type="grass"/>
+<Terrain type="water"/>
 </Tile>
 <Tile x="8" y="22">
-<Terrain type="grass"/>
+<Terrain type="water"/>
 </Tile>
 <Tile x="8" y="23">
-<Terrain type="grass"/>
+<Terrain type="water"/>
 </Tile>
 <Tile x="8" y="24">
-<Terrain type="grass"/>
+<Terrain type="water"/>
 </Tile>
 <Tile x="8" y="25">
 <Terrain type="water"/>
@@ -2734,91 +1970,73 @@
 <Terrain type="water"/>
 </Tile>
 <Tile x="8" y="27">
-<Terrain type="mountain"/>
+<Terrain type="water"/>
 </Tile>
 <Tile x="8" y="28">
-<Terrain type="mountain"/>
+<Terrain type="water"/>
 </Tile>
 <Tile x="8" y="29">
-<Terrain type="mountain"/>
+<Terrain type="water"/>
 </Tile>
 <Tile x="8" y="30">
-<Terrain type="mountain"/>
+<Terrain type="water"/>
 </Tile>
 <Tile x="8" y="31">
-<Terrain type="mountain"/>
+<Terrain type="water"/>
 </Tile>
 <Tile x="8" y="32">
-<Terrain type="mountain"/>
+<Terrain type="water"/>
 </Tile>
 <Tile x="8" y="33">
-<Terrain type="mountain"/>
+<Terrain type="water"/>
 </Tile>
 <Tile x="8" y="34">
-<Terrain type="mountain"/>
+<Terrain type="water"/>
 </Tile>
 <Tile x="8" y="35">
-<Terrain type="grass"/>
+<Terrain type="water"/>
 </Tile>
 <Tile x="8" y="36">
-<Terrain type="grass"/>
+<Terrain type="water"/>
 </Tile>
 <Tile x="8" y="37">
-<Terrain type="mountain"/>
+<Terrain type="water"/>
 </Tile>
 <Tile x="8" y="38">
-<Terrain type="grass"/>
+<Terrain type="water"/>
 </Tile>
 <Tile x="8" y="39">
-<Terrain type="grass"/>
+<Terrain type="water"/>
 </Tile>
 <Tile x="8" y="40">
-<Terrain type="grass"/>
+<Terrain type="water"/>
 </Tile>
 <Tile x="8" y="41">
-<Terrain type="grass"/>
+<Terrain type="water"/>
 </Tile>
 <Tile x="8" y="42">
-<Terrain type="grass"/>
+<Terrain type="water"/>
 </Tile>
 <Tile x="8" y="43">
-<Terrain type="grass"/>
+<Terrain type="water"/>
 </Tile>
 <Tile x="8" y="44">
-<Terrain type="grass"/>
+<Terrain type="water"/>
 </Tile>
 <Tile x="8" y="45">
-<Terrain type="grass"/>
+<Terrain type="water"/>
 </Tile>
 <Tile x="8" y="46">
-<Terrain type="grass"/>
+<Terrain type="water"/>
 </Tile>
 <Tile x="8" y="47">
-<Terrain type="grass"/>
+<Terrain type="water"/>
 </Tile>
 <Tile x="8" y="48">
-<Terrain type="grass"/>
+<Terrain type="water"/>
 </Tile>
 <Tile x="8" y="49">
-<Item type="obstacle">
-<Statistics>
-<MaxHP>0</MaxHP>
-<DefenseRate>0</DefenseRate>
-<Exp>0</Exp>
-<Level>0</Level>
-<Strength>0</Strength>
-<Intellect>0</Intellect>
-<NumOfLives>0</NumOfLives>
-<MaxMP>0</MaxMP>
-<Movement>0</Movement>
-<ArmorRate>0</ArmorRate>
-<OffenseRate>0</OffenseRate>
-<Agility>0</Agility>
-<Hardiness>0</Hardiness>
-</Statistics>
-<Decal background="-16777216" char="B" foreground="-12566464"/>
-</Item>
-<Terrain type="grass"/>
+<Terrain type="water"/>
 </Tile>
 <Tile x="9" y="0">
 <Terrain type="water"/>
@@ -2827,121 +2045,49 @@
 <Terrain type="water"/>
 </Tile>
 <Tile x="9" y="2">
-<Terrain type="grass"/>
+<Terrain type="water"/>
 </Tile>
 <Tile x="9" y="3">
-<Terrain type="mountain"/>
+<Terrain type="water"/>
 </Tile>
 <Tile x="9" y="4">
-<Item type="obstacle">
-<Statistics>
-<MaxHP>0</MaxHP>
-<DefenseRate>0</DefenseRate>
-<Exp>0</Exp>
-<Level>0</Level>
-<Strength>0</Strength>
-<Intellect>0</Intellect>
-<NumOfLives>0</NumOfLives>
-<MaxMP>0</MaxMP>
-<Movement>0</Movement>
-<ArmorRate>0</ArmorRate>
-<OffenseRate>0</OffenseRate>
-<Agility>0</Agility>
-<Hardiness>0</Hardiness>
-</Statistics>
-<Decal background="-16777216" char="B" foreground="-12566464"/>
-</Item>
-<Terrain type="grass"/>
+<Terrain type="water"/>
 </Tile>
 <Tile x="9" y="5">
-<Item type="obstacle">
-<Statistics>
-<MaxHP>0</MaxHP>
-<DefenseRate>0</DefenseRate>
-<Exp>0</Exp>
-<Level>0</Level>
-<Strength>0</Strength>
-<Intellect>0</Intellect>
-<NumOfLives>0</NumOfLives>
-<MaxMP>0</MaxMP>
-<Movement>0</Movement>
-<ArmorRate>0</ArmorRate>
-<OffenseRate>0</OffenseRate>
-<Agility>0</Agility>
-<Hardiness>0</Hardiness>
-</Statistics>
-<Decal background="-16777216" char="B" foreground="-12566464"/>
-</Item>
-<Terrain type="grass"/>
+<Terrain type="water"/>
 </Tile>
 <Tile x="9" y="6">
-<Item type="obstacle">
-<Statistics>
-<MaxHP>0</MaxHP>
-<DefenseRate>0</DefenseRate>
-<Exp>0</Exp>
-<Level>0</Level>
-<Strength>0</Strength>
-<Intellect>0</Intellect>
-<NumOfLives>0</NumOfLives>
-<MaxMP>0</MaxMP>
-<Movement>0</Movement>
-<ArmorRate>0</ArmorRate>
-<OffenseRate>0</OffenseRate>
-<Agility>0</Agility>
-<Hardiness>0</Hardiness>
-</Statistics>
-<Decal background="-16777216" char="B" foreground="-12566464"/>
-</Item>
-<Terrain type="grass"/>
+<Terrain type="water"/>
 </Tile>
 <Tile x="9" y="7">
-<Item type="obstacle">
-<Statistics>
-<MaxHP>0</MaxHP>
-<DefenseRate>0</DefenseRate>
-<Exp>0</Exp>
-<Level>0</Level>
-<Strength>0</Strength>
-<Intellect>0</Intellect>
-<NumOfLives>0</NumOfLives>
-<MaxMP>0</MaxMP>
-<Movement>0</Movement>
-<ArmorRate>0</ArmorRate>
-<OffenseRate>0</OffenseRate>
-<Agility>0</Agility>
-<Hardiness>0</Hardiness>
-</Statistics>
-<Decal background="-16777216" char="B" foreground="-12566464"/>
-</Item>
-<Terrain type="grass"/>
+<Terrain type="water"/>
 </Tile>
 <Tile x="9" y="8">
-<Terrain type="grass"/>
+<Terrain type="water"/>
 </Tile>
 <Tile x="9" y="9">
-<Terrain type="grass"/>
+<Terrain type="water"/>
 </Tile>
 <Tile x="9" y="10">
-<Terrain type="grass"/>
+<Terrain type="water"/>
 </Tile>
 <Tile x="9" y="11">
-<Terrain type="grass"/>
+<Terrain type="water"/>
 </Tile>
 <Tile x="9" y="12">
-<Terrain type="grass"/>
+<Terrain type="water"/>
 </Tile>
 <Tile x="9" y="13">
-<Terrain type="grass"/>
+<Terrain type="water"/>
 </Tile>
 <Tile x="9" y="14">
-<Terrain type="grass"/>
+<Terrain type="water"/>
 </Tile>
 <Tile x="9" y="15">
-<Terrain type="grass"/>
+<Terrain type="water"/>
 </Tile>
 <Tile x="9" y="16">
-<Terrain type="grass"/>
+<Terrain type="water"/>
 </Tile>
 <Tile x="9" y="17">
 <Terrain type="water"/>
@@ -2974,205 +2120,115 @@
 <Terrain type="water"/>
 </Tile>
 <Tile x="9" y="27">
-<Terrain type="grass"/>
+<Terrain type="water"/>
 </Tile>
 <Tile x="9" y="28">
-<Terrain type="grass"/>
+<Terrain type="water"/>
 </Tile>
 <Tile x="9" y="29">
-<Terrain type="grass"/>
+<Terrain type="water"/>
 </Tile>
 <Tile x="9" y="30">
-<Terrain type="grass"/>
+<Terrain type="water"/>
 </Tile>
 <Tile x="9" y="31">
-<Terrain type="grass"/>
+<Terrain type="water"/>
 </Tile>
 <Tile x="9" y="32">
-<Terrain type="grass"/>
+<Terrain type="water"/>
 </Tile>
 <Tile x="9" y="33">
-<Terrain type="grass"/>
+<Terrain type="water"/>
 </Tile>
 <Tile x="9" y="34">
-<Terrain type="grass"/>
+<Terrain type="water"/>
 </Tile>
 <Tile x="9" y="35">
-<Terrain type="grass"/>
+<Terrain type="water"/>
 </Tile>
 <Tile x="9" y="36">
-<Terrain type="grass"/>
+<Terrain type="water"/>
 </Tile>
 <Tile x="9" y="37">
-<Terrain type="mountain"/>
+<Terrain type="water"/>
 </Tile>
 <Tile x="9" y="38">
-<Terrain type="grass"/>
+<Terrain type="water"/>
 </Tile>
 <Tile x="9" y="39">
-<Terrain type="grass"/>
+<Terrain type="water"/>
 </Tile>
 <Tile x="9" y="40">
-<Terrain type="grass"/>
+<Terrain type="water"/>
 </Tile>
 <Tile x="9" y="41">
-<Terrain type="grass"/>
+<Terrain type="water"/>
 </Tile>
 <Tile x="9" y="42">
-<Terrain type="grass"/>
+<Terrain type="water"/>
 </Tile>
 <Tile x="9" y="43">
-<Terrain type="grass"/>
+<Terrain type="water"/>
 </Tile>
 <Tile x="9" y="44">
-<Terrain type="grass"/>
+<Terrain type="water"/>
 </Tile>
 <Tile x="9" y="45">
-<Terrain type="grass"/>
+<Terrain type="water"/>
 </Tile>
 <Tile x="9" y="46">
-<Terrain type="grass"/>
+<Terrain type="water"/>
 </Tile>
 <Tile x="9" y="47">
-<Terrain type="grass"/>
+<Terrain type="water"/>
 </Tile>
 <Tile x="9" y="48">
-<Terrain type="grass"/>
+<Terrain type="water"/>
 </Tile>
 <Tile x="9" y="49">
-<Item type="obstacle">
-<Statistics>
-<MaxHP>0</MaxHP>
-<DefenseRate>0</DefenseRate>
-<Exp>0</Exp>
-<Level>0</Level>
-<Strength>0</Strength>
-<Intellect>0</Intellect>
-<NumOfLives>0</NumOfLives>
-<MaxMP>0</MaxMP>
-<Movement>0</Movement>
-<ArmorRate>0</ArmorRate>
-<OffenseRate>0</OffenseRate>
-<Agility>0</Agility>
-<Hardiness>0</Hardiness>
-</Statistics>
-<Decal background="-16777216" char="B" foreground="-12566464"/>
-</Item>
-<Terrain type="grass"/>
+<Terrain type="water"/>
 </Tile>
 <Tile x="10" y="0">
-<Terrain type="water"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="10" y="1">
-<Terrain type="water"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="10" y="2">
 <Terrain type="grass"/>
 </Tile>
 <Tile x="10" y="3">
-<Terrain type="mountain"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="10" y="4">
-<Item type="obstacle">
-<Statistics>
-<MaxHP>0</MaxHP>
-<DefenseRate>0</DefenseRate>
-<Exp>0</Exp>
-<Level>0</Level>
-<Strength>0</Strength>
-<Intellect>0</Intellect>
-<NumOfLives>0</NumOfLives>
-<MaxMP>0</MaxMP>
-<Movement>0</Movement>
-<ArmorRate>0</ArmorRate>
-<OffenseRate>0</OffenseRate>
-<Agility>0</Agility>
-<Hardiness>0</Hardiness>
-</Statistics>
-<Decal background="-16777216" char="B" foreground="-12566464"/>
-</Item>
 <Terrain type="grass"/>
 </Tile>
 <Tile x="10" y="5">
-<Item type="obstacle">
-<Statistics>
-<MaxHP>0</MaxHP>
-<DefenseRate>0</DefenseRate>
-<Exp>0</Exp>
-<Level>0</Level>
-<Strength>0</Strength>
-<Intellect>0</Intellect>
-<NumOfLives>0</NumOfLives>
-<MaxMP>0</MaxMP>
-<Movement>0</Movement>
-<ArmorRate>0</ArmorRate>
-<OffenseRate>0</OffenseRate>
-<Agility>0</Agility>
-<Hardiness>0</Hardiness>
-</Statistics>
-<Decal background="-16777216" char="B" foreground="-12566464"/>
-</Item>
 <Terrain type="grass"/>
 </Tile>
 <Tile x="10" y="6">
-<Item type="obstacle">
-<Statistics>
-<MaxHP>0</MaxHP>
-<DefenseRate>0</DefenseRate>
-<Exp>0</Exp>
-<Level>0</Level>
-<Strength>0</Strength>
-<Intellect>0</Intellect>
-<NumOfLives>0</NumOfLives>
-<MaxMP>0</MaxMP>
-<Movement>0</Movement>
-<ArmorRate>0</ArmorRate>
-<OffenseRate>0</OffenseRate>
-<Agility>0</Agility>
-<Hardiness>0</Hardiness>
-</Statistics>
-<Decal background="-16777216" char="B" foreground="-12566464"/>
-</Item>
 <Terrain type="grass"/>
 </Tile>
 <Tile x="10" y="7">
-<Item type="obstacle">
-<Statistics>
-<MaxHP>0</MaxHP>
-<DefenseRate>0</DefenseRate>
-<Exp>0</Exp>
-<Level>0</Level>
-<Strength>0</Strength>
-<Intellect>0</Intellect>
-<NumOfLives>0</NumOfLives>
-<MaxMP>0</MaxMP>
-<Movement>0</Movement>
-<ArmorRate>0</ArmorRate>
-<OffenseRate>0</OffenseRate>
-<Agility>0</Agility>
-<Hardiness>0</Hardiness>
-</Statistics>
-<Decal background="-16777216" char="B" foreground="-12566464"/>
-</Item>
 <Terrain type="grass"/>
 </Tile>
 <Tile x="10" y="8">
 <Terrain type="grass"/>
 </Tile>
 <Tile x="10" y="9">
-<Terrain type="mountain"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="10" y="10">
-<Terrain type="mountain"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="10" y="11">
-<Terrain type="mountain"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="10" y="12">
-<Terrain type="mountain"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="10" y="13">
-<Terrain type="mountain"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="10" y="14">
 <Terrain type="grass"/>
@@ -3184,28 +2240,28 @@
 <Terrain type="grass"/>
 </Tile>
 <Tile x="10" y="17">
-<Terrain type="water"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="10" y="18">
-<Terrain type="water"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="10" y="19">
-<Terrain type="water"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="10" y="20">
-<Terrain type="water"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="10" y="21">
-<Terrain type="water"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="10" y="22">
-<Terrain type="water"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="10" y="23">
-<Terrain type="water"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="10" y="24">
-<Terrain type="water"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="10" y="25">
 <Terrain type="grass"/>
@@ -3217,43 +2273,43 @@
 <Terrain type="grass"/>
 </Tile>
 <Tile x="10" y="28">
-<Terrain type="mountain"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="10" y="29">
-<Terrain type="mountain"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="10" y="30">
-<Terrain type="mountain"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="10" y="31">
-<Terrain type="mountain"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="10" y="32">
-<Terrain type="mountain"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="10" y="33">
-<Terrain type="mountain"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="10" y="34">
-<Terrain type="mountain"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="10" y="35">
-<Terrain type="mountain"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="10" y="36">
-<Terrain type="mountain"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="10" y="37">
 <Terrain type="grass"/>
 </Tile>
 <Tile x="10" y="38">
-<Terrain type="mountain"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="10" y="39">
-<Terrain type="mountain"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="10" y="40">
-<Terrain type="mountain"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="10" y="41">
 <Terrain type="grass"/>
@@ -3262,87 +2318,15 @@
 <Terrain type="grass"/>
 </Tile>
 <Tile x="10" y="43">
-<Item type="obstacle">
-<Statistics>
-<MaxHP>0</MaxHP>
-<DefenseRate>0</DefenseRate>
-<Exp>0</Exp>
-<Level>0</Level>
-<Strength>0</Strength>
-<Intellect>0</Intellect>
-<NumOfLives>0</NumOfLives>
-<MaxMP>0</MaxMP>
-<Movement>0</Movement>
-<ArmorRate>0</ArmorRate>
-<OffenseRate>0</OffenseRate>
-<Agility>0</Agility>
-<Hardiness>0</Hardiness>
-</Statistics>
-<Decal background="-16777216" char="B" foreground="-12566464"/>
-</Item>
 <Terrain type="grass"/>
 </Tile>
 <Tile x="10" y="44">
-<Item type="obstacle">
-<Statistics>
-<MaxHP>0</MaxHP>
-<DefenseRate>0</DefenseRate>
-<Exp>0</Exp>
-<Level>0</Level>
-<Strength>0</Strength>
-<Intellect>0</Intellect>
-<NumOfLives>0</NumOfLives>
-<MaxMP>0</MaxMP>
-<Movement>0</Movement>
-<ArmorRate>0</ArmorRate>
-<OffenseRate>0</OffenseRate>
-<Agility>0</Agility>
-<Hardiness>0</Hardiness>
-</Statistics>
-<Decal background="-16777216" char="B" foreground="-12566464"/>
-</Item>
 <Terrain type="grass"/>
 </Tile>
 <Tile x="10" y="45">
-<Item type="obstacle">
-<Statistics>
-<MaxHP>0</MaxHP>
-<DefenseRate>0</DefenseRate>
-<Exp>0</Exp>
-<Level>0</Level>
-<Strength>0</Strength>
-<Intellect>0</Intellect>
-<NumOfLives>0</NumOfLives>
-<MaxMP>0</MaxMP>
-<Movement>0</Movement>
-<ArmorRate>0</ArmorRate>
-<OffenseRate>0</OffenseRate>
-<Agility>0</Agility>
-<Hardiness>0</Hardiness>
-</Statistics>
-<Decal background="-16777216" char="B" foreground="-12566464"/>
-</Item>
 <Terrain type="grass"/>
 </Tile>
 <Tile x="10" y="46">
-<Item type="obstacle">
-<Statistics>
-<MaxHP>0</MaxHP>
-<DefenseRate>0</DefenseRate>
-<Exp>0</Exp>
-<Level>0</Level>
-<Strength>0</Strength>
-<Intellect>0</Intellect>
-<NumOfLives>0</NumOfLives>
-<MaxMP>0</MaxMP>
-<Movement>0</Movement>
-<ArmorRate>0</ArmorRate>
-<OffenseRate>0</OffenseRate>
-<Agility>0</Agility>
-<Hardiness>0</Hardiness>
-</Statistics>
-<Decal background="-16777216" char="B" foreground="-12566464"/>
-</Item>
 <Terrain type="grass"/>
 </Tile>
 <Tile x="10" y="47">
@@ -3352,99 +2336,27 @@
 <Terrain type="grass"/>
 </Tile>
 <Tile x="10" y="49">
-<Item type="obstacle">
-<Statistics>
-<MaxHP>0</MaxHP>
-<DefenseRate>0</DefenseRate>
-<Exp>0</Exp>
-<Level>0</Level>
-<Strength>0</Strength>
-<Intellect>0</Intellect>
-<NumOfLives>0</NumOfLives>
-<MaxMP>0</MaxMP>
-<Movement>0</Movement>
-<ArmorRate>0</ArmorRate>
-<OffenseRate>0</OffenseRate>
-<Agility>0</Agility>
-<Hardiness>0</Hardiness>
-</Statistics>
-<Decal background="-16777216" char="B" foreground="-12566464"/>
-</Item>
 <Terrain type="grass"/>
 </Tile>
 <Tile x="11" y="0">
-<Terrain type="water"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="11" y="1">
-<Terrain type="water"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="11" y="2">
 <Terrain type="grass"/>
 </Tile>
 <Tile x="11" y="3">
-<Terrain type="mountain"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="11" y="4">
-<Item type="obstacle">
-<Statistics>
-<MaxHP>0</MaxHP>
-<DefenseRate>0</DefenseRate>
-<Exp>0</Exp>
-<Level>0</Level>
-<Strength>0</Strength>
-<Intellect>0</Intellect>
-<NumOfLives>0</NumOfLives>
-<MaxMP>0</MaxMP>
-<Movement>0</Movement>
-<ArmorRate>0</ArmorRate>
-<OffenseRate>0</OffenseRate>
-<Agility>0</Agility>
-<Hardiness>0</Hardiness>
-</Statistics>
-<Decal background="-16777216" char="B" foreground="-12566464"/>
-</Item>
 <Terrain type="grass"/>
 </Tile>
 <Tile x="11" y="5">
-<Item type="obstacle">
-<Statistics>
-<MaxHP>0</MaxHP>
-<DefenseRate>0</DefenseRate>
-<Exp>0</Exp>
-<Level>0</Level>
-<Strength>0</Strength>
-<Intellect>0</Intellect>
-<NumOfLives>0</NumOfLives>
-<MaxMP>0</MaxMP>
-<Movement>0</Movement>
-<ArmorRate>0</ArmorRate>
-<OffenseRate>0</OffenseRate>
-<Agility>0</Agility>
-<Hardiness>0</Hardiness>
-</Statistics>
-<Decal background="-16777216" char="B" foreground="-12566464"/>
-</Item>
 <Terrain type="grass"/>
 </Tile>
 <Tile x="11" y="6">
-<Item type="obstacle">
-<Statistics>
-<MaxHP>0</MaxHP>
-<DefenseRate>0</DefenseRate>
-<Exp>0</Exp>
-<Level>0</Level>
-<Strength>0</Strength>
-<Intellect>0</Intellect>
-<NumOfLives>0</NumOfLives>
-<MaxMP>0</MaxMP>
-<Movement>0</Movement>
-<ArmorRate>0</ArmorRate>
-<OffenseRate>0</OffenseRate>
-<Agility>0</Agility>
-<Hardiness>0</Hardiness>
-</Statistics>
-<Decal background="-16777216" char="B" foreground="-12566464"/>
-</Item>
 <Terrain type="grass"/>
 </Tile>
 <Tile x="11" y="7">
@@ -3454,19 +2366,19 @@
 <Terrain type="grass"/>
 </Tile>
 <Tile x="11" y="9">
-<Terrain type="mountain"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="11" y="10">
-<Terrain type="mountain"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="11" y="11">
-<Terrain type="mountain"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="11" y="12">
-<Terrain type="mountain"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="11" y="13">
-<Terrain type="mountain"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="11" y="14">
 <Terrain type="grass"/>
@@ -3478,37 +2390,37 @@
 <Terrain type="grass"/>
 </Tile>
 <Tile x="11" y="17">
-<Terrain type="water"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="11" y="18">
-<Terrain type="water"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="11" y="19">
-<Terrain type="water"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="11" y="20">
-<Terrain type="water"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="11" y="21">
-<Terrain type="water"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="11" y="22">
-<Terrain type="water"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="11" y="23">
-<Terrain type="water"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="11" y="24">
-<Terrain type="water"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="11" y="25">
 <Terrain type="grass"/>
 </Tile>
 <Tile x="11" y="26">
-<Terrain type="mountain"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="11" y="27">
-<Terrain type="mountain"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="11" y="28">
 <Terrain type="grass"/>
@@ -3556,24 +2468,6 @@
 <Terrain type="grass"/>
 </Tile>
 <Tile x="11" y="43">
-<Item type="obstacle">
-<Statistics>
-<MaxHP>0</MaxHP>
-<DefenseRate>0</DefenseRate>
-<Exp>0</Exp>
-<Level>0</Level>
-<Strength>0</Strength>
-<Intellect>0</Intellect>
-<NumOfLives>0</NumOfLives>
-<MaxMP>0</MaxMP>
-<Movement>0</Movement>
-<ArmorRate>0</ArmorRate>
-<OffenseRate>0</OffenseRate>
-<Agility>0</Agility>
-<Hardiness>0</Hardiness>
-</Statistics>
-<Decal background="-16777216" char="B" foreground="-12566464"/>
-</Item>
 <Terrain type="grass"/>
 </Tile>
 <Tile x="11" y="44">
@@ -3595,119 +2489,46 @@
 <Terrain type="grass"/>
 </Tile>
 <Tile x="12" y="0">
-<Terrain type="water"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="12" y="1">
-<Terrain type="water"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="12" y="2">
-<AreaEffect type="instantdeath">0</AreaEffect>
 <Terrain type="grass"/>
 </Tile>
 <Tile x="12" y="3">
-<Terrain type="mountain"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="12" y="4">
-<Item type="obstacle">
-<Statistics>
-<MaxHP>0</MaxHP>
-<DefenseRate>0</DefenseRate>
-<Exp>0</Exp>
-<Level>0</Level>
-<Strength>0</Strength>
-<Intellect>0</Intellect>
-<NumOfLives>0</NumOfLives>
-<MaxMP>0</MaxMP>
-<Movement>0</Movement>
-<ArmorRate>0</ArmorRate>
-<OffenseRate>0</OffenseRate>
-<Agility>0</Agility>
-<Hardiness>0</Hardiness>
-</Statistics>
-<Decal background="-16777216" char="B" foreground="-12566464"/>
-</Item>
 <Terrain type="grass"/>
 </Tile>
 <Tile x="12" y="5">
-<Item type="obstacle">
-<Statistics>
-<MaxHP>0</MaxHP>
-<DefenseRate>0</DefenseRate>
-<Exp>0</Exp>
-<Level>0</Level>
-<Strength>0</Strength>
-<Intellect>0</Intellect>
-<NumOfLives>0</NumOfLives>
-<MaxMP>0</MaxMP>
-<Movement>0</Movement>
-<ArmorRate>0</ArmorRate>
-<OffenseRate>0</OffenseRate>
-<Agility>0</Agility>
-<Hardiness>0</Hardiness>
-</Statistics>
-<Decal background="-16777216" char="B" foreground="-12566464"/>
-</Item>
 <Terrain type="grass"/>
 </Tile>
 <Tile x="12" y="6">
-<Item type="obstacle">
-<Statistics>
-<MaxHP>0</MaxHP>
-<DefenseRate>0</DefenseRate>
-<Exp>0</Exp>
-<Level>0</Level>
-<Strength>0</Strength>
-<Intellect>0</Intellect>
-<NumOfLives>0</NumOfLives>
-<MaxMP>0</MaxMP>
-<Movement>0</Movement>
-<ArmorRate>0</ArmorRate>
-<OffenseRate>0</OffenseRate>
-<Agility>0</Agility>
-<Hardiness>0</Hardiness>
-</Statistics>
-<Decal background="-16777216" char="B" foreground="-12566464"/>
-</Item>
 <Terrain type="grass"/>
 </Tile>
 <Tile x="12" y="7">
-<Item type="usable">
-<Statistics>
-<MaxHP>50</MaxHP>
-<DefenseRate>0</DefenseRate>
-<Exp>0</Exp>
-<Level>0</Level>
-<Strength>1</Strength>
-<Intellect>5</Intellect>
-<NumOfLives>0</NumOfLives>
-<MaxMP>50</MaxMP>
-<Movement>5</Movement>
-<ArmorRate>2</ArmorRate>
-<OffenseRate>3</OffenseRate>
-<Agility>0</Agility>
-<Hardiness>5</Hardiness>
-</Statistics>
-<Decal background="-16777216" char="?" foreground="-256"/>
-</Item>
 <Terrain type="grass"/>
 </Tile>
 <Tile x="12" y="8">
-<Terrain type="water"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="12" y="9">
-<Terrain type="water"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="12" y="10">
-<Terrain type="water"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="12" y="11">
-<Terrain type="water"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="12" y="12">
-<Terrain type="water"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="12" y="13">
-<Terrain type="water"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="12" y="14">
 <Terrain type="grass"/>
@@ -3719,19 +2540,19 @@
 <Terrain type="grass"/>
 </Tile>
 <Tile x="12" y="17">
-<Terrain type="water"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="12" y="18">
-<Terrain type="water"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="12" y="19">
-<Terrain type="water"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="12" y="20">
-<Terrain type="water"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="12" y="21">
-<AreaEffect type="healdamage">2</AreaEffect>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="12" y="22">
 <Terrain type="grass"/>
@@ -3755,318 +2576,48 @@
 <Terrain type="grass"/>
 </Tile>
 <Tile x="12" y="29">
-<Item type="obstacle">
-<Statistics>
-<MaxHP>0</MaxHP>
-<DefenseRate>0</DefenseRate>
-<Exp>0</Exp>
-<Level>0</Level>
-<Strength>0</Strength>
-<Intellect>0</Intellect>
-<NumOfLives>0</NumOfLives>
-<MaxMP>0</MaxMP>
-<Movement>0</Movement>
-<ArmorRate>0</ArmorRate>
-<OffenseRate>0</OffenseRate>
-<Agility>0</Agility>
-<Hardiness>0</Hardiness>
-</Statistics>
-<Decal background="-16777216" char="B" foreground="-12566464"/>
-</Item>
 <Terrain type="grass"/>
 </Tile>
 <Tile x="12" y="30">
-<Item type="obstacle">
-<Statistics>
-<MaxHP>0</MaxHP>
-<DefenseRate>0</DefenseRate>
-<Exp>0</Exp>
-<Level>0</Level>
-<Strength>0</Strength>
-<Intellect>0</Intellect>
-<NumOfLives>0</NumOfLives>
-<MaxMP>0</MaxMP>
-<Movement>0</Movement>
-<ArmorRate>0</ArmorRate>
-<OffenseRate>0</OffenseRate>
-<Agility>0</Agility>
-<Hardiness>0</Hardiness>
-</Statistics>
-<Decal background="-16777216" char="B" foreground="-12566464"/>
-</Item>
 <Terrain type="grass"/>
 </Tile>
 <Tile x="12" y="31">
-<Item type="obstacle">
-<Statistics>
-<MaxHP>0</MaxHP>
-<DefenseRate>0</DefenseRate>
-<Exp>0</Exp>
-<Level>0</Level>
-<Strength>0</Strength>
-<Intellect>0</Intellect>
-<NumOfLives>0</NumOfLives>
-<MaxMP>0</MaxMP>
-<Movement>0</Movement>
-<ArmorRate>0</ArmorRate>
-<OffenseRate>0</OffenseRate>
-<Agility>0</Agility>
-<Hardiness>0</Hardiness>
-</Statistics>
-<Decal background="-16777216" char="B" foreground="-12566464"/>
-</Item>
 <Terrain type="grass"/>
 </Tile>
 <Tile x="12" y="32">
-<Item type="obstacle">
-<Statistics>
-<MaxHP>0</MaxHP>
-<DefenseRate>0</DefenseRate>
-<Exp>0</Exp>
-<Level>0</Level>
-<Strength>0</Strength>
-<Intellect>0</Intellect>
-<NumOfLives>0</NumOfLives>
-<MaxMP>0</MaxMP>
-<Movement>0</Movement>
-<ArmorRate>0</ArmorRate>
-<OffenseRate>0</OffenseRate>
-<Agility>0</Agility>
-<Hardiness>0</Hardiness>
-</Statistics>
-<Decal background="-16777216" char="B" foreground="-12566464"/>
-</Item>
 <Terrain type="grass"/>
 </Tile>
 <Tile x="12" y="33">
-<Item type="obstacle">
-<Statistics>
-<MaxHP>0</MaxHP>
-<DefenseRate>0</DefenseRate>
-<Exp>0</Exp>
-<Level>0</Level>
-<Strength>0</Strength>
-<Intellect>0</Intellect>
-<NumOfLives>0</NumOfLives>
-<MaxMP>0</MaxMP>
-<Movement>0</Movement>
-<ArmorRate>0</ArmorRate>
-<OffenseRate>0</OffenseRate>
-<Agility>0</Agility>
-<Hardiness>0</Hardiness>
-</Statistics>
-<Decal background="-16777216" char="B" foreground="-12566464"/>
-</Item>
 <Terrain type="grass"/>
 </Tile>
 <Tile x="12" y="34">
-<Item type="obstacle">
-<Statistics>
-<MaxHP>0</MaxHP>
-<DefenseRate>0</DefenseRate>
-<Exp>0</Exp>
-<Level>0</Level>
-<Strength>0</Strength>
-<Intellect>0</Intellect>
-<NumOfLives>0</NumOfLives>
-<MaxMP>0</MaxMP>
-<Movement>0</Movement>
-<ArmorRate>0</ArmorRate>
-<OffenseRate>0</OffenseRate>
-<Agility>0</Agility>
-<Hardiness>0</Hardiness>
-</Statistics>
-<Decal background="-16777216" char="B" foreground="-12566464"/>
-</Item>
 <Terrain type="grass"/>
 </Tile>
 <Tile x="12" y="35">
-<Item type="obstacle">
-<Statistics>
-<MaxHP>0</MaxHP>
-<DefenseRate>0</DefenseRate>
-<Exp>0</Exp>
-<Level>0</Level>
-<Strength>0</Strength>
-<Intellect>0</Intellect>
-<NumOfLives>0</NumOfLives>
-<MaxMP>0</MaxMP>
-<Movement>0</Movement>
-<ArmorRate>0</ArmorRate>
-<OffenseRate>0</OffenseRate>
-<Agility>0</Agility>
-<Hardiness>0</Hardiness>
-</Statistics>
-<Decal background="-16777216" char="B" foreground="-12566464"/>
-</Item>
 <Terrain type="grass"/>
 </Tile>
 <Tile x="12" y="36">
-<Item type="obstacle">
-<Statistics>
-<MaxHP>0</MaxHP>
-<DefenseRate>0</DefenseRate>
-<Exp>0</Exp>
-<Level>0</Level>
-<Strength>0</Strength>
-<Intellect>0</Intellect>
-<NumOfLives>0</NumOfLives>
-<MaxMP>0</MaxMP>
-<Movement>0</Movement>
-<ArmorRate>0</ArmorRate>
-<OffenseRate>0</OffenseRate>
-<Agility>0</Agility>
-<Hardiness>0</Hardiness>
-</Statistics>
-<Decal background="-16777216" char="B" foreground="-12566464"/>
-</Item>
 <Terrain type="grass"/>
 </Tile>
 <Tile x="12" y="37">
-<Item type="obstacle">
-<Statistics>
-<MaxHP>0</MaxHP>
-<DefenseRate>0</DefenseRate>
-<Exp>0</Exp>
-<Level>0</Level>
-<Strength>0</Strength>
-<Intellect>0</Intellect>
-<NumOfLives>0</NumOfLives>
-<MaxMP>0</MaxMP>
-<Movement>0</Movement>
-<ArmorRate>0</ArmorRate>
-<OffenseRate>0</OffenseRate>
-<Agility>0</Agility>
-<Hardiness>0</Hardiness>
-</Statistics>
-<Decal background="-16777216" char="B" foreground="-12566464"/>
-</Item>
 <Terrain type="grass"/>
 </Tile>
 <Tile x="12" y="38">
-<Item type="obstacle">
-<Statistics>
-<MaxHP>0</MaxHP>
-<DefenseRate>0</DefenseRate>
-<Exp>0</Exp>
-<Level>0</Level>
-<Strength>0</Strength>
-<Intellect>0</Intellect>
-<NumOfLives>0</NumOfLives>
-<MaxMP>0</MaxMP>
-<Movement>0</Movement>
-<ArmorRate>0</ArmorRate>
-<OffenseRate>0</OffenseRate>
-<Agility>0</Agility>
-<Hardiness>0</Hardiness>
-</Statistics>
-<Decal background="-16777216" char="B" foreground="-12566464"/>
-</Item>
 <Terrain type="grass"/>
 </Tile>
 <Tile x="12" y="39">
-<Item type="obstacle">
-<Statistics>
-<MaxHP>0</MaxHP>
-<DefenseRate>0</DefenseRate>
-<Exp>0</Exp>
-<Level>0</Level>
-<Strength>0</Strength>
-<Intellect>0</Intellect>
-<NumOfLives>0</NumOfLives>
-<MaxMP>0</MaxMP>
-<Movement>0</Movement>
-<ArmorRate>0</ArmorRate>
-<OffenseRate>0</OffenseRate>
-<Agility>0</Agility>
-<Hardiness>0</Hardiness>
-</Statistics>
-<Decal background="-16777216" char="B" foreground="-12566464"/>
-</Item>
 <Terrain type="grass"/>
 </Tile>
 <Tile x="12" y="40">
-<Item type="obstacle">
-<Statistics>
-<MaxHP>0</MaxHP>
-<DefenseRate>0</DefenseRate>
-<Exp>0</Exp>
-<Level>0</Level>
-<Strength>0</Strength>
-<Intellect>0</Intellect>
-<NumOfLives>0</NumOfLives>
-<MaxMP>0</MaxMP>
-<Movement>0</Movement>
-<ArmorRate>0</ArmorRate>
-<OffenseRate>0</OffenseRate>
-<Agility>0</Agility>
-<Hardiness>0</Hardiness>
-</Statistics>
-<Decal background="-16777216" char="B" foreground="-12566464"/>
-</Item>
 <Terrain type="grass"/>
 </Tile>
 <Tile x="12" y="41">
-<Item type="obstacle">
-<Statistics>
-<MaxHP>0</MaxHP>
-<DefenseRate>0</DefenseRate>
-<Exp>0</Exp>
-<Level>0</Level>
-<Strength>0</Strength>
-<Intellect>0</Intellect>
-<NumOfLives>0</NumOfLives>
-<MaxMP>0</MaxMP>
-<Movement>0</Movement>
-<ArmorRate>0</ArmorRate>
-<OffenseRate>0</OffenseRate>
-<Agility>0</Agility>
-<Hardiness>0</Hardiness>
-</Statistics>
-<Decal background="-16777216" char="B" foreground="-12566464"/>
-</Item>
 <Terrain type="grass"/>
 </Tile>
 <Tile x="12" y="42">
-<Item type="obstacle">
-<Statistics>
-<MaxHP>0</MaxHP>
-<DefenseRate>0</DefenseRate>
-<Exp>0</Exp>
-<Level>0</Level>
-<Strength>0</Strength>
-<Intellect>0</Intellect>
-<NumOfLives>0</NumOfLives>
-<MaxMP>0</MaxMP>
-<Movement>0</Movement>
-<ArmorRate>0</ArmorRate>
-<OffenseRate>0</OffenseRate>
-<Agility>0</Agility>
-<Hardiness>0</Hardiness>
-</Statistics>
-<Decal background="-16777216" char="B" foreground="-12566464"/>
-</Item>
 <Terrain type="grass"/>
 </Tile>
 <Tile x="12" y="43">
-<Item type="obstacle">
-<Statistics>
-<MaxHP>0</MaxHP>
-<DefenseRate>0</DefenseRate>
-<Exp>0</Exp>
-<Level>0</Level>
-<Strength>0</Strength>
-<Intellect>0</Intellect>
-<NumOfLives>0</NumOfLives>
-<MaxMP>0</MaxMP>
-<Movement>0</Movement>
-<ArmorRate>0</ArmorRate>
-<OffenseRate>0</OffenseRate>
-<Agility>0</Agility>
-<Hardiness>0</Hardiness>
-</Statistics>
-<Decal background="-16777216" char="B" foreground="-12566464"/>
-</Item>
 <Terrain type="grass"/>
 </Tile>
 <Tile x="12" y="44">
@@ -4088,311 +2639,310 @@
 <Terrain type="grass"/>
 </Tile>
 <Tile x="13" y="0">
-<Terrain type="water"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="13" y="1">
-<Terrain type="water"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="13" y="2">
-<Terrain type="mountain"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="13" y="3">
-<Terrain type="mountain"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="13" y="4">
-<Terrain type="water"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="13" y="5">
-<Terrain type="water"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="13" y="6">
-<Terrain type="water"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="13" y="7">
-<Terrain type="water"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="13" y="8">
-<Terrain type="water"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="13" y="9">
-<Terrain type="water"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="13" y="10">
-<Terrain type="water"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="13" y="11">
-<Terrain type="water"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="13" y="12">
-<Terrain type="water"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="13" y="13">
-<Terrain type="water"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="13" y="14">
-<Terrain type="water"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="13" y="15">
-<Terrain type="water"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="13" y="16">
-<Terrain type="water"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="13" y="17">
-<Terrain type="water"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="13" y="18">
-<Terrain type="water"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="13" y="19">
-<Terrain type="water"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="13" y="20">
-<Terrain type="water"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="13" y="21">
-<Terrain type="water"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="13" y="22">
-<Terrain type="water"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="13" y="23">
-<Terrain type="water"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="13" y="24">
-<Terrain type="water"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="13" y="25">
-<Terrain type="water"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="13" y="26">
-<Terrain type="water"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="13" y="27">
-<Terrain type="water"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="13" y="28">
-<Terrain type="water"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="13" y="29">
-<Terrain type="water"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="13" y="30">
-<Terrain type="water"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="13" y="31">
-<Terrain type="water"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="13" y="32">
-<Terrain type="water"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="13" y="33">
-<Terrain type="water"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="13" y="34">
-<Terrain type="water"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="13" y="35">
-<Terrain type="water"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="13" y="36">
-<Terrain type="water"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="13" y="37">
-<Terrain type="water"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="13" y="38">
-<Terrain type="water"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="13" y="39">
-<Terrain type="water"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="13" y="40">
-<Terrain type="water"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="13" y="41">
-<Terrain type="water"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="13" y="42">
-<Terrain type="water"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="13" y="43">
-<Terrain type="water"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="13" y="44">
-<Terrain type="water"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="13" y="45">
-<Terrain type="water"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="13" y="46">
-<Terrain type="water"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="13" y="47">
-<Terrain type="water"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="13" y="48">
-<Terrain type="water"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="13" y="49">
-<AreaEffect type="instantdeath">0</AreaEffect>
 <Terrain type="grass"/>
 </Tile>
 <Tile x="14" y="0">
-<Terrain type="water"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="14" y="1">
-<Terrain type="water"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="14" y="2">
-<Terrain type="water"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="14" y="3">
-<Terrain type="water"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="14" y="4">
-<Terrain type="water"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="14" y="5">
-<Terrain type="water"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="14" y="6">
-<Terrain type="water"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="14" y="7">
-<Terrain type="water"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="14" y="8">
-<Terrain type="water"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="14" y="9">
-<Terrain type="water"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="14" y="10">
-<Terrain type="water"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="14" y="11">
-<Terrain type="water"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="14" y="12">
-<Terrain type="water"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="14" y="13">
-<Terrain type="water"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="14" y="14">
-<Terrain type="water"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="14" y="15">
-<Terrain type="water"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="14" y="16">
-<Terrain type="water"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="14" y="17">
-<Terrain type="water"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="14" y="18">
-<Terrain type="water"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="14" y="19">
-<Terrain type="water"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="14" y="20">
-<Terrain type="water"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="14" y="21">
-<Terrain type="water"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="14" y="22">
-<Terrain type="water"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="14" y="23">
-<Terrain type="water"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="14" y="24">
-<Terrain type="water"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="14" y="25">
-<Terrain type="water"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="14" y="26">
-<Terrain type="water"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="14" y="27">
-<Terrain type="water"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="14" y="28">
-<Terrain type="water"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="14" y="29">
-<Terrain type="water"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="14" y="30">
-<Terrain type="water"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="14" y="31">
-<Terrain type="water"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="14" y="32">
-<Terrain type="water"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="14" y="33">
-<Terrain type="water"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="14" y="34">
-<Terrain type="water"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="14" y="35">
-<Terrain type="water"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="14" y="36">
-<Terrain type="water"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="14" y="37">
-<Terrain type="water"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="14" y="38">
-<Terrain type="water"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="14" y="39">
-<Terrain type="water"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="14" y="40">
-<Terrain type="water"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="14" y="41">
-<Terrain type="water"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="14" y="42">
-<Terrain type="water"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="14" y="43">
-<Terrain type="water"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="14" y="44">
-<Terrain type="water"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="14" y="45">
-<Terrain type="water"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="14" y="46">
-<Terrain type="water"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="14" y="47">
-<Terrain type="water"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="14" y="48">
-<Terrain type="water"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="14" y="49">
 <Terrain type="grass"/>
 </Tile>
 <Tile x="15" y="0">
-<Terrain type="water"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="15" y="1">
-<Terrain type="water"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="15" y="2">
 <Terrain type="grass"/>
@@ -4539,10 +3089,10 @@
 <Terrain type="grass"/>
 </Tile>
 <Tile x="16" y="0">
-<Terrain type="water"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="16" y="1">
-<Terrain type="water"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="16" y="2">
 <Terrain type="grass"/>
@@ -4689,10 +3239,10 @@
 <Terrain type="grass"/>
 </Tile>
 <Tile x="17" y="0">
-<Terrain type="water"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="17" y="1">
-<Terrain type="water"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="17" y="2">
 <Terrain type="grass"/>
@@ -4839,10 +3389,10 @@
 <Terrain type="grass"/>
 </Tile>
 <Tile x="18" y="0">
-<Terrain type="water"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="18" y="1">
-<Terrain type="water"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="18" y="2">
 <Terrain type="grass"/>
@@ -4989,10 +3539,10 @@
 <Terrain type="grass"/>
 </Tile>
 <Tile x="19" y="0">
-<Terrain type="water"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="19" y="1">
-<Terrain type="water"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="19" y="2">
 <Terrain type="grass"/>
@@ -5139,10 +3689,10 @@
 <Terrain type="grass"/>
 </Tile>
 <Tile x="20" y="0">
-<Terrain type="water"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="20" y="1">
-<Terrain type="water"/>
+<Terrain type="grass"/>
 </Tile>
 <Tile x="20" y="2">
 <Terrain type="grass"/>

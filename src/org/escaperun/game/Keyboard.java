@@ -17,6 +17,7 @@ public class Keyboard implements KeyListener {
     public static final char USABLE_ITEM = 'u';
     public static final char ONE_SHOT = 'k';
     public static final char INTERACTIVE_ITEM = 'j';
+    public static final char EQUIPABLE_ITEM = 'e';
     public static final char LEVEL_UP = 'l';
     public static final char TAKE_DAMAGE = 't';
     public static final char HEAL_DAMAGE = 'h';
@@ -51,6 +52,7 @@ public class Keyboard implements KeyListener {
     @Override
     public void keyReleased(KeyEvent e) {
         pressed[Character.toLowerCase(e.getKeyChar())] = false;
+        //pressed[(int)e.getKeyChar()] = false;
     }
 
     @Override

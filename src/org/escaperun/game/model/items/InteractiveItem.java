@@ -1,5 +1,6 @@
 package org.escaperun.game.model.items;
 
+import org.escaperun.game.model.Position;
 import org.escaperun.game.model.entities.Entity;
 import org.escaperun.game.model.entities.Statistics;
 import org.escaperun.game.view.Decal;
@@ -22,7 +23,12 @@ public class InteractiveItem extends Item {
 
     @Override
     public void onTouch(Entity e) {
-        // TODO: Figure how this will be implemented.
+        for(int i = 0; i < e.getInventory().getSize(); ++i)
+        {
+            if(e.getInventory().getItem(i) instanceof TakeableItem ){
+                e.move(new Position(2,40));
+            }
+        }
     }
 
     @Override

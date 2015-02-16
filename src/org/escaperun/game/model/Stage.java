@@ -1,6 +1,7 @@
 package org.escaperun.game.model;
 
 import org.escaperun.game.model.entities.Avatar;
+import org.escaperun.game.model.items.InteractiveItem;
 import org.escaperun.game.model.tile.*;
 import org.escaperun.game.view.Decal;
 import org.escaperun.game.view.GameWindow;
@@ -102,7 +103,9 @@ public class Stage implements Tickable {
             moveTo.removeAreaEffect().onTouch(avatar);
         }
         if (moveTo.getItem() != null) {
-            moveTo.removeItem().onTouch(avatar);
+            if(!(moveTo.getItem() instanceof InteractiveItem))
+                moveTo.removeItem().onTouch(avatar);
+            moveTo.onTouch(avatar);
         }
         return true;
     }

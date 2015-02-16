@@ -1,14 +1,11 @@
-package org.escaperun.game.states.mapcreation;
+package org.escaperun.game.states.MapCreation;
 
 import org.escaperun.game.Keyboard;
 import org.escaperun.game.model.Position;
 import org.escaperun.game.model.Stage;
 import org.escaperun.game.model.entities.StatEnum;
 import org.escaperun.game.model.entities.Statistics;
-import org.escaperun.game.model.items.InteractiveItem;
-import org.escaperun.game.model.items.ObstacleItem;
-import org.escaperun.game.model.items.OneShotItem;
-import org.escaperun.game.model.items.UsableItem;
+import org.escaperun.game.model.items.*;
 import org.escaperun.game.model.tile.*;
 import org.escaperun.game.states.GameState;
 import org.escaperun.game.states.mainmenu.Creation;
@@ -55,6 +52,7 @@ public class CreateMap extends GameState {
         boolean usableItem = pressed[Keyboard.USABLE_ITEM];
         boolean obstacle = pressed[Keyboard.OBSTACLE];
         boolean interactiveItem = pressed[Keyboard.INTERACTIVE_ITEM];
+        boolean equipableItem = pressed[Keyboard.EQUIPABLE_ITEM];
 
         Position avatarPos = stage.getAvatar().getPosition();
         int nextX = avatarPos.x;
@@ -72,8 +70,8 @@ public class CreateMap extends GameState {
         if(oneShot){ stage.map[nextX][nextY].setItem(new OneShotItem(new Decal('?', Color.BLACK, Color.CYAN),new Statistics(getItemStatistics()))); }
         if(usableItem){ stage.map[nextX][nextY].setItem(new UsableItem(new Decal('?', Color.BLACK,Color.YELLOW ), new Statistics(getItemStatistics()))); }
         if(obstacle){ stage.map[nextX][nextY].setItem(new ObstacleItem(new Decal('B', Color.BLACK, Color.DARK_GRAY))); }
-        if(interactiveItem){ stage.map[nextX][nextY].setItem(new InteractiveItem(new Decal('?', Color.RED, Color.BLUE), new Statistics(getItemStatistics()))); }
-
+        if(interactiveItem){ stage.map[nextX][nextY].setItem(new InteractiveItem(new Decal('?', Color.BLACK, Color.BLUE), new Statistics(getItemStatistics()))); }
+        if(equipableItem){ stage.map[nextX][nextY].setItem(new EquipableItem(new Decal('?', Color.BLACK, Color.PINK), new Statistics(getItemStatistics()), ItemSlot.WEAPON)); }
 
         if(blankTile){
             stage.map[nextX][nextY].setTerrain(null);
