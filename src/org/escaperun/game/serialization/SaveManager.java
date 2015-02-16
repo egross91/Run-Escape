@@ -130,6 +130,44 @@ public class SaveManager {
         return null;
     }
 
+    public static Stage loadStage(String filePath){    //Add for EditGame to load a map.
+        try {
+            // TODO: Add functionality to read from String[] of map files.
+            File stageFile = new File(filePath);
+            Document dom = getDom(stageFile);
+
+            dom.getDocumentElement().normalize();
+            NodeList nodes = dom.getElementsByTagName("Stage");
+
+            Element dimensions = (Element)nodes.item(0);
+            int rows = toInt(dimensions.getAttribute("rows"));
+            int cols = toInt(dimensions.getAttribute("cols"));
+            int startX = toInt(dimensions.getAttribute("startX"));
+            int startY = toInt(dimensions.getAttribute("startY"));
+
+            nodes = dom.getElementsByTagName("Tile");
+
+            Tile[][] map = new Tile[rows][cols];
+            for (int i = 0; i < nodes.getLength(); ++i) {
+                Node node = nodes.item(i); //
+
+                if (node.getNodeType() == Node.ELEMENT_NODE) {
+                    Element element = (Element)node; // <Tile>
+                    int x = getCoord(element, "x");
+                    int y = getCoord(element, "y");
+
+                    Tile tile = getTileProperties(element);
+                    map[x][y] = tile;
+                }
+            }
+
+            return new Stage(map, new Dimension(cols, rows), new Position(startX, startY), new Avatar(Occupation.SMASHER));
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
     private static Stage loadStage(String filePath, Avatar avatar) {
         try {
             // TODO: Add functionality to read from String[] of map files.
