@@ -10,6 +10,7 @@ import org.escaperun.game.states.pause.Pausing;
 import org.escaperun.game.view.Decal;
 
 import java.awt.*;
+import java.security.Key;
 
 public class Playing extends GameState {
 
@@ -84,10 +85,10 @@ public class Playing extends GameState {
     }
 
     private boolean handleInvMovement(boolean[] pressed){
-        boolean up = pressed[Keyboard.UP];
-        boolean down = pressed[Keyboard.DOWN];
-        boolean left = pressed[Keyboard.LEFT];
-        boolean right = pressed[Keyboard.RIGHT];
+        boolean up = pressed[Keyboard.UP] || pressed[Keyboard.NUM_UP];
+        boolean down = pressed[Keyboard.DOWN] || pressed[Keyboard.NUM_DOWN];
+        boolean left = pressed[Keyboard.LEFT] || pressed[Keyboard.NUM_LEFT];
+        boolean right = pressed[Keyboard.RIGHT] || pressed[Keyboard.NUM_RIGHT];
         boolean enter = pressed[Keyboard.ENTER];
 
             if (up && invMoveTicks >=45) {
