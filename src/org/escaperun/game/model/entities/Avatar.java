@@ -67,5 +67,6 @@ public class Avatar extends Entity {
         }
     }
 
+    public Equipment getEquipment(){return this.equipment;}
 
 }

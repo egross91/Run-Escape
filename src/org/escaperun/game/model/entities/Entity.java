@@ -110,4 +110,6 @@ public abstract class Entity implements Drawable, Savable {
         stats.addBaseStats(osi.getStats());
         stats.updateStats(equipment);
     }
+
+    public Inventory getInventory(){return this.inventory;}
 }

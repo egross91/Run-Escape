@@ -3,9 +3,10 @@ package org.escaperun.game.model.entities;
 import org.escaperun.game.model.items.Item;
 import org.escaperun.game.model.items.TakeableItem;
 import org.escaperun.game.serialization.Savable;
+import org.escaperun.game.view.Decal;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
-
+import java.awt.Color;
 import java.util.ArrayList;
 
 public class Inventory implements Savable {
@@ -61,7 +62,11 @@ public class Inventory implements Savable {
         return inventoryarr.remove(index);
     }
 
-    public TakeableItem getItem(int index) { return inventoryarr.get(index);
+    public TakeableItem getItem(int index) {
+//        if(index >= getSize()){
+//            return null;
+//        }
+        return inventoryarr.get(index);
     }
 
     @Override
@@ -77,5 +82,18 @@ public class Inventory implements Savable {
         }
 
         return inventoryElement;
+    }
+
+    public Decal[] getInventoryDecal(){
+        Decal[] d = new Decal[50];
+
+        for(int q=0; q < getSize(); q++) {
+            if (getItem(q).equals(null)) {
+                d[q] = new Decal('-', Color.BLACK, Color.WHITE);
+            } else {
+                d[q] = getItem(q).getDecal();
+            }
+        }
+        return d;
     }
 }

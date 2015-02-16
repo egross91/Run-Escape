@@ -11,6 +11,7 @@
 </Tile>
 <Tile x="0" y="3"/>
 <Tile x="0" y="4">
+<AreaEffect type="takedamage">2</AreaEffect>
 <Terrain type="grass"/>
 </Tile>
 <Tile x="1" y="0">
