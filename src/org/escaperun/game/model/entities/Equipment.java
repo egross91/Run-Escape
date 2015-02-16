@@ -57,30 +57,30 @@ public class Equipment implements Savable {
     }
 
     public Decal[] getEquipDecals(){
-        Decal[] decals = new Decal[5];
+        Decal[] decals =new Decal[5];
         //ORDER: HELMET, ARMOR, GLOVES, BOOTS, WEAPON (for what the ArrayList will return)
-        if (decals[0] == null) {
-            decals[0] = new Decal('-', Color.BLACK,Color.BLACK);
+        if (equipment.get(0) == null) {
+            decals[0] = new Decal('-', Color.BLACK,Color.WHITE);
         }else{
             decals[0] = equipment.get(ItemSlot.HELMET).getDecal();
         }
-        if(decals[1] == null){
-            decals[1] = new Decal('-', Color.BLACK,Color.BLACK);
+        if(equipment.get(1) == null){
+            decals[1] = new Decal('-', Color.BLACK,Color.WHITE);
         }else{
             decals[1] = equipment.get(ItemSlot.ARMOR).getDecal();
         }
-        if(decals[2] == null){
-            decals[2] = new Decal('-', Color.BLACK,Color.BLACK);
+        if(equipment.get(2) == null){
+            decals[2] = new Decal('-', Color.BLACK,Color.WHITE);
         }else{
             decals[2] = equipment.get(ItemSlot.GLOVES).getDecal();
         }
-        if(decals[3] == null){
-            decals[3] = new Decal('-', Color.BLACK,Color.BLACK);
+        if(equipment.get(3) == null){
+            decals[3] = new Decal('-', Color.BLACK,Color.WHITE);
         }else{
             decals[3] = equipment.get(ItemSlot.BOOTS).getDecal();
         }
-        if(decals[4] == null){
-            decals[4] = new Decal('-', Color.BLACK,Color.BLACK);
+        if(equipment.get(4) == null){
+            decals[4] = new Decal('-', Color.BLACK,Color.WHITE);
         }else{
             decals[4] = equipment.get(ItemSlot.WEAPON).getDecal();
         }
