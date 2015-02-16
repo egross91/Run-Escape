@@ -74,7 +74,7 @@ public class Avatar extends Entity {
             stats.currentstats.putAll(stats.statsmap);//Reset all temporary stats because of death.
             stats.currentstats.put(StatEnum.CURRENTHP, stats.statsmap.get(StatEnum.MAXHP)); //reset HP
             stats.currentstats.put(StatEnum.CURRENTMP, stats.statsmap.get(StatEnum.MAXMP)); //reset MP
-
+            stats.updateStats(equipment);
         }
     }
 

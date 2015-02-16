@@ -105,8 +105,10 @@ public class Statistics implements Savable {
         else{
             currentstats.put(StatEnum.CURRENTHP, 0);
             statsmap.put(StatEnum.NUMOFLIVES, statsmap.get(StatEnum.NUMOFLIVES)-1);
+            currentstats.put(StatEnum.NUMOFLIVES, statsmap.get(StatEnum.NUMOFLIVES));
             System.out.println("WE ARE DEAD!!!");
             isGameOver();
+
             System.out.println("Num of lives left: " + statsmap.get(StatEnum.NUMOFLIVES));
             return true;
         }

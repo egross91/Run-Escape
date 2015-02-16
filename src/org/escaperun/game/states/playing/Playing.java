@@ -149,16 +149,14 @@ public class Playing extends GameState {
                         TakeableItem remo = stage.getAvatar().getInventory().remove(invIdx);
                         if (remo instanceof EquipableItem)
                             stage.getAvatar().equipItem((EquipableItem) remo);
+                        else
+                            remo.doAction(stage.getAvatar());
                     }
                 } else {
                     if (invIdx <= 4) {
                         stage.getAvatar().unequipItem(ItemSlot.values()[invIdx]);
                     }
                 }
-
-
-                //TODO
-                //stage.getAvatar().getInventory().remove((ix-1)*10 + iy).doAction(stage.getAvatar());
                 invMoveTicks = 0;
             }
             invMoveTicks++;
@@ -322,7 +320,7 @@ public class Playing extends GameState {
                         view[xx][yy] = new Decal(item_stats.charAt(i), Color.BLACK, Color.WHITE);
                         yy++;
                     }
-                    System.out.println(item_stats);
+                    //System.out.println(item_stats);
                 }
 
             }
@@ -339,6 +337,7 @@ public class Playing extends GameState {
                 }
             }
         }
+
 
         for(int x3 = (testRows-statusRow); x3 < testRows; x3++){
             for(int y3 = 0; y3<column; y3++){

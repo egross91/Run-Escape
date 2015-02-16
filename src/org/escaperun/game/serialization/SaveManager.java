@@ -131,7 +131,7 @@ public class SaveManager {
     }
 
     public static Stage startNewGame(Avatar avatar) {
-        return loadStage(System.getProperty("user.dir") + MAPS_DIRECTORY + "stage1.xml", avatar);
+        return loadStage(System.getProperty("user.dir") + MAPS_DIRECTORY + "stage_save.xml", avatar);
     }
 
     private static boolean saveAvatar(Avatar avatar, String playerName) {

@@ -13,7 +13,6 @@ public class Stage implements Tickable {
 
     public static final int DEFAULT_WIDTH = 50;
     public static final int DEFAULT_HEIGHT = 50;
-    public static final Random RANDOM = new Random();
     public final Dimension dimensions;
     public final Tile[][] map;
     private Avatar avatar;
@@ -29,53 +28,11 @@ public class Stage implements Tickable {
             for (int j = 0; j < dim.width; ++j) {
                 map[i][j] = new Tile();
                 map[i][j].setTerrain(new Grass());
-                /*
-                if (i == 0 || i == (dim.height - 1)) {
-                    map[i][j].setTerrain(new Grass());
-                }
-                if (j == 0 || j == (dim.width - 1)) {
-                    map[i][j].setTerrain(new Grass());
-                }
-                */
             }
         }
         this.avatar = avatar;
 
     }
-
-    /*public Stage(Dimension dim, Avatar avatar) {
-        this.dimensions = dim;
-        this.map = new Tile[dim.height][dim.width];
-        for (int i = 0; i < dim.height; i++) {
-            for (int j = 0; j < dim.width; j++) {
-                map[i][j] = new Tile();
-                int rnd = RANDOM.nextInt(5);
-                if (rnd == 0) {
-                    map[i][j].setTerrain(new Grass());
-                }
-                rnd = RANDOM.nextInt(20);
-                if (rnd == 0) {
-                    map[i][j].setTerrain(new Water());
-                }
-                rnd = RANDOM.nextInt(20);
-                if (rnd == 0 && (map[i][j].getTerrain() == null || map[i][j].getTerrain() instanceof Grass)) {
-                    int rnd2 = RANDOM.nextInt(4);
-                    AreaEffect aoe;
-                    if (rnd2 == 0) {
-                        aoe = new InstantDeath();
-                    } else if (rnd2 == 1) {
-                        aoe = new LevelUp();
-                    } else if (rnd2 == 2) {
-                        aoe = new HealDamage(100);
-                    } else {
-                        aoe = new TakeDamage(100);
-                    }
-                    map[i][j].setAreaEffect(aoe);
-                }
-            }
-        }
-        this.avatar = avatar;
-    }*/
 
     public Stage(Dimension dim) {
         this.dimensions = dim;
@@ -103,16 +60,10 @@ public class Stage implements Tickable {
             moveTo.removeAreaEffect().onTouch(avatar);
         }
         if (moveTo.getItem() != null) {
-<<<<<<< HEAD
-            if(!(moveTo.getItem() instanceof InteractiveItem))
-                moveTo.removeItem().onTouch(avatar);
-            moveTo.onTouch(avatar);
-=======
             moveTo.onTouch(avatar);
             if (!(moveTo.getItem() instanceof InteractiveItem)) {
                 moveTo.removeItem();
             }
->>>>>>> b3c1531fa3de25746e3c8277cc570b3428bf4ac6
         }
         return true;
     }
